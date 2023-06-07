@@ -1,0 +1,11 @@
+.no-gutter-row {
+  --bs-gutter-x: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
