@@ -1,0 +1,120 @@
+/* Header Mobile */
+.header-mobile {
+  display: none;
+}
+.header-mobile__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f2f4;
+}
+.header-mobile__top-menu-icon {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.header-mobile__top-logo {
+  width: 10rem;
+}
+.header-mobile__top-question-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.header-mobile__middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f2f4;
+}
+.header-mobile__middle-searchbar {
+  background-color: #f1f2f4;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  width: calc(100% - 3.5rem);
+}
+.header-mobile__middle-basket-login {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+.header-mobile__middle-basket-count {
+}
+.header-mobile__middle-searchbar-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.header-mobile__middle-searchbar-input {
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  padding-right: 1rem;
+  font-size: 1.3rem;
+}
+.header-mobile__middle-login {
+  display: flex;
+  gap: 0.5rem;
+}
+.header-mobile__middle-login-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.header-mobile__middle-login-text {
+  font-size: 1.4rem;
+}
+.header-mobile__middle-basket-count {
+  display: none;
+  color: #fff;
+  position: absolute;
+  left: 1.5rem;
+  bottom: -0.6rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  z-index: 1;
+}
+.header-mobile__middle-basket-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 2rem;
+  transform: scaleX(-1);
+}
+
+.header-mobile__bottom {
+}
+.header-mobile__bottom-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.header-mobile__bottom-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.header-mobile__bottom-location-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: #f9a825;
+}
+.header-mobile__bottom-location-text {
+  font-size: 1.3rem;
+}
+.header-mobile__bottom-arrow-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
