@@ -1,0 +1,108 @@
+.overlay-when-select-location-open {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0.5;
+  z-index: 5;
+}
+.overlay-when-select-location-open.show {
+  display: block;
+}
+
+.select-location-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 80%;
+  width: 45rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  z-index: 10;
+}
+.select-location-modal.show {
+  display: block;
+}
+.select-location-modal__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e6;
+}
+.select-location-modal__top-text {
+  font-size: 1.7rem;
+}
+.select-location-modal__top-close-icon {
+  cursor: pointer;
+}
+.select-location-modal__top-close-icon svg {
+  height: 2rem;
+}
+.select-location-modal__bottom {
+  height: 94%;
+  overflow-y: scroll;
+  margin-left: -2rem;
+}
+.select-location-modal__bottom-gps {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 0;
+}
+.select-location-modal__bottom-gps-icon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.select-location-modal__bottom-gps-icon svg {
+  height: 2.3rem;
+  fill: #19bfd3;
+}
+.select-location-modal__bottom-gps-text {
+  font-size: 1.7rem;
+  color: #19bfd3;
+}
+.select-location-modal__bottom-back {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 0;
+}
+.select-location-modal__bottom-back-icon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+.select-location-modal__bottom-back-icon svg {
+  height: 2.3rem;
+}
+.select-location-modal__bottom-back-text {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.select-location-modal__bottom-states-cities {
+}
+.select-location-modal__bottom-states-cities-list {
+}
+.select-location-modal__bottom-states-cities-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0 2rem 1rem;
+  border-bottom: 1px solid #e0e0e6;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.select-location-modal__bottom-states-cities-item-icon {
+  height: 2.2rem;
+  stroke: #000;
+}
