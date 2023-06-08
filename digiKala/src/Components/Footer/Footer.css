@@ -1,0 +1,218 @@
+.footer {
+  border-top: 1px solid #e0e0e6;
+  padding-top: 3rem;
+  margin-top: 5rem;
+}
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__top-img {
+  width: 8rem;
+}
+.footer__top-go-up-btn {
+  border: 1px solid #e0e0e6;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  color: #9e9fb1;
+  font-size: 1.3rem;
+}
+.footer__top-go-up-btn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  transform: rotate(90deg);
+}
+.footer__top-go-up-btn-icon path {
+  fill: #9e9fb1;
+}
+
+.icon {
+  max-width: 3.5rem;
+  height: 3.5rem;
+  fill: var(--muted-color);
+}
+
+.footer__email-input {
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background-color: #f1f2f4;
+  font-size: 1.3rem;
+}
+.footer__send-email-btn {
+  border-radius: 1rem;
+  background-color: #e0e0e6;
+  font-size: 1.3rem;
+}
+
+/* Footer Digi App */
+
+.footer__digi-app {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem;
+  background: #3c4b6d;
+  padding: 2rem;
+}
+.footer__digi-app-title {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.footer__digi-app-title-img {
+  width: 4.2rem;
+}
+.footer__digi-app-title-text {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.footer__digi-apps-for-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer__digi-apps-for-download-link {
+  width: 14rem;
+  height: 5rem;
+}
+.footer__digi-apps-for-download-img {
+  width: 100%;
+  height: 100%;
+}
+.footer__digi-app-see-more {
+}
+.footer__digi-app-see-more-link {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+}
+.footer__digi-app-see-more-img {
+  width: 4rem;
+}
+
+.footer__digi-app-see-more-text-link {
+  color: #fff;
+  display: none;
+  align-items: center;
+}
+.footer__digi-app-see-more-text-link:hover {
+  color: #fff;
+}
+.footer__digi-app-see-more-text-link-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Footer About Us */
+.footer__digi-about-us {
+  border-top: 1px solid #e0e0e6;
+  border-bottom: 1px solid #e0e0e6;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.footer__digi-about-us-description {
+  height: 15rem;
+  width: 80%;
+  overflow: hidden;
+  position: relative;
+}
+.footer__digi-about-us-description--active {
+  height: auto;
+}
+.footer__digi-about-us-description--active::before {
+  display: none;
+}
+.footer__digi-about-us-description::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 1)
+  );
+}
+.footer__digi-about-us-description-title {
+  font-size: 2rem;
+  color: #5a5c7a;
+}
+.footer__digi-about-us-description-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 2.17;
+  color: #767790;
+}
+.footer__digi-about-us-description-text a {
+  color: #19bfd3;
+}
+.footer__digi-about-us-description-subtitle {
+  font-size: 1.8rem;
+  color: #767790;
+}
+.footer__digi-about-us-see-more {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  color: #19bfd3;
+  cursor: pointer;
+}
+.footer__digi-about-us-confidences-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+.footer__digi-about-us-confidences-logo {
+  border: 1px solid #e0e0e6;
+  border-radius: 1rem;
+  width: 12rem;
+  height: 12rem;
+  padding: 2rem;
+}
+.footer__digi-about-us-confidences-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__copywrite-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  font-size: 1.3rem;
+  color: #767790;
+}
+
+/* Footer Brand */
+.footer__brand {
+  background-color: #f1f2f4;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.footer__brand-link {
+  display: block;
+  padding: 3rem;
+  border: 1px solid #e0e0e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.footer__brand-img {
+  height: 1.5rem;
+  width: 100%;
+}
