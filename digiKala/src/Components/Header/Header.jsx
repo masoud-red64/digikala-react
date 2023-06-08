@@ -9,6 +9,7 @@ export default function Header() {
   const [isShowStates, setIsShowStates] = useState(true);
   const [mainState, setMainState] = useState("");
   const [mainCity, setMainCity] = useState("");
+  const [isShowSidebar, setIsShowSidebar] = useState(false);
 
   return (
     <>
@@ -25,8 +26,12 @@ export default function Header() {
             mainCity={mainCity}
             mainState={mainState}
             setIsShowStates={setIsShowStates}
+            setIsShowSidebar={setIsShowSidebar}
           />
-          <Sidebar />
+          <Sidebar
+            isShowSidebar={isShowSidebar}
+            setIsShowSidebar={setIsShowSidebar}
+          />
         </div>
       </div>
       <LocationModal

@@ -88,7 +88,6 @@
 }
 
 .sidebar__subcategory-list {
-  display: none;
   background-color: #f1f2f4;
   margin: 1rem -2rem;
   padding: 0.3rem 2rem;
@@ -141,4 +140,7 @@
   background-color: #080a38;
   opacity: 0.5;
   z-index: 2;
+}
+.overlay-when-sidebar-open.show {
+  display: block;
 }

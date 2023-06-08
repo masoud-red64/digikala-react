@@ -7,6 +7,7 @@ export default function HeaderMobile({
   mainCity,
   mainState,
   setIsShowStates,
+  setIsShowSidebar,
 }) {
   return (
     <div className="header-mobile">
@@ -18,6 +19,7 @@ export default function HeaderMobile({
           height="14"
           viewBox="0 0 20 14"
           id="menu"
+          onClick={() => setIsShowSidebar(true)}
         >
           <g
             fill="none"
