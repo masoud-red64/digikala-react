@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./HeaderDesktop.css";
 
@@ -8,6 +8,36 @@ export default function HeaderDesktop({
   mainState,
   setIsShowStates,
 }) {
+  const [titleCategory, setTitleCategory] = useState("digital");
+  const [isShowContentLeftCategory, setIsShowContentRightCategory] =
+    useState(false);
+
+  // useEffect(() => {
+  //   console.log(titleCategory);
+  //   switch (titleCategory) {
+  //     case "digital": {
+  //       break;
+  //     }
+  //     case "beauty": {
+  //       break;
+  //     }
+  //     case "building": {
+  //       break;
+  //     }
+  //     case "clothes": {
+  //       break;
+  //     }
+  //     case "supermarket": {
+  //       break;
+  //     }
+  //     case "baby": {
+  //       break;
+  //     }
+  //     case "kitchen": {
+  //       break;
+  //     }
+  //   }
+  // }, [titleCategory]);
   return (
     <div className="header-desktop">
       <div className="header__top">
@@ -122,6 +152,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item header__nav-categories-right-item--active"
                     data-main="digital"
+                    onMouseEnter={() => setTitleCategory("digital")}
                   >
                     <a
                       href="main.html?shortName=kala-digital"
@@ -140,6 +171,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item"
                     data-main="beauty"
+                    onMouseEnter={() => setTitleCategory("beauty")}
                   >
                     <a href="#" className="header__nav-categories-right-link">
                       <svg
@@ -155,6 +187,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item"
                     data-main="building"
+                    onMouseEnter={() => setTitleCategory("building")}
                   >
                     <a href="#" className="header__nav-categories-right-link">
                       <svg
@@ -173,6 +206,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item"
                     data-main="clothes"
+                    onMouseEnter={() => setTitleCategory("clothes")}
                   >
                     <a href="#" className="header__nav-categories-right-link">
                       <svg
@@ -253,6 +287,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item"
                     data-main="supermarket"
+                    onMouseEnter={() => setTitleCategory("supermarket")}
                   >
                     <a href="#" className="header__nav-categories-right-link">
                       <svg
@@ -328,6 +363,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item"
                     data-main="baby"
+                    onMouseEnter={() => setTitleCategory("baby")}
                   >
                     <a href="#" className="header__nav-categories-right-link">
                       <svg
@@ -372,6 +408,7 @@ export default function HeaderDesktop({
                   <li
                     className="header__nav-categories-right-item"
                     data-main="kitchen"
+                    onMouseEnter={() => setTitleCategory("kitchen")}
                   >
                     <a href="#" className="header__nav-categories-right-link">
                       <svg
@@ -430,1303 +467,1318 @@ export default function HeaderDesktop({
                 </ul>
               </div>
               <div className="header__nav-categories-left">
-                <div
-                  className="header__nav-categories-left-content"
-                  data-category="digital"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات کالای دیجیتال
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=1&shortname=accessories"
-                        className="header__nav-categories-left-lists-title"
+                {titleCategory === "digital" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="digital"
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات کالای دیجیتال
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
                       >
-                        لوازم جانبی گوشی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=1&shortname=accessories"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          لوازم جانبی گوشی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            کیف و کاور گوشی
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            پاور بانک
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            پایه نگهدارنده گوشی
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=1&shortname=cellphone"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        گوشی موبایل
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کیف و کاور گوشی
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              پاور بانک
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              پایه نگهدارنده گوشی
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=1&shortname=cellphone"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          گوشی موبایل
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            اپل
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            سامسونگ
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            شیاومی
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            هواوی
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            نوکیا
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            آنر
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=1&shortname=virtual-reality"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        واقعیت مجازی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              اپل
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              سامسونگ
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              شیاومی
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              هواوی
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              نوکیا
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              آنر
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=1&shortname=virtual-reality"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=1&shortname=wristband-smartwatch"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        مچ بند و ساعت هوشمند
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          واقعیت مجازی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=1&shortname=wristband-smartwatch"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?shortname=tv&mainID=1"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        تلویزیون
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          مچ بند و ساعت هوشمند
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?shortname=tv&mainID=1"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          تلویزیون
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            جی پلاس
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            اکس ویژن
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            دوو
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            اسنوا
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        هدفون، هدست، هندزفری
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              جی پلاس
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              اکس ویژن
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              دوو
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              اسنوا
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        اسپیکر، بلوتوث و باسیم
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        هارد، فلش و SSD
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        دوربین
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          هدفون، هدست، هندزفری
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            دوربین عکاسی دیجیتال
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            دوربین ورزشی و فیلمبرداری
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            دوربین چاپ سریع
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لوازم جانبی دوربین
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          اسپیکر، بلوتوث و باسیم
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            لنز
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            کیف
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            کارت حافظه
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            کاغذ چاپ عکس
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        دوربین دو چشمی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        تلسکوپ
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        پلی استیشن و ایکس باکس
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        کامپیوتر و تجهیزات جانبی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          هارد، فلش و SSD
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            تجهیزات مخصوص بازی
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            مانیتور
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            کیس های اسمبل شده
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            قطعات داخلی کامپیوتر
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            موس
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
-                          >
-                            کیبورد
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لپتاپ
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لوازم جانبی لپتاپ
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                      <ul className="header__nav-categories-left-lists-list">
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                          دوربین
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            کیف، کوله، کاور
-                          </a>
-                        </li>
-                        <li className="header__nav-categories-left-lists-item">
-                          <a
-                            href="#"
-                            className="header__nav-categories-left-lists-link"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              دوربین عکاسی دیجیتال
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              دوربین ورزشی و فیلمبرداری
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              دوربین چاپ سریع
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          لوازم جانبی دوربین
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
                           >
-                            کابل صدا، AUX
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        تبلت
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              لنز
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کیف
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کارت حافظه
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کاغذ چاپ عکس
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        شارژر تبلت و موبایل
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          دوربین دو چشمی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        باتری
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          تلسکوپ
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        دوربین های تحت شبکه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          پلی استیشن و ایکس باکس
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="#"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        مودم و تجهیزات شبکه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          کامپیوتر و تجهیزات جانبی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              تجهیزات مخصوص بازی
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              مانیتور
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کیس های اسمبل شده
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              قطعات داخلی کامپیوتر
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              موس
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کیبورد
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
+                          لپتاپ
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          لوازم جانبی لپتاپ
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                        <ul className="header__nav-categories-left-lists-list">
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کیف، کوله، کاور
+                            </a>
+                          </li>
+                          <li className="header__nav-categories-left-lists-item">
+                            <a
+                              href="#"
+                              className="header__nav-categories-left-lists-link"
+                            >
+                              کابل صدا، AUX
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          تبلت
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          شارژر تبلت و موبایل
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          باتری
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          دوربین های تحت شبکه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="#"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          مودم و تجهیزات شبکه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="d-none header__nav-categories-left-content"
-                  data-category="beauty"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات زیبایی و سلامت
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=2&shortname=cosmetics"
-                        className="header__nav-categories-left-lists-title"
+                )}
+                {titleCategory === "beauty" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="beauty"
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات زیبایی و سلامت
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
                       >
-                        لوزم آرایشی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=2&shortname=cosmetics"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=2&shortname=skin-care"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        مراقبت پوست
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          لوزم آرایشی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=2&shortname=skin-care"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=2&shortname=hair-care"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        مراقبت و زیبایی مو
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          مراقبت پوست
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=2&shortname=hair-care"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=2&shortname=sanitary"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لوازم بهداشتی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          مراقبت و زیبایی مو
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=2&shortname=sanitary"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=2&shortname=perfume"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        عطر و ادکلن
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          لوازم بهداشتی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=2&shortname=perfume"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="d-none header__nav-categories-left-content"
-                  data-category="building"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات ابزار، لوازم ساختمانی
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=3&shortname=electrical-tools"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        ابزار برقی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=3&shortname=non-electrical-tools"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        ابزار غیر برقی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=3&shortname=electrical-appliances"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لوازم التریکی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=3&shortname=electrical-appliances"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لوازم باغبانی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
+                          عطر و ادکلن
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="d-none header__nav-categories-left-content"
-                  data-category="clothes"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات مد و پوشاک
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=4&shortname=menswear"
-                        className="header__nav-categories-left-lists-title"
+                )}
+                {titleCategory === "building" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="building"
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات ابزار، لوازم ساختمانی
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
                       >
-                        لباس مردانه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=3&shortname=electrical-tools"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=4&shortname=men-shoes"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        کفش مردانه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          ابزار برقی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=3&shortname=non-electrical-tools"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=4&shortname=women-dress"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لباس زنانه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          ابزار غیر برقی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=3&shortname=electrical-appliances"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=4&shortname=women-shoes"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        کفش زنانه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          لوازم التریکی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=3&shortname=electrical-appliances"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=4&shortname=gold"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        طلا
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
+                          لوازم باغبانی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="d-none header__nav-categories-left-content"
-                  data-category="supermarket"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات سوپرمارکت
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=5&shortname=essential-products"
-                        className="header__nav-categories-left-lists-title"
+                )}
+                {titleCategory === "clothes" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="clothes"
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات مد و پوشاک
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
                       >
-                        کالاهای اساسی و خواروبار
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=4&shortname=menswear"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=5&shortname=breakfast"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        صبحانه
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          لباس مردانه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=4&shortname=men-shoes"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=5&shortname=protein-material"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        مواد پروتینی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          کفش مردانه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=4&shortname=women-dress"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=5&shortname=dairy"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لبنیات
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          لباس زنانه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=4&shortname=women-shoes"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="d-none header__nav-categories-left-content"
-                  data-category="baby"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات اسباب بازی، کودک و نوزاد
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=6&shortname=baby-bathing"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        بهداشت و حمام کودک و نوزاد
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          کفش زنانه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=4&shortname=gold"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=6&shortname=baby-clothes"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        پوشاک و کفش کودک و نوزاد
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=6&shortname=tablet"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        تبلت
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=6&shortname=toy"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        اسباب بازی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
+                          طلا
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="d-none header__nav-categories-left-content"
-                  data-category="kitchen"
-                >
-                  <a href="#" className="header__nav-categories-left-title">
-                    همه محصولات خانه و آشپزخانه
-                    <svg
-                      className="header__nav-categories-left-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 64 64"
-                      id="arrow"
-                    >
-                      <path
-                        fill="#134563"
-                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                      ></path>
-                    </svg>
-                  </a>
-                  <div className="header__nav-categories-left-lists">
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=7&shortname=tv"
-                        className="header__nav-categories-left-lists-title"
+                )}
+                {titleCategory === "supermarket" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="supermarket"
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات سوپرمارکت
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
                       >
-                        تلویزیون
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=5&shortname=essential-products"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=7&shortname=refrigerator"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        یخچال و فریزر
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          کالاهای اساسی و خواروبار
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=5&shortname=breakfast"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=7&shortname=decorative"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        دکوراتیو
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          صبحانه
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=5&shortname=protein-material"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=7&shortname=carpet"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        فرش
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
+                          مواد پروتینی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=5&shortname=dairy"
+                          className="header__nav-categories-left-lists-title"
                         >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="header__nav-categories-left-lists-items">
-                      <a
-                        href="category.html?id=7&shortname=home-appliances"
-                        className="header__nav-categories-left-lists-title"
-                      >
-                        لوازم برقی خانگی
-                        <svg
-                          className="header__nav-categories-left-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 64 64"
-                          id="arrow"
-                        >
-                          <path
-                            fill="#134563"
-                            d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
-                          ></path>
-                        </svg>
-                      </a>
+                          لبنیات
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
+                {titleCategory === "baby" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="baby"
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات اسباب بازی، کودک و نوزاد
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
+                      >
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=6&shortname=baby-bathing"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          بهداشت و حمام کودک و نوزاد
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=6&shortname=baby-clothes"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          پوشاک و کفش کودک و نوزاد
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=6&shortname=tablet"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          تبلت
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=6&shortname=toy"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          اسباب بازی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {titleCategory === "kitchen" && (
+                  <div
+                    className="header__nav-categories-left-content"
+                    data-category="kitchen"
+                    onMouseEnter={() => setTitleCategory("kitchen")}
+                  >
+                    <a href="#" className="header__nav-categories-left-title">
+                      همه محصولات خانه و آشپزخانه
+                      <svg
+                        className="header__nav-categories-left-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 64 64"
+                        id="arrow"
+                      >
+                        <path
+                          fill="#134563"
+                          d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                        ></path>
+                      </svg>
+                    </a>
+                    <div className="header__nav-categories-left-lists">
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=7&shortname=tv"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          تلویزیون
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=7&shortname=refrigerator"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          یخچال و فریزر
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=7&shortname=decorative"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          دکوراتیو
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=7&shortname=carpet"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          فرش
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div className="header__nav-categories-left-lists-items">
+                        <a
+                          href="category.html?id=7&shortname=home-appliances"
+                          className="header__nav-categories-left-lists-title"
+                        >
+                          لوازم برقی خانگی
+                          <svg
+                            className="header__nav-categories-left-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 64 64"
+                            id="arrow"
+                          >
+                            <path
+                              fill="#134563"
+                              d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                            ></path>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
