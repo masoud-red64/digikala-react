@@ -8,6 +8,7 @@ import SuggestSwiper from "../../Components/SuggestSwiper/SuggestSwiper";
 import Product from "../../Components/Product/Product";
 import "./Index.css";
 import CategoryBanner from "../../Components/CategoryBanner/CategoryBanner";
+import Categories from "../../Components/Categoreis/Categories";
 
 export default function Index() {
   return (
@@ -114,6 +115,7 @@ export default function Index() {
             </a>
           </section>
           <CategoryBanner />
+          <Categories />
         </div>
       </div>
       <Footer />

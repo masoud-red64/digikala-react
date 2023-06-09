@@ -1,0 +1,15 @@
+.categories__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.categories__content-img {
+  width: 100%;
+  height: 100%;
+}
+.categories__content-text {
+  text-align: center;
+  font-size: 1.3rem;
+}
