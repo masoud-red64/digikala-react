@@ -10,6 +10,7 @@ import CategoryBanner from "../../Components/CategoryBanner/CategoryBanner";
 import Categories from "../../Components/Categoreis/Categories";
 import SuggestCategoriesSwiper from "../../Components/SuggestCategoriesSwiper/SuggestCategoriesSwiper";
 import PopularBrandSwiper from "../../Components/PopularBrandSwiper/PopularBrandSwiper";
+import BaseVisitedCategories from "../../Components/BaseVisitedCategories/BaseVisitedCategories";
 
 export default function Index() {
   return (
@@ -119,6 +120,7 @@ export default function Index() {
           <Categories />
           <SuggestCategoriesSwiper />
           <PopularBrandSwiper />
+          <BaseVisitedCategories />
         </div>
       </div>
       <Footer />
