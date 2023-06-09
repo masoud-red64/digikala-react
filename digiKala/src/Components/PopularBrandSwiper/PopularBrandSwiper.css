@@ -1,0 +1,58 @@
+.papular-brands {
+  padding: 2rem 1rem;
+  border: 1px solid #e0e0e6;
+  border-radius: 1rem;
+}
+.papular-brands__title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.papular-brands__swiper {
+}
+.papular-brands__swiper-slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #e0e0e6;
+  height: 15rem;
+  width: 100%;
+}
+.papular-brands__swiper-slide-content-link {
+}
+.papular-brands__swiper-content-img {
+  width: 8rem;
+  height: 10%;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #e0e0e6;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 50%;
+  text-align: center;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+.swiper-rtl .swiper-button-prev {
+  top: 50%;
+  right: 1rem;
+}
+.swiper-rtl .swiper-button-next {
+  top: 50%;
+  right: unset;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: block;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0;
+}
