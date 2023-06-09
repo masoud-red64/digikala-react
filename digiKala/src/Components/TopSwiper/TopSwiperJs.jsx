@@ -5,11 +5,11 @@ import { Pagination, Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "./Swiper.css";
+import './TopSwiperJs.css'
 
-export default function SwiperJs() {
+export default function TopSwiperJs() {
   return (
-    <>
+    <section className="top-swiper">
       <Swiper
         navigation={true}
         pagination={true}
@@ -28,6 +28,6 @@ export default function SwiperJs() {
           <img src="./images/slide2.webp" alt="" className="top-swiper__img" />
         </SwiperSlide>
       </Swiper>
-    </>
+    </section>
   );
 }

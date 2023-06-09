@@ -1,0 +1,41 @@
+/* Services */
+.services {
+  margin-top: 32rem;
+}
+.services__content-extra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    background-color: #f1f2f4;
+    border-radius: 50%;
+  }
+  .services__content-extra-dot {
+    /* position: absolute; */
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: #d6d7d9;
+  }
+  .services__content-extra-dot::after {
+    content: "";
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: #d6d7d9;
+    margin-right: 1.2rem;
+    right: 0rem;
+  }
+  .services__content-extra-dot::before {
+    content: "";
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: #d6d7d9;
+    margin-right: 1rem;
+  }
+  

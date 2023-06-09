@@ -1,3 +1,8 @@
+.top-swiper {
+  margin-top: 2rem;
+  max-height: 1rem;
+}
+
 .top-swiper__swiper {
   height: 30rem;
 }
