@@ -5,10 +5,10 @@ import Footer from "../../Components/Footer/Footer";
 import TopSwiperJs from "../../Components/TopSwiper/TopSwiperJs";
 import Services from "../../Components/Services/Services";
 import SuggestSwiper from "../../Components/SuggestSwiper/SuggestSwiper";
-import Product from "../../Components/Product/Product";
 import "./Index.css";
 import CategoryBanner from "../../Components/CategoryBanner/CategoryBanner";
 import Categories from "../../Components/Categoreis/Categories";
+import SuggestCategoriesSwiper from "../../Components/SuggestCategoriesSwiper/SuggestCategoriesSwiper";
 
 export default function Index() {
   return (
@@ -116,6 +116,7 @@ export default function Index() {
           </section>
           <CategoryBanner />
           <Categories />
+          <SuggestCategoriesSwiper/>
         </div>
       </div>
       <Footer />
