@@ -1,0 +1,9 @@
+.products-categories-banner__product {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.products-categories-banner__product-img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
