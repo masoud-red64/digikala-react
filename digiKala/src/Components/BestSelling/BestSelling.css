@@ -1,0 +1,31 @@
+.best-selling-products {
+  border-radius: 1rem;
+  border: 1px solid #e0e0e6;
+  padding: 2rem;
+}
+.best-selling-products__top {
+  position: relative;
+}
+.best-selling-products__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+.best-selling-products__title-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: #f9a825;
+}
+.best-selling-products__see-all-link {
+  position: absolute;
+  left: 0;
+  color: #19bfd3;
+  font-size: 1.3rem;
+}
+.best-selling-products__see-all-link:hover {
+  color: #19bfd3;
+}
+.best-selling-products__swiper {
+  margin-top: 8rem;
+}

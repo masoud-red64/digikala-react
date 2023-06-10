@@ -13,13 +13,13 @@
 }
 .top-swiper__swiper:hover .swiper-button-prev,
 .top-swiper__swiper:hover .swiper-button-next {
-  opacity: 1;
+  opacity: 1 !important;
 }
-.swiper-button-prev,
-.swiper-button-next {
+.top-swiper__swiper .swiper-button-prev,
+.top-swiper__swiper .swiper-button-next {
   width: 3rem;
   height: 3rem;
-  opacity: 0;
+  opacity: 0 !important;
   background-color: #fff;
   padding: 1rem;
   border-radius: 50%;
@@ -28,18 +28,17 @@
   justify-content: center;
   transition: all 0.4s ease;
 }
-.swiper-rtl .swiper-button-prev {
+.top-swiper__swiper.swiper-rtl .swiper-button-prev {
   top: 25rem;
   right: 3rem;
 }
-.swiper-rtl .swiper-button-next {
+.top-swiper__swiper.swiper-rtl .swiper-button-next {
   top: 25rem;
   right: 7rem;
 }
-.swiper-button-prev::after,
-.swiper-button-next::after {
+.top-swiper__swiper .swiper-button-prev::after,
+.top-swiper__swiper .swiper-button-next::after {
   display: block;
-
   font-size: 1rem;
   color: #000;
   font-weight: bold;

@@ -13,6 +13,7 @@ import PopularBrandSwiper from "../../Components/PopularBrandSwiper/PopularBrand
 import BaseVisitedCategories from "../../Components/BaseVisitedCategories/BaseVisitedCategories";
 import DigiPlus from "../../Components/DigiPlus/DigiPlus";
 import DigiClub from "../../Components/DigiClub/DigiClub";
+import BestSelling from "../../Components/BestSelling/BestSelling";
 
 export default function Index() {
   return (
@@ -126,6 +127,7 @@ export default function Index() {
           <DigiPlus />
           <DigiClub />
           <BaseVisitedCategories />
+          <BestSelling />
         </div>
       </div>
       <Footer />

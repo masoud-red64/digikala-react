@@ -1,0 +1,54 @@
+.best-selling-products__swiper-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.best-selling-products__swiper-content-img {
+  width: 8rem;
+  height: 8rem;
+}
+.best-selling-products__swiper-content-number {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 2.1;
+  color: #19bfd3;
+}
+.best-selling-products__swiper-content-text {
+  font-size: 1.2rem;
+  color: #3f4064;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e6;
+}
+.swiper-next-btn,
+.swiper-prev-btn {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #e0e0e6;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 50%;
+  text-align: center;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+.swiper-rtl .swiper-prev-btn {
+  top: 50%;
+  right: 1rem;
+}
+.swiper-rtl .swiper-next-btn {
+  top: 50%;
+  right: unset;
+}
+.swiper-next-btn::after,
+.swiper-prev-btn::after {
+  display: block;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.swiper-prev-btn.swiper-button-disabled,
+.swiper-next-btn.swiper-button-disabled {
+  opacity: 0;
+}
