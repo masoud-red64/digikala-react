@@ -125,6 +125,7 @@ export default function Index() {
           <BaseVisitedCategories />
           <DigiPlus />
           <DigiClub />
+          <BaseVisitedCategories />
         </div>
       </div>
       <Footer />
