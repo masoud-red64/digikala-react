@@ -1,0 +1,21 @@
+.digiclub__content-left-item {
+  background-color: #fff;
+}
+.digiclub__content-left-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.digiclub__content-left-item-link-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1.5rem;
+  fill: #26c3d6;
+}
+.digiclub__content-left-item-link-text {
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+.digiclub__content-left-item-link-img {
+  width: 55%;
+}

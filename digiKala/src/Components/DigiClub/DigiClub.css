@@ -1,0 +1,26 @@
+.digiclub {
+  background: linear-gradient(to right, #35a6c8, #007295);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.digiclub__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.digiclub__content-right {
+  padding-top: 1rem;
+  padding-right: 2rem;
+  width: 35%;
+}
+.digiclub__content-right-logo {
+  width: 10rem;
+}
+.digiclub__content-left {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  gap: 0.5rem;
+}
