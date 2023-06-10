@@ -1,0 +1,16 @@
+.readigns__content {
+  display: block;
+  border-radius: 1rem;
+  border: 1px solid #e0e0e6;
+  overflow: hidden;
+  height: 100%;
+}
+.readigns__content-img {
+  width: 100%;
+}
+.readigns__content-desc {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.8;
+  padding: 1rem;
+}

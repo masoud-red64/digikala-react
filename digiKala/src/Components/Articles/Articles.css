@@ -1,0 +1,28 @@
+.readigns__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.readigns__title {
+  font-size: 1.8rem;
+}
+.readigns__see-more {
+  display: flex;
+  align-items: center;
+  color: #19bfd3;
+  font-size: 1.3rem;
+}
+.readigns__see-more:hover {
+  color: #19bfd3;
+}
+.readigns__see-more-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.readigns__see-more-icon path {
+  fill: #19bfd3;
+}
+.readigns__content-wrapper {
+  margin-top: 2rem;
+}
