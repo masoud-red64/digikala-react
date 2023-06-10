@@ -1,0 +1,62 @@
+.digiplus {
+  background-color: #941b80;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+}
+.digiplus__right {
+  color: #fff;
+  margin: 3rem;
+  width: 30%;
+}
+.digiplus__right-logo-img {
+  width: 10rem;
+}
+.digiplus__right-text {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+}
+.digiplus__right-btn {
+  border: 1px solid #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+}
+.digiplus__right-btn-icon {
+  height: 2rem;
+}
+.digiplus__left {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 70%;
+}
+.digiplus__left-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.digiplus__left-top-title {
+  font-size: 1.5rem;
+}
+.digiplus__left-top-title-icon {
+  height: 2rem;
+}
+.digiplus__left-top-title-icon path {
+  fill: #941b80;
+}
+.digiplus__left-top-see-all {
+  color: #941b80;
+  font-size: 1.3rem;
+}
+.digiplus__left-top-see-all-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.digiplus__left-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 1rem;
+}
