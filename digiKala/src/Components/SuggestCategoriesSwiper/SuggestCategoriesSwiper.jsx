@@ -6,10 +6,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./SuggestCategoriesSwiper.css";
 
-export default function SuggestCategoriesSwiper() {
+export default function SuggestCategoriesSwiper({ title }) {
   return (
     <section className="suggest-digikala">
-      <p className="suggest-digikala__title">پیشنهاد دیجی کالا</p>
+      <p className="suggest-digikala__title">{title}</p>
       <Swiper
         navigation={true}
         modules={[Navigation]}

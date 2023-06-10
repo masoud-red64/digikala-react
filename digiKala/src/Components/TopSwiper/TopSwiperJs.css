@@ -1,10 +1,14 @@
 .top-swiper {
   margin-top: 2rem;
-  max-height: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .top-swiper__swiper {
   height: 30rem;
+}
+.top-swiper__swiper-border {
+  border-radius: 1rem;
+  overflow: hidden;
 }
 .top-swiper__img {
   height: 100%;

@@ -3,11 +3,11 @@ import React from "react";
 import "./SelectedProducts.css";
 import Product from "../Product/Product";
 
-export default function SelectedProducts() {
+export default function SelectedProducts({title,icon}) {
   return (
     <section className="selected-products mt-5">
       <p className="selected-products__title mb-5">
-        <svg
+        {icon && <svg
           className="selected-products__title-icon"
           xmlns="http://www.w3.org/2000/svg"
           enableBackground="new 0 0 64 64"
@@ -26,8 +26,8 @@ export default function SelectedProducts() {
             fill="#231f20"
             d="M39 34c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5S41.8 34 39 34zM39 42c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3S40.7 42 39 42zM25 30c2.8 0 5-2.2 5-5s-2.2-5-5-5-5 2.2-5 5S22.2 30 25 30zM25 22c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3S23.3 22 25 22zM43 23.9c0-.8-.3-1.5-.9-2.1-1.1-1.1-3-1.1-4.1 0L21.9 38c-.5.5-.9 1.3-.9 2.1 0 .8.3 1.5.9 2.1.6.6 1.3.9 2.1.9.7 0 1.5-.3 2.1-.9L42.1 26C42.7 25.4 43 24.7 43 23.9zM40.7 24.5C40.7 24.5 40.7 24.5 40.7 24.5L24.5 40.7c-.4.4-.9.4-1.3 0-.2-.2-.3-.4-.3-.6s.1-.5.3-.6l16.2-16.2c.2-.2.4-.3.6-.3s.5.1.6.3c.2.2.3.4.3.6S40.9 24.4 40.7 24.5z"
           ></path>
-        </svg>
-        منتخب محصولات تخفیف و حراج
+        </svg>}
+        {title}
       </p>
       <div
         className="selected-products__wrapper"

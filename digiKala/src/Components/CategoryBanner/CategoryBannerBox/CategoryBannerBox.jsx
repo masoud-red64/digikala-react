@@ -2,12 +2,12 @@ import React from "react";
 
 import "./CategoryBannerBox.css";
 
-export default function CategoryBannerBox() {
+export default function CategoryBannerBox({ col, img }) {
   return (
-    <div className="col-6 col-lg-3">
+    <div className={col}>
       <a href="#" className="products-categories-banner__product">
         <img
-          src="/images/product-banner/product1.webp"
+          src={img}
           alt="banner"
           className="products-categories-banner__product-img"
         />

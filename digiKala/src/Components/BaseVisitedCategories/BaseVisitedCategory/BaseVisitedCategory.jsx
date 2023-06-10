@@ -3,14 +3,15 @@ import React from "react";
 import "./BaseVisitedCategory.css";
 import BaseVisitedProduct from "../BaseVisitedProduct/BaseVisitedProduct";
 
-export default function BaseVisitedCategory() {
+export default function BaseVisitedCategory({ page, title }) {
   return (
-    <div className="col-12 col-lg-3">
+    <div className={`col-12 ${page === "indexPage" ? "col-lg-3" : "col-lg-4"}`}>
       <div className="categories-based-visited__wrapper">
         <div className="categories-based-visited__content">
-          <p className="categories-based-visited__content-title">گوشی موبایل</p>
+          <p className="categories-based-visited__content-title">{title}</p>
+
           <p className="categories-based-visited__content-subtitle">
-            براساس بازید های شما
+            {page === "index" && " براساس بازید های شما"}
           </p>
           <div className="categories-based-visited__content-img-wrapper">
             <BaseVisitedProduct />

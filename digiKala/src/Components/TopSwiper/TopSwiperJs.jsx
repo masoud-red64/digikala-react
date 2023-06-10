@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import './TopSwiperJs.css'
 
-export default function TopSwiperJs() {
+export default function TopSwiperJs({borderRadius}) {
   return (
     <section className="top-swiper">
       <Swiper
@@ -16,7 +16,7 @@ export default function TopSwiperJs() {
         modules={[Navigation, Pagination, Autoplay]}
         loop={true}
         autoplay={{ delay: 4000 }}
-        className="mySwiper top-swiper__swiper"
+        className={`mySwiper top-swiper__swiper ${borderRadius ? 'top-swiper__swiper-border' : ''}`}
       >
         <SwiperSlide>
           <img src="/images/slide1.webp" alt="" className="top-swiper__img" />

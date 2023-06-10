@@ -123,16 +123,24 @@ export default function Index() {
               </svg>
             </a>
           </section>
-          <CategoryBanner />
-          <Categories />
-          <SuggestCategoriesSwiper />
+          <CategoryBanner
+            col={"col-6 col-lg-3"}
+            img={[
+              "/images/product-banner/product1.webp",
+              "/images/product-banner/product2.webp",
+              "/images/product-banner/product3.webp",
+              "/images/product-banner/product4.webp",
+            ]}
+          />
+          <Categories title={"دسته بندی ها دیجی کالا"} />
+          <SuggestCategoriesSwiper title={"پیشنهاد دیجی کالا"} />
           <PopularBrandSwiper />
-          <BaseVisitedCategories />
+          <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
           <DigiPlus />
           <DigiClub />
-          <BaseVisitedCategories />
+          <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
           <BestSelling />
-          <SelectedProducts />
+          <SelectedProducts title={"منتخب محصولات تخفیف و حراج"} icon={true} />
           <Articles />
         </div>
       </div>
