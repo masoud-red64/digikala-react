@@ -16,6 +16,7 @@ import DigiClub from "../../Components/DigiClub/DigiClub";
 import BestSelling from "../../Components/BestSelling/BestSelling";
 import SelectedProducts from "../../Components/SelectedProducts/SelectedProducts";
 import Articles from "../../Components/Articles/Articles";
+import PercentBox from "../../Components/PercentBox/PercentBox";
 
 export default function Index() {
   return (
@@ -51,9 +52,9 @@ export default function Index() {
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
-                  <p className="discount-percent supermarket-amazing__right-product-discount">
-                    ۲۵
-                  </p>
+                  <div className="supermarket-amazing__right-product-discount">
+                    <PercentBox />
+                  </div>
                 </a>
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
@@ -61,9 +62,9 @@ export default function Index() {
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
-                  <p className="discount-percent supermarket-amazing__right-product-discount">
-                    ۲۵
-                  </p>
+                  <div className="supermarket-amazing__right-product-discount">
+                    <PercentBox />
+                  </div>
                 </a>
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
@@ -71,9 +72,10 @@ export default function Index() {
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
-                  <p className="discount-percent supermarket-amazing__right-product-discount">
-                    ۲۳
-                  </p>
+                  
+                  <div className="supermarket-amazing__right-product-discount">
+                    <PercentBox />
+                  </div>
                 </a>
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
@@ -81,9 +83,9 @@ export default function Index() {
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
-                  <p className="discount-percent supermarket-amazing__right-product-discount">
-                    ۴۴
-                  </p>
+                  <div className="supermarket-amazing__right-product-discount">
+                    <PercentBox />
+                  </div>
                 </a>
               </div>
             </div>

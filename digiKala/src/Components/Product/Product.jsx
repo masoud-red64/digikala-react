@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Product.css";
+import PercentBox from "../PercentBox/PercentBox";
 
 export default function Product() {
   return (
@@ -13,9 +14,7 @@ export default function Product() {
             className="suggest-swiper-slide__content-img"
           />
           <div className="suggest-swiper-slide__content-price-box">
-            <p className="suggest-swiper-slide__content-price-box-discount discount-percent">
-              ۲۰
-            </p>
+            <PercentBox />
             <div className="suggest-swiper-slide__content-price-box-prices">
               <p className="suggest-swiper-slide__content-price-box-prices-after-discount">
                 ۶۲,۹۹۰
