@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./Product.css";
-import PercentBox from "../PrecentBox/PercentBox";
+import "./SuggestSwiperProduct.css";
+import PercentBox from "../../PercentBox/PercentBox";
 
-export default function Product({ borderRight }) {
+export default function SuggestSwiperProduct({ borderRight }) {
   return (
     <a href="#">
       <div

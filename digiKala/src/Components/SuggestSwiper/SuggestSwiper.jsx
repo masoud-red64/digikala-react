@@ -4,13 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import "./SuggestSwiper.css";
-import Product from "../Product/Product";
+import SuggestSwiperProduct from "./SuggestSwiperProduct/SuggestSwiperProduct";
 
 export default function SuggestSwiper() {
   return (
     <section className="suggest-swiper mt-5 mt-xl-0">
       <Swiper
-        navigation={true}
         modules={[]}
         slidesPerView={1.5}
         spaceBetween={22}
@@ -64,10 +63,10 @@ export default function SuggestSwiper() {
           </a>
         </SwiperSlide>
         <SwiperSlide>
-          <Product borderRight={true} />
+          <SuggestSwiperProduct borderRight={true} />
         </SwiperSlide>
         <SwiperSlide>
-          <Product />
+          <SuggestSwiperProduct />
         </SwiperSlide>
         <SwiperSlide>
           <div className="suggest-swiper-slide__content-last">
