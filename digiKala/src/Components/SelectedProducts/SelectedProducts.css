@@ -1,0 +1,20 @@
+.selected-products {
+  border-radius: 1rem;
+  border: 1px solid var(--border-color-200);
+  padding: 2rem 2rem 0 2rem;
+}
+.selected-products__title {
+  text-align: center;
+  font-size: 2rem;
+}
+.selected-products__title-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.selected-products__title-icon path {
+  fill: var(--primary-color);
+}
+.selected-products__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

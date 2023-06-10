@@ -14,6 +14,7 @@ import BaseVisitedCategories from "../../Components/BaseVisitedCategories/BaseVi
 import DigiPlus from "../../Components/DigiPlus/DigiPlus";
 import DigiClub from "../../Components/DigiClub/DigiClub";
 import BestSelling from "../../Components/BestSelling/BestSelling";
+import SelectedProducts from "../../Components/SelectedProducts/SelectedProducts";
 
 export default function Index() {
   return (
@@ -128,6 +129,7 @@ export default function Index() {
           <DigiClub />
           <BaseVisitedCategories />
           <BestSelling />
+          <SelectedProducts />
         </div>
       </div>
       <Footer />
