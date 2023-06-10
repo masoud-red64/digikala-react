@@ -8,7 +8,7 @@ export default function BestSellingProduct({ number }) {
       <a href="#" className="best-selling-products__swiper-content">
         <img
           className="best-selling-products__swiper-content-img"
-          src="./images/best-selling-products/product1.webp"
+          src="/images/best-selling-products/product1.webp"
           alt="product"
         />
         <p className="best-selling-products__swiper-content-number">
@@ -21,7 +21,7 @@ export default function BestSellingProduct({ number }) {
       <a href="#" className="best-selling-products__swiper-content">
         <img
           className="best-selling-products__swiper-content-img"
-          src="./images/best-selling-products/product2.webp"
+          src="/images/best-selling-products/product2.webp"
           alt="product"
         />
         <p className="best-selling-products__swiper-content-number">
@@ -34,7 +34,7 @@ export default function BestSellingProduct({ number }) {
       <a href="#" className="best-selling-products__swiper-content">
         <img
           className="best-selling-products__swiper-content-img"
-          src="./images/best-selling-products/product3.webp"
+          src="/images/best-selling-products/product3.webp"
           alt="product"
         />
         <p className="best-selling-products__swiper-content-number">

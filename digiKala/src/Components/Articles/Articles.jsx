@@ -29,19 +29,19 @@ export default function Articles() {
             desc={`
               آشنایی با هم‌بنیان‌گذار سوم اپل که احتمالا درباره‌اش چیزی
               نمی‌دانید (زیرنویس فارسی)`}
-            img={"./images/readings/reading1.jpg"}
+            img={"/images/readings/reading1.jpg"}
           />
           <ArticleItem
             desc={`بررسی مداد لب لیزر شماره ۰۷؛ با جلوه‌ی نهایی زیبا و مات`}
-            img={"./images/readings/reading2.jpg"}
+            img={"/images/readings/reading2.jpg"}
           />
           <ArticleItem
             desc={`بررسی گلکسی A04 سامسونگ؛ طراحی ساده با شارژدهی بسیار خوب`}
-            img={"./images/readings/reading3.jpg"}
+            img={"/images/readings/reading3.jpg"}
           />
           <ArticleItem
             desc={`تست باتری گلکسی A54 و A34 منتشر شد`}
-            img={"./images/readings/reading4.jpg"}
+            img={"/images/readings/reading4.jpg"}
           />
         </div>
       </div>

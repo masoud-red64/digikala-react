@@ -9,7 +9,7 @@ export default function DigiPlus() {
       <div className="digiplus__right">
         <a href="#" className="digiplus__right-logo">
           <img
-            src="./images/digiplus/digiplus-logo.svg"
+            src="/images/digiplus/digiplus-logo.svg"
             alt="logo"
             className="digiplus__right-logo-img"
           />

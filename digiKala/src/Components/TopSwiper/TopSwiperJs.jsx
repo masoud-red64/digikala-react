@@ -19,13 +19,13 @@ export default function TopSwiperJs() {
         className="mySwiper top-swiper__swiper"
       >
         <SwiperSlide>
-          <img src="./images/slide1.webp" alt="" className="top-swiper__img" />
+          <img src="/images/slide1.webp" alt="" className="top-swiper__img" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="./images/slide2.webp" alt="" className="top-swiper__img" />
+          <img src="/images/slide2.webp" alt="" className="top-swiper__img" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="./images/slide2.webp" alt="" className="top-swiper__img" />
+          <img src="/images/slide2.webp" alt="" className="top-swiper__img" />
         </SwiperSlide>
       </Swiper>
     </section>

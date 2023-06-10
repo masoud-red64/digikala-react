@@ -39,7 +39,7 @@ export default function PopularBrandSwiper() {
           <div className="papular-brands__swiper-slide-content">
             <a href="#" className="papular-brands__swiper-slide-content-link">
               <img
-                src="./images/papular-brand/brand1.png"
+                src="/images/papular-brand/brand1.png"
                 alt="brand"
                 className="papular-brands__swiper-content-img"
               />
@@ -50,7 +50,7 @@ export default function PopularBrandSwiper() {
           <div className="papular-brands__swiper-slide-content">
             <a href="#" className="papular-brands__swiper-slide-content-link">
               <img
-                src="./images/papular-brand/brand1.png"
+                src="/images/papular-brand/brand1.png"
                 alt="brand"
                 className="papular-brands__swiper-content-img"
               />
@@ -61,7 +61,7 @@ export default function PopularBrandSwiper() {
           <div className="papular-brands__swiper-slide-content">
             <a href="#" className="papular-brands__swiper-slide-content-link">
               <img
-                src="./images/papular-brand/brand1.png"
+                src="/images/papular-brand/brand1.png"
                 alt="brand"
                 className="papular-brands__swiper-content-img"
               />

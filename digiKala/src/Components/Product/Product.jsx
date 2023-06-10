@@ -9,7 +9,7 @@ export default function Product() {
       <a href="#">
         <div className="suggest-swiper-slide__content suggest-swiper-slide__content-rounded-right">
           <img
-            src="./images/selected-products/product1.webp"
+            src="/images/selected-products/product1.webp"
             alt="pants"
             className="suggest-swiper-slide__content-img"
           />

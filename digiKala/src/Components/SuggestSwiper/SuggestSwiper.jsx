@@ -36,12 +36,12 @@ export default function SuggestSwiper() {
           <a href="#">
             <div className="suggest-swiper-slide__content-first">
               <img
-                src="./images/wonderful-suggest/Amazings-title.svg"
+                src="/images/wonderful-suggest/Amazings-title.svg"
                 alt="img title"
                 className="suggest-swiper-slide__content-first-img-title"
               />
               <img
-                src="./images/wonderful-suggest/suggest1.png"
+                src="/images/wonderful-suggest/suggest1.png"
                 alt="box"
                 className="suggest-swiper-slide__content-first-img-box"
               />

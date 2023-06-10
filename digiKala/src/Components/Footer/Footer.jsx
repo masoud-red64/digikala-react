@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container-fluid">
         <div className="footer__top">
           <img
-            src="./images/footer/digi.svg"
+            src="/images/footer/digi.svg"
             alt="logo"
             className="footer__top-img"
           />
@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="container d-flex justify-content-between">
             <div className="footer__services-content d-flex flex-column align-items-center">
               <img
-                src="./images/footer-services/express-delivery.svg"
+                src="/images/footer-services/express-delivery.svg"
                 alt=""
                 className="footer__services-content-img"
               />
@@ -56,7 +56,7 @@ export default function Footer() {
             </div>
             <div className="footer__services-content d-flex flex-column align-items-center">
               <img
-                src="./images/footer-services/cash-on-delivery.svg"
+                src="/images/footer-services/cash-on-delivery.svg"
                 alt=""
                 className="footer__services-content-img"
               />
@@ -66,7 +66,7 @@ export default function Footer() {
             </div>
             <div className="footer__services-content d-flex flex-column align-items-center">
               <img
-                src="./images/footer-services/support.svg"
+                src="/images/footer-services/support.svg"
                 alt=""
                 className="footer__services-content-img"
               />
@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
             <div className="footer__services-content d-flex flex-column align-items-center">
               <img
-                src="./images/footer-services/days-return.svg"
+                src="/images/footer-services/days-return.svg"
                 alt=""
                 className="footer__services-content-img"
               />
@@ -86,7 +86,7 @@ export default function Footer() {
             </div>
             <div className="footer__services-content d-flex flex-column align-items-center">
               <img
-                src="./images/footer-services/original-products.svg"
+                src="/images/footer-services/original-products.svg"
                 alt=""
                 className="footer__services-content-img"
               />
@@ -234,7 +234,7 @@ export default function Footer() {
         <div className="footer__digi-app">
           <div className="footer__digi-app-title">
             <img
-              src="./images/footer/footerlogo2.png"
+              src="/images/footer/footerlogo2.png"
               alt=""
               className="footer__digi-app-title-img"
             />
@@ -245,28 +245,28 @@ export default function Footer() {
           <div className="footer__digi-apps-for-download">
             <a href="#" className="footer__digi-apps-for-download-link">
               <img
-                src="./images/footer/google-play.svg"
+                src="/images/footer/google-play.svg"
                 alt="google-play"
                 className="footer__digi-apps-for-download-img"
               />
             </a>
             <a href="#" className="footer__digi-apps-for-download-link">
               <img
-                src="./images/footer/coffe-bazzar.svg"
+                src="/images/footer/coffe-bazzar.svg"
                 alt="coffe-bazzar"
                 className="footer__digi-apps-for-download-img"
               />
             </a>
             <a href="#" className="footer__digi-apps-for-download-link">
               <img
-                src="./images/footer/myket.svg"
+                src="/images/footer/myket.svg"
                 alt="myket"
                 className="footer__digi-apps-for-download-img"
               />
             </a>
             <a href="#" className="footer__digi-apps-for-download-link">
               <img
-                src="./images/footer/sib-app.svg"
+                src="/images/footer/sib-app.svg"
                 alt="sib-app"
                 className="footer__digi-apps-for-download-img"
               />
@@ -275,7 +275,7 @@ export default function Footer() {
           <div className="footer__digi-app-see-more">
             <a href="#" className="footer__digi-app-see-more-link">
               <img
-                src="./images/footer/More.svg"
+                src="/images/footer/More.svg"
                 alt="More"
                 className="footer__digi-app-see-more-img"
               />
@@ -675,14 +675,14 @@ export default function Footer() {
           <div className="footer__digi-about-us-confidences-wrapper mt-3">
             <a href="#" className="footer__digi-about-us-confidences-logo">
               <img
-                src="./images/footer/rezi.png"
+                src="/images/footer/rezi.png"
                 alt="rezi"
                 className="footer__digi-about-us-confidences-logo-img"
               />
             </a>
             <a href="#" className="footer__digi-about-us-confidences-logo">
               <img
-                src="./images/footer/kasbokar.png"
+                src="/images/footer/kasbokar.png"
                 alt="kasbokar"
                 className="footer__digi-about-us-confidences-logo-img"
               />
@@ -700,7 +700,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digiclub.svg"
+              src="/images/footer/brand/digiclub.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -709,7 +709,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digiexpress.svg"
+              src="/images/footer/brand/digiexpress.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -718,7 +718,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digify.svg"
+              src="/images/footer/brand/digify.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -727,7 +727,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digikala-business.svg"
+              src="/images/footer/brand/digikala-business.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -736,7 +736,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digimag.svg"
+              src="/images/footer/brand/digimag.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -745,7 +745,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digiMehr.svg"
+              src="/images/footer/brand/digiMehr.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -754,7 +754,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/diginext.svg"
+              src="/images/footer/brand/diginext.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -763,7 +763,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digipay.svg"
+              src="/images/footer/brand/digipay.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -772,7 +772,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digipay.svg"
+              src="/images/footer/brand/digipay.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -781,7 +781,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digiplus.svg"
+              src="/images/footer/brand/digiplus.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -790,7 +790,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/digistyle.svg"
+              src="/images/footer/brand/digistyle.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -799,7 +799,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/fidibo.svg"
+              src="/images/footer/brand/fidibo.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -808,7 +808,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/ganjeh.svg"
+              src="/images/footer/brand/ganjeh.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -817,7 +817,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/jet.svg"
+              src="/images/footer/brand/jet.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -826,7 +826,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/komodaa.svg"
+              src="/images/footer/brand/komodaa.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -835,7 +835,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/magnet.svg"
+              src="/images/footer/brand/magnet.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -844,7 +844,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/pindo.svg"
+              src="/images/footer/brand/pindo.svg"
               alt="digiclub"
               className="footer__brand-img"
             />
@@ -853,7 +853,7 @@ export default function Footer() {
         <a href="#" className="footer__brand-link">
           <div className="">
             <img
-              src="./images/footer/brand/smartech.svg"
+              src="/images/footer/brand/smartech.svg"
               alt="digiclub"
               className="footer__brand-img"
             />

@@ -39,7 +39,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -51,7 +51,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -67,7 +67,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -79,7 +79,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -95,7 +95,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -107,7 +107,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -123,7 +123,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -135,7 +135,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -151,7 +151,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -163,7 +163,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -179,7 +179,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -191,7 +191,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -207,7 +207,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest1.jpg"
+                  src="/images/suggest-digikala/suggest1.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />
@@ -219,7 +219,7 @@ export default function SuggestCategoriesSwiper() {
             <a href="#" className="suggest-digikala__swiper-slide-content">
               <div className="suggest-digikala__swiper-slide-content-wrapper-img">
                 <img
-                  src="./images/suggest-digikala/suggest7.jpg"
+                  src="/images/suggest-digikala/suggest7.jpg"
                   alt="suggest"
                   className="suggest-digikala__swiper-slide-content-img"
                 />

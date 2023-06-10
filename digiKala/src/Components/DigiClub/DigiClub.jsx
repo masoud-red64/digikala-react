@@ -9,7 +9,7 @@ export default function DigiClub() {
       <div className="digiclub__content">
         <a href="#" className="digiclub__content-right">
           <img
-            src="./images/digiclub/digiclub-logo-white.svg"
+            src="/images/digiclub/digiclub-logo-white.svg"
             alt="digiclub"
             className="digiclub__content-right-logo"
           />
@@ -17,7 +17,7 @@ export default function DigiClub() {
         <div className="digiclub__content-left">
           <DigiClubItem
             title={"چرخ و بخت"}
-            img={"./images/digiclub/wheel-spinner.jpg"}
+            img={"/images/digiclub/wheel-spinner.jpg"}
           >
             <svg
               className="digiclub__content-left-item-link-icon"
@@ -30,7 +30,7 @@ export default function DigiClub() {
           </DigiClubItem>
           <DigiClubItem
             title={"ماموریت ها"}
-            img={"./images/digiclub/missions.png"}
+            img={"/images/digiclub/missions.png"}
           >
             <svg
               className="digiclub__content-left-item-link-icon"
@@ -52,7 +52,7 @@ export default function DigiClub() {
               ></path>
             </svg>
           </DigiClubItem>
-          <DigiClubItem title={"جایزه ها"} img={"./images/digiclub/awards.png"}>
+          <DigiClubItem title={"جایزه ها"} img={"/images/digiclub/awards.png"}>
             <svg
               className="digiclub__content-left-item-link-icon"
               xmlns="http://www.w3.org/2000/svg"

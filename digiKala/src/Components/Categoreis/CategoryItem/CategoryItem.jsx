@@ -7,7 +7,7 @@ export default function CategoryItem() {
     <div className="col-4 col-lg-2">
       <a href="#" className="categories__content">
         <img
-          src="./images/categories/category1.webp"
+          src="/images/categories/category1.webp"
           alt="category"
           className="categories__content-img"
         />

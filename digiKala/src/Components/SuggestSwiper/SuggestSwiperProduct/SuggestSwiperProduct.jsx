@@ -12,7 +12,7 @@ export default function SuggestSwiperProduct({ borderRight }) {
         }`}
       >
         <img
-          src="./images/wonderful-suggest/suggest2.webp"
+          src="/images/wonderful-suggest/suggest2.webp"
           alt="pants"
           className="suggest-swiper-slide__content-img"
         />

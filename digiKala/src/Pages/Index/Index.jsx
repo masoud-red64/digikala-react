@@ -32,12 +32,12 @@ export default function Index() {
             <div className="supermarket-amazing__right">
               <div className="supermarket-amazing__right-title">
                 <img
-                  src="./images/supermarket-amazing/fresh.png"
+                  src="/images/supermarket-amazing/fresh.png"
                   alt="box"
                   className="supermarket-amazing__right-title-box-img"
                 />
                 <img
-                  src="./images/supermarket-amazing/text.svg"
+                  src="/images/supermarket-amazing/text.svg"
                   alt="text"
                   className="supermarket-amazing__right-title-text-img"
                 />
@@ -48,7 +48,7 @@ export default function Index() {
               >
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
-                    src="./images/supermarket-amazing/product2.webp"
+                    src="/images/supermarket-amazing/product2.webp"
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
@@ -58,7 +58,7 @@ export default function Index() {
                 </a>
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
-                    src="./images/supermarket-amazing/product2.webp"
+                    src="/images/supermarket-amazing/product2.webp"
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
@@ -68,18 +68,18 @@ export default function Index() {
                 </a>
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
-                    src="./images/supermarket-amazing/product3.webp"
+                    src="/images/supermarket-amazing/product3.webp"
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
-                  
+
                   <div className="supermarket-amazing__right-product-discount">
                     <PercentBox />
                   </div>
                 </a>
                 <a href="#" className="supermarket-amazing__right-product">
                   <img
-                    src="./images/supermarket-amazing/product4.webp"
+                    src="/images/supermarket-amazing/product4.webp"
                     alt="product"
                     className="supermarket-amazing__right-product-img"
                   />
