@@ -31,8 +31,14 @@ function convertPersianToEnglishNumbers(persianNum) {
   return persianNum.replace(/[۰-۹]/g, (match) => persianToEnglishMap[match]);
 }
 
+function shuffled(array) {
+  //قاطی کردن محتوای ارایه
+  return array.sort(() => Math.random() - 0.5);
+}
+
 export {
   enToPersianNumber,
   formatNumberWithSeparators,
   convertPersianToEnglishNumbers,
+  shuffled
 };

@@ -17,9 +17,12 @@ import BestSelling from "../../Components/BestSelling/BestSelling";
 import SelectedProducts from "../../Components/SelectedProducts/SelectedProducts";
 import Articles from "../../Components/Articles/Articles";
 import PercentBox from "../../Components/PercentBox/PercentBox";
+import { shuffled } from "../../func/utils";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
+  const [superMarketProducts, setSuperMarketProducts] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -27,7 +30,11 @@ export default function Index() {
       .then((products) => {
         const wonderfulProducts = products.filter((product) => product.wonder);
         setWonderfulProducts(wonderfulProducts);
-        console.log(wonderfulProducts);
+
+        let superMarketProducts = products.filter(
+          (product) => product.mainID === 5 && product.off
+        );
+        setSuperMarketProducts(superMarketProducts);
       });
   }, []);
 
@@ -58,47 +65,24 @@ export default function Index() {
                 className="supermarket-amazing__right-products"
                 id="supermarket-products-container"
               >
-                <a href="#" className="supermarket-amazing__right-product">
-                  <img
-                    src="/images/supermarket-amazing/product2.webp"
-                    alt="product"
-                    className="supermarket-amazing__right-product-img"
-                  />
-                  <div className="supermarket-amazing__right-product-discount">
-                    <PercentBox />
-                  </div>
-                </a>
-                <a href="#" className="supermarket-amazing__right-product">
-                  <img
-                    src="/images/supermarket-amazing/product2.webp"
-                    alt="product"
-                    className="supermarket-amazing__right-product-img"
-                  />
-                  <div className="supermarket-amazing__right-product-discount">
-                    <PercentBox />
-                  </div>
-                </a>
-                <a href="#" className="supermarket-amazing__right-product">
-                  <img
-                    src="/images/supermarket-amazing/product3.webp"
-                    alt="product"
-                    className="supermarket-amazing__right-product-img"
-                  />
-
-                  <div className="supermarket-amazing__right-product-discount">
-                    <PercentBox />
-                  </div>
-                </a>
-                <a href="#" className="supermarket-amazing__right-product">
-                  <img
-                    src="/images/supermarket-amazing/product4.webp"
-                    alt="product"
-                    className="supermarket-amazing__right-product-img"
-                  />
-                  <div className="supermarket-amazing__right-product-discount">
-                    <PercentBox />
-                  </div>
-                </a>
+                {shuffled([...superMarketProducts])
+                  .slice(0, 4)
+                  .map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`/product-info/${product.shortName}`}
+                      className="supermarket-amazing__right-product"
+                    >
+                      <img
+                        src={`/img/${product.img}`}
+                        alt="product"
+                        className="supermarket-amazing__right-product-img"
+                      />
+                      <div className="supermarket-amazing__right-product-discount">
+                        <PercentBox percent={product.off} />
+                      </div>
+                    </Link>
+                  ))}
               </div>
             </div>
             <a
