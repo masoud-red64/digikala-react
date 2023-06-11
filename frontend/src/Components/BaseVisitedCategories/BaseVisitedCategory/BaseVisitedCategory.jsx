@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./BaseVisitedCategory.css";
 import BaseVisitedProduct from "../BaseVisitedProduct/BaseVisitedProduct";
 
-export default function BaseVisitedCategory({ page, title }) {
+export default function BaseVisitedCategory({ page, title, categoryID }) {
+  const [baseVisitedProducts, setBaseVisitedProducts] = useState([]);
+  console.log(categoryID);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/products")
+      .then((res) => res.json())
+      .then((products) => {
+        let mainProducts = products.filter(
+          (product) => product.categoryID === categoryID
+        );
+        setBaseVisitedProducts(mainProducts);
+      });
+  }, []);
+
   return (
     <div className={`col-12 ${page === "indexPage" ? "col-lg-3" : "col-lg-4"}`}>
       <div className="categories-based-visited__wrapper">
@@ -14,10 +28,9 @@ export default function BaseVisitedCategory({ page, title }) {
             {page === "index" && " براساس بازید های شما"}
           </p>
           <div className="categories-based-visited__content-img-wrapper">
-            <BaseVisitedProduct />
-            <BaseVisitedProduct />
-            <BaseVisitedProduct />
-            <BaseVisitedProduct />
+            {baseVisitedProducts.map((product) => (
+              <BaseVisitedProduct key={product.id} {...product} />
+            ))}
           </div>
           <a href="#" className="categories-based-visited__content-see-link">
             مشاهده

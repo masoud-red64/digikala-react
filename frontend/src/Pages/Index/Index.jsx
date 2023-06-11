@@ -23,9 +23,15 @@ import { Link } from "react-router-dom";
 export default function Index() {
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
   const [superMarketProducts, setSuperMarketProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [banners2, setBanners2] = useState([]);
   const [allMains, setAllMains] = useState([]);
   const [suggestedCategories, setSuggestedCategories] = useState([]);
+  const [baseVisitedProductsCategories, setBaseVisitedProductsCategories] =
+    useState([]);
+  const [baseVisitedCategoryTitle, setBaseVisitedCategoryTitle] = useState("");
+  const [baseVisitedCategoryID, setBaseVisitedCategoryID] = useState(null);
+  const [baseVisitedProducts, setBaseVisitedProducts] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -40,10 +46,19 @@ export default function Index() {
         setSuperMarketProducts(superMarketProducts);
       });
 
+    getAllCategories();
     getAllBanner1();
     getAllMain();
     getSuggestedCategory();
   }, []);
+
+  async function getAllCategories() {
+    await fetch("http://localhost:3000/api/categories")
+      .then((res) => res.json())
+      .then((categories) => {
+        setCategories(categories);
+      });
+  }
 
   function getAllBanner1() {
     fetch("http://localhost:3000/api/banner/2")
@@ -62,15 +77,10 @@ export default function Index() {
   }
 
   function getSuggestedCategory() {
-    fetch("http://localhost:3000/api/categories")
-      .then((res) => res.json())
-      .then((categories) => {
-        let suggestedCategories = categories.filter(
-          (category) => category.suggested
-        );
-
-        setSuggestedCategories(suggestedCategories);
-      });
+    let suggestedCategories = categories.filter(
+      (category) => category.suggested
+    );
+    setSuggestedCategories(suggestedCategories);
   }
 
   return (
