@@ -26,6 +26,7 @@ export default function Main() {
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
   const [banners1, setBanners1] = useState([]);
   const [banners2, setBanners2] = useState([]);
+  const [allMains, setAllMains] = useState([]);
 
   const { shortName } = useParams();
 
@@ -49,6 +50,7 @@ export default function Main() {
 
     getAllBanner1();
     getAllBanner2();
+    getAllMain();
   }, [mainID]);
 
   async function getAllBanner1() {
@@ -73,6 +75,14 @@ export default function Main() {
       });
   }
 
+  function getAllMain() {
+    fetch("http://localhost:3000/api/main")
+      .then((res) => res.json())
+      .then((mains) => {
+        setAllMains(mains);
+      });
+  }
+
   return (
     <>
       <Header />
@@ -83,7 +93,7 @@ export default function Main() {
             wonderfulProducts={wonderfulProducts}
             color={shortName}
           />
-          <Categories title={"خرید بر اساس دسته بندی"} />
+          <Categories title={"خرید بر اساس دسته بندی"} mains={allMains} />
           <CategoryBanner col={"col-12 col-lg-6"} banners={[...banners1]} />
           <BaseVisitedCategories mt={"mt-1"} page={"mainPage"} />
           <SuggestCategoriesSwiper title={"دسته بندی های پیشنهادی"} />

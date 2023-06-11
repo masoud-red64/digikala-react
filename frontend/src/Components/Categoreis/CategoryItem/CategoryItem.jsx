@@ -1,18 +1,19 @@
 import React from "react";
 
 import "./CategoryItem.css";
+import { Link } from "react-router-dom";
 
-export default function CategoryItem() {
+export default function CategoryItem({ img, title, shortName }) {
   return (
     <div className="col-4 col-lg-2">
-      <a href="#" className="categories__content">
+      <Link to={`/main/${shortName}`} className="categories__content">
         <img
-          src="/images/categories/category1.webp"
+          src={`/img/${img}`}
           alt="category"
           className="categories__content-img"
         />
-        <p className="categories__content-text">ابزار،لوازم ساختمانی و صنعتی</p>
-      </a>
+        <p className="categories__content-text">{title}</p>
+      </Link>
     </div>
   );
 }

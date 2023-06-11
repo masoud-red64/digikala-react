@@ -24,6 +24,7 @@ export default function Index() {
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
   const [superMarketProducts, setSuperMarketProducts] = useState([]);
   const [banners2, setBanners2] = useState([]);
+  const [allMains, setAllMains] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -39,6 +40,7 @@ export default function Index() {
       });
 
     getAllBanner1();
+    getAllMain();
   }, []);
 
   function getAllBanner1() {
@@ -46,6 +48,14 @@ export default function Index() {
       .then((res) => res.json())
       .then((banners2) => {
         setBanners2(banners2);
+      });
+  }
+
+  function getAllMain() {
+    fetch("http://localhost:3000/api/main")
+      .then((res) => res.json())
+      .then((mains) => {
+        setAllMains(mains);
       });
   }
 
@@ -131,7 +141,7 @@ export default function Index() {
             </a>
           </section>
           <CategoryBanner col={"col-6 col-lg-3"} banners={[...banners2]} />
-          <Categories title={"دسته بندی ها دیجی کالا"} />
+          <Categories title={"دسته بندی ها دیجی کالا"} mains={allMains}/>
           <SuggestCategoriesSwiper title={"پیشنهاد دیجی کالا"} />
           <PopularBrandSwiper />
           <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
