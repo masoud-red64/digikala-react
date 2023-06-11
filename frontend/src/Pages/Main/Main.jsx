@@ -24,6 +24,8 @@ import { useParams } from "react-router-dom";
 export default function Main() {
   const [mainID, setMainID] = useState(null);
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
+  const [banners1, setBanners1] = useState([]);
+  const [banners2, setBanners2] = useState([]);
 
   const { shortName } = useParams();
 
@@ -44,7 +46,32 @@ export default function Main() {
         );
         setWonderfulProducts(wonderfulProducts);
       });
+
+    getAllBanner1();
+    getAllBanner2();
   }, [mainID]);
+
+  async function getAllBanner1() {
+    fetch("http://localhost:3000/api/banner/1")
+      .then((res) => res.json())
+      .then((banners1) => {
+        let mainBanners1 = banners1.filter(
+          (banner1) => banner1.mainID === mainID
+        );
+        setBanners1(mainBanners1);
+      });
+  }
+
+  async function getAllBanner2() {
+    fetch("http://localhost:3000/api/banner/2")
+      .then((res) => res.json())
+      .then((banners2) => {
+        let mainBanners2 = banners2.filter(
+          (banner2) => banner2.mainID === mainID
+        );
+        setBanners2(mainBanners2);
+      });
+  }
 
   return (
     <>
@@ -57,26 +84,10 @@ export default function Main() {
             color={shortName}
           />
           <Categories title={"خرید بر اساس دسته بندی"} />
-          <CategoryBanner
-            col={"col-12 col-lg-6"}
-            img={[
-              "/images/main/product-banner/cloth-sleep.webp",
-              "/images/main/product-banner/purse-men-women.webp",
-              "/images/main/product-banner/women-shoes.webp",
-              "/images/main/product-banner/مانتو.webp",
-            ]}
-          />
+          <CategoryBanner col={"col-12 col-lg-6"} banners={[...banners1]} />
           <BaseVisitedCategories mt={"mt-1"} page={"mainPage"} />
           <SuggestCategoriesSwiper title={"دسته بندی های پیشنهادی"} />
-          <CategoryBanner
-            col={"col-6 col-lg-3"}
-            img={[
-              "/images/product-banner/product1.webp",
-              "/images/product-banner/product2.webp",
-              "/images/product-banner/product3.webp",
-              "/images/product-banner/product4.webp",
-            ]}
-          />
+          <CategoryBanner col={"col-6 col-lg-3"} banners={[...banners2]} />
           <BestSelling />
           <Stores />
           <SelectedProducts title={"پرتکرارترین کالاها"} icon={false} />
