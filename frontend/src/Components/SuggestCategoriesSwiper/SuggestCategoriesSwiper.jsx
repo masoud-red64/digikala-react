@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "./SuggestCategoriesSwiper.css";
+import { Link } from "react-router-dom";
 
-export default function SuggestCategoriesSwiper({ title }) {
+export default function SuggestCategoriesSwiper({
+  title,
+  suggestedCategories,
+}) {
   return (
     <section className="suggest-digikala">
       <p className="suggest-digikala__title">{title}</p>
@@ -34,202 +38,41 @@ export default function SuggestCategoriesSwiper({ title }) {
         }}
         className="mySwiper suggest-digikala__swiper"
       >
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="swiper-slide__container">
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest1.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                گوشی موبایل
-              </p>
-            </a>
-            <a href="#" className="suggest-digikala__swiper-slide-content">
-              <div className="suggest-digikala__swiper-slide-content-wrapper-img">
-                <img
-                  src="/images/suggest-digikala/suggest7.jpg"
-                  alt="suggest"
-                  className="suggest-digikala__swiper-slide-content-img"
-                />
-              </div>
-              <p className="suggest-digikala__swiper-slide-content-text">
-                کیف و کاور گوشی
-              </p>
-            </a>
-          </div>
-        </SwiperSlide>
+        {suggestedCategories &&
+          suggestedCategories.map((category, index) => {
+            if (index % 2 === 0) {
+              let start = index;
+              let end = Math.min(index + 2);
+              let categories = suggestedCategories.slice(start, end);
+
+              return (
+                <SwiperSlide key={category.id}>
+                  <div className="swiper-slide__container">
+                    {categories.map((category) => (
+                      <>
+                        <Link
+                          key={category.id}
+                          to={`/category-info/${category.shortName}`}
+                          className="suggest-digikala__swiper-slide-content"
+                        >
+                          <div className="suggest-digikala__swiper-slide-content-wrapper-img">
+                            <img
+                              src={`/img/${category.img}`}
+                              alt="suggest"
+                              className="suggest-digikala__swiper-slide-content-img"
+                            />
+                          </div>
+                          <p className="suggest-digikala__swiper-slide-content-text">
+                            {category.title}
+                          </p>
+                        </Link>
+                      </>
+                    ))}
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          })}
       </Swiper>
     </section>
   );

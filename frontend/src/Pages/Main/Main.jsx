@@ -27,6 +27,7 @@ export default function Main() {
   const [banners1, setBanners1] = useState([]);
   const [banners2, setBanners2] = useState([]);
   const [allMains, setAllMains] = useState([]);
+  const [suggestedCategories, setSuggestedCategories] = useState([]);
 
   const { shortName } = useParams();
 
@@ -51,6 +52,7 @@ export default function Main() {
     getAllBanner1();
     getAllBanner2();
     getAllMain();
+    getSuggestedCategory();
   }, [mainID]);
 
   async function getAllBanner1() {
@@ -83,6 +85,17 @@ export default function Main() {
       });
   }
 
+  async function getSuggestedCategory() {
+    fetch("http://localhost:3000/api/categories")
+      .then((res) => res.json())
+      .then((categories) => {
+        let mainSuggestedCategories = categories.filter(
+          (category) => category.mainID === mainID && category.suggested
+        );
+        setSuggestedCategories(mainSuggestedCategories);
+      });
+  }
+
   return (
     <>
       <Header />
@@ -96,7 +109,10 @@ export default function Main() {
           <Categories title={"خرید بر اساس دسته بندی"} mains={allMains} />
           <CategoryBanner col={"col-12 col-lg-6"} banners={[...banners1]} />
           <BaseVisitedCategories mt={"mt-1"} page={"mainPage"} />
-          <SuggestCategoriesSwiper title={"دسته بندی های پیشنهادی"} />
+          <SuggestCategoriesSwiper
+            title={"دسته بندی های پیشنهادی"}
+            suggestedCategories={suggestedCategories}
+          />
           <CategoryBanner col={"col-6 col-lg-3"} banners={[...banners2]} />
           <BestSelling />
           <Stores />

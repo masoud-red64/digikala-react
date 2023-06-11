@@ -25,6 +25,7 @@ export default function Index() {
   const [superMarketProducts, setSuperMarketProducts] = useState([]);
   const [banners2, setBanners2] = useState([]);
   const [allMains, setAllMains] = useState([]);
+  const [suggestedCategories, setSuggestedCategories] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -41,6 +42,7 @@ export default function Index() {
 
     getAllBanner1();
     getAllMain();
+    getSuggestedCategory();
   }, []);
 
   function getAllBanner1() {
@@ -56,6 +58,18 @@ export default function Index() {
       .then((res) => res.json())
       .then((mains) => {
         setAllMains(mains);
+      });
+  }
+
+  function getSuggestedCategory() {
+    fetch("http://localhost:3000/api/categories")
+      .then((res) => res.json())
+      .then((categories) => {
+        let suggestedCategories = categories.filter(
+          (category) => category.suggested
+        );
+
+        setSuggestedCategories(suggestedCategories);
       });
   }
 
@@ -141,8 +155,11 @@ export default function Index() {
             </a>
           </section>
           <CategoryBanner col={"col-6 col-lg-3"} banners={[...banners2]} />
-          <Categories title={"دسته بندی ها دیجی کالا"} mains={allMains}/>
-          <SuggestCategoriesSwiper title={"پیشنهاد دیجی کالا"} />
+          <Categories title={"دسته بندی ها دیجی کالا"} mains={allMains} />
+          <SuggestCategoriesSwiper
+            title={"پیشنهاد دیجی کالا"}
+            suggestedCategories={suggestedCategories}
+          />
           <PopularBrandSwiper />
           <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
           <DigiPlus />
