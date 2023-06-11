@@ -2,10 +2,31 @@
 
 .suggest-swiper {
   margin-bottom: 1rem;
-  background-color: var(--primary-color);
+  background: linear-gradient(to top, #ef4056, #ef394e);
   padding: 2rem 0;
   border-radius: 1rem;
   height: 28rem;
+}
+.suggest-swiper.digital {
+  background: linear-gradient(to top, #6763d9, #5c51bf);
+}
+.suggest-swiper.beauty {
+  background: linear-gradient(to top, #c441f1, #b006eb);
+}
+.suggest-swiper.building {
+  background: linear-gradient(to top, #f62, #d65c26);
+}
+.suggest-swiper.clothes {
+  background: linear-gradient(to top, #ffa368, #e88060);
+}
+.suggest-swiper.supermarket {
+  background: linear-gradient(to top, #9dc44d, #6bb927);
+}
+.suggest-swiper.baby {
+  background: linear-gradient(to top, #fb507d, #dd305d);
+}
+.suggest-swiper.kitchen {
+  background: linear-gradient(to top, #00b4b0, #009db0);
 }
 .suggest-swiper__swiper {
 }

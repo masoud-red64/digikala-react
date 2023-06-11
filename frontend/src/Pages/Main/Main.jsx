@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
 
 import Footer from "../../Components/Footer/Footer";
@@ -19,15 +19,43 @@ import PercentBox from "../../Components/PercentBox/PercentBox";
 
 import "./Main.css";
 import Stores from "../../Components/Stores/Stores";
+import { useParams } from "react-router-dom";
 
 export default function Main() {
+  const [mainID, setMainID] = useState(null);
+  const [wonderfulProducts, setWonderfulProducts] = useState([]);
+
+  const { shortName } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/main/${shortName}`)
+      .then((res) => res.json())
+      .then((main) => {
+        setMainID(main[0].id);
+      });
+  }, [shortName]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/products")
+      .then((res) => res.json())
+      .then((products) => {
+        let wonderfulProducts = products.filter(
+          (product) => product.mainID === mainID && product.wonder
+        );
+        setWonderfulProducts(wonderfulProducts);
+      });
+  }, [mainID]);
+
   return (
     <>
       <Header />
       <div className="main">
         <div className="container">
           <TopSwiperJs borderRadius={true} />
-          <SuggestSwiper />
+          <SuggestSwiper
+            wonderfulProducts={wonderfulProducts}
+            color={shortName}
+          />
           <Categories title={"خرید بر اساس دسته بندی"} />
           <CategoryBanner
             col={"col-12 col-lg-6"}

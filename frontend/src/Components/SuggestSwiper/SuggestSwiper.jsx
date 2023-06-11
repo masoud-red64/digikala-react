@@ -6,9 +6,9 @@ import "swiper/css";
 import "./SuggestSwiper.css";
 import SuggestSwiperProduct from "./SuggestSwiperProduct/SuggestSwiperProduct";
 
-export default function SuggestSwiper({ wonderfulProducts }) {
+export default function SuggestSwiper({ wonderfulProducts,color }) {
   return (
-    <section className="suggest-swiper mt-5 mt-xl-0">
+    <section className={`suggest-swiper mt-5 mt-xl-0 ${color}`}>
       <Swiper
         modules={[]}
         slidesPerView={1.5}
