@@ -2,12 +2,13 @@ import React from "react";
 
 import "./CategoryBannerBox.css";
 
-export default function CategoryBannerBox({ col, img }) {
+export default function CategoryBannerBox({ col, banner }) {
+  console.log(banner);
   return (
     <div className={col}>
       <a href="#" className="products-categories-banner__product">
         <img
-          src={img}
+          src={`/img/${banner && banner.img}`}
           alt="banner"
           className="products-categories-banner__product-img"
         />

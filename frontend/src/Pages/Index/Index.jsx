@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 export default function Index() {
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
   const [superMarketProducts, setSuperMarketProducts] = useState([]);
+  const [banners2, setBanners2] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -36,7 +37,17 @@ export default function Index() {
         );
         setSuperMarketProducts(superMarketProducts);
       });
+
+    getAllBanner1();
   }, []);
+
+  function getAllBanner1() {
+    fetch("http://localhost:3000/api/banner/2")
+      .then((res) => res.json())
+      .then((banners2) => {
+        setBanners2(banners2);
+      });
+  }
 
   return (
     <>
@@ -119,15 +130,7 @@ export default function Index() {
               </svg>
             </a>
           </section>
-          <CategoryBanner
-            col={"col-6 col-lg-3"}
-            img={[
-              "/images/product-banner/product1.webp",
-              "/images/product-banner/product2.webp",
-              "/images/product-banner/product3.webp",
-              "/images/product-banner/product4.webp",
-            ]}
-          />
+          <CategoryBanner col={"col-6 col-lg-3"} banners={[...banners2]} />
           <Categories title={"دسته بندی ها دیجی کالا"} />
           <SuggestCategoriesSwiper title={"پیشنهاد دیجی کالا"} />
           <PopularBrandSwiper />
