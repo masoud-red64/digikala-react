@@ -1,26 +1,29 @@
 import React from "react";
+import {
+  enToPersianNumber,
+  formatNumberWithSeparators,
+} from "../../../func/utils";
+import { Link } from "react-router-dom";
 
 import "./SuggestSwiperProduct.css";
 import PercentBox from "../../PercentBox/PercentBox";
 
-export default function SuggestSwiperProduct({ borderRight }) {
+export default function SuggestSwiperProduct({ price, off, img, shortName }) {
   return (
-    <a href="#">
-      <div
-        className={`suggest-swiper-slide__content ${
-          borderRight ? "suggest-swiper-slide__content-rounded-right" : ""
-        }`}
-      >
+    <Link to={`/product-info/${shortName}`}>
+      <div className="suggest-swiper-slide__content">
         <img
-          src="/images/wonderful-suggest/suggest2.webp"
+          src={`/img/${img}`}
           alt="pants"
           className="suggest-swiper-slide__content-img"
         />
         <div className="suggest-swiper-slide__content-price-box">
-          <PercentBox />
+          <PercentBox percent={off} />
           <div className="suggest-swiper-slide__content-price-box-prices">
             <p className="suggest-swiper-slide__content-price-box-prices-after-discount">
-              ۲۷۹,۰۰۰
+              {formatNumberWithSeparators(
+                enToPersianNumber(Math.floor(price - (price * off) / 100))
+              )}
               <span>
                 <svg
                   id="toman"
@@ -41,11 +44,11 @@ export default function SuggestSwiperProduct({ borderRight }) {
               </span>
             </p>
             <p className="suggest-swiper-slide__content-price-box-prices-before-discount">
-              ۴۹۱,۰۰۰
+              {formatNumberWithSeparators(enToPersianNumber(price))}
             </p>
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

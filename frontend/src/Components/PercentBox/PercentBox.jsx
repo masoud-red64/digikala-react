@@ -1,7 +1,12 @@
 import React from "react";
 
 import "./PercentBox.css";
+import { enToPersianNumber } from "../../func/utils";
 
-export default function PercentBox() {
-  return <p className="discount-percent">۴۳</p>;
+export default function PercentBox({ percent }) {
+  return (
+    <p className="discount-percent">
+      {percent ? enToPersianNumber(percent) : "20"}
+    </p>
+  );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -6,7 +6,7 @@ import "swiper/css";
 import "./SuggestSwiper.css";
 import SuggestSwiperProduct from "./SuggestSwiperProduct/SuggestSwiperProduct";
 
-export default function SuggestSwiper() {
+export default function SuggestSwiper({ wonderfulProducts }) {
   return (
     <section className="suggest-swiper mt-5 mt-xl-0">
       <Swiper
@@ -62,12 +62,13 @@ export default function SuggestSwiper() {
             </div>
           </a>
         </SwiperSlide>
-        <SwiperSlide>
-          <SuggestSwiperProduct borderRight={true} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SuggestSwiperProduct />
-        </SwiperSlide>
+        {wonderfulProducts.length
+          ? wonderfulProducts.map((product) => (
+              <SwiperSlide key={product.id}>
+                <SuggestSwiperProduct {...product} />
+              </SwiperSlide>
+            ))
+          : null}
         <SwiperSlide>
           <div className="suggest-swiper-slide__content-last">
             <div className="suggest-swiper-slide__content-last-arrow">

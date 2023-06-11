@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
 
 import Footer from "../../Components/Footer/Footer";
@@ -19,6 +19,18 @@ import Articles from "../../Components/Articles/Articles";
 import PercentBox from "../../Components/PercentBox/PercentBox";
 
 export default function Index() {
+  const [wonderfulProducts, setWonderfulProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/products")
+      .then((res) => res.json())
+      .then((products) => {
+        const wonderfulProducts = products.filter((product) => product.wonder);
+        setWonderfulProducts(wonderfulProducts);
+        console.log(wonderfulProducts);
+      });
+  }, []);
+
   return (
     <>
       <Header />
@@ -27,7 +39,7 @@ export default function Index() {
 
         <div className="container">
           <Services />
-          <SuggestSwiper />
+          <SuggestSwiper wonderfulProducts={wonderfulProducts} />
           <section className="supermarket-amazing">
             <div className="supermarket-amazing__right">
               <div className="supermarket-amazing__right-title">
