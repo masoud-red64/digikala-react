@@ -29,6 +29,7 @@ export default function Index() {
   const [suggestedCategories, setSuggestedCategories] = useState([]);
   const [popularBrands, setPopularBrands] = useState([]);
   const [digiPlusProducts, setDigiPlusProducts] = useState([]);
+  const [bestSellingProducts, setBestSellingProducts] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -44,6 +45,11 @@ export default function Index() {
 
         let digiPlusProducts = products.filter((product) => product.digiplus);
         setDigiPlusProducts(digiPlusProducts);
+
+        let bestSellingProducts = products.filter(
+          (product) => product.bestSell
+        );
+        setBestSellingProducts(bestSellingProducts);
       });
 
     getAllBanner1();
@@ -179,7 +185,7 @@ export default function Index() {
           <DigiPlus digiPlusProducts={digiPlusProducts} />
           <DigiClub />
           <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
-          <BestSelling />
+          <BestSelling bestSellingProducts={bestSellingProducts} />
           <SelectedProducts title={"منتخب محصولات تخفیف و حراج"} icon={true} />
           <Articles />
         </div>

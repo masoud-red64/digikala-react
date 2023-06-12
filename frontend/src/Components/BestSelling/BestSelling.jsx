@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import BestSellingProduct from "./BestSellingProduct/BestSellingProduct";
 import "./BestSelling.css";
 
-export default function BestSelling() {
+export default function BestSelling({ bestSellingProducts }) {
   return (
     <section className="best-selling-products mt-5">
       <div className="best-selling-products__top">
@@ -46,42 +46,26 @@ export default function BestSelling() {
         }}
         className="mySwiper best-selling-products__swiper"
       >
-        <SwiperSlide>
-          <BestSellingProduct
-            number={[
-              Number(1).toLocaleString("fa-ir"),
-              Number(2).toLocaleString("fa-ir"),
-              Number(3).toLocaleString("fa-ir"),
-            ]}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BestSellingProduct
-            number={[
-              Number(4).toLocaleString("fa-ir"),
-              Number(5).toLocaleString("fa-ir"),
-              Number(6).toLocaleString("fa-ir"),
-            ]}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BestSellingProduct
-            number={[
-              Number(7).toLocaleString("fa-ir"),
-              Number(8).toLocaleString("fa-ir"),
-              Number(9).toLocaleString("fa-ir"),
-            ]}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BestSellingProduct
-            number={[
-              Number(10).toLocaleString("fa-ir"),
-              Number(11).toLocaleString("fa-ir"),
-              Number(12).toLocaleString("fa-ir"),
-            ]}
-          />
-        </SwiperSlide>
+        {bestSellingProducts &&
+          bestSellingProducts.map((product, index) => {
+            if (index % 3 === 0) {
+              let start = index;
+              let end = index + 3;
+              let products = bestSellingProducts.slice(start, end);
+
+              return (
+                <SwiperSlide key={product.id}>
+                  {products.map((product, index) => (
+                    <BestSellingProduct
+                      key={product.id}
+                      {...product}
+                      numberProduct={start + index + 1}
+                    />
+                  ))}
+                </SwiperSlide>
+              );
+            }
+          })}
       </Swiper>
     </section>
   );

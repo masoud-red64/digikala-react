@@ -1,49 +1,32 @@
 import React from "react";
 
 import "./BestSellingProduct.css";
+import { Link } from "react-router-dom";
+import { enToPersianNumber } from "../../../func/utils";
 
-export default function BestSellingProduct({ number }) {
+export default function BestSellingProduct({
+  number,
+  shortName,
+  img,
+  title,
+  numberProduct,
+}) {
   return (
     <div className="best-selling-products__swiper-slide__container">
-      <a href="#" className="best-selling-products__swiper-content">
+      <Link
+        to={`/product-info/${shortName}`}
+        className="best-selling-products__swiper-content"
+      >
         <img
           className="best-selling-products__swiper-content-img"
-          src="/images/best-selling-products/product1.webp"
+          src={`/img/${img}`}
           alt="product"
         />
         <p className="best-selling-products__swiper-content-number">
-          {number[0]}
+          {Number(numberProduct).toLocaleString("fa")}
         </p>
-        <p className="best-selling-products__swiper-content-text">
-          هندزفری بلوتوثی مدل inpods 12
-        </p>
-      </a>
-      <a href="#" className="best-selling-products__swiper-content">
-        <img
-          className="best-selling-products__swiper-content-img"
-          src="/images/best-selling-products/product2.webp"
-          alt="product"
-        />
-        <p className="best-selling-products__swiper-content-number">
-          {number[1]}
-        </p>
-        <p className="best-selling-products__swiper-content-text">
-          مايع ظرفشويی پريل لوندر - 3750 گم
-        </p>
-      </a>
-      <a href="#" className="best-selling-products__swiper-content">
-        <img
-          className="best-selling-products__swiper-content-img"
-          src="/images/best-selling-products/product3.webp"
-          alt="product"
-        />
-        <p className="best-selling-products__swiper-content-number">
-          {number[2]}
-        </p>
-        <p className="best-selling-products__swiper-content-text">
-          پفک نمکی مینو - 170 گرم
-        </p>
-      </a>
+        <p className="best-selling-products__swiper-content-text">{title}</p>
+      </Link>
     </div>
   );
 }
