@@ -3,7 +3,7 @@ import React from "react";
 import "./DigiPlus.css";
 import DigiPlusProduct from "./DigiPlusProduct/DigiPlusProduct";
 
-export default function DigiPlus() {
+export default function DigiPlus({ digiPlusProducts }) {
   return (
     <section className="digiplus mt-5">
       <div className="digiplus__right">
@@ -79,14 +79,9 @@ export default function DigiPlus() {
           </a>
         </div>
         <div className="digiplus__left-bottom" id="digiplus-products-container">
-          <DigiPlusProduct />
-          <DigiPlusProduct />
-          <DigiPlusProduct />
-          <DigiPlusProduct />
-          <DigiPlusProduct />
-          <DigiPlusProduct />
-          <DigiPlusProduct />
-          <DigiPlusProduct />
+          {digiPlusProducts.map((product) => (
+            <DigiPlusProduct key={product.id} {...product} />
+          ))}
         </div>
       </div>
     </section>

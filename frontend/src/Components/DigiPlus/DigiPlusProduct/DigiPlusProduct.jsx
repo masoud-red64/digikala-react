@@ -1,15 +1,16 @@
 import React from "react";
 
 import "./DigiPlusProduct.css";
+import { Link } from "react-router-dom";
 
-export default function DigiPlusProduct() {
+export default function DigiPlusProduct({ img,shortName }) {
   return (
-    <a href="#" className="digiplus__left-bottom-product-link">
+    <Link to={`/product-info/${shortName}`} className="digiplus__left-bottom-product-link">
       <img
-        src="/images/digiplus/product12.jpg"
+        src={`/img/${img}`}
         alt="product"
         className="digiplus__left-bottom-img"
       />
-    </a>
+    </Link>
   );
 }

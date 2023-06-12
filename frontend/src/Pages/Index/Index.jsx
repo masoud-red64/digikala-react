@@ -28,6 +28,7 @@ export default function Index() {
   const [allMains, setAllMains] = useState([]);
   const [suggestedCategories, setSuggestedCategories] = useState([]);
   const [popularBrands, setPopularBrands] = useState([]);
+  const [digiPlusProducts, setDigiPlusProducts] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -40,6 +41,9 @@ export default function Index() {
           (product) => product.mainID === 5 && product.off
         );
         setSuperMarketProducts(superMarketProducts);
+
+        let digiPlusProducts = products.filter((product) => product.digiplus);
+        setDigiPlusProducts(digiPlusProducts);
       });
 
     getAllBanner1();
@@ -172,7 +176,7 @@ export default function Index() {
           />
           <PopularBrandSwiper popularBrands={popularBrands} />
           <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
-          <DigiPlus />
+          <DigiPlus digiPlusProducts={digiPlusProducts} />
           <DigiClub />
           <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
           <BestSelling />
