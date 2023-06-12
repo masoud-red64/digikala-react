@@ -34,6 +34,7 @@ export default function Main() {
   const [mostOffsProducts, setMostOffsProducts] = useState([]);
   const [bestSellingProducts, setBestSellingProducts] = useState([]);
   const [repeatedProducts, setRepeatedProducts] = useState([]);
+  const [mainSliders, setMainSliders] = useState([]);
 
   const { shortName } = useParams();
 
@@ -85,6 +86,7 @@ export default function Main() {
     getAllMain();
     getSuggestedCategory();
     getAllPopularBrands();
+    getMainSliders();
   }, [mainID]);
 
   async function getAllBanner1() {
@@ -137,12 +139,21 @@ export default function Main() {
       });
   }
 
+  async function getMainSliders() {
+    fetch("http://localhost:3000/api/slider")
+      .then((res) => res.json())
+      .then((sliders) => {
+        let mainSliders = sliders.filter((slider) => slider.mainID === mainID);
+        setMainSliders(mainSliders);
+      });
+  }
+
   return (
     <>
       <Header />
       <div className="main">
         <div className="container">
-          <TopSwiperJs borderRadius={true} />
+          <TopSwiperJs borderRadius={true} sliders={mainSliders} />
           <SuggestSwiper
             wonderfulProducts={wonderfulProducts}
             color={shortName}

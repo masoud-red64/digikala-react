@@ -31,6 +31,7 @@ export default function Index() {
   const [digiPlusProducts, setDigiPlusProducts] = useState([]);
   const [bestSellingProducts, setBestSellingProducts] = useState([]);
   const [allSelectedProducts, setAllSelectedProducts] = useState([]);
+  const [allTopSlider, setAllTopSlider] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -60,6 +61,7 @@ export default function Index() {
     getAllMain();
     getSuggestedCategory();
     getAllBrands();
+    getAllSliders();
   }, []);
 
   function getAllBanner1() {
@@ -97,11 +99,20 @@ export default function Index() {
       });
   }
 
+  async function getAllSliders() {
+    fetch("http://localhost:3000/api/slider")
+      .then((res) => res.json())
+      .then((sliders) => {
+        let severalSliders = shuffled([...sliders]).slice(0, 6);
+        setAllTopSlider(severalSliders);
+      });
+  }
+
   return (
     <>
       <Header />
       <div className="main">
-        <TopSwiperJs />
+        <TopSwiperJs sliders={allTopSlider} />
 
         <div className="container">
           <Services />
