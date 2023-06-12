@@ -28,6 +28,7 @@ export default function Main() {
   const [banners2, setBanners2] = useState([]);
   const [allMains, setAllMains] = useState([]);
   const [suggestedCategories, setSuggestedCategories] = useState([]);
+  const [popularBrands, setPopularBrands] = useState([]);
 
   const { shortName } = useParams();
 
@@ -53,6 +54,7 @@ export default function Main() {
     getAllBanner2();
     getAllMain();
     getSuggestedCategory();
+    getAllPopularBrands();
   }, [mainID]);
 
   async function getAllBanner1() {
@@ -96,6 +98,15 @@ export default function Main() {
       });
   }
 
+  async function getAllPopularBrands() {
+    fetch("http://localhost:3000/api/brands")
+      .then((res) => res.json())
+      .then((brands) => {
+        let mainBrands = brands.filter((brand) => brand.mainID === mainID);
+        setPopularBrands(mainBrands);
+      });
+  }
+
   return (
     <>
       <Header />
@@ -117,7 +128,7 @@ export default function Main() {
           <BestSelling />
           <Stores />
           <SelectedProducts title={"پرتکرارترین کالاها"} icon={false} />
-          <PopularBrandSwiper />
+          <PopularBrandSwiper popularBrands={popularBrands} />
           <Articles />
         </div>
       </div>

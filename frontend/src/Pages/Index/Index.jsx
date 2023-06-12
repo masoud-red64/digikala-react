@@ -27,11 +27,7 @@ export default function Index() {
   const [banners2, setBanners2] = useState([]);
   const [allMains, setAllMains] = useState([]);
   const [suggestedCategories, setSuggestedCategories] = useState([]);
-  const [baseVisitedProductsCategories, setBaseVisitedProductsCategories] =
-    useState([]);
-  const [baseVisitedCategoryTitle, setBaseVisitedCategoryTitle] = useState("");
-  const [baseVisitedCategoryID, setBaseVisitedCategoryID] = useState(null);
-  const [baseVisitedProducts, setBaseVisitedProducts] = useState([]);
+  const [popularBrands, setPopularBrands] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
@@ -49,6 +45,7 @@ export default function Index() {
     getAllBanner1();
     getAllMain();
     getSuggestedCategory();
+    getAllBrands();
   }, []);
 
   function getAllBanner1() {
@@ -75,6 +72,14 @@ export default function Index() {
           (category) => category.suggested
         );
         setSuggestedCategories(suggestedCategories);
+      });
+  }
+
+  function getAllBrands() {
+    fetch("http://localhost:3000/api/brands")
+      .then((res) => res.json())
+      .then((brands) => {
+        setPopularBrands(brands);
       });
   }
 
@@ -165,7 +170,7 @@ export default function Index() {
             title={"پیشنهاد دیجی کالا"}
             suggestedCategories={suggestedCategories}
           />
-          <PopularBrandSwiper />
+          <PopularBrandSwiper popularBrands={popularBrands} />
           <BaseVisitedCategories mt={"mt-5"} page={"indexPage"} />
           <DigiPlus />
           <DigiClub />
