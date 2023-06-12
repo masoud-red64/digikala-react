@@ -16,6 +16,7 @@ import BestSelling from "../../Components/BestSelling/BestSelling";
 import SelectedProducts from "../../Components/SelectedProducts/SelectedProducts";
 import Articles from "../../Components/Articles/Articles";
 import PercentBox from "../../Components/PercentBox/PercentBox";
+import DOMPurify from "dompurify";
 
 import "./Main.css";
 import Stores from "../../Components/Stores/Stores";
@@ -35,6 +36,8 @@ export default function Main() {
   const [bestSellingProducts, setBestSellingProducts] = useState([]);
   const [repeatedProducts, setRepeatedProducts] = useState([]);
   const [mainSliders, setMainSliders] = useState([]);
+  const [mainInformation, setMainInformation] = useState([]);
+  const [isShowMainInfo, setIsShowMainInfo] = useState(false);
 
   const { shortName } = useParams();
 
@@ -43,6 +46,8 @@ export default function Main() {
       .then((res) => res.json())
       .then((main) => {
         setMainID(main[0].id);
+        console.log(main);
+        setMainInformation(main[0].information);
       });
   }, [shortName]);
 
@@ -181,6 +186,66 @@ export default function Main() {
           />
           <PopularBrandSwiper popularBrands={popularBrands} />
           <Articles />
+          {mainInformation && (
+            <section
+              className="footer__digi-about-us mt-5 pt-5 border-0"
+              id="about-main-container"
+            >
+              <div>
+                <div
+                  className={`footer__digi-about-us-description ${
+                    isShowMainInfo
+                      ? "footer__digi-about-us-description--active"
+                      : ""
+                  }`}
+                  id="about-main-content-container"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(mainInformation),
+                  }}
+                ></div>
+
+                {isShowMainInfo ? (
+                  <span
+                    className="footer__digi-about-us-see-more"
+                    onClick={() => setIsShowMainInfo(false)}
+                  >
+                    بستن
+                    <svg
+                      className="footer__digi-about-us-see-more-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 64 64"
+                      id="arrow"
+                      style={{ width: "18px", height: "18px", fill: "#19bfd3" }}
+                    >
+                      <path
+                        fill="#19bfd3"
+                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                      ></path>
+                    </svg>
+                  </span>
+                ) : (
+                  <span
+                    className="footer__digi-about-us-see-more mt-3"
+                    onClick={() => setIsShowMainInfo(true)}
+                  >
+                    مشاهده بیشتر
+                    <svg
+                      className="footer__digi-about-us-see-more-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 64 64"
+                      id="arrow"
+                      style={{ width: "18px", height: "18px", fill: "#19bfd3" }}
+                    >
+                      <path
+                        fill="#19bfd3"
+                        d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
+                      ></path>
+                    </svg>
+                  </span>
+                )}
+              </div>
+            </section>
+          )}
         </div>
       </div>
       <Footer />
