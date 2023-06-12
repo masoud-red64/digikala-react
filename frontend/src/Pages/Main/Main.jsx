@@ -29,6 +29,9 @@ export default function Main() {
   const [allMains, setAllMains] = useState([]);
   const [suggestedCategories, setSuggestedCategories] = useState([]);
   const [popularBrands, setPopularBrands] = useState([]);
+  const [cheapestProducts, setCheapestProducts] = useState([]);
+  const [popularityProducts, setPopularityProducts] = useState([]);
+  const [mostOffsProducts, setMostOffsProducts] = useState([]);
 
   const { shortName } = useParams();
 
@@ -48,6 +51,21 @@ export default function Main() {
           (product) => product.mainID === mainID && product.wonder
         );
         setWonderfulProducts(wonderfulProducts);
+
+        let cheapestProducts = products
+          .filter((product) => product.mainID === mainID)
+          .sort((a, b) => a.price - b.price);
+        setCheapestProducts(cheapestProducts);
+
+        let popularityProducts = products
+          .filter((product) => product.mainID === mainID)
+          .sort((a, b) => a.score - b.score);
+        setPopularityProducts(popularityProducts);
+
+        let mostOffsProducts = products
+          .filter((product) => product.mainID === mainID)
+          .sort((a, b) => a.off - b.off);
+        setMostOffsProducts(mostOffsProducts);
       });
 
     getAllBanner1();
@@ -119,7 +137,13 @@ export default function Main() {
           />
           <Categories title={"خرید بر اساس دسته بندی"} mains={allMains} />
           <CategoryBanner col={"col-12 col-lg-6"} banners={[...banners1]} />
-          <BaseVisitedCategories mt={"mt-1"} page={"mainPage"} />
+          <BaseVisitedCategories
+            mt={"mt-1"}
+            page={"mainPage"}
+            cheapestProducts={cheapestProducts}
+            popularityProducts={popularityProducts}
+            mostOffsProducts={mostOffsProducts}
+          />
           <SuggestCategoriesSwiper
             title={"دسته بندی های پیشنهادی"}
             suggestedCategories={suggestedCategories}
