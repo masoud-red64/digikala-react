@@ -46,19 +46,10 @@ export default function Index() {
         setSuperMarketProducts(superMarketProducts);
       });
 
-    getAllCategories();
     getAllBanner1();
     getAllMain();
     getSuggestedCategory();
   }, []);
-
-  async function getAllCategories() {
-    await fetch("http://localhost:3000/api/categories")
-      .then((res) => res.json())
-      .then((categories) => {
-        setCategories(categories);
-      });
-  }
 
   function getAllBanner1() {
     fetch("http://localhost:3000/api/banner/2")
@@ -77,10 +68,14 @@ export default function Index() {
   }
 
   function getSuggestedCategory() {
-    let suggestedCategories = categories.filter(
-      (category) => category.suggested
-    );
-    setSuggestedCategories(suggestedCategories);
+    fetch("http://localhost:3000/api/categories")
+      .then((res) => res.json())
+      .then((categories) => {
+        let suggestedCategories = categories.filter(
+          (category) => category.suggested
+        );
+        setSuggestedCategories(suggestedCategories);
+      });
   }
 
   return (
