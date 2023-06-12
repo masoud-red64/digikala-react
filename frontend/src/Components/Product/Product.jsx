@@ -2,22 +2,29 @@ import React from "react";
 
 import "./Product.css";
 import PercentBox from "../PercentBox/PercentBox";
+import {
+  enToPersianNumber,
+  formatNumberWithSeparators,
+} from "../../func/utils";
+import { Link } from "react-router-dom";
 
-export default function Product() {
+export default function Product({ img, price, off, soldOut, time, shortName }) {
   return (
     <div className="selected-products__content">
-      <a href="#">
+      <Link to={`/product-info/${shortName}`}>
         <div className="suggest-swiper-slide__content suggest-swiper-slide__content-rounded-right">
           <img
-            src="/images/selected-products/product1.webp"
+            src={`/img/${img}`}
             alt="pants"
             className="suggest-swiper-slide__content-img"
           />
           <div className="suggest-swiper-slide__content-price-box">
-            <PercentBox />
+            <PercentBox percent={off} />
             <div className="suggest-swiper-slide__content-price-box-prices">
               <p className="suggest-swiper-slide__content-price-box-prices-after-discount">
-                ۶۲,۹۹۰
+                {formatNumberWithSeparators(
+                  enToPersianNumber(Math.floor(price - (price * off) / 100))
+                )}
                 <span>
                   <svg
                     id="toman"
@@ -34,25 +41,27 @@ export default function Product() {
                 </span>
               </p>
               <p className="suggest-swiper-slide__content-price-box-prices-before-discount">
-                ۷۹,۰۰۰
+                {formatNumberWithSeparators(enToPersianNumber(price))}
               </p>
             </div>
           </div>
         </div>
-      </a>
-      <div className="selected-products__content-finish">
-        <div className="selected-products__content-finish-progress">
-          <div className="selected-products__content-finish-progress-bar"></div>
+      </Link>
+      {soldOut ? (
+        <div className="selected-products__content-finish">
+          <div className="selected-products__content-finish-progress">
+            <div className="selected-products__content-finish-progress-bar"></div>
+          </div>
+          <div className="selected-products__content-finish-sale">
+            <p className="selected-products__content-finish-sale-text">
+              <span>{enToPersianNumber(soldOut)}%</span> فروش رفته
+            </p>
+            <p className="selected-products__content-finish-sale-time timer timer">
+              {enToPersianNumber(time)}
+            </p>
+          </div>
         </div>
-        <div className="selected-products__content-finish-sale">
-          <p className="selected-products__content-finish-sale-text">
-            <span>۹۰%</span> فروش رفته
-          </p>
-          <p className="selected-products__content-finish-sale-time timer timer">
-            ۰۰:۰۰:۳۰
-          </p>
-        </div>
-      </div>
+      ) : null}
       <div className="selected-products__content-add-to-cart">
         <button className="selected-products__content-add-to-cart-btn">
           <svg

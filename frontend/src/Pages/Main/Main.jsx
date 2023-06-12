@@ -33,6 +33,7 @@ export default function Main() {
   const [popularityProducts, setPopularityProducts] = useState([]);
   const [mostOffsProducts, setMostOffsProducts] = useState([]);
   const [bestSellingProducts, setBestSellingProducts] = useState([]);
+  const [repeatedProducts, setRepeatedProducts] = useState([]);
 
   const { shortName } = useParams();
 
@@ -72,6 +73,11 @@ export default function Main() {
           (product) => product.bestSell && product.mainID === mainID
         );
         setBestSellingProducts(bestSellingProducts);
+
+        let repeatedProducts = products.filter(
+          (product) => product.mostRepeated && product.mainID === mainID
+        );
+        setRepeatedProducts(repeatedProducts);
       });
 
     getAllBanner1();
@@ -157,7 +163,11 @@ export default function Main() {
           <CategoryBanner col={"col-6 col-lg-3"} banners={[...banners2]} />
           <BestSelling bestSellingProducts={bestSellingProducts} />
           <Stores />
-          <SelectedProducts title={"پرتکرارترین کالاها"} icon={false} />
+          <SelectedProducts
+            title={"پرتکرارترین کالاها"}
+            icon={false}
+            allSelectedProducts={repeatedProducts}
+          />
           <PopularBrandSwiper popularBrands={popularBrands} />
           <Articles />
         </div>
