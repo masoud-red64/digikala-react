@@ -69,66 +69,6 @@
 }
 .sidebar__category-list {
 }
-.sidebar__category-item {
-  margin-top: 3rem;
-}
-.sidebar__category-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.4rem;
-}
-.sidebar__category-item-icon {
-  width: 2.2rem;
-  height: 2.2rem;
-  transform: rotate(-90deg);
-}
-.sidebar__category-item-icon--active {
-  transform: rotate(90deg);
-}
-
-.sidebar__subcategory-list {
-  background-color: #f1f2f4;
-  margin: 1rem -2rem;
-  padding: 0.3rem 2rem;
-}
-.sidebar__subcategory-list--active {
-  display: block;
-}
-.sidebar__subcategory-item {
-  margin-top: 2rem;
-  padding-right: 2rem;
-}
-.sidebar__subcategory-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.3rem;
-}
-.sidebar__subcategory-item-icon {
-  width: 2.2rem;
-  height: 2.2rem;
-  transform: rotate(-90deg);
-}
-.sidebar__subcategory-item-icon--active {
-  transform: rotate(90deg);
-}
-
-.sidebar__subsubcategory-list {
-  display: none;
-}
-.sidebar__subsubcategory-list--active {
-  display: block;
-}
-.sidebar__subsubcategory-item {
-  margin-top: 2rem;
-  padding-right: 1.5rem;
-  font-size: 1.5rem;
-  color: var(--muted-color);
-}
-.sidebar__subsubcategory-link {
-  font-size: 1.3rem;
-}
 
 .overlay-when-sidebar-open {
   display: none;

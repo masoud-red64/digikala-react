@@ -22,8 +22,6 @@ export default function LocationModal({
     console.log(cities);
   }, [mainState]);
 
-  console.log(mainState);
-
   return (
     <>
       <div
