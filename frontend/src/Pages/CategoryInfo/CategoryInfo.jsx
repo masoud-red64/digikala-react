@@ -6,11 +6,8 @@ import CategoriesItem from "../../Components/CategoryPage/CategoriesItem/Categor
 import CategoryProduct from "../../Components/CategoryPage/CategoryProduct/CategoryProduct";
 import "./CategoryInfo.css";
 import SidebarCategoryList from "../../Components/Sidebar/SidebarCategoryList/SidebarCategoryList";
-import {
-  convertPersianToEnglishNumbers,
-  enToPersianNumber,
-  formatNumberWithSeparators,
-} from "../../../../../../../DigiKala/frontend/js/funcs/utils";
+import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
+import { useParams } from "react-router-dom";
 
 export default function CategoryInfo() {
   const [isShowMoreCategory, setIsShowMoreCategory] = useState(false);
@@ -26,8 +23,14 @@ export default function CategoryInfo() {
   const [minGap, setMinGap] = useState(0);
   const [percent1, setPercent1] = useState(null);
   const [percent2, setPercent2] = useState(null);
+  const [mainCategories, setMainCategories] = useState([]);
+  const [categoryID, setCategoryID] = useState(null);
+  const [categoryProducts, setCategoryProducts] = useState([]);
+  const [mainTitle, setMainTitle] = useState("");
+  const [categoryTitle, setCategoryTitle] = useState("");
 
   const slider1Ref = useRef();
+  const { shortName, mainID } = useParams();
 
   useEffect(() => {
     // Add a split character (comma) every three digits using a regular expression
@@ -44,6 +47,13 @@ export default function CategoryInfo() {
       )
     );
   }, [sliderValue1, sliderValue2]);
+
+  useEffect(() => {
+    getAllCategories();
+    getCategoryID();
+    getAllCategoryProducts();
+    getTargetMain();
+  }, [categoryID, shortName]);
 
   const changePriceHandler1 = (event) => {
     // Remove any existing separators from the input value
@@ -118,6 +128,44 @@ export default function CategoryInfo() {
     setPercent1((sliderValue1 / slider1Ref.current.max) * 100);
     setPercent2((sliderValue2 / slider1Ref.current.max) * 100);
   }
+
+  function getAllCategories() {
+    fetch(`http://localhost:3000/api/categories/category/${mainID}`)
+      .then((res) => res.json())
+      .then((categories) => {
+        console.log(categories);
+        setMainCategories(categories);
+      });
+  }
+
+  function getCategoryID() {
+    fetch(`http://localhost:3000/api/categories/products/${shortName}`)
+      .then((res) => res.json())
+      .then((categories) => {
+        setCategoryID(categories[0].id);
+        setCategoryTitle(categories[0].title);
+      });
+  }
+
+  function getAllCategoryProducts() {
+    fetch("http://localhost:3000/api/products")
+      .then((res) => res.json())
+      .then((products) => {
+        let categoryProducts = products.filter(
+          (product) => product.categoryID === categoryID
+        );
+        setCategoryProducts(categoryProducts);
+      });
+  }
+
+  function getTargetMain() {
+    fetch("http://localhost:3000/api/main")
+      .then((res) => res.json())
+      .then((mains) => {
+        let targetMain = mains.find((main) => main.id === Number(mainID));
+        setMainTitle(targetMain.title);
+      });
+  }
   return (
     <>
       <Header />
@@ -129,11 +177,11 @@ export default function CategoryInfo() {
             </a>
             <span className="mx-3">/</span>
             <a href="#" className="category-page__top-main">
-              محصولات بومی و محلی
+              {mainTitle}
             </a>
             <span className="mx-3">/</span>
             <a href="#" className="category-page__top-category">
-              خانه و کاشانه بومی محلی
+              {categoryTitle}
             </a>
           </div>
           <div className="category-page__categories">
@@ -142,14 +190,11 @@ export default function CategoryInfo() {
               className="d-flex overflow-auto mt-4 w-100"
               id="categories-container"
             >
-              <CategoriesItem />
-              <CategoriesItem />
-              <CategoriesItem />
-              <CategoriesItem />
-              <CategoriesItem />
-              <CategoriesItem />
+              {mainCategories.slice(0, 6).map((category) => (
+                <CategoriesItem key={category.id} {...category} />
+              ))}
 
-              {!isShowMoreCategory && (
+              {!isShowMoreCategory && mainCategories.length > 6 && (
                 <div
                   className="category-page__categories-item category-page__categories-see-more"
                   onClick={() => setIsShowMoreCategory(true)}
@@ -161,11 +206,9 @@ export default function CategoryInfo() {
               )}
               {isShowMoreCategory && (
                 <>
-                  <CategoriesItem />
-                  <CategoriesItem />
-                  <CategoriesItem />
-                  <CategoriesItem />
-                  <CategoriesItem />
+                  {mainCategories.slice(6, 20).map((category) => (
+                    <CategoriesItem key={category.id} {...category} />
+                  ))}
                 </>
               )}
             </div>
@@ -781,7 +824,9 @@ export default function CategoryInfo() {
 
                   <div className="category-page__products-wrapper">
                     <div className="row" id="category-product-container">
-                      <CategoryProduct />
+                      {categoryProducts.map((product) => (
+                        <CategoryProduct key={product.id} {...product} />
+                      ))}
                     </div>
                   </div>
                 </div>

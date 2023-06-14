@@ -5,7 +5,7 @@ import CategoryInfo from "./Pages/CategoryInfo/CategoryInfo";
 const routes = [
   { path: "/", element: <Index /> },
   { path: "main/:shortName", element: <Main /> },
-  { path: "category-info/:shortName", element: <CategoryInfo /> },
+  { path: "category-info/:shortName/:mainID", element: <CategoryInfo /> },
 ];
 
 export default routes;

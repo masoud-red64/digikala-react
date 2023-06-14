@@ -52,7 +52,7 @@ export default function SuggestCategoriesSwiper({
                       <>
                         <Link
                           key={category.id}
-                          to={`/category-info/${category.shortName}`}
+                          to={`/category-info/${category.shortName}/${category.mainID}`}
                           className="suggest-digikala__swiper-slide-content"
                         >
                           <div className="suggest-digikala__swiper-slide-content-wrapper-img">

@@ -6,7 +6,7 @@ import { enToPersianNumber } from "../../func/utils";
 export default function PercentBox({ percent }) {
   return (
     <p className="discount-percent">
-      {percent ? enToPersianNumber(percent) : "20"}
+      {percent ? enToPersianNumber(percent) : ""}
     </p>
   );
 }

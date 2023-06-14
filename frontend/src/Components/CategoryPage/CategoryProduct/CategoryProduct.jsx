@@ -1,22 +1,40 @@
 import React from "react";
 
 import "./CategoryProduct.css";
+import { Link } from "react-router-dom";
+import PercentBox from "../../PercentBox/PercentBox";
+import {
+  enToPersianNumber,
+  formatNumberWithSeparators,
+} from "../../../func/utils";
 
-export default function CategoryProduct() {
+export default function CategoryProduct({
+  off,
+  img,
+  title,
+  score,
+  price,
+  shortName,
+}) {
   return (
     <div className="col-12 col-md-6 col-xl-4 p-0 border-none">
-      <a href="#" className="category-page__products-content">
-        <img
-          src="/images/category/SpecialSell.svg"
-          alt="SpecialSell"
-          className="category-page__products-content-special-sell"
-          width="64"
-          height="14"
-          style={{ objectFit: "contain" }}
-        />
+      <Link
+        to={`/product-info/${shortName}`}
+        className="category-page__products-content"
+      >
+        {off ? (
+          <img
+            src="/images/category/SpecialSell.svg"
+            alt="SpecialSell"
+            className="category-page__products-content-special-sell"
+            width="64"
+            height="14"
+            style={{ objectFit: "contain" }}
+          />
+        ) : null}
         <div className="d-flex align-items-center justify-content-center">
           <img
-            src="/images/category/product1.webp"
+            src={`/img/${img}`}
             alt=""
             className="category-page__products-content-img"
             width="240"
@@ -34,9 +52,7 @@ export default function CategoryProduct() {
           </svg>
           کسب و کارهای بومی
         </p>
-        <p className="category-page__products-name">
-          کشک قلمی خشک تنقلاتی نوشکام - 300 گرم
-        </p>
+        <p className="category-page__products-name">{title}</p>
         <div className="d-flex align-items-center justify-content-between mt-5">
           <p className="fs-5">
             <svg
@@ -53,7 +69,7 @@ export default function CategoryProduct() {
             ارسال فردا
           </p>
           <p>
-            ۴
+            {enToPersianNumber(score)}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -64,12 +80,14 @@ export default function CategoryProduct() {
           </p>
         </div>
         <div className="same-product-for-buy__content-price-box">
-          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-            ۳۱
-          </p>
+          <PercentBox percent={off} />
           <div className="same-product-for-buy__content-price-box-prices">
             <p className="same-product-for-buy__content-price-box-prices-after-discount">
-              ۱۷,۲۰۰
+              {off
+                ? formatNumberWithSeparators(
+                    enToPersianNumber(price - (price * off) / 100)
+                  )
+                : formatNumberWithSeparators(enToPersianNumber(price))}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 14 14"
@@ -87,7 +105,7 @@ export default function CategoryProduct() {
               </svg>
             </p>
             <p className="same-product-for-buy__content-price-box-prices-before-discount">
-              ۲۵,۰۰۰
+              {off ? formatNumberWithSeparators(enToPersianNumber(price)) : ""}
             </p>
           </div>
         </div>
@@ -109,7 +127,7 @@ export default function CategoryProduct() {
             ></path>
           </svg>
         </button>
-      </a>
+      </Link>
     </div>
   );
 }
