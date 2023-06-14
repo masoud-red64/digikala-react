@@ -1,0 +1,123 @@
+.login,
+.login-sms,
+.login-email {
+  border: 1px solid var(--border-color-200);
+  border-radius: 1rem;
+  padding: 3rem;
+  width: 40rem;
+  height: 38rem;
+  margin-top: 20rem;
+}
+.login-email {
+  height: 33rem;
+}
+.login__logo,
+.login-sms__logo,
+.login-email__logo {
+  display: flex;
+  justify-content: center;
+}
+.login-sms__logo,
+.login-email__logo {
+  position: relative;
+}
+.login-sms__logo svg,
+.login-email__logo svg {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.login__logo-img,
+.login-sms__logo-img,
+.login-email__logo-img {
+  width: 14rem;
+}
+.login__title,
+.login-sms__title,
+.login-email__title {
+  font-size: 2.1rem;
+  margin: 2rem 0;
+}
+.login__subtitle,
+.login-sms__subtitle {
+  font-size: 1.3rem;
+  color: #3f4064;
+  margin-bottom: 1rem;
+}
+.login__form,
+.login-sms__form,
+.login-email__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  position: relative;
+}
+.eye-icon {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  cursor: pointer;
+}
+.eye-icon.closed::before {
+  content: "\f070";
+}
+
+.eye-icon.open::before {
+  content: "\f06e";
+}
+.login__form-input,
+.login-sms__form-input,
+.login-email__form-input {
+  border: 1px solid #c3c3ce;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  outline: none;
+}
+.login__form-input:focus,
+.login-sms__form-input:focus,
+.login-email__form-input:focus {
+  border-color: #008eb2;
+}
+.login__form-input-error {
+  font-size: 1.3rem;
+  color: #b2001a;
+}
+.login-sms__form-input-time {
+  color: #3f4064;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.login-email__form-input-forget {
+  color: #19bfd3;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.login__form-btn,
+.login-sms__form-btn,
+.login-email__form-btn {
+  margin-top: 3rem;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.login__footer {
+  margin-top: 1.5rem;
+}
+.login__footer-text {
+  font-size: 1.2rem;
+}
+.login__footer-link {
+  color: #008eb2;
+}
