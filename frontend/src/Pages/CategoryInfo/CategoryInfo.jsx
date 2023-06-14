@@ -28,6 +28,8 @@ export default function CategoryInfo() {
   const [categoryProducts, setCategoryProducts] = useState([]);
   const [mainTitle, setMainTitle] = useState("");
   const [categoryTitle, setCategoryTitle] = useState("");
+  const [isShowOrderMobile, setIsShowOrderMobile] = useState(false);
+  const [isShowFilterMobile, setIsShowFilterMobile] = useState(false);
 
   const slider1Ref = useRef();
   const { shortName, mainID } = useParams();
@@ -218,7 +220,11 @@ export default function CategoryInfo() {
             <div className="row">
               <div className="col-lg-3">
                 <div className="product-list__right">
-                  <div className="filtering-wrapper">
+                  <div
+                    className={`filtering-wrapper ${
+                      isShowFilterMobile ? "mobile" : ""
+                    }`}
+                  >
                     <p className="filtering__title d-flex justify-content-between align-items-center">
                       فیلترها
                       <svg
@@ -230,6 +236,7 @@ export default function CategoryInfo() {
                           height: "24px",
                           fill: "#3f4064",
                         }}
+                        onClick={() => setIsShowFilterMobile(false)}
                       >
                         <path
                           fillRule="evenodd"
@@ -691,7 +698,10 @@ export default function CategoryInfo() {
                 <div className="product-list__left">
                   <div className="ordering-wrapper">
                     <div className="d-flex align-items-center gap-3 d-lg-none">
-                      <div className="filter d-flex gap-2">
+                      <div
+                        className="filter d-flex gap-2"
+                        onClick={() => setIsShowFilterMobile(true)}
+                      >
                         <svg
                           id="filter"
                           xmlns="http://www.w3.org/2000/svg"
@@ -710,7 +720,10 @@ export default function CategoryInfo() {
                         </svg>
                         <p className="fs-5">فیلتر</p>
                       </div>
-                      <div className="order d-flex gap-2">
+                      <div
+                        className="order d-flex gap-2"
+                        onClick={() => setIsShowOrderMobile(true)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -771,7 +784,11 @@ export default function CategoryInfo() {
                       </ul>
                     </div>
                   </div>
-                  <div className="ordering-wrapper-mobile hide d-lg-none">
+                  <div
+                    className={`ordering-wrapper-mobile d-lg-none ${
+                      isShowOrderMobile ? "" : "hide"
+                    }`}
+                  >
                     <p className="ordering__text-mobile d-flex align-items-center justify-content-between">
                       مرتب سازی بر اساس
                       <svg
@@ -783,6 +800,7 @@ export default function CategoryInfo() {
                           height: "24px",
                           fill: "#3f4064",
                         }}
+                        onClick={() => setIsShowOrderMobile(false)}
                       >
                         <path
                           fillRule="evenodd"

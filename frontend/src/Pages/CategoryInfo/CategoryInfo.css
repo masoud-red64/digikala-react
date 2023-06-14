@@ -41,7 +41,7 @@
 }
 .filtering-wrapper.mobile {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   top: 0;
   left: 0;
   z-index: 99;
@@ -71,7 +71,13 @@
 }
 .filtering__list {
   margin-top: 3rem;
+  padding: 1rem;
   direction: rtl;
+}
+.filtering-wrapper.mobile .filtering__list {
+  height: 100vh;
+  overflow: auto;
+  margin-left: -2rem;
 }
 .filtering__item {
   padding: 1rem 0;
@@ -308,6 +314,7 @@ input[type="range"]::-ms-thumb {
   z-index: 10;
   padding: 2rem;
   transition: all 0.4s;
+  box-shadow: 2rem 0 2rem rgba(0, 0, 0, 0.1);
 }
 .overlay-when-order-open {
   display: none;
