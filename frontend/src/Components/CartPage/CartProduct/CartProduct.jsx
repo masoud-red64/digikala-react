@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   enToPersianNumber,
   formatNumberWithSeparators,
 } from "../../../func/utils";
 
 export default function CartProduct({ title, wonder, time, price, off, img }) {
+  const [countProduct, setCountProduct] = useState(1);
+
   return (
     <>
       <div className="col-3 col-sm-2">
@@ -29,23 +31,37 @@ export default function CartProduct({ title, wonder, time, price, off, img }) {
             </div>
           ) : null}
           <div className="cart-content__right-add-minus">
-            <button className="cart-content__right-add-btn">+</button>
-            <span className="cart-content__right-add-minus-count">۱</span>
+            <button
+              className="cart-content__right-add-btn"
+              onClick={() => setCountProduct((prev) => (prev += 1))}
+            >
+              +
+            </button>
+            <span className="cart-content__right-add-minus-count">
+              {enToPersianNumber(countProduct)}
+            </span>
             <button className="cart-content__right-minus">
-              <span className="cart-content__right-minus-btn d-none">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M20 11v2H4v-2h16z"></path>
-                </svg>
-              </span>
-              <span className="cart-content__right-delete-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    fillRule="evenodd"
-                    d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </span>
+              {countProduct > 1 && (
+                <span
+                  className="cart-content__right-minus-btn"
+                  onClick={() => setCountProduct((prev) => (prev -= 1))}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 11v2H4v-2h16z"></path>
+                  </svg>
+                </span>
+              )}
+              {countProduct === 1 && (
+                <span className="cart-content__right-delete-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      fillRule="evenodd"
+                      d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              )}
             </button>
           </div>
         </div>
