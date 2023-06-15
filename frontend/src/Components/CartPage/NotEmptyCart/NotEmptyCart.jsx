@@ -2,8 +2,9 @@ import React from "react";
 
 import "./NotEmptyCart.css";
 import CartProduct from "../CartProduct/CartProduct";
+import { enToPersianNumber } from "../../../func/utils";
 
-export default function NotEmptyCart() {
+export default function NotEmptyCart({ products }) {
   return (
     <div className="not-empty-cart">
       <div className="not-empty-cart__content">
@@ -65,13 +66,17 @@ export default function NotEmptyCart() {
                 </svg>
               </div>
               <p className="cart__subtitle">
-                <span className="cart__subtitle-count">۳</span> کالا
+                <span className="cart__subtitle-count">
+                  {enToPersianNumber(products.length)}
+                </span>{" "}
+                کالا
               </p>
 
               <div className="cart-content" id="cart-product-container">
                 <div className="row">
-                 <CartProduct/>
-                 <CartProduct/>
+                  {products.map((product) => (
+                    <CartProduct key={product.id} {...product} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -83,7 +88,7 @@ export default function NotEmptyCart() {
                   <p className="order__products-price-text">
                     قیمت کالاها
                     <span className="order__products-price-text-count">
-                      (۳)
+                      {`(${enToPersianNumber(products.length)})`}
                     </span>
                   </p>
                   <p className="order__products-price-count">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import "./Cart.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -6,6 +6,7 @@ import NotEmptyCart from "../../Components/CartPage/NotEmptyCart/NotEmptyCart";
 import EmptyCart from "../../Components/CartPage/EmptyCart/EmptyCart";
 import EmptyNextCart from "../../Components/CartPage/EmptyNextCart/EmptyNextCart";
 import NotEmptyNextCart from "../../Components/CartPage/NotEmptyNextCart/NotEmptyNextCart";
+import AuthContext from "../../contexts/authContext";
 
 export default function Cart() {
   const [isShowNotEmptyCart, setIsShowNotEmptyCart] = useState(false);
@@ -13,6 +14,42 @@ export default function Cart() {
   const [isShowEmptyCart, setIsShowEmptyCart] = useState(true);
   const [isShowEmptyNextCart, setIsShowEmptyNextCart] = useState(false);
   const [navbarTitle, setNavbarTitle] = useState("cart");
+  const [cartProducts, setCartProducts] = useState([]);
+
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    getAllCartProducts();
+  }, [authContext]);
+
+  const getAllCartProducts = useCallback(() => {
+    fetch("http://localhost:3000/api/cart")
+      .then((res) => res.json())
+      .then((cartProducts) => {
+        console.log(authContext.userInfo.id);
+        let mainCartProducts = cartProducts.filter(
+          (cartProduct) => cartProduct.userID === authContext.userInfo.id
+        );
+        console.log(mainCartProducts);
+        if (mainCartProducts.length) {
+          setCartProducts([]);
+          setIsShowEmptyCart(false);
+          setIsShowNotEmptyCart(true);
+          mainCartProducts.forEach((mainCartProduct) => {
+            fetch(
+              `http://localhost:3000/api/products/cart/${mainCartProduct.productID}`
+            )
+              .then((res) => res.json())
+              .then((product) => {
+                setCartProducts((prev) => [...prev, product[0]]);
+              });
+          });
+        } else {
+          setIsShowEmptyCart(true);
+          setIsShowNotEmptyCart(false);
+        }
+      });
+  }, [authContext]);
 
   return (
     <>
@@ -50,7 +87,7 @@ export default function Cart() {
               </li>
             </ul>
           </div>
-          {isShowNotEmptyCart && <NotEmptyCart />}
+          {isShowNotEmptyCart && <NotEmptyCart products={cartProducts} />}
           {isShowEmptyCart && <EmptyCart />}
           {isShowNotEmptyNextCart && <NotEmptyNextCart />}
           {isShowEmptyNextCart && <EmptyNextCart />}
