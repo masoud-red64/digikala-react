@@ -2,9 +2,17 @@ import React from "react";
 
 import "./NotEmptyCart.css";
 import CartProduct from "../CartProduct/CartProduct";
-import { enToPersianNumber } from "../../../func/utils";
+import {
+  enToPersianNumber,
+  formatNumberWithSeparators,
+} from "../../../func/utils";
 
-export default function NotEmptyCart({ products }) {
+export default function NotEmptyCart({
+  products,
+  sumPrice,
+  sumDiscount,
+  totalPrice,
+}) {
   return (
     <div className="not-empty-cart">
       <div className="not-empty-cart__content">
@@ -92,7 +100,10 @@ export default function NotEmptyCart({ products }) {
                     </span>
                   </p>
                   <p className="order__products-price-count">
-                    <span> ۵۲۵,۲۷۳</span>
+                    <span>
+                      {" "}
+                      {formatNumberWithSeparators(enToPersianNumber(sumPrice))}
+                    </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 14 14"
@@ -110,7 +121,12 @@ export default function NotEmptyCart({ products }) {
                 <div className="order__total-cart">
                   <p className="order__total-cart-text">جمع سبد خرید</p>
                   <p className="order__total-cart-price">
-                    <span> ۴۴۵,۶۰۰</span>
+                    <span>
+                      {" "}
+                      {formatNumberWithSeparators(
+                        enToPersianNumber(totalPrice)
+                      )}
+                    </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 14 14"
@@ -127,8 +143,18 @@ export default function NotEmptyCart({ products }) {
                 <div className="order__benefit">
                   <p className="order__benefit-text">سود شما از خرید</p>
                   <p className="order__benefit-price">
-                    <span className="order__benefit-price-percent">(۱۶٪)</span>
-                    <span className="order__benefit-price-price">۷۹,۶۷۳</span>
+                    <span className="order__benefit-price-percent">
+                      `(
+                      {enToPersianNumber(
+                        Math.floor((sumDiscount / sumPrice) * 100)
+                      )}
+                      %)`
+                    </span>
+                    <span className="order__benefit-price-price">
+                      {formatNumberWithSeparators(
+                        enToPersianNumber(sumDiscount)
+                      )}
+                    </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 14 14"
