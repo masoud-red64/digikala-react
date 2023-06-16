@@ -4,7 +4,12 @@ import "./NotEmptyNextCart.css";
 import NextCartProduct from "../NextCartProduct/NextCartProduct";
 import { enToPersianNumber } from "../../../func/utils";
 
-export default function NotEmptyNextCart({ products, removeNextCartProduct,moveProductToCart }) {
+export default function NotEmptyNextCart({
+  products,
+  removeNextCartProduct,
+  moveProductToCart,
+  moveAllProductsFromNextCartToCart,
+}) {
   return (
     <div className="not-empty-next-cart">
       <div className="row mt-4">
@@ -12,7 +17,10 @@ export default function NotEmptyNextCart({ products, removeNextCartProduct,moveP
           <div className="next-cart mt-4">
             <div className="next-cart__title">
               <p className="next-cart__title-text">لیست خرید بعدی شما</p>
-              <div className="next-cart-content__next-buy">
+              <div
+                className="next-cart-content__next-buy"
+                onClick={moveAllProductsFromNextCartToCart}
+              >
                 <p className="next-cart-content__next-buy-text">
                   انتقال همه به سبد خرید
                   <svg
@@ -64,7 +72,10 @@ export default function NotEmptyNextCart({ products, removeNextCartProduct,moveP
                 </span>
                 در لیست خرید بعدی شماست
               </p>
-              <button className="what-is-next-cart__add-all-to-cart">
+              <button
+                className="what-is-next-cart__add-all-to-cart"
+                onClick={moveAllProductsFromNextCartToCart}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

@@ -176,6 +176,26 @@ export default function Cart() {
       });
   }
 
+  function moveAllProductsFromNextCartToCart() {
+    fetch("http://localhost:3000/api/cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        fetch("http://localhost:3000/api/nextCart/remove", {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            getAllCartProducts();
+            getAllNextCartProducts();
+          });
+      });
+  }
+
   return (
     <>
       <Header />
@@ -241,6 +261,9 @@ export default function Cart() {
               products={nextCartProducts}
               removeNextCartProduct={removeNextCartProduct}
               moveProductToCart={moveProductToCart}
+              moveAllProductsFromNextCartToCart={
+                moveAllProductsFromNextCartToCart
+              }
             />
           )}
           {isShowEmptyNextCart && <EmptyNextCart />}
