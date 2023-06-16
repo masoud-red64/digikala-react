@@ -7,7 +7,6 @@ import EmptyCart from "../../Components/CartPage/EmptyCart/EmptyCart";
 import EmptyNextCart from "../../Components/CartPage/EmptyNextCart/EmptyNextCart";
 import NotEmptyNextCart from "../../Components/CartPage/NotEmptyNextCart/NotEmptyNextCart";
 import AuthContext from "../../contexts/authContext";
-import _ from "lodash";
 
 export default function Cart() {
   const [isShowNotEmptyCart, setIsShowNotEmptyCart] = useState(false);
@@ -16,9 +15,6 @@ export default function Cart() {
   const [isShowEmptyNextCart, setIsShowEmptyNextCart] = useState(false);
   const [navbarTitle, setNavbarTitle] = useState("cart");
   const [cartProducts, setCartProducts] = useState([]);
-  const [sumPrice, setSumPrice] = useState(0);
-  const [sumDiscount, setSumDiscount] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
 
   const authContext = useContext(AuthContext);
 
@@ -37,9 +33,6 @@ export default function Cart() {
         console.log(mainCartProducts);
         if (mainCartProducts.length) {
           setCartProducts([]);
-          setSumPrice(0);
-          setSumDiscount(0);
-          setTotalPrice(0);
           setIsShowEmptyCart(false);
           setIsShowNotEmptyCart(true);
           mainCartProducts.forEach((mainCartProduct) => {
@@ -49,16 +42,6 @@ export default function Cart() {
               .then((res) => res.json())
               .then((product) => {
                 setCartProducts((prev) => [...prev, product[0]]);
-                setSumPrice((prev) => (prev += product[0].price));
-                setSumDiscount(
-                  (prev) => (prev += (product[0].price * product[0].off) / 100)
-                );
-                setTotalPrice(
-                  (prev) =>
-                    (prev +=
-                      product[0].price -
-                      (product[0].price * product[0].off) / 100)
-                );
               });
           });
         } else {
@@ -104,7 +87,7 @@ export default function Cart() {
               </li>
             </ul>
           </div>
-          {isShowNotEmptyCart && <NotEmptyCart products={cartProducts} sumPrice={sumPrice} sumDiscount={sumDiscount} totalPrice={totalPrice}/>}
+          {isShowNotEmptyCart && <NotEmptyCart products={cartProducts} />}
           {isShowEmptyCart && <EmptyCart />}
           {isShowNotEmptyNextCart && <NotEmptyNextCart />}
           {isShowEmptyNextCart && <EmptyNextCart />}

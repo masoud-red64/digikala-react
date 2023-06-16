@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   enToPersianNumber,
   formatNumberWithSeparators,
 } from "../../../func/utils";
 
-export default function CartProduct({ title, wonder, time, price, off, img }) {
+export default function CartProduct({
+  title,
+  wonder,
+  time,
+  price,
+  off,
+  img,
+  setSumPrice,
+  setSumDiscount,
+  setTotalPrice,
+  sumDiscount,
+}) {
   const [countProduct, setCountProduct] = useState(1);
 
+  useEffect(() => {
+    setSumPrice((prev) => (prev += price));
+    setSumDiscount((prev) => (prev += (price * off) / 100));
+    setTotalPrice((prev) => (prev += price - (price * off) / 100));
+  }, []);
   return (
     <>
       <div className="col-3 col-sm-2">
@@ -33,7 +49,12 @@ export default function CartProduct({ title, wonder, time, price, off, img }) {
           <div className="cart-content__right-add-minus">
             <button
               className="cart-content__right-add-btn"
-              onClick={() => setCountProduct((prev) => (prev += 1))}
+              onClick={() => {
+                setCountProduct((prev) => (prev += 1));
+                setSumPrice((prev) => (prev += price));
+                setSumDiscount((prev) => (prev += (price * off) / 100));
+                setTotalPrice((prev) => (prev += price - (price * off) / 100));
+              }}
             >
               +
             </button>
@@ -44,7 +65,14 @@ export default function CartProduct({ title, wonder, time, price, off, img }) {
               {countProduct > 1 && (
                 <span
                   className="cart-content__right-minus-btn"
-                  onClick={() => setCountProduct((prev) => (prev -= 1))}
+                  onClick={() => {
+                    setCountProduct((prev) => (prev -= 1));
+                    setSumPrice((prev) => (prev -= price));
+                    setSumDiscount((prev) => (prev -= (price * off) / 100));
+                    setTotalPrice(
+                      (prev) => (prev -= price - (price * off) / 100)
+                    );
+                  }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M20 11v2H4v-2h16z"></path>
@@ -154,7 +182,7 @@ export default function CartProduct({ title, wonder, time, price, off, img }) {
               {off ? (
                 <span>
                   {formatNumberWithSeparators(
-                    enToPersianNumber((price * off) / 100)
+                    enToPersianNumber(((price * off) / 100) * countProduct)
                   )}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +201,7 @@ export default function CartProduct({ title, wonder, time, price, off, img }) {
             </p>
             <p className="cart-content__left-real">
               {formatNumberWithSeparators(
-                enToPersianNumber(price - (price * off) / 100)
+                enToPersianNumber((price - (price * off) / 100) * countProduct)
               )}
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
                 <path

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./NotEmptyCart.css";
 import CartProduct from "../CartProduct/CartProduct";
@@ -7,12 +7,21 @@ import {
   formatNumberWithSeparators,
 } from "../../../func/utils";
 
-export default function NotEmptyCart({
-  products,
-  sumPrice,
-  sumDiscount,
-  totalPrice,
-}) {
+export default function NotEmptyCart({ products }) {
+  const [sumPrice, setSumPrice] = useState(0);
+  const [sumDiscount, setSumDiscount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  // useEffect(() => {
+  //   products.forEach((product) => {
+  //     setSumPrice((prev) => (prev += product.price));
+  //     setSumDiscount((prev) => (prev += (product.price * product.off) / 100));
+  //     setTotalPrice(
+  //       (prev) => (prev += product.price - (product.price * product.off) / 100)
+  //     );
+  //   });
+  // }, [products]);
+
   return (
     <div className="not-empty-cart">
       <div className="not-empty-cart__content">
@@ -83,7 +92,14 @@ export default function NotEmptyCart({
               <div className="cart-content" id="cart-product-container">
                 <div className="row">
                   {products.map((product) => (
-                    <CartProduct key={product.id} {...product} />
+                    <CartProduct
+                      key={product.id}
+                      {...product}
+                      setSumPrice={setSumPrice}
+                      setSumDiscount={setSumDiscount}
+                      setTotalPrice={setTotalPrice}
+                      sumDiscount={sumDiscount}
+                    />
                   ))}
                 </div>
               </div>
