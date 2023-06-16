@@ -11,6 +11,7 @@ export default function NextCartProduct({
   img,
   removeNextCartProduct,
   id,
+  moveProductToCart,
 }) {
   return (
     <>
@@ -167,7 +168,10 @@ export default function NextCartProduct({
             </p>
           </div>
 
-          <button className="next-cart-content__left-add-to-cart-btn">
+          <button
+            className="next-cart-content__left-add-to-cart-btn"
+            onClick={() => moveProductToCart(id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

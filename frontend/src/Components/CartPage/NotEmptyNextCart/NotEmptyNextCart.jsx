@@ -4,7 +4,7 @@ import "./NotEmptyNextCart.css";
 import NextCartProduct from "../NextCartProduct/NextCartProduct";
 import { enToPersianNumber } from "../../../func/utils";
 
-export default function NotEmptyNextCart({ products, removeNextCartProduct }) {
+export default function NotEmptyNextCart({ products, removeNextCartProduct,moveProductToCart }) {
   return (
     <div className="not-empty-next-cart">
       <div className="row mt-4">
@@ -40,6 +40,7 @@ export default function NotEmptyNextCart({ products, removeNextCartProduct }) {
                       key={product.id}
                       {...product}
                       removeNextCartProduct={removeNextCartProduct}
+                      moveProductToCart={moveProductToCart}
                     />
                   ))}
                 </div>

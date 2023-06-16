@@ -14,7 +14,7 @@ export default function Cart() {
   const [isShowNotEmptyNextCart, setIsShowNotEmptyNextCart] = useState(false);
   const [isShowEmptyCart, setIsShowEmptyCart] = useState(true);
   const [isShowEmptyNextCart, setIsShowEmptyNextCart] = useState(false);
-  const [navbarTitle, setNavbarTitle] = useState("cart");
+  const [navbarTitle, setNavbarTitle] = useState("");
   const [cartProducts, setCartProducts] = useState([]);
   const [nextCartProducts, setNextCartProducts] = useState([]);
   const [sumPrice, setSumPrice] = useState(0);
@@ -26,6 +26,7 @@ export default function Cart() {
   useEffect(() => {
     getAllNextCartProducts();
     getAllCartProducts();
+    setNavbarTitle("cart");
   }, [authContext]);
 
   const getAllCartProducts = useCallback(() => {
@@ -91,6 +92,7 @@ export default function Cart() {
           setIsShowNotEmptyCart(false);
           setIsShowEmptyCart(false);
           setIsShowNotEmptyCart(false);
+          setNextCartProducts([]);
         }
       });
   }, [authContext]);
@@ -130,20 +132,48 @@ export default function Cart() {
         })
           .then((res) => res.json())
           .then((result) => {
-            getAllCartProducts();
             getAllNextCartProducts();
+            getAllCartProducts();
           });
       });
   }
 
   function removeNextCartProduct(productID) {
     fetch(`http://localhost:3000/api/nextCart/remove/${productID}`, {
-    method: "DELETE",
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      getAllNextCartProducts();
-    });
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        getAllNextCartProducts();
+      });
+  }
+
+  async function moveProductToCart(productID) {
+    let userID = await authContext.userInfo.id;
+
+    let newProduct = {
+      userID,
+      productID,
+    };
+
+    fetch("http://localhost:3000/api/cart/new-product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        fetch(`http://localhost:3000/api/nextCart/remove/${productID}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            getAllCartProducts();
+            getAllNextCartProducts();
+          });
+      });
   }
 
   return (
@@ -207,7 +237,11 @@ export default function Cart() {
           )}
           {isShowEmptyCart && <EmptyCart />}
           {isShowNotEmptyNextCart && (
-            <NotEmptyNextCart products={nextCartProducts} removeNextCartProduct={removeNextCartProduct} />
+            <NotEmptyNextCart
+              products={nextCartProducts}
+              removeNextCartProduct={removeNextCartProduct}
+              moveProductToCart={moveProductToCart}
+            />
           )}
           {isShowEmptyNextCart && <EmptyNextCart />}
         </div>
