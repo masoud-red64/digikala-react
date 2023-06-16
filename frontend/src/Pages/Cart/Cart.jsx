@@ -17,12 +17,15 @@ export default function Cart() {
   const [navbarTitle, setNavbarTitle] = useState("cart");
   const [cartProducts, setCartProducts] = useState([]);
   const [nextCartProducts, setNextCartProducts] = useState([]);
+  const [sumPrice, setSumPrice] = useState(0);
+  const [sumDiscount, setSumDiscount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
     getAllCartProducts();
-    getAllNextCartProducts()
+    getAllNextCartProducts();
   }, [authContext]);
 
   const getAllCartProducts = useCallback(() => {
@@ -48,6 +51,7 @@ export default function Cart() {
               });
           });
         } else {
+          setCartProducts([]);
           setIsShowEmptyCart(true);
           setIsShowNotEmptyCart(false);
         }
@@ -82,6 +86,19 @@ export default function Cart() {
         }
       });
   }, [authContext]);
+
+  function removeCartProduct(productID) {
+    fetch(`http://localhost:3000/api/cart/remove/${productID}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setSumPrice(0);
+        setSumDiscount(0);
+        setTotalPrice(0);
+        getAllCartProducts();
+      });
+  }
 
   return (
     <>
@@ -123,13 +140,28 @@ export default function Cart() {
                 }}
               >
                 خرید بعدی
-                <span className="cart-navbar__item-next-cart-count">{enToPersianNumber(nextCartProducts.length)}</span>
+                <span className="cart-navbar__item-next-cart-count">
+                  {enToPersianNumber(nextCartProducts.length)}
+                </span>
               </li>
             </ul>
           </div>
-          {isShowNotEmptyCart && <NotEmptyCart products={cartProducts} />}
+          {isShowNotEmptyCart && (
+            <NotEmptyCart
+              products={cartProducts}
+              removeCartProduct={removeCartProduct}
+              sumPrice={sumPrice}
+              setSumPrice={setSumPrice}
+              sumDiscount={sumDiscount}
+              setSumDiscount={setSumDiscount}
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice}
+            />
+          )}
           {isShowEmptyCart && <EmptyCart />}
-          {isShowNotEmptyNextCart && <NotEmptyNextCart products={nextCartProducts}/>}
+          {isShowNotEmptyNextCart && (
+            <NotEmptyNextCart products={nextCartProducts} />
+          )}
           {isShowEmptyNextCart && <EmptyNextCart />}
         </div>
       </div>

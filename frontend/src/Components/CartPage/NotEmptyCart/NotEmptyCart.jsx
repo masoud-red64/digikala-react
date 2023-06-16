@@ -12,10 +12,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Product from "../../Product/Product";
 
-export default function NotEmptyCart({ products }) {
-  const [sumPrice, setSumPrice] = useState(0);
-  const [sumDiscount, setSumDiscount] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+export default function NotEmptyCart({
+  products,
+  removeCartProduct,
+  sumPrice,
+  setSumPrice,
+  sumDiscount,
+  setSumDiscount,
+  totalPrice,
+  setTotalPrice,
+}) {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
@@ -103,6 +109,7 @@ export default function NotEmptyCart({ products }) {
                       setSumDiscount={setSumDiscount}
                       setTotalPrice={setTotalPrice}
                       sumDiscount={sumDiscount}
+                      removeCartProduct={removeCartProduct}
                     />
                   ))}
                 </div>
@@ -122,7 +129,9 @@ export default function NotEmptyCart({ products }) {
                   <p className="order__products-price-count">
                     <span>
                       {" "}
-                      {formatNumberWithSeparators(enToPersianNumber(sumPrice))}
+                      {formatNumberWithSeparators(
+                        enToPersianNumber(Math.floor(sumPrice))
+                      )}
                     </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +153,7 @@ export default function NotEmptyCart({ products }) {
                     <span>
                       {" "}
                       {formatNumberWithSeparators(
-                        enToPersianNumber(totalPrice)
+                        enToPersianNumber(Math.floor(totalPrice))
                       )}
                     </span>
                     <svg
@@ -172,7 +181,7 @@ export default function NotEmptyCart({ products }) {
                     </span>
                     <span className="order__benefit-price-price">
                       {formatNumberWithSeparators(
-                        enToPersianNumber(sumDiscount)
+                        enToPersianNumber(Math.floor(sumDiscount))
                       )}
                     </span>
                     <svg

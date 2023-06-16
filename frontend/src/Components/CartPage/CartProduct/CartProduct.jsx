@@ -14,7 +14,8 @@ export default function CartProduct({
   setSumPrice,
   setSumDiscount,
   setTotalPrice,
-  sumDiscount,
+  id,
+  removeCartProduct,
 }) {
   const [countProduct, setCountProduct] = useState(1);
 
@@ -80,7 +81,10 @@ export default function CartProduct({
                 </span>
               )}
               {countProduct === 1 && (
-                <span className="cart-content__right-delete-icon">
+                <span
+                  className="cart-content__right-delete-icon"
+                  onClick={() => removeCartProduct(id)}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       fillRule="evenodd"
@@ -182,7 +186,9 @@ export default function CartProduct({
               {off ? (
                 <span>
                   {formatNumberWithSeparators(
-                    enToPersianNumber(((price * off) / 100) * countProduct)
+                    enToPersianNumber(
+                      Math.floor(((price * off) / 100) * countProduct)
+                    )
                   )}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -201,7 +207,9 @@ export default function CartProduct({
             </p>
             <p className="cart-content__left-real">
               {formatNumberWithSeparators(
-                enToPersianNumber((price - (price * off) / 100) * countProduct)
+                enToPersianNumber(
+                  Math.floor((price - (price * off) / 100) * countProduct)
+                )
               )}
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
                 <path
