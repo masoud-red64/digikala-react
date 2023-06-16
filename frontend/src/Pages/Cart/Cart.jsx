@@ -134,6 +134,9 @@ export default function Cart() {
           .then((result) => {
             getAllNextCartProducts();
             getAllCartProducts();
+            setSumPrice(0);
+            setSumDiscount(0);
+            setTotalPrice(0);
           });
       });
   }
@@ -172,6 +175,9 @@ export default function Cart() {
           .then((result) => {
             getAllCartProducts();
             getAllNextCartProducts();
+            setSumPrice(0);
+            setSumDiscount(0);
+            setTotalPrice(0);
           });
       });
   }
@@ -192,6 +198,9 @@ export default function Cart() {
           .then((result) => {
             getAllCartProducts();
             getAllNextCartProducts();
+            setSumPrice(0);
+            setSumDiscount(0);
+            setTotalPrice(0);
           });
       });
   }
@@ -215,6 +224,9 @@ export default function Cart() {
                     : setIsShowEmptyCart(true);
                   setIsShowEmptyNextCart(false);
                   setIsShowNotEmptyNextCart(false);
+                  setSumPrice(0);
+                  setSumDiscount(0);
+                  setTotalPrice(0);
                 }}
               >
                 سبد خرید
@@ -233,6 +245,9 @@ export default function Cart() {
                     : setIsShowEmptyNextCart(true);
                   setIsShowNotEmptyCart(false);
                   setIsShowEmptyCart(false);
+                  setSumPrice(0);
+                  setSumDiscount(0);
+                  setTotalPrice(0);
                 }}
               >
                 خرید بعدی
