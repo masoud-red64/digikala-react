@@ -7,6 +7,7 @@ import EmptyCart from "../../Components/CartPage/EmptyCart/EmptyCart";
 import EmptyNextCart from "../../Components/CartPage/EmptyNextCart/EmptyNextCart";
 import NotEmptyNextCart from "../../Components/CartPage/NotEmptyNextCart/NotEmptyNextCart";
 import AuthContext from "../../contexts/authContext";
+import { enToPersianNumber } from "../../func/utils";
 
 export default function Cart() {
   const [isShowNotEmptyCart, setIsShowNotEmptyCart] = useState(false);
@@ -15,11 +16,13 @@ export default function Cart() {
   const [isShowEmptyNextCart, setIsShowEmptyNextCart] = useState(false);
   const [navbarTitle, setNavbarTitle] = useState("cart");
   const [cartProducts, setCartProducts] = useState([]);
+  const [nextCartProducts, setNextCartProducts] = useState([]);
 
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
     getAllCartProducts();
+    getAllNextCartProducts()
   }, [authContext]);
 
   const getAllCartProducts = useCallback(() => {
@@ -51,6 +54,35 @@ export default function Cart() {
       });
   }, [authContext]);
 
+  const getAllNextCartProducts = useCallback(() => {
+    fetch("http://localhost:3000/api/nextCart")
+      .then((res) => res.json())
+      .then((cartProducts) => {
+        console.log(authContext.userInfo.id);
+        let mainNextCartProducts = cartProducts.filter(
+          (cartProduct) => cartProduct.userID === authContext.userInfo.id
+        );
+        console.log(mainNextCartProducts);
+        if (mainNextCartProducts.length) {
+          setNextCartProducts([]);
+          setIsShowEmptyNextCart(false);
+          setIsShowNotEmptyNextCart(true);
+          mainNextCartProducts.forEach((mainCartProduct) => {
+            fetch(
+              `http://localhost:3000/api/products/cart/${mainCartProduct.productID}`
+            )
+              .then((res) => res.json())
+              .then((product) => {
+                setNextCartProducts((prev) => [...prev, product[0]]);
+              });
+          });
+        } else {
+          setIsShowEmptyNextCart(true);
+          setIsShowNotEmptyCart(false);
+        }
+      });
+  }, [authContext]);
+
   return (
     <>
       <Header />
@@ -65,12 +97,17 @@ export default function Cart() {
                 }`}
                 onClick={() => {
                   setNavbarTitle("cart");
-                  setIsShowEmptyCart(true);
+                  cartProducts.length
+                    ? setIsShowNotEmptyCart(true)
+                    : setIsShowEmptyCart(true);
                   setIsShowEmptyNextCart(false);
+                  setIsShowNotEmptyNextCart(false);
                 }}
               >
                 سبد خرید
-                <span className="cart-navbar__item-cart-count">۱</span>
+                <span className="cart-navbar__item-cart-count">
+                  {enToPersianNumber(cartProducts.length)}
+                </span>
               </li>
               <li
                 className={`cart-navbar__item ${
@@ -78,18 +115,21 @@ export default function Cart() {
                 }`}
                 onClick={() => {
                   setNavbarTitle("next-cart");
+                  nextCartProducts.length
+                    ? setIsShowNotEmptyNextCart(true)
+                    : setIsShowEmptyNextCart(true);
+                  setIsShowNotEmptyCart(false);
                   setIsShowEmptyCart(false);
-                  setIsShowEmptyNextCart(true);
                 }}
               >
                 خرید بعدی
-                <span className="cart-navbar__item-next-cart-count">۱</span>
+                <span className="cart-navbar__item-next-cart-count">{enToPersianNumber(nextCartProducts.length)}</span>
               </li>
             </ul>
           </div>
           {isShowNotEmptyCart && <NotEmptyCart products={cartProducts} />}
           {isShowEmptyCart && <EmptyCart />}
-          {isShowNotEmptyNextCart && <NotEmptyNextCart />}
+          {isShowNotEmptyNextCart && <NotEmptyNextCart products={nextCartProducts}/>}
           {isShowEmptyNextCart && <EmptyNextCart />}
         </div>
       </div>

@@ -293,7 +293,7 @@
   margin-top: 3rem;
 }
 .cart-content__left-discount,
-.cart-content__left-discount {
+.next-cart-content__left-discount {
   font-size: 1.3rem;
   color: var(--primary-color);
 }
@@ -652,4 +652,12 @@
 .empty-next-cart__content-text {
   font-size: 1.2rem;
   color: #5a5c7a;
+}
+
+.selected-products__content {
+  width: unset !important;
+  border-bottom: 0;
+}
+.suggest-swiper-slide__content {
+  border-left: 1px solid var(--border-color-200);
 }

@@ -3,7 +3,7 @@ import React from "react";
 import "./NotEmptyNextCart.css";
 import NextCartProduct from "../NextCartProduct/NextCartProduct";
 
-export default function NotEmptyNextCart() {
+export default function NotEmptyNextCart({ products }) {
   return (
     <div className="not-empty-next-cart">
       <div className="row mt-4">
@@ -31,8 +31,9 @@ export default function NotEmptyNextCart() {
             <div id="next-cart-product-container">
               <div className="next-cart-content">
                 <div className="row">
-                 <NextCartProduct/>
-                 <NextCartProduct/>
+                  {products.map((product) => (
+                    <NextCartProduct key={product.id} {...product} />
+                  ))}
                 </div>
               </div>
             </div>

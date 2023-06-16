@@ -47,21 +47,23 @@ export default function Product({ img, price, off, soldOut, time, shortName }) {
           </div>
         </div>
       </Link>
-      {soldOut ? (
-        <div className="selected-products__content-finish">
-          <div className="selected-products__content-finish-progress">
-            <div className="selected-products__content-finish-progress-bar"></div>
-          </div>
-          <div className="selected-products__content-finish-sale">
-            <p className="selected-products__content-finish-sale-text">
-              <span>{enToPersianNumber(soldOut)}%</span> فروش رفته
-            </p>
-            <p className="selected-products__content-finish-sale-time timer timer">
-              {enToPersianNumber(time)}
-            </p>
-          </div>
-        </div>
-      ) : null}
+      <div className="selected-products__content-finish">
+        {soldOut ? (
+          <>
+            <div className="selected-products__content-finish-progress">
+              <div className="selected-products__content-finish-progress-bar"></div>
+            </div>
+            <div className="selected-products__content-finish-sale">
+              <p className="selected-products__content-finish-sale-text">
+                <span>{enToPersianNumber(soldOut)}%</span> فروش رفته
+              </p>
+              <p className="selected-products__content-finish-sale-time timer timer">
+                {enToPersianNumber(time)}
+              </p>
+            </div>
+          </>
+        ) : null}
+      </div>
       <div className="selected-products__content-add-to-cart">
         <button className="selected-products__content-add-to-cart-btn">
           <svg
