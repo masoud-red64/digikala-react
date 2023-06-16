@@ -24,8 +24,8 @@ export default function Cart() {
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
-    getAllCartProducts();
     getAllNextCartProducts();
+    getAllCartProducts();
   }, [authContext]);
 
   const getAllCartProducts = useCallback(() => {
@@ -41,6 +41,8 @@ export default function Cart() {
           setCartProducts([]);
           setIsShowEmptyCart(false);
           setIsShowNotEmptyCart(true);
+          setIsShowEmptyNextCart(false);
+          setIsShowNotEmptyNextCart(false);
           mainCartProducts.forEach((mainCartProduct) => {
             fetch(
               `http://localhost:3000/api/products/cart/${mainCartProduct.productID}`
@@ -54,6 +56,8 @@ export default function Cart() {
           setCartProducts([]);
           setIsShowEmptyCart(true);
           setIsShowNotEmptyCart(false);
+          setIsShowEmptyNextCart(false);
+          setIsShowNotEmptyNextCart(false);
         }
       });
   }, [authContext]);
@@ -71,6 +75,8 @@ export default function Cart() {
           setNextCartProducts([]);
           setIsShowEmptyNextCart(false);
           setIsShowNotEmptyNextCart(true);
+          setIsShowEmptyCart(false);
+          setIsShowNotEmptyCart(false);
           mainNextCartProducts.forEach((mainCartProduct) => {
             fetch(
               `http://localhost:3000/api/products/cart/${mainCartProduct.productID}`
@@ -82,6 +88,8 @@ export default function Cart() {
           });
         } else {
           setIsShowEmptyNextCart(true);
+          setIsShowNotEmptyCart(false);
+          setIsShowEmptyCart(false);
           setIsShowNotEmptyCart(false);
         }
       });
@@ -97,6 +105,34 @@ export default function Cart() {
         setSumDiscount(0);
         setTotalPrice(0);
         getAllCartProducts();
+      });
+  }
+
+  async function moveProductToNextCart(productID) {
+    let userID = await authContext.userInfo.id;
+
+    let newProduct = {
+      userID,
+      productID,
+    };
+
+    fetch("http://localhost:3000/api/nextCart/new-product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        fetch(`http://localhost:3000/api/cart/remove/${productID}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            getAllCartProducts();
+            getAllNextCartProducts();
+          });
       });
   }
 
@@ -156,6 +192,7 @@ export default function Cart() {
               setSumDiscount={setSumDiscount}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
+              moveProductToNextCart={moveProductToNextCart}
             />
           )}
           {isShowEmptyCart && <EmptyCart />}

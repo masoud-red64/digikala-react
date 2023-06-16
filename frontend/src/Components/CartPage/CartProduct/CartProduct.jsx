@@ -16,6 +16,7 @@ export default function CartProduct({
   setTotalPrice,
   id,
   removeCartProduct,
+  moveProductToNextCart,
 }) {
   const [countProduct, setCountProduct] = useState(1);
 
@@ -220,7 +221,10 @@ export default function CartProduct({
               </svg>
             </p>
           </div>
-          <div className="cart-content__next-buy">
+          <div
+            className="cart-content__next-buy"
+            onClick={() => moveProductToNextCart(id)}
+          >
             <p className="cart-content__next-buy-text">
               انتقال به خرید بعدی
               <svg

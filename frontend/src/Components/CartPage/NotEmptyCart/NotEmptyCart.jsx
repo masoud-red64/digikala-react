@@ -21,6 +21,7 @@ export default function NotEmptyCart({
   setSumDiscount,
   totalPrice,
   setTotalPrice,
+  moveProductToNextCart,
 }) {
   const [allProducts, setAllProducts] = useState([]);
 
@@ -110,6 +111,7 @@ export default function NotEmptyCart({
                       setTotalPrice={setTotalPrice}
                       sumDiscount={sumDiscount}
                       removeCartProduct={removeCartProduct}
+                      moveProductToNextCart={moveProductToNextCart}
                     />
                   ))}
                 </div>
