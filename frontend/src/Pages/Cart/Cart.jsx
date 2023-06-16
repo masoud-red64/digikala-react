@@ -136,6 +136,16 @@ export default function Cart() {
       });
   }
 
+  function removeNextCartProduct(productID) {
+    fetch(`http://localhost:3000/api/nextCart/remove/${productID}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      getAllNextCartProducts();
+    });
+  }
+
   return (
     <>
       <Header />
@@ -197,7 +207,7 @@ export default function Cart() {
           )}
           {isShowEmptyCart && <EmptyCart />}
           {isShowNotEmptyNextCart && (
-            <NotEmptyNextCart products={nextCartProducts} />
+            <NotEmptyNextCart products={nextCartProducts} removeNextCartProduct={removeNextCartProduct} />
           )}
           {isShowEmptyNextCart && <EmptyNextCart />}
         </div>

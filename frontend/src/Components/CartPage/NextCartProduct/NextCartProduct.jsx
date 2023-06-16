@@ -4,7 +4,14 @@ import {
   formatNumberWithSeparators,
 } from "../../../func/utils";
 
-export default function NextCartProduct({ title, off, price, img }) {
+export default function NextCartProduct({
+  title,
+  off,
+  price,
+  img,
+  removeNextCartProduct,
+  id,
+}) {
   return (
     <>
       <div className="col-5 col-sm-3">
@@ -17,7 +24,10 @@ export default function NextCartProduct({ title, off, price, img }) {
             />
           </a>
 
-          <button className="next-cart-content__right-remove-btn">
+          <button
+            className="next-cart-content__right-remove-btn"
+            onClick={() => removeNextCartProduct(id)}
+          >
             <svg
               id="delete"
               xmlns="http://www.w3.org/2000/svg"

@@ -2,8 +2,9 @@ import React from "react";
 
 import "./NotEmptyNextCart.css";
 import NextCartProduct from "../NextCartProduct/NextCartProduct";
+import { enToPersianNumber } from "../../../func/utils";
 
-export default function NotEmptyNextCart({ products }) {
+export default function NotEmptyNextCart({ products, removeNextCartProduct }) {
   return (
     <div className="not-empty-next-cart">
       <div className="row mt-4">
@@ -26,13 +27,20 @@ export default function NotEmptyNextCart({ products }) {
               </div>
             </div>
             <p className="next-cart__subtitle">
-              <span className="next-cart__subtitle-count">۳</span> کالا
+              <span className="next-cart__subtitle-count">
+                {enToPersianNumber(products.length)}
+              </span>{" "}
+              کالا
             </p>
             <div id="next-cart-product-container">
               <div className="next-cart-content">
                 <div className="row">
                   {products.map((product) => (
-                    <NextCartProduct key={product.id} {...product} />
+                    <NextCartProduct
+                      key={product.id}
+                      {...product}
+                      removeNextCartProduct={removeNextCartProduct}
+                    />
                   ))}
                 </div>
               </div>
@@ -50,7 +58,9 @@ export default function NotEmptyNextCart({ products }) {
                 را تکمیل کنید.
               </p>
               <p className="what-is-next-cart__text">
-                <span className="what-is-next-cart__product-count">۱ کالا</span>
+                <span className="what-is-next-cart__product-count">
+                  {enToPersianNumber(products.length)} کالا
+                </span>
                 در لیست خرید بعدی شماست
               </p>
               <button className="what-is-next-cart__add-all-to-cart">
