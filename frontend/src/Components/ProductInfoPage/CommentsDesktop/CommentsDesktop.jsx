@@ -3,9 +3,9 @@ import React from "react";
 import "./CommentsDesktop.css";
 import CommentDesktop from "./CommentDesktop/CommentDesktop";
 
-export default function CommentsDesktop() {
+export default function CommentsDesktop({commentRef}) {
   return (
-    <div className="product-comments-desktop">
+    <div className="product-comments-desktop" id="commentsDesktop" ref={commentRef}>
       <p className="product-comments-desktop__title d-flex d-lg-block justify-content-between">
         امتیاز و دیدگاه کاربران
         <svg

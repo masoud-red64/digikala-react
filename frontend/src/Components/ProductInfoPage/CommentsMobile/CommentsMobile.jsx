@@ -5,9 +5,9 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import CommentMobile from "./CommentMobile/CommentMobile";
 
-export default function CommentsMobile() {
+export default function CommentsMobile({commentRef}) {
   return (
-    <div className="product-comments-mobile d-block d-lg-none">
+    <div className="product-comments-mobile d-block d-lg-none" id="commentsMobile" ref={commentRef}>
       <div className="product-comments-mobile__top">
         <p className="product-comments-mobile__top-title">دیدگاه‌ها</p>
         <p className="product-comments-mobile__top-num">۱۶ دیدگاه</p>

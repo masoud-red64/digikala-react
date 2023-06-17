@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
@@ -15,6 +15,46 @@ import CommentsMobile from "../../Components/ProductInfoPage/CommentsMobile/Comm
 export default function ProductInfo() {
   const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
     useState(false);
+  const [showActiveNavbar, setShowActiveNavbar] = useState("specifications");
+
+  const specifications = useRef();
+  const commentsDesktop = useRef();
+  const commentsMobile = useRef();
+  const questions = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const observer = new IntersectionObserver(
+        (allSection) => {
+          allSection.map((section) => {
+            if (section.isIntersecting) {
+              if (section.target.id === "specifications") {
+                setShowActiveNavbar("specifications");
+              } else if (section.target.id === "commentsDesktop") {
+                setShowActiveNavbar("commentsDesktop");
+              } else if (section.target.id === "commentsMobile") {
+                setShowActiveNavbar("commentsMobile");
+              } else {
+                setShowActiveNavbar("questions");
+              }
+            }
+          });
+        },
+        {
+          threshold: 0.5, // 50% of section visibility => isIntersecting is true
+        }
+      );
+      [
+        specifications.current,
+        commentsDesktop.current,
+        commentsMobile.current,
+        questions.current,
+      ].forEach((section) => {
+        observer.observe(section);
+      });
+    });
+    return () => window.removeEventListener("scroll", () => {});
+  }, []);
   return (
     <>
       <Header />
@@ -1165,19 +1205,42 @@ export default function ProductInfo() {
           <section className="product-specifications-comments">
             <div className="product-specifications-comments__navbar">
               <ul className="product-specifications-comments__navbar-list">
-                <li className="product-specifications-comments__navbar-item product-specifications-comments__navbar-item--active">
+                <li
+                  className={`product-specifications-comments__navbar-item ${
+                    showActiveNavbar === "specifications"
+                      ? "product-specifications-comments__navbar-item--active"
+                      : ""
+                  }`}
+                >
                   مشخصات
                 </li>
-                <li className="product-specifications-comments__navbar-item">
+                <li
+                  className={`product-specifications-comments__navbar-item ${
+                    showActiveNavbar === "commentsDesktop" ||
+                    showActiveNavbar === "commentsMobile"
+                      ? "product-specifications-comments__navbar-item--active"
+                      : ""
+                  }`}
+                >
                   دیدگاه‌ها
                 </li>
-                <li className="product-specifications-comments__navbar-item">
+                <li
+                  className={`product-specifications-comments__navbar-item ${
+                    showActiveNavbar === "questions"
+                      ? "product-specifications-comments__navbar-item--active"
+                      : ""
+                  }`}
+                >
                   پرسش‌ها
                 </li>
               </ul>
             </div>
 
-            <div className="product-specifications">
+            <div
+              className="product-specifications"
+              id="specifications"
+              ref={specifications}
+            >
               <p className="product-specifications__title">مشخصات</p>
               <div className="product-specifications__content">
                 <p className="product-specifications__content-title d-none d-lg-block">
@@ -1328,9 +1391,9 @@ export default function ProductInfo() {
               )}
             </div>
 
-            <CommentsDesktop/>
+            <CommentsDesktop commentRef={commentsDesktop} />
 
-           <CommentsMobile/>
+            <CommentsMobile commentRef={commentsMobile} />
 
             <div className="modal-submit-comment">
               <div className="modal-submit-comment__header">
@@ -1768,7 +1831,7 @@ export default function ProductInfo() {
             </div>
           </section>
 
-          <section className="product-question">
+          <section className="product-question" id="questions" ref={questions}>
             <p className="product-question__title">پرسش‌ها</p>
 
             <div className="product-question__content">
