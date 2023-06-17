@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
 import "./ProductInfo.css";
+import ProductImg from "../../Components/ProductInfoPage/ProductImg/ProductImg";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import SameProducts from "../../Components/ProductInfoPage/SameProducts/SameProducts";
+import CommentsDesktop from "../../Components/ProductInfoPage/CommentsDesktop/CommentsDesktop";
+import CommentsMobile from "../../Components/ProductInfoPage/CommentsMobile/CommentsMobile";
 
 export default function ProductInfo() {
+  const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
+    useState(false);
   return (
     <>
       <Header />
@@ -215,7 +225,6 @@ export default function ProductInfo() {
                         className="product-content__right-product-photos-img"
                         width="60"
                         height="60"
-                        style={{ objectFit: "contain" }}
                       />
                       <svg
                         id="video"
@@ -234,66 +243,9 @@ export default function ProductInfo() {
                         ></path>
                       </svg>
                     </li>
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/3f09a11cae251172c504e8e41d1131431f755455_1610187470.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </li>
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/3f09a11cae251172c504e8e41d1131431f755455_1610187470.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </li>
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/3f09a11cae251172c504e8e41d1131431f755455_1610187470.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </li>
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/e001b7c9762c6b4aff5b5931d8317d53596d2ae5_1610187462.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </li>
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/3f09a11cae251172c504e8e41d1131431f755455_1610187470.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </li>
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/e001b7c9762c6b4aff5b5931d8317d53596d2ae5_1610187462.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                        style={{ objectFit: "contain" }}
-                      />
-                    </li>
+                    <ProductImg />
+                    <ProductImg />
+                    <ProductImg />
                   </ul>
 
                   <div className="product-content__right-send-report">
@@ -1177,548 +1129,36 @@ export default function ProductInfo() {
           <section className="product-same">
             <div className="same-product-for-buy">
               <p className="same-product-for-buy__title">کالاهای مشابه</p>
-              <div className="swiper same-product-for-buy__swiper">
-                <div className="swiper-wrapper" id="same-products-container">
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/5093109e6e6d7c251f0061151f6d76f5239f2224_1646590055.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#1028ff",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M11.539 1.083l.224-.054a1 1 0 01.452-.006A6.098 6.098 0 0117 6.98v2.486l2.555 1.703a1 1 0 01.394.516l2 6a1 1 0 01-1.145 1.297L15.9 18H8.099l-4.903.98a1 1 0 01-1.145-1.296l2-6a1 1 0 01.394-.516L7 9.465V6.979a6.104 6.104 0 014.539-5.896zM7 11.868v4.312l-2.507.501 1.346-4.039L7 11.868zM15 10v6H9V6.979a4.099 4.099 0 012.839-3.9L12 3.03l.178.054A4.099 4.099 0 0115 6.98V10zm2 6.18l2.506.501-1.346-4.039-1.16-.773v4.311zM10 9a2 2 0 114 0 2 2 0 01-4 0zm0 13v-3H8v3h2zm6-3v3h-2v-3h2zm-3 4v-4h-2v4h2z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ارسال امروز
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/5bfd166365c4cf077c706afea2087dea9ac83e5a_1646851349.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#1028ff",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M11.539 1.083l.224-.054a1 1 0 01.452-.006A6.098 6.098 0 0117 6.98v2.486l2.555 1.703a1 1 0 01.394.516l2 6a1 1 0 01-1.145 1.297L15.9 18H8.099l-4.903.98a1 1 0 01-1.145-1.296l2-6a1 1 0 01.394-.516L7 9.465V6.979a6.104 6.104 0 014.539-5.896zM7 11.868v4.312l-2.507.501 1.346-4.039L7 11.868zM15 10v6H9V6.979a4.099 4.099 0 012.839-3.9L12 3.03l.178.054A4.099 4.099 0 0115 6.98V10zm2 6.18l2.506.501-1.346-4.039-1.16-.773v4.311zM10 9a2 2 0 114 0 2 2 0 01-4 0zm0 13v-3H8v3h2zm6-3v3h-2v-3h2zm-3 4v-4h-2v4h2z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ارسال امروز
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/6b4536cdd7b8bf12a1902da4a8054c57626c9c00_1646854523.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#6bb927",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M13.17 19a3.001 3.001 0 005.66 0H21a1 1 0 001-1v-3h1v-2h-5v2h2v2h-1.17a3.001 3.001 0 00-5.66 0H10V6h12V5a1 1 0 00-1-1H9a1 1 0 00-1 1v1H4.556C2.033 6 0 8.096 0 10.667V18a1 1 0 001 1h1.17a3.001 3.001 0 005.66 0h5.34zM8 17V8H4.556C3.15 8 2 9.187 2 10.667V12h5v2H2v3h.17a3.001 3.001 0 015.66 0H8zm-2 1a1 1 0 11-2 0 1 1 0 012 0zm10 1a1 1 0 100-2 1 1 0 000 2zm0-12v2h8V7h-8zm1 5v-2h5v2h-5z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ارسال سریع سوپرمارکتی
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/90859b347431462f7dd6b8a2f3b6d51f7644401b_1667561609.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#87d3e1",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M7 19H6a1 1 0 01-1-1V6a1 1 0 011-1h2v7h8V5h2a1 1 0 011 1v12a1 1 0 01-1 1h-1v2h1a3 3 0 003-3V6a3 3 0 00-3-3H6a3 3 0 00-3 3v12a3 3 0 003 3h1v-2zm3-9V5h4v5h-4zm-.293 7.793l1.755 1.755 3.795-4.217 1.486 1.338-4.5 5a1 1 0 01-1.45.038l-2.5-2.5 1.414-1.414z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          موجود در انبار دیجی کالا
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/bb6285b5dffec46abab850f10004e4f3915a3669_1645696358.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#1028ff",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M11.539 1.083l.224-.054a1 1 0 01.452-.006A6.098 6.098 0 0117 6.98v2.486l2.555 1.703a1 1 0 01.394.516l2 6a1 1 0 01-1.145 1.297L15.9 18H8.099l-4.903.98a1 1 0 01-1.145-1.296l2-6a1 1 0 01.394-.516L7 9.465V6.979a6.104 6.104 0 014.539-5.896zM7 11.868v4.312l-2.507.501 1.346-4.039L7 11.868zM15 10v6H9V6.979a4.099 4.099 0 012.839-3.9L12 3.03l.178.054A4.099 4.099 0 0115 6.98V10zm2 6.18l2.506.501-1.346-4.039-1.16-.773v4.311zM10 9a2 2 0 114 0 2 2 0 01-4 0zm0 13v-3H8v3h2zm6-3v3h-2v-3h2zm-3 4v-4h-2v4h2z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ارسال امروز
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/bb6285b5dffec46abab850f10004e4f3915a3669_1645696358.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#1028ff",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M11.539 1.083l.224-.054a1 1 0 01.452-.006A6.098 6.098 0 0117 6.98v2.486l2.555 1.703a1 1 0 01.394.516l2 6a1 1 0 01-1.145 1.297L15.9 18H8.099l-4.903.98a1 1 0 01-1.145-1.296l2-6a1 1 0 01.394-.516L7 9.465V6.979a6.104 6.104 0 014.539-5.896zM7 11.868v4.312l-2.507.501 1.346-4.039L7 11.868zM15 10v6H9V6.979a4.099 4.099 0 012.839-3.9L12 3.03l.178.054A4.099 4.099 0 0115 6.98V10zm2 6.18l2.506.501-1.346-4.039-1.16-.773v4.311zM10 9a2 2 0 114 0 2 2 0 01-4 0zm0 13v-3H8v3h2zm6-3v3h-2v-3h2zm-3 4v-4h-2v4h2z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ارسال امروز
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/c4878e38eae1715fa7ce8bc441c0828a33767f75_1643742744.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#6bb927",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M13.17 19a3.001 3.001 0 005.66 0H21a1 1 0 001-1v-3h1v-2h-5v2h2v2h-1.17a3.001 3.001 0 00-5.66 0H10V6h12V5a1 1 0 00-1-1H9a1 1 0 00-1 1v1H4.556C2.033 6 0 8.096 0 10.667V18a1 1 0 001 1h1.17a3.001 3.001 0 005.66 0h5.34zM8 17V8H4.556C3.15 8 2 9.187 2 10.667V12h5v2H2v3h.17a3.001 3.001 0 015.66 0H8zm-2 1a1 1 0 11-2 0 1 1 0 012 0zm10 1a1 1 0 100-2 1 1 0 000 2zm0-12v2h8V7h-8zm1 5v-2h5v2h-5z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ارسال سریع سوپرمارکتی
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="same-product-for-buy__wrapper">
-                      <a href="#" className="same-product-for-buy__content">
-                        <div className="same-product-for-buy__content-amazing">
-                          <img
-                            src="/images/cart-page/IncredibleOffer.svg"
-                            alt=""
-                          />
-                        </div>
-                        <img
-                          src="/images/product-page/same-products/c9b4159dbe435a834d2614bfd0586e389a9b8b7f_1646851539.webp"
-                          alt=""
-                          className="same-product-for-buy__content-product-img"
-                        />
-                        <p className="same-product-for-buy__content-desc">
-                          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-                        </p>
-                        <p className="fs-6">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#87d3e1",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M7 19H6a1 1 0 01-1-1V6a1 1 0 011-1h2v7h8V5h2a1 1 0 011 1v12a1 1 0 01-1 1h-1v2h1a3 3 0 003-3V6a3 3 0 00-3-3H6a3 3 0 00-3 3v12a3 3 0 003 3h1v-2zm3-9V5h4v5h-4zm-.293 7.793l1.755 1.755 3.795-4.217 1.486 1.338-4.5 5a1 1 0 01-1.45.038l-2.5-2.5 1.414-1.414z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          موجود در انبار دیجی کالا
-                        </p>
-                        <div className="same-product-for-buy__content-price-box">
-                          <p className="same-product-for-buy__content-price-box-discount discount-percent">
-                            ۳۱
-                          </p>
-                          <div className="same-product-for-buy__content-price-box-prices">
-                            <p className="same-product-for-buy__content-price-box-prices-after-discount">
-                              ۱۷,۲۰۰
-                              <svg
-                                id="toman"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 14 14"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  fill: "#3f4064",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M3.057 1.742L3.821 1l.78.75-.776.741-.768-.749zm3.23 2.48c0 .622-.16 1.111-.478 1.467-.201.221-.462.39-.783.505a3.251 3.251 0 01-1.083.163h-.555c-.421 0-.801-.074-1.139-.223a2.045 2.045 0 01-.9-.738A2.238 2.238 0 011 4.148c0-.059.001-.117.004-.176.03-.55.204-1.158.525-1.827l1.095.484c-.257.532-.397 1-.419 1.403-.002.04-.004.08-.004.12 0 .252.055.458.166.618a.887.887 0 00.5.354c.085.028.178.048.278.06.079.01.16.014.243.014h.555c.458 0 .769-.081.933-.244.14-.139.21-.383.21-.731V2.02h1.2v2.202zm5.433 3.184l-.72-.7.709-.706.735.707-.724.7zm-2.856.308c.542 0 .973.19 1.293.569.297.346.445.777.445 1.293v.364h.18v-.004h.41c.221 0 .377-.028.467-.084.093-.055.14-.14.14-.258v-.069c.004-.243.017-1.044 0-1.115L13 8.05v1.574a1.4 1.4 0 01-.287.863c-.306.405-.804.607-1.495.607h-.627c-.061.733-.434 1.257-1.117 1.573-.267.122-.58.21-.937.265a5.845 5.845 0 01-.914.067v-1.159c.612 0 1.072-.082 1.38-.247.25-.132.376-.298.376-.499h-.515c-.436 0-.807-.113-1.113-.339-.367-.273-.55-.667-.55-1.18 0-.488.122-.901.367-1.24.296-.415.728-.622 1.296-.622zm.533 2.226v-.364c0-.217-.048-.389-.143-.516a.464.464 0 00-.39-.187.478.478 0 00-.396.187.705.705 0 00-.136.449.65.65 0 00.003.067c.008.125.066.22.177.283.093.054.21.08.352.08h.533zM9.5 6.707l.72.7.724-.7L10.209 6l-.709.707zm-6.694 4.888h.03c.433-.01.745-.106.937-.29.024.012.065.035.12.068l.074.039.081.042c.135.073.261.133.379.18.345.146.67.22.977.22a1.216 1.216 0 00.87-.34c.3-.285.449-.714.449-1.286a2.19 2.19 0 00-.335-1.145c-.299-.457-.732-.685-1.3-.685-.502 0-.916.192-1.242.575-.113.132-.21.284-.294.456-.032.062-.06.125-.084.191a.504.504 0 00-.03.078 1.67 1.67 0 00-.022.06c-.103.309-.171.485-.205.53-.072.09-.214.14-.427.147-.123-.005-.209-.03-.256-.076-.057-.054-.085-.153-.085-.297V7l-1.201-.5v3.562c0 .261.048.496.143.703.071.158.168.296.29.413.123.118.266.211.43.28.198.084.42.13.665.136v.001h.036zm2.752-1.014a.778.778 0 00.044-.353.868.868 0 00-.165-.47c-.1-.134-.217-.201-.35-.201-.18 0-.33.103-.447.31-.042.071-.08.158-.114.262a2.434 2.434 0 00-.04.12l-.015.053-.015.046c.142.118.323.216.544.293.18.062.325.092.433.092.044 0 .086-.05.125-.152z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </p>
-                            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-                              ۲۵,۰۰۰
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-button-prev same-product-for-buy__swiper-prev-btn"></div>
-                <div className="swiper-button-next same-product-for-buy__swiper-next-btn"></div>
-              </div>
+              <Swiper
+                navigation={true}
+                modules={[Navigation]}
+                slidesPerView={2}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 2,
+                  },
+                  992: {
+                    slidesPerView: 3,
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                  },
+                }}
+                className="mySwiper same-product-for-buy__swiper"
+              >
+                <SwiperSlide>
+                  <SameProducts />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <SameProducts />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <SameProducts />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <SameProducts />
+                </SwiperSlide>
+              </Swiper>
             </div>
           </section>
 
@@ -1801,884 +1241,96 @@ export default function ProductInfo() {
                   </li>
                 </ul>
               </div>
-              <span className="product-specifications__see-more mt-3">
-                مشاهده بیشتر
-                <svg
-                  id="chevronLeft"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  style={{ width: "18px", height: "18px", fill: "#19bfd3" }}
-                >
-                  <path d="M11.414 12l4.293 4.293-1.414 1.414-5-5a1 1 0 010-1.414l5-5 1.414 1.414L11.414 12z"></path>
-                </svg>
-              </span>
-              <span className="footer__digi-about-us-see-more">بستن</span>
-            </div>
-
-            <div className="product-comments-desktop">
-              <p className="product-comments-desktop__title d-flex d-lg-block justify-content-between">
-                امتیاز و دیدگاه کاربران
-                <svg
-                  className="d-lg-none cursor-pointer product-comments-desktop__title-icon"
-                  id="arrowRight"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    fill: "var(--color-icon-high-emphasis)",
-                  }}
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.707 19.707l-1.414-1.414L16.586 13H4v-2h12.586l-5.293-5.293 1.414-1.414 7 7a1 1 0 010 1.414l-7 7z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </p>
-
-              <div className="product-comments-desktop__container">
-                <div className="row">
-                  <div className="col-12 col-lg-3">
-                    <div className="product-comments-desktop__right">
-                      <div className="product-comments-desktop__right-score">
-                        <p className="product-comments-desktop__right-score-num">
-                          <span>۳.۸</span> از ۵
+              {isShowMoreSpecifications && (
+                <div className="product-specifications__content">
+                  <p className="product-specifications__content-title d-none d-lg-block"></p>
+                  <ul
+                    className="product-specifications__content-list"
+                    id="product-specifications-container"
+                  >
+                    <li className="product-specifications__content-item">
+                      <p className="product-specifications__content-item-key">
+                        جنس
+                      </p>
+                      <div className="product-specifications__content-item-values">
+                        <p className="product-specifications__content-item-value">
+                          چرم مصنوعی
                         </p>
-                        <div className="product-comments-desktop__right-score-star">
-                          <img
-                            src="/images/product-page/star-yellow.png"
-                            alt="star"
-                            width="20"
-                            height="20"
-                            style={{ objectFit: "contain" }}
-                          />
-                          <img
-                            src="/images/product-page/star-yellow.png"
-                            alt="star"
-                            width="20"
-                            height="20"
-                            style={{ objectFit: "contain" }}
-                          />
-                          <img
-                            src="/images/product-page/star-yellow.png"
-                            alt="star"
-                            width="20"
-                            height="20"
-                            style={{ objectFit: "contain" }}
-                          />
-                          <img
-                            src="/images/product-page/star-yellow.png"
-                            alt="star"
-                            width="20"
-                            height="20"
-                            style={{ objectFit: "contain" }}
-                          />
-                          <img
-                            src="/images/product-page/star.png"
-                            alt="star"
-                            width="20"
-                            height="20"
-                            style={{ objectFit: "contain" }}
-                          />
-                          <p className="product-comments-desktop__right-score-star-from-total">
-                            از مجموع ۱۹ امتیاز
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="product-comments-desktop__right-topic">
-                        <p className="product-comments-desktop__right-topic-title">
-                          موضوع دیدگاه‌ها
-                        </p>
-                        <div className="product-comments-desktop__right-topic-item">
-                          <div className="product-comments-desktop__right-topic-item-top">
-                            <p className="product-comments-desktop__right-topic-item-top-text">
-                              کیفیت و کارایی
-                            </p>
-                            <p className="product-comments-desktop__right-topic-item-top-num">
-                              ۱۴ دیدگاه
-                            </p>
-                          </div>
-                          <div className="product-comments-desktop__right-topic-item-progress">
-                            <div className="product-comments-desktop__right-topic-item-progress-pos-quality"></div>
-                            <div className="product-comments-desktop__right-topic-item-progress-neg-quality"></div>
-                          </div>
-                          <div className="product-comments-desktop__right-topic-item-percent">
-                            <p className="product-comments-desktop__right-topic-item-percent-pos">
-                              ۸۶% مثبت
-                            </p>
-                            <p className="product-comments-desktop__right-topic-item-percent-neg">
-                              ۷% منفی
-                            </p>
-                          </div>
-                        </div>
-                        <div className="product-comments-desktop__right-topic-item">
-                          <div className="product-comments-desktop__right-topic-item-top">
-                            <p className="product-comments-desktop__right-topic-item-top-text">
-                              قیمت و ارزش خرید
-                            </p>
-                            <p className="product-comments-desktop__right-topic-item-top-num">
-                              ۴ دیدگاه
-                            </p>
-                          </div>
-                          <div className="product-comments-desktop__right-topic-item-progress">
-                            <div className="product-comments-desktop__right-topic-item-progress-pos-worth"></div>
-                            <div className="product-comments-desktop__right-topic-item-progress-neg-worth"></div>
-                          </div>
-                          <div className="product-comments-desktop__right-topic-item-percent">
-                            <p className="product-comments-desktop__right-topic-item-percent-pos">
-                              ۲۵% مثبت
-                            </p>
-                            <p className="product-comments-desktop__right-topic-item-percent-neg">
-                              ۷۵% منفی
-                            </p>
-                          </div>
-                        </div>
-                        <div className="product-comments-desktop__right-topic-item">
-                          <div className="product-comments-desktop__right-topic-item-top">
-                            <p className="product-comments-desktop__right-topic-item-top-text">
-                              کیفیت و کارایی
-                            </p>
-                            <p className="product-comments-desktop__right-topic-item-top-num">
-                              ۱ دیدگاه
-                            </p>
-                          </div>
-                          <div className="product-comments-desktop__right-topic-item-progress">
-                            <div className="product-comments-desktop__right-topic-item-progress-pos-Similarity-or-contrast"></div>
-                            <div className="product-comments-desktop__right-topic-item-progress-neg-Similarity-or-contrast"></div>
-                          </div>
-                          <div className="product-comments-desktop__right-topic-item-percent">
-                            <p className="product-comments-desktop__right-topic-item-percent-pos">
-                              ۸۶% مثبت
-                            </p>
-                            <p className="product-comments-desktop__right-topic-item-percent-neg">
-                              ۱۰۰% منفی
-                            </p>
-                          </div>
-                        </div>
-
-                        <p className="product-comments-desktop__right-topic-caption">
-                          این جداسازی به صورت آزمایشی انجام شده است و ممکن است
-                          دقیق نباشد
+                        <p className="product-specifications__content-item-value">
+                          مش
                         </p>
                       </div>
-
-                      <div className="product-comments-desktop__right-submit-comment">
-                        <p className="product-comments-desktop__right-submit-comment-text mt-4">
-                          شما هم درباره این کالا دیدگاه ثبت کنید
-                        </p>
-                        <button className="product-comments-desktop__right-submit-comment-btn">
-                          ثبت دیدگاه
-                        </button>
-                        <p className="product-comments-desktop__right-submit-comment-text">
-                          <svg
-                            id="infoOutline"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              fill: "#81858b",
-                            }}
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2 2 6.477 2 12zm18 0a8 8 0 11-16 0 8 8 0 0116 0zm-10-2h3v7h-2v-5h-1v-2zm3-2a1 1 0 10-2 0 1 1 0 002 0z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                          ۵ امتیاز دیجی‌کلاب
-                        </p>
-                        <p className="product-comments-desktop__right-submit-comment-text">
-                          پس از تایید شدن دیدگاه، با رفتن به صفحه ماموریت‌های
-                          دیجی‌کلاب امتیازتان را دریافت کنید.
+                    </li>
+                    <li className="product-specifications__content-item">
+                      <p className="product-specifications__content-item-key">
+                        جنس زیره
+                      </p>
+                      <div className="product-specifications__content-item-values">
+                        <p className="product-specifications__content-item-value">
+                          نیولایت
                         </p>
                       </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-lg-9">
-                    <div className="product-comments-desktop__left">
-                      <div className="product-comments-desktop__left-buyers-photos">
-                        <div id="comments-image-container">
-                          <img
-                            src="/images/product-page/comment/630fd5fed0083604042cb4bf3064f8d86b30dccb_1633421782.jpg"
-                            alt="product"
-                            width="57"
-                            height="57"
-                            style={{ objectFit: "cover", borderRadius: "8px" }}
-                          />
-                        </div>
-
-                        <p className="product-comments-desktop__left-buyers-photos-see-all">
-                          مشاهده همه
-                          <svg
-                            id="chevronLeft"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              fill: "#19bfd3",
-                            }}
-                          >
-                            <path d="M11.414 12l4.293 4.293-1.414 1.414-5-5a1 1 0 010-1.414l5-5 1.414 1.414L11.414 12z"></path>
-                          </svg>
+                    </li>
+                    <li className="product-specifications__content-item">
+                      <p className="product-specifications__content-item-key">
+                        نحوه بسته شدن کفش
+                      </p>
+                      <div className="product-specifications__content-item-values">
+                        <p className="product-specifications__content-item-value">
+                          بندی
                         </p>
                       </div>
-
-                      <div className="product-comments-desktop__left-navbar">
-                        <div className="product-comments-desktop__left-navbar-sort">
-                          <p className="product-comments-desktop__left-navbar-sort-text">
-                            <svg
-                              id="sort"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              style={{
-                                width: "20px",
-                                height: "20px",
-                                fill: "#3f4064",
-                              }}
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M6 15.793L3.707 13.5l-1.414 1.414 4 4a1 1 0 001.414 0l4-4-1.414-1.414L8 15.793V5H6v10.793zM22 5H10v2h12V5zm0 4H12v2h10V9zm0 4h-8v2h8v-2zm-6 4h6v2h-6v-2z"
-                                clipRule="evenodd"
-                              ></path>
-                            </svg>
-                            <span>مرتب سازی:</span>
-                          </p>
-                          <ul className="product-comments-desktop__left-navbar-sort-list">
-                            <li className="product-comments-desktop__left-navbar-sort-item product-comments-desktop__left-navbar-sort-item--active">
-                              جدیدترین
-                            </li>
-                            <li className="product-comments-desktop__left-navbar-sort-item">
-                              دیدگاه خریداران
-                            </li>
-                            <li className="product-comments-desktop__left-navbar-sort-item">
-                              مفیدترین
-                            </li>
-                          </ul>
-                        </div>
-                        <p className="product-comments-desktop__left-navbar-comment-num">
-                          ۱۶ دیدگاه
+                    </li>
+                    <li className="product-specifications__content-item">
+                      <p className="product-specifications__content-item-key">
+                        ویژگی‌های زیره
+                      </p>
+                      <div className="product-specifications__content-item-values">
+                        <p className="product-specifications__content-item-value">
+                          انعطاف پذیر
+                        </p>
+                        <p className="product-specifications__content-item-value">
+                          قابلیت ارتجاعی
+                        </p>
+                        <p className="product-specifications__content-item-value">
+                          کاهش فشار وارده
+                        </p>
+                        <p className="product-specifications__content-item-value">
+                          مقاوم در برابر سایش
                         </p>
                       </div>
-
-                      <div id="product-comments-container">
-                        <div className="product-comments-desktop__left-content">
-                          <div className="">
-                            <p className="product-comments-desktop__left-content-score yellow">
-                              ۱.۰
-                            </p>
-                          </div>
-                          <div className="flex-grow-1">
-                            <div className="product-comments-desktop__left-content-top">
-                              <div className="d-flex align-items-center justify-content-between">
-                                <p className="product-comments-desktop__left-content-top-title">
-                                  ناراضی
-                                </p>
-                                <svg
-                                  id="moreVert"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  style={{
-                                    width: "20px",
-                                    height: "20px",
-                                    fill: "#9e9fb1",
-                                  }}
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-2 4c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm2 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
-                                    clipRule="evenodd"
-                                  ></path>
-                                </svg>
-                              </div>
-                              <div className="product-comments-desktop__left-content-top-details">
-                                <p className="product-comments-desktop__left-content-top-details-date">
-                                  ۱۳ مهر ۱۴۰۰
-                                </p>
-                                <svg
-                                  className="mx-2"
-                                  id="dotOutline"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 16 16"
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    fill: "#e0e0e6",
-                                  }}
-                                >
-                                  <circle cx="8" cy="8" r="2"></circle>
-                                </svg>
-                                <p className="product-comments-desktop__left-content-top-details-user">
-                                  مریم فلاح
-                                </p>
-                                <p className="product-comments-desktop__left-content-top-details-buyer">
-                                  خریدار
-                                </p>
-                              </div>
-                            </div>
-                            <div className="product-comments-desktop__left-content-center">
-                              <p className="product-comments-desktop__left-content-center-suggest yellow">
-                                <svg
-                                  id="thumbsDown"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    fill: "#f9a825",
-                                  }}
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M7.5 16l3.15 4.2a4.5 4.5 0 003.6 1.8 2.482 2.482 0 002.449-2.89L16.18 16h2.424a3 3 0 002.951-3.537l-.974-5.357A5 5 0 0015.661 3h-6.55a1 1 0 00-.428.096l-.824.39A1 1 0 007 3H3a1 1 0 00-1 1v11a1 1 0 001 1h4.5zm.5-2V5.633L9.336 5h6.326a3 3 0 012.951 2.463l.974 5.358A1 1 0 0118.603 14H15a1 1 0 00-.986 1.164l.712 4.274a.482.482 0 01-.476.562 2.5 2.5 0 01-2-1L8.8 14.4A1 1 0 008 14zm-2 0H4V5h2v9z"
-                                    clipRule="evenodd"
-                                  ></path>
-                                </svg>
-                                <span>پیشنهاد نمی‌کنم</span>
-                              </p>
-                              <p className="product-comments-desktop__left-content-center-text">
-                                واقعا برا دیجیکالا متاسم که روز به روز بدتر میشه
-                                و کم کم دارم به این نتیجه میرسم کلا از گوشیم
-                                پاکش کنم من چی سفارش دادم ان چی فرستاده خودتون
-                                ببینید
-                              </p>
-                              <div className="product-comments-desktop__left-content-center-point">
-                                <div className="product-comments-desktop__left-content-center-point-pos">
-                                  <svg
-                                    id="addSimple"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "14px",
-                                      height: "14px",
-                                      fill: " #00a049",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  کفی خوب
-                                </div>
-                                <div className="product-comments-desktop__left-content-center-point-neg">
-                                  <svg
-                                    id="removeSimple"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "14px",
-                                      height: "14px",
-                                      fill: " #d32f2f",
-                                    }}
-                                  >
-                                    <path d="M20 11v2H4v-2h16z"></path>
-                                  </svg>
-                                  دوخت بد
-                                </div>
-                              </div>
-                            </div>
-                            <div className="product-comments-desktop__left-content-bottom">
-                              <div className="d-flex align-items-center">
-                                <p className="product-comments-desktop__left-content-bottom-seller">
-                                  <svg
-                                    id="seller"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "16px",
-                                      height: "16px",
-                                      fill: "#3f4064",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M19.5 3h-15a1 1 0 00-.959.715l-1.5 5.053A1 1 0 002 9.053V12a1 1 0 001 1h.006l.038 7.006A1 1 0 004.048 21l9.956-.035a1 1 0 00.996-1V13h4v8h2v-8a1 1 0 001-1V9.053a1 1 0 00-.041-.285l-1.5-5.053A1 1 0 0019.5 3zm.5 8V9.198L18.754 5H5.246L4 9.198V11h16zm-7 2H5.006l.033 5.997L13 18.968V13z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  پاما شوز
-                                </p>
-                                <svg
-                                  className="mx-2"
-                                  id="dotOutline"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 16 16"
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    fill: "#e0e0e6",
-                                  }}
-                                >
-                                  <circle cx="8" cy="8" r="2"></circle>
-                                </svg>
-                                <p className="product-comments-desktop__left-content-bottom-info">
-                                  <svg
-                                    id="variationSize"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "16px",
-                                      height: "16px",
-                                      fill: "#3f4064",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M12 2h9a1 1 0 011 1v18a1 1 0 01-1 1h-9a1 1 0 01-1-1V3a1 1 0 011-1zm1 17v1h7V4h-7v1h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2zm-4.707-2.707L7 17.586V6.414l1.293 1.293 1.414-1.414-3-3a1 1 0 00-1.414 0l-3 3 1.414 1.414L5 6.414v11.172l-1.293-1.293-1.414 1.414 3 3a1 1 0 001.414 0l3-3-1.414-1.414z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  36
-                                </p>
-                              </div>
-
-                              <div className="product-comments-desktop__left-content-bottom-useful">
-                                <p className="product-comments-desktop__left-content-bottom-useful-text">
-                                  آیا این دیدگاه مفید بود؟
-                                </p>
-                                <div className="product-comments-desktop__left-content-bottom-useful-btns">
-                                  <button className="product-comments-desktop__left-content-bottom-useful-like-btn">
-                                    <span>۰</span>
-                                    <svg
-                                      id="thumbsUp"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      style={{ width: "18px", height: "18px" }}
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M7.5 8l3.15-4.2a4.5 4.5 0 013.6-1.8 2.483 2.483 0 012.449 2.89L16.18 8h2.424a3 3 0 012.951 3.537l-.974 5.357A5 5 0 0115.661 21h-6.55c-.148 0-.294-.033-.428-.096l-.824-.39A1 1 0 017 21H3a1 1 0 01-1-1V9a1 1 0 011-1h4.5zm.5 2v8.367L9.336 19h6.326a3 3 0 002.951-2.463l.974-5.358A1 1 0 0018.603 10H15a1 1 0 01-.986-1.164l.712-4.274A.482.482 0 0014.25 4a2.5 2.5 0 00-2 1L8.8 9.6a1 1 0 01-.8.4zm-2 0H4v9h2v-9z"
-                                        clipRule="evenodd"
-                                      ></path>
-                                    </svg>
-                                  </button>
-                                  <button className="product-comments-desktop__left-content-bottom-useful-dis-like-btn">
-                                    <span>۱</span>
-                                    <svg
-                                      id="thumbsDown"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      style={{ width: "18px", height: "18px" }}
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M7.5 16l3.15 4.2a4.5 4.5 0 003.6 1.8 2.482 2.482 0 002.449-2.89L16.18 16h2.424a3 3 0 002.951-3.537l-.974-5.357A5 5 0 0015.661 3h-6.55a1 1 0 00-.428.096l-.824.39A1 1 0 007 3H3a1 1 0 00-1 1v11a1 1 0 001 1h4.5zm.5-2V5.633L9.336 5h6.326a3 3 0 012.951 2.463l.974 5.358A1 1 0 0118.603 14H15a1 1 0 00-.986 1.164l.712 4.274a.482.482 0 01-.476.562 2.5 2.5 0 01-2-1L8.8 14.4A1 1 0 008 14zm-2 0H4V5h2v9z"
-                                        clipRule="evenodd"
-                                      ></path>
-                                    </svg>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="product-comments-desktop__left-content">
-                          <div className="">
-                            <p className="product-comments-desktop__left-content-score green">
-                              ۵.۰
-                            </p>
-                          </div>
-                          <div className="flex-grow-1">
-                            <div className="product-comments-desktop__left-content-top">
-                              <div className="d-flex align-items-center justify-content-between">
-                                <p className="product-comments-desktop__left-content-top-title">
-                                  با توجه به قیمت از خارجی ها چیزی کم ندارد
-                                </p>
-                                <svg
-                                  id="moreVert"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  style={{
-                                    width: "20px",
-                                    height: "20px",
-                                    fill: "#9e9fb1",
-                                  }}
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-2 4c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm2 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
-                                    clipRule="evenodd"
-                                  ></path>
-                                </svg>
-                              </div>
-                              <div className="product-comments-desktop__left-content-top-details">
-                                <p className="product-comments-desktop__left-content-top-details-date">
-                                  ۱۳ مهر ۱۴۰۰
-                                </p>
-                                <svg
-                                  className="mx-2"
-                                  id="dotOutline"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 16 16"
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    fill: "#e0e0e6",
-                                  }}
-                                >
-                                  <circle cx="8" cy="8" r="2"></circle>
-                                </svg>
-                                <p className="product-comments-desktop__left-content-top-details-user">
-                                  مریم فلاح
-                                </p>
-                                <p className="product-comments-desktop__left-content-top-details-buyer">
-                                  خریدار
-                                </p>
-                              </div>
-                            </div>
-                            <div className="product-comments-desktop__left-content-center">
-                              <p className="product-comments-desktop__left-content-center-suggest green">
-                                <svg
-                                  id="thumbsUp"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    fill: " #00a049",
-                                  }}
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M7.5 8l3.15-4.2a4.5 4.5 0 013.6-1.8 2.483 2.483 0 012.449 2.89L16.18 8h2.424a3 3 0 012.951 3.537l-.974 5.357A5 5 0 0115.661 21h-6.55c-.148 0-.294-.033-.428-.096l-.824-.39A1 1 0 017 21H3a1 1 0 01-1-1V9a1 1 0 011-1h4.5zm.5 2v8.367L9.336 19h6.326a3 3 0 002.951-2.463l.974-5.358A1 1 0 0018.603 10H15a1 1 0 01-.986-1.164l.712-4.274A.482.482 0 0014.25 4a2.5 2.5 0 00-2 1L8.8 9.6a1 1 0 01-.8.4zm-2 0H4v9h2v-9z"
-                                    clipRule="evenodd"
-                                  ></path>
-                                </svg>
-                                <span>پیشنهاد می‌کنم</span>
-                              </p>
-                              <p className="product-comments-desktop__left-content-center-text">
-                                جنس با کیفیت و ظاهر زیبایی داره به خصوص کفی خوب
-                                و راحتی داره حمایت از کالای با کیفیت ایرانی
-                              </p>
-                              <div className="product-comments-desktop__left-content-center-point">
-                                <div className="product-comments-desktop__left-content-center-point-pos">
-                                  <svg
-                                    id="addSimple"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "14px",
-                                      height: "14px",
-                                      fill: " #00a049",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  رنگ عالی
-                                </div>
-                                <div className="product-comments-desktop__left-content-center-point-pos">
-                                  <svg
-                                    id="addSimple"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "14px",
-                                      height: "14px",
-                                      fill: " #00a049",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  جنس با کیفیت
-                                </div>
-                                <div className="product-comments-desktop__left-content-center-point-neg">
-                                  <svg
-                                    id="removeSimple"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "14px",
-                                      height: "14px",
-                                      fill: "#d32f2f",
-                                    }}
-                                  >
-                                    <path d="M20 11v2H4v-2h16z"></path>
-                                  </svg>
-                                  دوخت بد
-                                </div>
-                              </div>
-                            </div>
-                            <div className="product-comments-desktop__left-content-bottom">
-                              <div className="d-flex align-items-center">
-                                <p className="product-comments-desktop__left-content-bottom-seller">
-                                  <svg
-                                    id="seller"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "16px",
-                                      height: "16px",
-                                      fill: "#3f4064",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M19.5 3h-15a1 1 0 00-.959.715l-1.5 5.053A1 1 0 002 9.053V12a1 1 0 001 1h.006l.038 7.006A1 1 0 004.048 21l9.956-.035a1 1 0 00.996-1V13h4v8h2v-8a1 1 0 001-1V9.053a1 1 0 00-.041-.285l-1.5-5.053A1 1 0 0019.5 3zm.5 8V9.198L18.754 5H5.246L4 9.198V11h16zm-7 2H5.006l.033 5.997L13 18.968V13z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  پاما شوز
-                                </p>
-                                <svg
-                                  className="mx-2"
-                                  id="dotOutline"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 16 16"
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    fill: "#e0e0e6",
-                                  }}
-                                >
-                                  <circle cx="8" cy="8" r="2"></circle>
-                                </svg>
-                                <p className="product-comments-desktop__left-content-bottom-info">
-                                  <svg
-                                    id="variationSize"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    style={{
-                                      width: "16px",
-                                      height: "16px",
-                                      fill: "#3f4064",
-                                    }}
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M12 2h9a1 1 0 011 1v18a1 1 0 01-1 1h-9a1 1 0 01-1-1V3a1 1 0 011-1zm1 17v1h7V4h-7v1h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2zm-4.707-2.707L7 17.586V6.414l1.293 1.293 1.414-1.414-3-3a1 1 0 00-1.414 0l-3 3 1.414 1.414L5 6.414v11.172l-1.293-1.293-1.414 1.414 3 3a1 1 0 001.414 0l3-3-1.414-1.414z"
-                                      clipRule="evenodd"
-                                    ></path>
-                                  </svg>
-                                  36
-                                </p>
-                              </div>
-
-                              <div className="product-comments-desktop__left-content-bottom-useful">
-                                <p className="product-comments-desktop__left-content-bottom-useful-text">
-                                  آیا این دیدگاه مفید بود؟
-                                </p>
-                                <div className="product-comments-desktop__left-content-bottom-useful-btns">
-                                  <button className="product-comments-desktop__left-content-bottom-useful-like-btn">
-                                    <span>۰</span>
-                                    <svg
-                                      id="thumbsUp"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      style={{ width: "18px", height: "18px" }}
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M7.5 8l3.15-4.2a4.5 4.5 0 013.6-1.8 2.483 2.483 0 012.449 2.89L16.18 8h2.424a3 3 0 012.951 3.537l-.974 5.357A5 5 0 0115.661 21h-6.55c-.148 0-.294-.033-.428-.096l-.824-.39A1 1 0 017 21H3a1 1 0 01-1-1V9a1 1 0 011-1h4.5zm.5 2v8.367L9.336 19h6.326a3 3 0 002.951-2.463l.974-5.358A1 1 0 0018.603 10H15a1 1 0 01-.986-1.164l.712-4.274A.482.482 0 0014.25 4a2.5 2.5 0 00-2 1L8.8 9.6a1 1 0 01-.8.4zm-2 0H4v9h2v-9z"
-                                        clipRule="evenodd"
-                                      ></path>
-                                    </svg>
-                                  </button>
-                                  <button className="product-comments-desktop__left-content-bottom-useful-dis-like-btn">
-                                    <span>۱</span>
-                                    <svg
-                                      id="thumbsDown"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      style={{ width: "18px", height: "18px" }}
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M7.5 16l3.15 4.2a4.5 4.5 0 003.6 1.8 2.482 2.482 0 002.449-2.89L16.18 16h2.424a3 3 0 002.951-3.537l-.974-5.357A5 5 0 0015.661 3h-6.55a1 1 0 00-.428.096l-.824.39A1 1 0 007 3H3a1 1 0 00-1 1v11a1 1 0 001 1h4.5zm.5-2V5.633L9.336 5h6.326a3 3 0 012.951 2.463l.974 5.358A1 1 0 0118.603 14H15a1 1 0 00-.986 1.164l.712 4.274a.482.482 0 01-.476.562 2.5 2.5 0 01-2-1L8.8 14.4A1 1 0 008 14zm-2 0H4V5h2v9z"
-                                        clipRule="evenodd"
-                                      ></path>
-                                    </svg>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    </li>
+                  </ul>
                 </div>
-              </div>
-            </div>
-
-            <div className="product-comments-mobile d-block d-lg-none">
-              <div className="product-comments-mobile__top">
-                <p className="product-comments-mobile__top-title">دیدگاه‌ها</p>
-                <p className="product-comments-mobile__top-num">۱۶ دیدگاه</p>
-              </div>
-
-              <div className="swiper product-comments-mobile__swiper">
-                <div
-                  className="swiper-wrapper"
-                  id="mobile-product-comments-container"
+              )}
+              {isShowMoreSpecifications ? (
+                <span
+                  className="footer__digi-about-us-see-more"
+                  onClick={() => setIsShowMoreSpecifications(false)}
                 >
-                  <div className="swiper-slide">
-                    <div className="product-comments-mobile__content">
-                      <p className="product-comments-mobile__content-title">
-                        ناراضی
-                      </p>
-                      <p className="product-comments-mobile__content-suggest yellow">
-                        <svg
-                          id="thumbsDown"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          style={{
-                            width: "16px",
-                            height: "16px",
-                            fill: "#f9a825",
-                          }}
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M7.5 16l3.15 4.2a4.5 4.5 0 003.6 1.8 2.482 2.482 0 002.449-2.89L16.18 16h2.424a3 3 0 002.951-3.537l-.974-5.357A5 5 0 0015.661 3h-6.55a1 1 0 00-.428.096l-.824.39A1 1 0 007 3H3a1 1 0 00-1 1v11a1 1 0 001 1h4.5zm.5-2V5.633L9.336 5h6.326a3 3 0 012.951 2.463l.974 5.358A1 1 0 0118.603 14H15a1 1 0 00-.986 1.164l.712 4.274a.482.482 0 01-.476.562 2.5 2.5 0 01-2-1L8.8 14.4A1 1 0 008 14zm-2 0H4V5h2v9z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                        <span>پیشنهاد نمی‌کنم</span>
-                      </p>
-                      <p className="product-comments-mobile__content-text">
-                        واقعا برا دیجیکالا متاسم که روز به روز بدتر میشه و کم کم
-                        دارم به این نتیجه میرسم کلا از گوشیم پاکش کنم من چی
-                        سفارش دادم ان چی فرستاده خودتون ببینید
-                      </p>
-                      <div className="product-comments-mobile__content-details">
-                        <p className="product-comments-mobile__content-details-date">
-                          ۱۳ مهر ۱۴۰۰
-                        </p>
-                        <svg
-                          className="mx-2"
-                          id="dotOutline"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 16 16"
-                          style={{
-                            width: "16px",
-                            height: "16px",
-                            fill: "#e0e0e6",
-                          }}
-                        >
-                          <circle cx="8" cy="8" r="2"></circle>
-                        </svg>
-                        <p className="product-comments-mobile__content-details-user">
-                          مریم فلاح
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="product-comments-mobile__content">
-                      <p className="product-comments-mobile__content-title">
-                        ناراضی
-                      </p>
-                      <p className="product-comments-mobile__content-suggest green">
-                        <svg
-                          id="thumbsUp"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          style={{
-                            width: "16px",
-                            height: "16px",
-                            fill: " #00a049",
-                          }}
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M7.5 8l3.15-4.2a4.5 4.5 0 013.6-1.8 2.483 2.483 0 012.449 2.89L16.18 8h2.424a3 3 0 012.951 3.537l-.974 5.357A5 5 0 0115.661 21h-6.55c-.148 0-.294-.033-.428-.096l-.824-.39A1 1 0 017 21H3a1 1 0 01-1-1V9a1 1 0 011-1h4.5zm.5 2v8.367L9.336 19h6.326a3 3 0 002.951-2.463l.974-5.358A1 1 0 0018.603 10H15a1 1 0 01-.986-1.164l.712-4.274A.482.482 0 0014.25 4a2.5 2.5 0 00-2 1L8.8 9.6a1 1 0 01-.8.4zm-2 0H4v9h2v-9z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                        <span>پیشنهاد می‌کنم</span>
-                      </p>
-                      <p className="product-comments-mobile__content-text">
-                        واقعا برا دیجیکالا متاسم که روز به روز بدتر میشه و کم کم
-                        دارم به این نتیجه میرسم کلا از گوشیم پاکش کنم من چی
-                        سفارش دادم ان چی فرستاده خودتون ببینید
-                      </p>
-                      <div className="product-comments-mobile__content-details">
-                        <p className="product-comments-mobile__content-details-date">
-                          ۱۳ مهر ۱۴۰۰
-                        </p>
-                        <svg
-                          className="mx-2"
-                          id="dotOutline"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 16 16"
-                          style={{
-                            width: "16px",
-                            height: "16px",
-                            fill: "#e0e0e6",
-                          }}
-                        >
-                          <circle cx="8" cy="8" r="2"></circle>
-                        </svg>
-                        <p className="product-comments-mobile__content-details-user">
-                          مریم فلاح
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="product-comments-mobile__photos">
-                <img
-                  src="/images/product-page/comment/630fd5fed0083604042cb4bf3064f8d86b30dccb_1633421782.jpg"
-                  alt="product"
-                  width="57"
-                  height="57"
-                  style={{ objectFit: "cover", borderRadius: "8px" }}
-                />
-              </div>
-
-              <div className="product-comments-mobile__submit-comment">
-                <div className="">
+                  بستن
+                </span>
+              ) : (
+                <span
+                  className="product-specifications__see-more mt-3"
+                  onClick={() => setIsShowMoreSpecifications(true)}
+                >
+                  مشاهده بیشتر
                   <svg
-                    id="comment"
+                    id="chevronLeft"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    style={{ width: "20px", height: "20px", fill: "#3f4064" }}
+                    style={{ width: "18px", height: "18px", fill: "#19bfd3" }}
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 21a1 1 0 001.6.8l6.92-5.198A8 8 0 0014 2h-4a8 8 0 100 16v3zm7.373-6.037l-.037.027L12 18.998V17a1 1 0 00-1-1h-1a6 6 0 010-12h4a6 6 0 013.373 10.963z"
-                      clipRule="evenodd"
-                    ></path>
+                    <path d="M11.414 12l4.293 4.293-1.414 1.414-5-5a1 1 0 010-1.414l5-5 1.414 1.414L11.414 12z"></path>
                   </svg>
-                </div>
-                <div className="flex-grow-1">
-                  <p className="product-comments-mobile__submit-comment-title">
-                    دیدگاه خود را درباره این کالا بنویسید
-                    <svg
-                      id="chevronLeft"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      style={{ width: "20px", height: "20px", fill: "#9e9fb1" }}
-                    >
-                      <path d="M11.414 12l4.293 4.293-1.414 1.414-5-5a1 1 0 010-1.414l5-5 1.414 1.414L11.414 12z"></path>
-                    </svg>
-                  </p>
-                  <p className="product-comments-mobile__submit-comment-text">
-                    ۵ امتیاز دیجی‌کلاب
-                  </p>
-                  <p className="product-comments-mobile__submit-comment-text">
-                    پس از تایید شدن دیدگاه، با رفتن به صفحه ماموریت‌های
-                    دیجی‌کلاب امتیازتان را دریافت کنید.
-                  </p>
-                </div>
-              </div>
+                </span>
+              )}
             </div>
+
+            <CommentsDesktop/>
+
+           <CommentsMobile/>
 
             <div className="modal-submit-comment">
               <div className="modal-submit-comment__header">

@@ -1,0 +1,107 @@
+.same-product-for-buy__wrapper {
+  height: 30rem;
+}
+.same-product-for-buy__content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 1rem 2rem;
+  border-left: 1px solid var(--border-color-100);
+}
+.same-product-for-buy__content-amazing {
+  width: 13rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+.same-product-for-buy__content-product-img {
+  width: 12rem;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.same-product-for-buy__content-desc {
+  line-height: 2;
+  font-size: 1.3rem;
+  margin: 0.3rem 0;
+}
+/* set dot for indicate that we have more text */
+.same-product-for-buy__content-desc {
+  display: -webkit-box;
+  /* how many line */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.same-product-for-buy__content-price-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0 1rem 0;
+}
+.same-product-for-buy__content-price-box-prices {
+  display: flex;
+  flex-direction: column;
+}
+.same-product-for-buy__content-price-box-prices-before-discount {
+  font-size: 1.3rem;
+  color: var(--muted-color);
+  position: relative;
+  width: fit-content;
+}
+.same-product-for-buy__content-price-box-prices-before-discount::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background-color: var(--muted-color);
+}
+.same-product-for-buy__content-finish-progress {
+  height: 4px;
+  width: 100%;
+  background-color: #f1f2f4;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+.same-product-for-buy__content-finish-progress-bar {
+  content: "";
+  position: absolute;
+  height: 100%;
+  /* width: 60%; */
+  background-color: var(--primary-color);
+  left: 0;
+}
+.same-product-for-buy__content-finish-sale {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.same-product-for-buy__content-finish-sale-text {
+  color: var(--muted-color);
+  font-size: 1.1rem;
+}
+.same-product-for-buy__content-finish-sale-text span {
+  color: var(--primary-color);
+}
+.same-product-for-buy__content-finish-sale-time {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+.same-product-for-buy__content-add-to-cart-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border: 1px solid var(--primary-color);
+  background-color: #fff;
+  outline: none;
+  top: 35%;
+  right: 10%;
+}

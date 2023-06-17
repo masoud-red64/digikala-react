@@ -1,0 +1,189 @@
+.product-comments-desktop {
+  padding: 2rem 0;
+  border-bottom: 4px solid var(--border-color-100);
+}
+.product-comments-desktop__title {
+  position: relative;
+}
+.product-comments-desktop__title::after {
+  content: "";
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  width: 8%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+.product-comments-desktop__container {
+  margin-top: 3rem;
+}
+.product-comments-desktop__right {
+  margin-left: 5rem;
+  position: sticky;
+  top: 4rem;
+}
+.product-comments-desktop__right-score {
+}
+.product-comments-desktop__right-score-num {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.product-comments-desktop__right-score-num span {
+  font-size: 2.6rem;
+}
+.product-comments-desktop__right-score-star {
+  display: flex;
+  align-items: center;
+}
+.product-comments-desktop__right-score-star-from-total {
+  font-size: 1rem;
+  color: #9e9fb1;
+  margin-right: 0.5rem;
+}
+
+.product-comments-desktop__right-topic {
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color-200);
+}
+.product-comments-desktop__right-topic-title {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+.product-comments-desktop__right-topic-item {
+  border: 1px solid var(--border-color-200);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+}
+.product-comments-desktop__right-topic-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-comments-desktop__right-topic-item-top-text {
+  font-size: 1.2rem;
+  color: #5a5c7a;
+}
+.product-comments-desktop__right-topic-item-top-num {
+  font-size: 1.1rem;
+  color: #767790;
+}
+.product-comments-desktop__right-topic-item-progress {
+  margin: 1rem 0;
+  height: 0.7rem;
+  background-color: #f1f2f4;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.product-comments-desktop__right-topic-item-progress-pos-quality {
+  background-color: #4caf50;
+  height: 100%;
+  width: 86%;
+}
+.product-comments-desktop__right-topic-item-progress-neg-quality {
+  background-color: #d32f2f;
+  height: 100%;
+  width: 7%;
+}
+.product-comments-desktop__right-topic-item-progress-pos-worth {
+  background-color: #4caf50;
+  height: 100%;
+  width: 25%;
+}
+.product-comments-desktop__right-topic-item-progress-neg-worth {
+  background-color: #d32f2f;
+  height: 100%;
+  width: 75%;
+}
+.product-comments-desktop__right-topic-item-progress-pos-Similarity-or-contrast {
+  background-color: #4caf50;
+  height: 100%;
+  width: 0%;
+}
+.product-comments-desktop__right-topic-item-progress-neg-Similarity-or-contrast {
+  background-color: #d32f2f;
+  height: 100%;
+  width: 100%;
+}
+.product-comments-desktop__right-topic-item-percent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.product-comments-desktop__right-topic-item-percent-pos {
+  font-size: 1.1rem;
+  color: #2e7b32;
+}
+.product-comments-desktop__right-topic-item-percent-neg {
+  font-size: 1.1rem;
+  color: #b2001a;
+}
+.product-comments-desktop__right-topic-caption {
+  font-size: 1.1rem;
+  color: #9e9fb1;
+  line-height: 2;
+}
+
+.product-comments-desktop__right-submit-comment {
+}
+.product-comments-desktop__right-submit-comment-text {
+  font-size: 1.2rem;
+  color: #5a5c7a;
+  margin-bottom: 0.8rem;
+  line-height: 2;
+}
+.product-comments-desktop__right-submit-comment-btn {
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.3rem;
+  outline: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0.7rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+/* Product Comments Desktop Left */
+.product-comments-desktop__left-buyers-photos {
+  border-bottom: 1px solid var(--border-color-200);
+  padding-bottom: 2rem;
+}
+.product-comments-desktop__left-buyers-photos-see-all {
+  font-size: 1.2rem;
+  color: #19bfd3;
+  margin-top: 1rem;
+}
+
+.product-comments-desktop__left-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-comments-desktop__left-navbar-sort {
+  display: flex;
+}
+.product-comments-desktop__left-navbar-sort-text {
+  font-size: 1.2rem;
+  padding: 1.2rem 0;
+}
+.product-comments-desktop__left-navbar-sort-list {
+  display: flex;
+  align-items: center;
+}
+.product-comments-desktop__left-navbar-sort-item {
+  font-size: 1.2rem;
+  color: #767790;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.product-comments-desktop__left-navbar-sort-item--active {
+  color: var(--primary-color);
+}
+.product-comments-desktop__left-navbar-comment-num {
+  font-size: 1.2rem;
+  color: #767790;
+}
