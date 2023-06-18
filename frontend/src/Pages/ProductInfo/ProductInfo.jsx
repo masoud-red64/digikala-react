@@ -28,6 +28,7 @@ export default function ProductInfo() {
   const [sizeTitle, setSizeTitle] = useState("31");
   const [productImages, setProductImages] = useState([]);
   const [productFeatures, setProductFeatures] = useState([]);
+  const [allSameProducts, setAllSameProducts] = useState([]);
 
   const { shortName } = useParams();
 
@@ -76,7 +77,8 @@ export default function ProductInfo() {
     getTargetMain();
     getProductImages();
     getProductFeatures();
-  }, [categoryID, mainID]);
+    getSameProducts();
+  }, [ProductInfo]);
 
   function getProductInfos() {
     fetch(`http://localhost:3000/api/products/${shortName}`)
@@ -125,6 +127,19 @@ export default function ProductInfo() {
         setProductFeatures(features);
       });
   }
+
+  function getSameProducts() {
+    fetch(`http://localhost:3000/api/products/categoryID/${categoryID}`)
+      .then((res) => res.json())
+      .then((products) => {
+        // Get All Same Products Without Product That We Show In Page
+        let productsExceptThis = products.filter(
+          (product) => product.id !== ProductInfo.id
+        );
+        setAllSameProducts(productsExceptThis);
+      });
+  }
+
   return (
     <>
       <Header />
@@ -1231,18 +1246,11 @@ export default function ProductInfo() {
                 }}
                 className="mySwiper same-product-for-buy__swiper"
               >
-                <SwiperSlide>
-                  <SameProducts />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <SameProducts />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <SameProducts />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <SameProducts />
-                </SwiperSlide>
+                {allSameProducts.map((product) => (
+                  <SwiperSlide key={product.id}>
+                    <SameProducts {...product} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </section>

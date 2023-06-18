@@ -1,22 +1,37 @@
 import React from "react";
 
 import "./SameProducts.css";
+import { Link } from "react-router-dom";
+import {
+  enToPersianNumber,
+  formatNumberWithSeparators,
+} from "../../../../../../../../DigiKala/frontend/js/funcs/utils";
 
-export default function SameProducts() {
+export default function SameProducts({
+  img,
+  shortName,
+  title,
+  off,
+  price,
+  wonder,
+}) {
   return (
     <div className="same-product-for-buy__wrapper">
-      <a href="#" className="same-product-for-buy__content">
-        <div className="same-product-for-buy__content-amazing">
-          <img src="/images/cart-page/IncredibleOffer.svg" alt="" />
-        </div>
+      <Link
+        to={`/product-info/${shortName}`}
+        className="same-product-for-buy__content"
+      >
+        {wonder ? (
+          <div className="same-product-for-buy__content-amazing">
+            <img src="/images/cart-page/IncredibleOffer.svg" alt="" />
+          </div>
+        ) : null}
         <img
-          src="/images/product-page/same-products/5093109e6e6d7c251f0061151f6d76f5239f2224_1646590055.webp"
+          src={`/img/${img}`}
           alt=""
           className="same-product-for-buy__content-product-img"
         />
-        <p className="same-product-for-buy__content-desc">
-          کفش مخصوص پیاده روی پسرانه مدل A.N.TOO رنگ طوسی
-        </p>
+        <p className="same-product-for-buy__content-desc">{title}</p>
         <p className="fs-6">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,11 +52,13 @@ export default function SameProducts() {
         </p>
         <div className="same-product-for-buy__content-price-box">
           <p className="same-product-for-buy__content-price-box-discount discount-percent">
-            ۳۱
+            {off ? enToPersianNumber(off) : null}
           </p>
           <div className="same-product-for-buy__content-price-box-prices">
             <p className="same-product-for-buy__content-price-box-prices-after-discount">
-              ۱۷,۲۰۰
+              {formatNumberWithSeparators(
+                enToPersianNumber(price - (price * off) / 100)
+              )}
               <svg
                 id="toman"
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,12 +76,14 @@ export default function SameProducts() {
                 ></path>
               </svg>
             </p>
-            <p className="same-product-for-buy__content-price-box-prices-before-discount">
-              ۲۵,۰۰۰
-            </p>
+            {off ? (
+              <p className="same-product-for-buy__content-price-box-prices-before-discount">
+                {formatNumberWithSeparators(enToPersianNumber(price))}
+              </p>
+            ) : null}
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
