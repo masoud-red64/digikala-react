@@ -2,11 +2,11 @@ import React from "react";
 
 import "./ProductImg.css";
 
-export default function ProductImg() {
+export default function ProductImg({ img }) {
   return (
     <li className="product-content__right-product-photos-item">
       <img
-        src="/images/product-page/3f09a11cae251172c504e8e41d1131431f755455_1610187470.webp"
+        src={`/img/${img}`}
         alt=""
         className="product-content__right-product-photos-img"
         width="60"

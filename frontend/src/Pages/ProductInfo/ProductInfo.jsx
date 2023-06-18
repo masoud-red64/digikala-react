@@ -26,6 +26,7 @@ export default function ProductInfo() {
   const [categoryInfo, setCategoryInfo] = useState({});
   const [colorTitle, setColorTitle] = useState("سبز");
   const [sizeTitle, setSizeTitle] = useState("31");
+  const [productImages, setProductImages] = useState([]);
 
   const { shortName } = useParams();
 
@@ -72,6 +73,7 @@ export default function ProductInfo() {
     getProductInfos();
     getMainCategory();
     getTargetMain();
+    getProductImages();
   }, [categoryID, mainID]);
 
   function getProductInfos() {
@@ -101,6 +103,14 @@ export default function ProductInfo() {
       .then((mains) => {
         let targetMain = mains.filter((main) => main.id === mainID);
         setMainInfo(targetMain[0]);
+      });
+  }
+
+  function getProductImages() {
+    fetch(`http://localhost:3000/api/productImg/productID/${ProductInfo.id}`)
+      .then((res) => res.json())
+      .then((productImages) => {
+        setProductImages(productImages);
       });
   }
   return (
@@ -302,42 +312,46 @@ export default function ProductInfo() {
                     </div>
                   </div>
 
-                  <ul
-                    className="product-content__right-product-photos-list"
-                    id="product-images-container"
-                  >
-                    <li className="product-content__right-product-photos-item">
-                      <img
-                        src="/images/product-page/194b2ca338e8b4d4217fa3aaf88a3d679848cc14_1610187478.webp"
-                        alt=""
-                        className="product-content__right-product-photos-img"
-                        width="60"
-                        height="60"
-                      />
-                      <svg
-                        id="video"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          fill: "#3f4064",
-                        }}
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M12 3c2.372 0 4.989.256 7.86.767l.712.13a2 2 0 011.562 1.46C22.711 7.57 23 9.785 23 12c0 1.994-.234 3.988-.704 5.991l-.162.651a2 2 0 01-1.562 1.46C17.425 20.7 14.568 21 12 21c-2.372 0-4.989-.256-7.86-.767l-.712-.13a2 2 0 01-1.562-1.46A26.229 26.229 0 011 12c0-1.994.234-3.988.704-5.991l.162-.651a2 2 0 011.562-1.46C6.575 3.3 9.432 3 12 3zm0 2c-2.435 0-5.169.287-8.2.863l-.152.615A24.091 24.091 0 003 12c0 2.044.267 4.09.8 6.137l.697.128C7.251 18.755 9.753 19 12 19c2.435 0 5.169-.287 8.2-.863l.152-.615A24.09 24.09 0 0021 12c0-2.044-.267-4.09-.8-6.137l-.697-.128C16.749 5.245 14.247 5 12 5zm4 7L9 8v8l7-4z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </li>
-                    <ProductImg />
-                    <ProductImg />
-                    <ProductImg />
-                    <ProductImg />
-                    <ProductImg />
-                    <ProductImg />
-                  </ul>
+                  {productImages.length ? (
+                    <ul
+                      className="product-content__right-product-photos-list"
+                      id="product-images-container"
+                    >
+                      {productImages.slice(0, 1).map((img) => (
+                        <li
+                          key={img.id}
+                          className="product-content__right-product-photos-item"
+                        >
+                          <img
+                            src={`/img/${img.img}`}
+                            alt=""
+                            className="product-content__right-product-photos-img"
+                            width="60"
+                            height="60"
+                          />
+                          <svg
+                            id="video"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              fill: "#3f4064",
+                            }}
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M12 3c2.372 0 4.989.256 7.86.767l.712.13a2 2 0 011.562 1.46C22.711 7.57 23 9.785 23 12c0 1.994-.234 3.988-.704 5.991l-.162.651a2 2 0 01-1.562 1.46C17.425 20.7 14.568 21 12 21c-2.372 0-4.989-.256-7.86-.767l-.712-.13a2 2 0 01-1.562-1.46A26.229 26.229 0 011 12c0-1.994.234-3.988.704-5.991l.162-.651a2 2 0 011.562-1.46C6.575 3.3 9.432 3 12 3zm0 2c-2.435 0-5.169.287-8.2.863l-.152.615A24.091 24.091 0 003 12c0 2.044.267 4.09.8 6.137l.697.128C7.251 18.755 9.753 19 12 19c2.435 0 5.169-.287 8.2-.863l.152-.615A24.09 24.09 0 0021 12c0-2.044-.267-4.09-.8-6.137l-.697-.128C16.749 5.245 14.247 5 12 5zm4 7L9 8v8l7-4z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </li>
+                      ))}
+                      {productImages.slice(1).map((img) => (
+                        <ProductImg key={img.id} img={img.img} />
+                      ))}
+                    </ul>
+                  ) : null}
 
                   <div className="product-content__right-send-report">
                     <p className="product-content__right-send-report-text">
