@@ -19,7 +19,7 @@ export default function ProductInfo() {
   const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
     useState(false);
   const [showActiveNavbar, setShowActiveNavbar] = useState("specifications");
-  const [ProductInfo, setProductInfo] = useState({});
+  const [productInfo, setProductInfo] = useState({});
   const [categoryID, setCategoryID] = useState(null);
   const [mainID, setMainID] = useState(null);
   const [mainInfo, setMainInfo] = useState({});
@@ -83,7 +83,7 @@ export default function ProductInfo() {
     getProductFeatures();
     getSameProducts();
     getAllComments();
-  }, [ProductInfo]);
+  }, [productInfo]);
 
   function getProductInfos() {
     fetch(`http://localhost:3000/api/products/${shortName}`)
@@ -116,7 +116,7 @@ export default function ProductInfo() {
   }
 
   function getProductImages() {
-    fetch(`http://localhost:3000/api/productImg/productID/${ProductInfo.id}`)
+    fetch(`http://localhost:3000/api/productImg/productID/${productInfo.id}`)
       .then((res) => res.json())
       .then((productImages) => {
         setProductImages(productImages);
@@ -125,7 +125,7 @@ export default function ProductInfo() {
 
   function getProductFeatures() {
     fetch(
-      `http://localhost:3000/api/productFeature/productID/${ProductInfo.id}`
+      `http://localhost:3000/api/productFeature/productID/${productInfo.id}`
     )
       .then((res) => res.json())
       .then((features) => {
@@ -139,14 +139,14 @@ export default function ProductInfo() {
       .then((products) => {
         // Get All Same Products Without Product That We Show In Page
         let productsExceptThis = products.filter(
-          (product) => product.id !== ProductInfo.id
+          (product) => product.id !== productInfo.id
         );
         setAllSameProducts(productsExceptThis);
       });
   }
 
   function getAllComments() {
-    fetch(`http://localhost:3000/api/comments/${ProductInfo.id}`)
+    fetch(`http://localhost:3000/api/comments/${productInfo.id}`)
       .then((res) => res.json())
       .then((comments) => {
         console.log(comments);
@@ -173,7 +173,7 @@ export default function ProductInfo() {
               </a>
               <span className="mx-3">/</span>
               <a href="#" className="product-top__right-link">
-                {ProductInfo.title}
+                {productInfo.title}
               </a>
             </div>
             <div className="product-top__left">
@@ -214,7 +214,7 @@ export default function ProductInfo() {
             <div className="row">
               <div className="col-12 col-lg-4">
                 <div className="product-content__right">
-                  {ProductInfo.wonder ? (
+                  {productInfo.wonder ? (
                     <div className="product-content__right-suggest">
                       <div className="">
                         <img
@@ -226,7 +226,7 @@ export default function ProductInfo() {
                         />
                       </div>
                       <p className="timer">
-                        {enToPersianNumber(ProductInfo.time)}
+                        {enToPersianNumber(productInfo.time)}
                       </p>
                     </div>
                   ) : null}
@@ -339,7 +339,7 @@ export default function ProductInfo() {
                     </ul>
                     <div className="product-content__right-photo">
                       <img
-                        src={`/img/${ProductInfo.img}`}
+                        src={`/img/${productInfo.img}`}
                         style={{
                           width: "100%",
                           height: "auto",
@@ -431,7 +431,7 @@ export default function ProductInfo() {
                     </p>
                   </div>
                   <div className="product-content__center-title">
-                    {ProductInfo.title}
+                    {productInfo.title}
                   </div>
 
                   <div className="product-content__center-score-and-comment">
@@ -445,8 +445,8 @@ export default function ProductInfo() {
                         style={{ objectFit: "contain" }}
                       />
                       <p className="product-content__center-score-num">
-                        {ProductInfo.score &&
-                          enToPersianNumber(ProductInfo.score)}
+                        {productInfo.score &&
+                          enToPersianNumber(productInfo.score)}
                       </p>
                       <p className="product-content__center-score-people">
                         (۱۹)
@@ -476,7 +476,7 @@ export default function ProductInfo() {
                       </a>
                     </div>
                   </div>
-                  {ProductInfo.colorOrSize === "color" ? (
+                  {productInfo.colorOrSize === "color" ? (
                     <div className="product-content__center-colors">
                       <h2 className="product-content__center-colors-title">
                         رنگ: <span>{colorTitle}</span>
@@ -568,7 +568,7 @@ export default function ProductInfo() {
                         </div>
                       </div>
                     </div>
-                  ) : ProductInfo.colorOrSize === "size" ? (
+                  ) : productInfo.colorOrSize === "size" ? (
                     <div className="product-content__center-infos">
                       <p className="product-content__center-infos-size">
                         اندازه: {sizeTitle}
@@ -977,15 +977,15 @@ export default function ProductInfo() {
                           قیمت فروشنده
                         </p>
                         <div id="product-price-container">
-                          {ProductInfo.off ? (
+                          {productInfo.off ? (
                             <div className="d-flex align-items-center gap-2">
                               <p className="product-content__left-price-discount">
                                 {formatNumberWithSeparators(
-                                  enToPersianNumber(ProductInfo.price)
+                                  enToPersianNumber(productInfo.price)
                                 )}
                               </p>
                               <p className="product-content__left-percent discount-percent">
-                                {enToPersianNumber(ProductInfo.off)}
+                                {enToPersianNumber(productInfo.off)}
                               </p>
                             </div>
                           ) : null}
@@ -993,8 +993,8 @@ export default function ProductInfo() {
                             <span>
                               {formatNumberWithSeparators(
                                 enToPersianNumber(
-                                  ProductInfo.price -
-                                    (ProductInfo.price * ProductInfo.off) / 100
+                                  productInfo.price -
+                                    (productInfo.price * productInfo.off) / 100
                                 )
                               )}
                             </span>
@@ -1017,11 +1017,11 @@ export default function ProductInfo() {
                           </p>
                         </div>
                       </div>
-                      {ProductInfo.inventoryCount < 10 ? (
+                      {productInfo.inventoryCount < 10 ? (
                         <div className="product-content__left-remain">
                           تنها{" "}
                           <span>
-                            {enToPersianNumber(ProductInfo.inventoryCount)}
+                            {enToPersianNumber(productInfo.inventoryCount)}
                           </span>{" "}
                           عدد در انبار دیجی‌کالا باقی مانده
                         </div>
@@ -1036,7 +1036,12 @@ export default function ProductInfo() {
                     <div className="product-content__left-show-price-mobile position-fixed bottom-0 start-0 bg-white w-100">
                       <div className="d-flex d-lg-none align-items-center justify-content-between">
                         <div className="product-content__left-remain">
-                          تنها <span>۹</span> عدد در انبار دیجی‌کالا باقی مانده
+                          تنها{" "}
+                          <span>
+                            {productInfo.inventoryCount &&
+                              enToPersianNumber(productInfo.inventoryCount)}
+                          </span>{" "}
+                          عدد در انبار دیجی‌کالا باقی مانده
                         </div>
                         <p className="product-content__left-price-text">
                           قیمت فروشنده
@@ -1064,16 +1069,27 @@ export default function ProductInfo() {
                           افزودن به سبد خرید
                         </button>
                         <div id="mobile-product-price-container">
-                          <div className="d-flex align-items-center gap-2">
-                            <p className="product-content__left-price-discount">
-                              ۵۱۶,۴۰۰
-                            </p>
-                            <p className="product-content__left-percent discount-percent">
-                              ۱۶
-                            </p>
-                          </div>
+                          {productInfo.off ? (
+                            <div className="d-flex align-items-center gap-2">
+                              <p className="product-content__left-price-discount">
+                                {formatNumberWithSeparators(
+                                  enToPersianNumber(productInfo.price)
+                                )}
+                              </p>
+                              <p className="product-content__left-percent discount-percent">
+                                {enToPersianNumber(productInfo.off)}
+                              </p>
+                            </div>
+                          ) : null}
                           <p className="product-content__left-price-num">
-                            <span>۴۳۳,۷۷۶</span>
+                            <span>
+                              {formatNumberWithSeparators(
+                                enToPersianNumber(
+                                  productInfo.price -
+                                    (productInfo.price * productInfo.off) / 100
+                                )
+                              )}
+                            </span>
                             <svg
                               id="toman"
                               xmlns="http://www.w3.org/2000/svg"
