@@ -11,11 +11,23 @@ import "swiper/css/navigation";
 import SameProducts from "../../Components/ProductInfoPage/SameProducts/SameProducts";
 import CommentsDesktop from "../../Components/ProductInfoPage/CommentsDesktop/CommentsDesktop";
 import CommentsMobile from "../../Components/ProductInfoPage/CommentsMobile/CommentsMobile";
+import { useParams } from "react-router-dom";
+import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
+import { formatNumberWithSeparators } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 
 export default function ProductInfo() {
   const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
     useState(false);
   const [showActiveNavbar, setShowActiveNavbar] = useState("specifications");
+  const [ProductInfo, setProductInfo] = useState({});
+  const [categoryID, setCategoryID] = useState(null);
+  const [mainID, setMainID] = useState(null);
+  const [mainInfo, setMainInfo] = useState({});
+  const [categoryInfo, setCategoryInfo] = useState({});
+  const [colorTitle, setColorTitle] = useState("سبز");
+  const [sizeTitle, setSizeTitle] = useState("31");
+
+  const { shortName } = useParams();
 
   const specifications = useRef();
   const commentsDesktop = useRef();
@@ -55,6 +67,42 @@ export default function ProductInfo() {
     });
     return () => window.removeEventListener("scroll", () => {});
   }, []);
+
+  useEffect(() => {
+    getProductInfos();
+    getMainCategory();
+    getTargetMain();
+  }, [categoryID, mainID]);
+
+  function getProductInfos() {
+    fetch(`http://localhost:3000/api/products/${shortName}`)
+      .then((res) => res.json())
+      .then((product) => {
+        setProductInfo(product[0]);
+        setCategoryID(product[0].categoryID);
+        setMainID(product[0].mainID);
+      });
+  }
+
+  function getMainCategory() {
+    fetch("http://localhost:3000/api/categories")
+      .then((res) => res.json())
+      .then((categories) => {
+        let mainCategory = categories.filter(
+          (category) => category.id === categoryID
+        );
+        setCategoryInfo(mainCategory[0]);
+      });
+  }
+
+  function getTargetMain() {
+    fetch("http://localhost:3000/api/main")
+      .then((res) => res.json())
+      .then((mains) => {
+        let targetMain = mains.filter((main) => main.id === mainID);
+        setMainInfo(targetMain[0]);
+      });
+  }
   return (
     <>
       <Header />
@@ -67,19 +115,15 @@ export default function ProductInfo() {
               </a>
               <span className="mx-3">/</span>
               <a href="#" className="product-top__right-link">
-                مد و پوشاک
+                {mainInfo && mainInfo.title}
               </a>
               <span className="mx-3">/</span>
               <a href="#" className="product-top__right-link">
-                بچگانه
+                {categoryInfo && categoryInfo.title}
               </a>
               <span className="mx-3">/</span>
               <a href="#" className="product-top__right-link">
-                پسرانه
-              </a>
-              <span className="mx-3">/</span>
-              <a href="#" className="product-top__right-link">
-                کفش پسرانه
+                {ProductInfo.title}
               </a>
             </div>
             <div className="product-top__left">
@@ -120,18 +164,22 @@ export default function ProductInfo() {
             <div className="row">
               <div className="col-12 col-lg-4">
                 <div className="product-content__right">
-                  <div className="product-content__right-suggest">
-                    <div className="">
-                      <img
-                        src="/images/product-page/IncredibleOffer.svg"
-                        alt="IncredibleOffer"
-                        width="100"
-                        height="14"
-                        style={{ objectFit: "contain" }}
-                      />
+                  {ProductInfo.wonder ? (
+                    <div className="product-content__right-suggest">
+                      <div className="">
+                        <img
+                          src="/images/product-page/IncredibleOffer.svg"
+                          alt="IncredibleOffer"
+                          width="100"
+                          height="14"
+                          style={{ objectFit: "contain" }}
+                        />
+                      </div>
+                      <p className="timer">
+                        {enToPersianNumber(ProductInfo.time)}
+                      </p>
                     </div>
-                    <p className="timer">۱۹ : ۵۷ : ۰۲</p>
-                  </div>
+                  ) : null}
                   <div className="product-content__right-photo-and-option flex-column flex-lg-row">
                     <ul className="product-content__right-option-list flex-row flex-lg-column justify-content-end justify-content-lg-start">
                       <li className="product-content__right-option-item">
@@ -241,7 +289,7 @@ export default function ProductInfo() {
                     </ul>
                     <div className="product-content__right-photo">
                       <img
-                        src="/images/product-page/d260dbe091550308a5c1e537cda72444ef299846_1610187456.jpg"
+                        src={`/img/${ProductInfo.img}`}
                         style={{
                           width: "100%",
                           height: "auto",
@@ -286,6 +334,9 @@ export default function ProductInfo() {
                     <ProductImg />
                     <ProductImg />
                     <ProductImg />
+                    <ProductImg />
+                    <ProductImg />
+                    <ProductImg />
                   </ul>
 
                   <div className="product-content__right-send-report">
@@ -317,14 +368,16 @@ export default function ProductInfo() {
               <div className="col-12 col-lg-5">
                 <div className="product-content__center">
                   <div className="product-content__center-brand">
-                    <p className="product-content__center-brand-text">پاما</p>
+                    <p className="product-content__center-brand-text">
+                      {mainInfo && mainInfo.title}
+                    </p>
                     <span className="mx-2">/</span>
                     <p className="product-content__center-brand-text">
-                      کفش ورزشی پسرانه پاما
+                      {categoryInfo && categoryInfo.title}
                     </p>
                   </div>
                   <div className="product-content__center-title">
-                    کفش مخصوص پیاده روی پسرانه پاما مدل 104 کد G1460
+                    {ProductInfo.title}
                   </div>
 
                   <div className="product-content__center-score-and-comment">
@@ -337,7 +390,10 @@ export default function ProductInfo() {
                         height="14"
                         style={{ objectFit: "contain" }}
                       />
-                      <p className="product-content__center-score-num">۳.۸</p>
+                      <p className="product-content__center-score-num">
+                        {ProductInfo.score &&
+                          enToPersianNumber(ProductInfo.score)}
+                      </p>
                       <p className="product-content__center-score-people">
                         (۱۹)
                       </p>
@@ -366,96 +422,118 @@ export default function ProductInfo() {
                       </a>
                     </div>
                   </div>
-
-                  <div className="product-content__center-infos d-none">
-                    <p className="product-content__center-infos-size">
-                      اندازه: 31
-                    </p>
-                    <div className="product-content__center-infos-select-size">
-                      <select
-                        name=""
-                        id=""
-                        className="product-content__center-infos-select"
-                      >
-                        <option value="31">۳۱</option>
-                        <option value="32">۳۲</option>
-                        <option value="33">۳۳</option>
-                        <option value="34">۳۴</option>
-                      </select>
+                  {ProductInfo.colorOrSize === "color" ? (
+                    <div className="product-content__center-colors">
+                      <h2 className="product-content__center-colors-title">
+                        رنگ: <span>{colorTitle}</span>
+                      </h2>
+                      <div className="d-flex gap-3">
+                        <div
+                          className={`color-wrapper ${
+                            colorTitle === "قرمز" ? "color-wrapper--active" : ""
+                          }`}
+                          onClick={() => setColorTitle("قرمز")}
+                        >
+                          <div className="color red">
+                            <svg
+                              id="done"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                fill: "#fff",
+                              }}
+                            >
+                              <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          className={`color-wrapper ${
+                            colorTitle === "سبز" ? "color-wrapper--active" : ""
+                          }`}
+                          onClick={() => setColorTitle("سبز")}
+                        >
+                          <div className="color green">
+                            <svg
+                              id="done"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                fill: "#fff",
+                              }}
+                            >
+                              <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          className={`color-wrapper ${
+                            colorTitle === "آبی" ? "color-wrapper--active" : ""
+                          }`}
+                          onClick={() => setColorTitle("آبی")}
+                        >
+                          <div className="color blue">
+                            <svg
+                              id="done"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                fill: "#fff",
+                              }}
+                            >
+                              <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          className={`color-wrapper ${
+                            colorTitle === "زرد" ? "color-wrapper--active" : ""
+                          }`}
+                          onClick={() => setColorTitle("زرد")}
+                        >
+                          <div className="color yellow">
+                            <svg
+                              id="done"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                fill: "#fff",
+                              }}
+                            >
+                              <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="product-content__center-colors d-none">
-                    <h2 className="product-content__center-colors-title">
-                      رنگ: <span>سبز</span>
-                    </h2>
-                    <div className="d-flex gap-3">
-                      <div className="color-wrapper">
-                        <div className="color red">
-                          <svg
-                            id="done"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "20px",
-                              height: "20px",
-                              fill: "#fff",
-                            }}
-                          >
-                            <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="color-wrapper color-wrapper--active">
-                        <div className="color green">
-                          <svg
-                            id="done"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "20px",
-                              height: "20px",
-                              fill: "#fff",
-                            }}
-                          >
-                            <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="color-wrapper">
-                        <div className="color blue">
-                          <svg
-                            id="done"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "20px",
-                              height: "20px",
-                              fill: "#fff",
-                            }}
-                          >
-                            <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="color-wrapper">
-                        <div className="color yellow">
-                          <svg
-                            id="done"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{
-                              width: "20px",
-                              height: "20px",
-                              fill: "#fff",
-                            }}
-                          >
-                            <path d="M9.5 15.586l9.293-9.293 1.414 1.414-10 10a1 1 0 01-1.414 0l-4.5-4.5 1.414-1.414L9.5 15.586z"></path>
-                          </svg>
-                        </div>
+                  ) : ProductInfo.colorOrSize === "size" ? (
+                    <div className="product-content__center-infos">
+                      <p className="product-content__center-infos-size">
+                        اندازه: {sizeTitle}
+                      </p>
+                      <div className="product-content__center-infos-select-size">
+                        <select
+                          name=""
+                          id=""
+                          className="product-content__center-infos-select"
+                          onChange={(e) => setSizeTitle(e.target.value)}
+                        >
+                          <option value="31">۳۱</option>
+                          <option value="32">۳۲</option>
+                          <option value="33">۳۳</option>
+                          <option value="34">۳۴</option>
+                        </select>
                       </div>
                     </div>
-                  </div>
+                  ) : null}
 
                   <div className="product-content__center-attributes">
                     <p className="product-content__center-attributes-title">
@@ -921,16 +999,27 @@ export default function ProductInfo() {
                           قیمت فروشنده
                         </p>
                         <div id="product-price-container">
-                          <div className="d-flex align-items-center gap-2">
-                            <p className="product-content__left-price-discount">
-                              ۳۴۵,۳۴۲
-                            </p>
-                            <p className="product-content__left-percent discount-percent">
-                              ۲۰
-                            </p>
-                          </div>
+                          {ProductInfo.off ? (
+                            <div className="d-flex align-items-center gap-2">
+                              <p className="product-content__left-price-discount">
+                                {formatNumberWithSeparators(
+                                  enToPersianNumber(ProductInfo.price)
+                                )}
+                              </p>
+                              <p className="product-content__left-percent discount-percent">
+                                {enToPersianNumber(ProductInfo.off)}
+                              </p>
+                            </div>
+                          ) : null}
                           <p className="product-content__left-price-num">
-                            <span>۱,۰۴۹,۰۰۰</span>
+                            <span>
+                              {formatNumberWithSeparators(
+                                enToPersianNumber(
+                                  ProductInfo.price -
+                                    (ProductInfo.price * ProductInfo.off) / 100
+                                )
+                              )}
+                            </span>
                             <svg
                               id="toman"
                               xmlns="http://www.w3.org/2000/svg"
@@ -950,9 +1039,15 @@ export default function ProductInfo() {
                           </p>
                         </div>
                       </div>
-                      <div className="product-content__left-remain">
-                        تنها <span>۲</span> عدد در انبار دیجی‌کالا باقی مانده
-                      </div>
+                      {ProductInfo.inventoryCount < 10 ? (
+                        <div className="product-content__left-remain">
+                          تنها{" "}
+                          <span>
+                            {enToPersianNumber(ProductInfo.inventoryCount)}
+                          </span>{" "}
+                          عدد در انبار دیجی‌کالا باقی مانده
+                        </div>
+                      ) : null}
                       <div className="product-content__left-add">
                         <button className="product-content__left-add-btn">
                           افزودن به سبد خرید
