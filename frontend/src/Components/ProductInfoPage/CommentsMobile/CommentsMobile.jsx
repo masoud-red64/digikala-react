@@ -4,17 +4,24 @@ import "./CommentsMobile.css";
 import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import CommentMobile from "./CommentMobile/CommentMobile";
+import { enToPersianNumber } from "../../../../../../../../DigiKala/frontend/js/funcs/utils";
 
-export default function CommentsMobile({commentRef}) {
-  return (
-    <div className="product-comments-mobile d-block d-lg-none" id="commentsMobile" ref={commentRef}>
+export default function CommentsMobile({ commentRef, comments }) {
+  return comments.length ? (
+    <div
+      className="product-comments-mobile d-block d-lg-none"
+      id="commentsMobile"
+      ref={commentRef}
+    >
       <div className="product-comments-mobile__top">
         <p className="product-comments-mobile__top-title">دیدگاه‌ها</p>
-        <p className="product-comments-mobile__top-num">۱۶ دیدگاه</p>
+        <p className="product-comments-mobile__top-num">
+          {enToPersianNumber(comments.length)} دیدگاه
+        </p>
       </div>
       <Swiper
         slidesPerView={2}
-        grabCursor={true} 
+        grabCursor={true}
         breakpoints={{
           768: {
             slidesPerView: 2,
@@ -28,18 +35,11 @@ export default function CommentsMobile({commentRef}) {
         }}
         className="mySwiper product-comments-mobile__swiper"
       >
-        <SwiperSlide>
-          <CommentMobile />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CommentMobile />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CommentMobile />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CommentMobile />
-        </SwiperSlide>
+        {comments.map((comment) => (
+          <SwiperSlide key={comment.id}>
+            <CommentMobile {...comment} />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="product-comments-mobile__photos">
@@ -88,6 +88,15 @@ export default function CommentsMobile({commentRef}) {
           </p>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="mt-5">
+      <p>شما هم می‌توانید در مورد این کالا نظر دهید.</p>
+      <p className="mt-3" style={{ fontSize: "1.2rem", color: "#767790" }}>
+        اگر این محصول را قبلا از دیجیکالا خریده باشید، دیدگاه شما به عنوان
+        خریدار ثبت خواهد شد. همچنین در صورت تمایل می‌توانید به صورت ناشناس نیز
+        دیدگاه خود را ثبت کنید
+      </p>
     </div>
   );
 }

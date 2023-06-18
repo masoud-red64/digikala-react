@@ -74,7 +74,6 @@ export default function ProductInfo() {
 
   useEffect(() => {
     getProductInfos();
-    getAllComments();
   }, [mainID, shortName]);
   useEffect(() => {
     getMainCategory();
@@ -82,6 +81,7 @@ export default function ProductInfo() {
     getProductImages();
     getProductFeatures();
     getSameProducts();
+    getAllComments();
   }, [ProductInfo]);
 
   function getProductInfos() {
@@ -148,6 +148,7 @@ export default function ProductInfo() {
     fetch(`http://localhost:3000/api/comments/${ProductInfo.id}`)
       .then((res) => res.json())
       .then((comments) => {
+        console.log(comments);
         setComments(comments);
       });
   }
@@ -468,7 +469,7 @@ export default function ProductInfo() {
                         className="product-content__center-comment-text"
                       >
                         <span className="product-content__center-comment-number">
-                          ۱۶
+                          {enToPersianNumber(comments.length)}
                         </span>
                         دیدگاه
                       </a>
@@ -1360,9 +1361,9 @@ export default function ProductInfo() {
               )}
             </div>
 
-            <CommentsDesktop commentRef={commentsDesktop} />
+            <CommentsDesktop commentRef={commentsDesktop} comments={comments} />
 
-            <CommentsMobile commentRef={commentsMobile} />
+            <CommentsMobile commentRef={commentsMobile} comments={comments} />
 
             <div className="modal-submit-comment">
               <div className="modal-submit-comment__header">

@@ -27,6 +27,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 1rme;
 }
 .product-comments-mobile__content-details {
   font-size: 1rem;

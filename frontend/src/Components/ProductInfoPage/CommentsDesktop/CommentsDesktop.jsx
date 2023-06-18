@@ -3,7 +3,7 @@ import React from "react";
 import "./CommentsDesktop.css";
 import CommentDesktop from "./CommentDesktop/CommentDesktop";
 
-export default function CommentsDesktop({commentRef}) {
+export default function CommentsDesktop({commentRef,comments}) {
   return (
     <div className="product-comments-desktop" id="commentsDesktop" ref={commentRef}>
       <p className="product-comments-desktop__title d-flex d-lg-block justify-content-between">
@@ -27,7 +27,9 @@ export default function CommentsDesktop({commentRef}) {
         </svg>
       </p>
 
-      <div className="product-comments-desktop__container">
+     {
+      comments.length ? (
+        <div className="product-comments-desktop__container">
         <div className="row">
           <div className="col-12 col-lg-3">
             <div className="product-comments-desktop__right">
@@ -256,12 +258,23 @@ export default function CommentsDesktop({commentRef}) {
               </div>
 
               <div id="product-comments-container">
-                <CommentDesktop />
+                {
+                  comments.map(comment =>(
+                    <CommentDesktop key={comment.id} {...comment} />
+                  ))
+                }
               </div>
             </div>
           </div>
         </div>
       </div>
+      ): (
+        <div className="mt-5">
+        <p>شما هم می‌توانید در مورد این کالا نظر دهید.</p>
+      <p className="mt-3" style={{fontSize:'1.2rem', color:'#767790'}}>اگر این محصول را قبلا از دیجیکالا خریده باشید، دیدگاه شما به عنوان خریدار ثبت خواهد شد. همچنین در صورت تمایل می‌توانید به صورت ناشناس نیز دیدگاه خود را ثبت کنید</p>
+        </div>
+      )
+     }
     </div>
   );
 }
