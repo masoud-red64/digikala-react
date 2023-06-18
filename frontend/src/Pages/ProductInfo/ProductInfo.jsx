@@ -30,6 +30,7 @@ export default function ProductInfo() {
   const [productFeatures, setProductFeatures] = useState([]);
   const [allSameProducts, setAllSameProducts] = useState([]);
   const [comments, setComments] = useState([]);
+  const [lengthOfQuestionTextArea, setLengthOfQuestionTextArea] = useState("0");
 
   const { shortName } = useParams();
 
@@ -1812,8 +1813,13 @@ export default function ProductInfo() {
                 className="product-question__content-textarea"
                 rows="5"
                 maxLength="100"
+                onChange={(e) =>
+                  setLengthOfQuestionTextArea(e.target.value.length)
+                }
               ></textarea>
-              <p className="product-question__content-letter-num">۱۰۰/۰</p>
+              <p className="product-question__content-letter-num">
+                ۱۰۰/{enToPersianNumber(lengthOfQuestionTextArea)}
+              </p>
               <button className="product-question__content-btn">
                 ثبت پرسش
               </button>
