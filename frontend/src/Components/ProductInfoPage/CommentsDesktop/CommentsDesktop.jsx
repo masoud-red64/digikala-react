@@ -5,7 +5,7 @@ import CommentDesktop from "./CommentDesktop/CommentDesktop";
 
 export default function CommentsDesktop({commentRef,comments}) {
   return (
-    <div className="product-comments-desktop" id="commentsDesktop" ref={commentRef}>
+    <div className={`product-comments-desktop ${comments.length ? '' : 'border-0'}`} id="commentsDesktop" ref={commentRef}>
       <p className="product-comments-desktop__title d-flex d-lg-block justify-content-between">
         امتیاز و دیدگاه کاربران
         <svg
@@ -268,12 +268,7 @@ export default function CommentsDesktop({commentRef,comments}) {
           </div>
         </div>
       </div>
-      ): (
-        <div className="mt-5">
-        <p>شما هم می‌توانید در مورد این کالا نظر دهید.</p>
-      <p className="mt-3" style={{fontSize:'1.2rem', color:'#767790'}}>اگر این محصول را قبلا از دیجیکالا خریده باشید، دیدگاه شما به عنوان خریدار ثبت خواهد شد. همچنین در صورت تمایل می‌توانید به صورت ناشناس نیز دیدگاه خود را ثبت کنید</p>
-        </div>
-      )
+      ):null
      }
     </div>
   );

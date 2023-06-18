@@ -50,14 +50,14 @@ export default function ProductInfo() {
                 setShowActiveNavbar("commentsDesktop");
               } else if (section.target.id === "commentsMobile") {
                 setShowActiveNavbar("commentsMobile");
-              } else {
+              } else if (section.target.id === "questions") {
                 setShowActiveNavbar("questions");
               }
             }
           });
         },
         {
-          threshold: 0.5, // 50% of section visibility => isIntersecting is true
+          threshold: 0.3, // 50% of section visibility => isIntersecting is true
         }
       );
       [
