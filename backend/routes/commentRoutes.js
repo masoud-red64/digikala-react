@@ -5,7 +5,7 @@ const commentRoutes = express.Router();
 
 commentRoutes.get("/:id", (req, res) => {
   let productIDParam = req.params.id;
-  let getCommentsQuery = `SELECT * FROM comments WHERE productID = '${productIDParam}'`;
+  let getCommentsQuery = `SELECT comments.id, comments.title, comments.suggest, comments.text, comments.point,comments.date ,CONCAT(users.firstname,' ',users.lastname) as userID, products.title as productID FROM comments INNER JOIN users ON users.id = comments.userID INNER JOIN products ON products.id = comments.productID WHERE productID = '${productIDParam}'`;
 
   digikalaDB.query(getCommentsQuery, (err, results) => {
     if (err) {

@@ -29,6 +29,7 @@ export default function ProductInfo() {
   const [productImages, setProductImages] = useState([]);
   const [productFeatures, setProductFeatures] = useState([]);
   const [allSameProducts, setAllSameProducts] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const { shortName } = useParams();
 
@@ -73,6 +74,9 @@ export default function ProductInfo() {
 
   useEffect(() => {
     getProductInfos();
+    getAllComments();
+  }, [mainID, shortName]);
+  useEffect(() => {
     getMainCategory();
     getTargetMain();
     getProductImages();
@@ -140,6 +144,13 @@ export default function ProductInfo() {
       });
   }
 
+  function getAllComments() {
+    fetch(`http://localhost:3000/api/comments/${ProductInfo.id}`)
+      .then((res) => res.json())
+      .then((comments) => {
+        setComments(comments);
+      });
+  }
   return (
     <>
       <Header />
