@@ -32,6 +32,7 @@ export default function ProductInfo() {
   const [comments, setComments] = useState([]);
   const [lengthOfQuestionTextArea, setLengthOfQuestionTextArea] = useState("0");
   const [isShowModalComment, setIsShowModalComment] = useState(false);
+  const [isShowModalAllComments, setIsShowModalAllComments] = useState(false);
 
   const { shortName } = useParams();
 
@@ -79,12 +80,12 @@ export default function ProductInfo() {
   }, [mainID, shortName]);
 
   useEffect(() => {
-    if (isShowModalComment) {
+    if (isShowModalComment || isShowModalAllComments) {
       document.body.style.overflow = "hidden";
     }
 
     return () => (document.body.style.overflow = "auto");
-  }, [isShowModalComment]);
+  }, [isShowModalComment,isShowModalAllComments]);
 
   useEffect(() => {
     getMainCategory();
@@ -1392,12 +1393,15 @@ export default function ProductInfo() {
               commentRef={commentsDesktop}
               comments={comments}
               setIsShowModalComment={setIsShowModalComment}
+              setIsShowModalAllComments={setIsShowModalAllComments}
+              isShowModalAllComments={isShowModalAllComments}
             />
 
             <CommentsMobile
               commentRef={commentsMobile}
               comments={comments}
               setIsShowModalComment={setIsShowModalComment}
+              setIsShowModalAllComments={setIsShowModalAllComments}
             />
 
             <div

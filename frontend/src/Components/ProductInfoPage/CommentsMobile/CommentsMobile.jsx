@@ -6,7 +6,12 @@ import "swiper/css";
 import CommentMobile from "./CommentMobile/CommentMobile";
 import { enToPersianNumber } from "../../../../../../../../DigiKala/frontend/js/funcs/utils";
 
-export default function CommentsMobile({ commentRef, comments,setIsShowModalComment }) {
+export default function CommentsMobile({
+  commentRef,
+  comments,
+  setIsShowModalComment,
+  setIsShowModalAllComments,
+}) {
   return (
     <div ref={commentRef}>
       {comments.length ? (
@@ -14,7 +19,10 @@ export default function CommentsMobile({ commentRef, comments,setIsShowModalComm
           className="product-comments-mobile d-block d-lg-none"
           id="commentsMobile"
         >
-          <div className="product-comments-mobile__top">
+          <div
+            className="product-comments-mobile__top"
+            onClick={() => setIsShowModalAllComments(true)}
+          >
             <p className="product-comments-mobile__top-title">دیدگاه‌ها</p>
             <p className="product-comments-mobile__top-num">
               {enToPersianNumber(comments.length)} دیدگاه
@@ -91,7 +99,7 @@ export default function CommentsMobile({ commentRef, comments,setIsShowModalComm
           </div>
         </div>
       ) : (
-        <div className="mt-5" onClick={()=> setIsShowModalComment(true)}>
+        <div className="mt-5" onClick={() => setIsShowModalComment(true)}>
           <p>شما هم می‌توانید در مورد این کالا نظر دهید.</p>
           <p className="mt-3" style={{ fontSize: "1.2rem", color: "#767790" }}>
             اگر این محصول را قبلا از دیجیکالا خریده باشید، دیدگاه شما به عنوان
