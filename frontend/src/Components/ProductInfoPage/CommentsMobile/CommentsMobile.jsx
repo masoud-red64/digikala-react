@@ -6,7 +6,7 @@ import "swiper/css";
 import CommentMobile from "./CommentMobile/CommentMobile";
 import { enToPersianNumber } from "../../../../../../../../DigiKala/frontend/js/funcs/utils";
 
-export default function CommentsMobile({ commentRef, comments }) {
+export default function CommentsMobile({ commentRef, comments,setIsShowModalComment }) {
   return (
     <div ref={commentRef}>
       {comments.length ? (
@@ -91,7 +91,7 @@ export default function CommentsMobile({ commentRef, comments }) {
           </div>
         </div>
       ) : (
-        <div className="mt-5">
+        <div className="mt-5" onClick={()=> setIsShowModalComment(true)}>
           <p>شما هم می‌توانید در مورد این کالا نظر دهید.</p>
           <p className="mt-3" style={{ fontSize: "1.2rem", color: "#767790" }}>
             اگر این محصول را قبلا از دیجیکالا خریده باشید، دیدگاه شما به عنوان

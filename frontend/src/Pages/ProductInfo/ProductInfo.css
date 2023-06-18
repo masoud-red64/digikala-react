@@ -672,6 +672,9 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 5;
 }
+.overlay-when-comment-modal-open.show{
+  display: block;
+}
 .modal-submit-comment__header {
   display: flex;
   align-items: center;

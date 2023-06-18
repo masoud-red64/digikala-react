@@ -3,7 +3,7 @@ import React from "react";
 import "./CommentsDesktop.css";
 import CommentDesktop from "./CommentDesktop/CommentDesktop";
 
-export default function CommentsDesktop({commentRef,comments}) {
+export default function CommentsDesktop({commentRef,comments,setIsShowModalComment}) {
   return (
     <div className={`product-comments-desktop ${comments.length ? '' : 'border-0'}`} id="commentsDesktop" ref={commentRef}>
       <p className="product-comments-desktop__title d-flex d-lg-block justify-content-between">
@@ -160,7 +160,7 @@ export default function CommentsDesktop({commentRef,comments}) {
                 <p className="product-comments-desktop__right-submit-comment-text mt-4">
                   شما هم درباره این کالا دیدگاه ثبت کنید
                 </p>
-                <button className="product-comments-desktop__right-submit-comment-btn">
+                <button className="product-comments-desktop__right-submit-comment-btn" onClick={()=> setIsShowModalComment(true)}>
                   ثبت دیدگاه
                 </button>
                 <p className="product-comments-desktop__right-submit-comment-text">

@@ -31,6 +31,7 @@ export default function ProductInfo() {
   const [allSameProducts, setAllSameProducts] = useState([]);
   const [comments, setComments] = useState([]);
   const [lengthOfQuestionTextArea, setLengthOfQuestionTextArea] = useState("0");
+  const [isShowModalComment, setIsShowModalComment] = useState(false);
 
   const { shortName } = useParams();
 
@@ -76,6 +77,15 @@ export default function ProductInfo() {
   useEffect(() => {
     getProductInfos();
   }, [mainID, shortName]);
+
+  useEffect(() => {
+    if (isShowModalComment) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => (document.body.style.overflow = "auto");
+  }, [isShowModalComment]);
+
   useEffect(() => {
     getMainCategory();
     getTargetMain();
@@ -1378,18 +1388,30 @@ export default function ProductInfo() {
               )}
             </div>
 
-            <CommentsDesktop commentRef={commentsDesktop} comments={comments} />
+            <CommentsDesktop
+              commentRef={commentsDesktop}
+              comments={comments}
+              setIsShowModalComment={setIsShowModalComment}
+            />
 
-            <CommentsMobile commentRef={commentsMobile} comments={comments} />
+            <CommentsMobile
+              commentRef={commentsMobile}
+              comments={comments}
+              setIsShowModalComment={setIsShowModalComment}
+            />
 
-            <div className="modal-submit-comment">
+            <div
+              className={`modal-submit-comment ${
+                isShowModalComment ? "show" : ""
+              }`}
+            >
               <div className="modal-submit-comment__header">
                 <div className="modal-submit-comment__header-right">
                   <p className="modal-submit-comment__header-title">
                     دیدگاه شما
                   </p>
                   <p className="modal-submit-comment__header-text">
-                    در مورد کفش مخصوص پیاده روی پسرانه پاما مدل 104 کد G1460
+                    {`در مورد ${productInfo.title}`}
                   </p>
                 </div>
                 <svg
@@ -1398,6 +1420,7 @@ export default function ProductInfo() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={{ width: "20px", height: "20px", fill: "#3f4064" }}
+                  onClick={() => setIsShowModalComment(false)}
                 >
                   <path
                     fillRule="evenodd"
@@ -1409,7 +1432,7 @@ export default function ProductInfo() {
 
               <div className="modal-submit-comment__content">
                 <div className="row">
-                  <div className="col-md-6 col-12">
+                  <div className="col-12 col-md-6">
                     <div className="modal-submit-comment__content-right">
                       <div className="modal-submit-comment__content-right-give-score">
                         <div className="d-flex justify-content-center mb-3">
@@ -1699,117 +1722,115 @@ export default function ProductInfo() {
                         ارسال دیدگاه به صورت ناشناس
                       </label>
                     </div>
-                    <div className="col-md-6 d-none d-md-block">
-                      <div className="modal-submit-comment__content-left">
-                        <p className="mb-4">
-                          دیگران را با نوشتن نظرات خود، برای انتخاب این محصول
-                          راهنمایی کنید.
-                        </p>
-                        <p
+                  </div>
+                  <div className="col-md-6 d-none d-md-block">
+                    <div className="modal-submit-comment__content-left">
+                      <p className="mb-4">
+                        دیگران را با نوشتن نظرات خود، برای انتخاب این محصول
+                        راهنمایی کنید.
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "1.2rem",
+                          color: "#2980b9",
+                          lineHeight: "2",
+                        }}
+                      >
+                        لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه کنید:
+                      </p>
+                      <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
+                        لازم است محتوای ارسالی منطبق برعرف و شئونات جامعه و با
+                        بیانی رسمی و عاری از لحن تند، تمسخرو توهین باشد.
+                      </p>
+                      <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
+                        از ارسال لینک‌ سایت‌های دیگر و ارایه‌ی اطلاعات شخصی نظیر
+                        شماره تماس، ایمیل و آی‌دی شبکه‌های اجتماعی پرهیز کنید.
+                      </p>
+                      <strong style={{ fontSize: "1.2rem", lineHeight: "2" }}>
+                        در نظر داشته باشید هدف نهایی از ارائه‌ی نظر درباره‌ی
+                        کالا ارائه‌ی اطلاعات مشخص و مفید برای راهنمایی سایر
+                        کاربران در فرآیند انتخاب و خرید یک محصول است.
+                      </strong>
+                      <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
+                        با توجه به ساختار بخش نظرات، از پرسیدن سوال یا درخواست
+                        راهنمایی در این بخش خودداری کرده و سوالات خود را در بخش
+                        «پرسش و پاسخ» مطرح کنید.
+                      </p>
+                      <p
+                        className="my-1"
+                        style={{
+                          fontSize: "1.4rem",
+                          color: "#e74c3c",
+                          lineHeight: "2",
+                        }}
+                      >
+                        افزودن عکس و ویدیو به نظرات:
+                      </p>
+                      <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
+                        با مطالعه‌ی
+                        <a
+                          href="#"
                           style={{
-                            fontSize: "1.2rem",
                             color: "#2980b9",
-                            lineHeight: "2",
+                            textDecoration: "underline",
                           }}
                         >
-                          لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه
-                          کنید:
-                        </p>
-                        <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
-                          لازم است محتوای ارسالی منطبق برعرف و شئونات جامعه و با
-                          بیانی رسمی و عاری از لحن تند، تمسخرو توهین باشد.
-                        </p>
-                        <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
-                          از ارسال لینک‌ سایت‌های دیگر و ارایه‌ی اطلاعات شخصی
-                          نظیر شماره تماس، ایمیل و آی‌دی شبکه‌های اجتماعی پرهیز
-                          کنید.
-                        </p>
-                        <strong style={{ fontSize: "1.2rem", lineHeight: "2" }}>
-                          در نظر داشته باشید هدف نهایی از ارائه‌ی نظر درباره‌ی
-                          کالا ارائه‌ی اطلاعات مشخص و مفید برای راهنمایی سایر
-                          کاربران در فرآیند انتخاب و خرید یک محصول است.
-                        </strong>
-                        <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
-                          با توجه به ساختار بخش نظرات، از پرسیدن سوال یا درخواست
-                          راهنمایی در این بخش خودداری کرده و سوالات خود را در
-                          بخش «پرسش و پاسخ» مطرح کنید.
-                        </p>
-                        <p
-                          className="my-1"
+                          این لینک
+                        </a>
+                        می‌توانید مفید‌ترین الگوی عکاسی از کالایی که خریداری
+                        کرده‌اید را مشاهده کنید.
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "1.2rem",
+                          color: "#2980b9",
+                          lineHeight: "2",
+                        }}
+                      >
+                        پیشنهاد می‌شود قوانین کامل ثبت نظر را در
+                        <a
+                          href="#"
                           style={{
-                            fontSize: "1.4rem",
-                            color: "#e74c3c",
-                            lineHeight: "2",
-                          }}
-                        >
-                          افزودن عکس و ویدیو به نظرات:
-                        </p>
-                        <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
-                          با مطالعه‌ی
-                          <a
-                            href="#"
-                            style={{
-                              color: "#2980b9",
-                              textDecoration: "underline",
-                            }}
-                          >
-                            این لینک
-                          </a>
-                          می‌توانید مفید‌ترین الگوی عکاسی از کالایی که خریداری
-                          کرده‌اید را مشاهده کنید.
-                        </p>
-                        <p
-                          style={{
-                            fontSize: "1.2rem",
                             color: "#2980b9",
-                            lineHeight: "2",
+                            textDecoration: "underline",
                           }}
                         >
-                          پیشنهاد می‌شود قوانین کامل ثبت نظر را در
-                          <a
-                            href="#"
-                            style={{
-                              color: "#2980b9",
-                              textDecoration: "underline",
-                            }}
-                          >
-                            این صفحه
-                          </a>
-                          مطالعه کنید.
-                        </p>
-                        <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
-                          هرگونه نقد و نظر در خصوص سایت دیجی‌کالا، مشکلات دریافت
-                          خدمات و درخواست کالا و نیز گزارش تخلف فروش (نظیر گزارش
-                          کالای غیراصل یا مغایر) را با ایمیل
-                          <a href="#" style={{ color: "#0000ee" }}>
-                            info@digikala.com
-                          </a>
-                          یا با شماره‌ی
-                          <a href="#" style={{ color: "#0000ee" }}>
-                            {" "}
-                            ۶۱۹۳۰۰۰۰ - ۰۲۱{" "}
-                          </a>{" "}
-                          در میان بگذارید و از نوشتن آن‌ها در بخش نظرات خودداری
-                          کنید.
-                        </p>
-                      </div>
+                          این صفحه
+                        </a>
+                        مطالعه کنید.
+                      </p>
+                      <p style={{ fontSize: "1.2rem", lineHeight: "2" }}>
+                        هرگونه نقد و نظر در خصوص سایت دیجی‌کالا، مشکلات دریافت
+                        خدمات و درخواست کالا و نیز گزارش تخلف فروش (نظیر گزارش
+                        کالای غیراصل یا مغایر) را با ایمیل
+                        <a href="#" style={{ color: "#0000ee" }}>
+                          info@digikala.com
+                        </a>
+                        یا با شماره‌ی
+                        <a href="#" style={{ color: "#0000ee" }}>
+                          {" "}
+                          ۶۱۹۳۰۰۰۰ - ۰۲۱{" "}
+                        </a>{" "}
+                        در میان بگذارید و از نوشتن آن‌ها در بخش نظرات خودداری
+                        کنید.
+                      </p>
                     </div>
-                    <div className="modal-submit-comment__footer">
-                      <div className="row align-items-center">
-                        <div className="col-6">
-                          <button
-                            className="modal-submit-comment__footer-btn"
-                            id="submit-comment-btn"
-                          >
-                            ثبت دیدگاه
-                          </button>
-                        </div>
-                        <div className="col-6">
-                          <p className="modal-submit-comment__footer-text">
-                            ثبت دیدگاه به معنی موافقت با
-                            <a href="#">قوانین انتشار دیجی‌کالا</a> است.
-                          </p>
-                        </div>
+                  </div>
+                  <div className="modal-submit-comment__footer">
+                    <div className="row align-items-center">
+                      <div className="col-6">
+                        <button
+                          className="modal-submit-comment__footer-btn"
+                          id="submit-comment-btn"
+                        >
+                          ثبت دیدگاه
+                        </button>
+                      </div>
+                      <div className="col-6">
+                        <p className="modal-submit-comment__footer-text">
+                          ثبت دیدگاه به معنی موافقت با
+                          <a href="#">قوانین انتشار دیجی‌کالا</a> است.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1848,6 +1869,12 @@ export default function ProductInfo() {
         </div>
       </div>
       <Footer />
+
+      <div
+        className={`overlay-when-comment-modal-open ${
+          isShowModalComment ? "show" : ""
+        }`}
+      ></div>
     </>
   );
 }
