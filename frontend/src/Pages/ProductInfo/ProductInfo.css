@@ -553,6 +553,12 @@
 }
 .product-specifications__content-list {
   flex-grow: 1;
+  height: 10rem;
+  overflow: hidden;
+}
+.product-specifications__content-list.more {
+  height: auto;
+  overflow: auto;
 }
 .product-specifications__content-item {
   display: flex;

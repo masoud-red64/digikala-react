@@ -27,6 +27,7 @@ export default function ProductInfo() {
   const [colorTitle, setColorTitle] = useState("سبز");
   const [sizeTitle, setSizeTitle] = useState("31");
   const [productImages, setProductImages] = useState([]);
+  const [productFeatures, setProductFeatures] = useState([]);
 
   const { shortName } = useParams();
 
@@ -74,6 +75,7 @@ export default function ProductInfo() {
     getMainCategory();
     getTargetMain();
     getProductImages();
+    getProductFeatures();
   }, [categoryID, mainID]);
 
   function getProductInfos() {
@@ -111,6 +113,16 @@ export default function ProductInfo() {
       .then((res) => res.json())
       .then((productImages) => {
         setProductImages(productImages);
+      });
+  }
+
+  function getProductFeatures() {
+    fetch(
+      `http://localhost:3000/api/productFeature/productID/${ProductInfo.id}`
+    )
+      .then((res) => res.json())
+      .then((features) => {
+        setProductFeatures(features);
       });
   }
   return (
@@ -557,107 +569,31 @@ export default function ProductInfo() {
                       className="product-content__center-attributes-list"
                       id="product-feature-container"
                     >
-                      <li className="product-content__center-attributes-item">
-                        <p className="product-content__center-attributes-item-key">
-                          <svg
-                            id="dotOutline"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              fill: "#9e9fb1",
-                            }}
-                          >
-                            <circle cx="8" cy="8" r="2"></circle>
-                          </svg>
-                          جنس :
-                        </p>
-                        <p className="product-content__center-attributes-item-value">
-                          چرم مصنوعی، مش
-                        </p>
-                      </li>
-                      <li className="product-content__center-attributes-item">
-                        <p className="product-content__center-attributes-item-key">
-                          <svg
-                            id="dotOutline"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              fill: "#9e9fb1",
-                            }}
-                          >
-                            <circle cx="8" cy="8" r="2"></circle>
-                          </svg>
-                          جنس زیره :
-                        </p>
-                        <p className="product-content__center-attributes-item-value">
-                          نیولایت
-                        </p>
-                      </li>
-                      <li className="product-content__center-attributes-item">
-                        <p className="product-content__center-attributes-item-key">
-                          <svg
-                            id="dotOutline"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              fill: "#9e9fb1",
-                            }}
-                          >
-                            <circle cx="8" cy="8" r="2"></circle>
-                          </svg>
-                          نحوه بسته شدن کفش :
-                        </p>
-                        <p className="product-content__center-attributes-item-value">
-                          بندی
-                        </p>
-                      </li>
-                      <li className="product-content__center-attributes-item">
-                        <p className="product-content__center-attributes-item-key">
-                          <svg
-                            id="dotOutline"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              fill: "#9e9fb1",
-                            }}
-                          >
-                            <circle cx="8" cy="8" r="2"></circle>
-                          </svg>
-                          ویژگی‌های زیره :
-                        </p>
-                        <p className="product-content__center-attributes-item-value">
-                          انعطاف پذیر، قابلیت ارتجاعی، کاهش فشار وارده، مقاوم در
-                          برابر سایش
-                        </p>
-                      </li>
-                      <li className="product-content__center-attributes-item">
-                        <p className="product-content__center-attributes-item-key">
-                          <svg
-                            id="dotOutline"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              fill: "#9e9fb1",
-                            }}
-                          >
-                            <circle cx="8" cy="8" r="2"></circle>
-                          </svg>
-                          ویژگی‌های تخصصی کفش :
-                        </p>
-                        <p className="product-content__center-attributes-item-value">
-                          قابلیت گردش هوا، انعطاف پذیر
-                        </p>
-                      </li>
+                      {productFeatures.map((feature) => (
+                        <li
+                          key={feature.id}
+                          className="product-content__center-attributes-item"
+                        >
+                          <p className="product-content__center-attributes-item-key">
+                            <svg
+                              id="dotOutline"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 16 16"
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                fill: "#9e9fb1",
+                              }}
+                            >
+                              <circle cx="8" cy="8" r="2"></circle>
+                            </svg>
+                            {feature.key} :
+                          </p>
+                          <p className="product-content__center-attributes-item-value">
+                            {feature.value}
+                          </p>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
@@ -1356,125 +1292,30 @@ export default function ProductInfo() {
                   مشخصات
                 </p>
                 <ul
-                  className="product-specifications__content-list"
+                  className={`product-specifications__content-list ${
+                    isShowMoreSpecifications ? "more" : ""
+                  }`}
                   id="product-specifications-container"
                 >
-                  <li className="product-specifications__content-item">
-                    <p className="product-specifications__content-item-key">
-                      جنس
-                    </p>
-                    <div className="product-specifications__content-item-values">
-                      <p className="product-specifications__content-item-value">
-                        چرم مصنوعی
-                      </p>
-                      <p className="product-specifications__content-item-value">
-                        مش
-                      </p>
-                    </div>
-                  </li>
-                  <li className="product-specifications__content-item">
-                    <p className="product-specifications__content-item-key">
-                      جنس زیره
-                    </p>
-                    <div className="product-specifications__content-item-values">
-                      <p className="product-specifications__content-item-value">
-                        نیولایت
-                      </p>
-                    </div>
-                  </li>
-                  <li className="product-specifications__content-item">
-                    <p className="product-specifications__content-item-key">
-                      نحوه بسته شدن کفش
-                    </p>
-                    <div className="product-specifications__content-item-values">
-                      <p className="product-specifications__content-item-value">
-                        بندی
-                      </p>
-                    </div>
-                  </li>
-                  <li className="product-specifications__content-item">
-                    <p className="product-specifications__content-item-key">
-                      ویژگی‌های زیره
-                    </p>
-                    <div className="product-specifications__content-item-values">
-                      <p className="product-specifications__content-item-value">
-                        انعطاف پذیر
-                      </p>
-                      <p className="product-specifications__content-item-value">
-                        قابلیت ارتجاعی
-                      </p>
-                      <p className="product-specifications__content-item-value">
-                        کاهش فشار وارده
-                      </p>
-                      <p className="product-specifications__content-item-value">
-                        مقاوم در برابر سایش
-                      </p>
-                    </div>
-                  </li>
+                  {productFeatures.map((feature) => (
+                    <>
+                      <li
+                        key={feature.id}
+                        className="product-specifications__content-item"
+                      >
+                        <p className="product-specifications__content-item-key">
+                          {feature.key}
+                        </p>
+                        <div className="product-specifications__content-item-values">
+                          <p className="product-specifications__content-item-value">
+                            {feature.value}
+                          </p>
+                        </div>
+                      </li>
+                    </>
+                  ))}
                 </ul>
               </div>
-              {isShowMoreSpecifications && (
-                <div className="product-specifications__content">
-                  <p className="product-specifications__content-title d-none d-lg-block"></p>
-                  <ul
-                    className="product-specifications__content-list"
-                    id="product-specifications-container"
-                  >
-                    <li className="product-specifications__content-item">
-                      <p className="product-specifications__content-item-key">
-                        جنس
-                      </p>
-                      <div className="product-specifications__content-item-values">
-                        <p className="product-specifications__content-item-value">
-                          چرم مصنوعی
-                        </p>
-                        <p className="product-specifications__content-item-value">
-                          مش
-                        </p>
-                      </div>
-                    </li>
-                    <li className="product-specifications__content-item">
-                      <p className="product-specifications__content-item-key">
-                        جنس زیره
-                      </p>
-                      <div className="product-specifications__content-item-values">
-                        <p className="product-specifications__content-item-value">
-                          نیولایت
-                        </p>
-                      </div>
-                    </li>
-                    <li className="product-specifications__content-item">
-                      <p className="product-specifications__content-item-key">
-                        نحوه بسته شدن کفش
-                      </p>
-                      <div className="product-specifications__content-item-values">
-                        <p className="product-specifications__content-item-value">
-                          بندی
-                        </p>
-                      </div>
-                    </li>
-                    <li className="product-specifications__content-item">
-                      <p className="product-specifications__content-item-key">
-                        ویژگی‌های زیره
-                      </p>
-                      <div className="product-specifications__content-item-values">
-                        <p className="product-specifications__content-item-value">
-                          انعطاف پذیر
-                        </p>
-                        <p className="product-specifications__content-item-value">
-                          قابلیت ارتجاعی
-                        </p>
-                        <p className="product-specifications__content-item-value">
-                          کاهش فشار وارده
-                        </p>
-                        <p className="product-specifications__content-item-value">
-                          مقاوم در برابر سایش
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              )}
               {isShowMoreSpecifications ? (
                 <span
                   className="footer__digi-about-us-see-more"
