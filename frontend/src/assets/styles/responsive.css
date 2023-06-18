@@ -123,7 +123,6 @@
     transition: all 0.3s ease;
   }
   .product-comments-desktop.show {
-    width: 100%;
     visibility: visible;
     opacity: 1;
     padding: 2rem;

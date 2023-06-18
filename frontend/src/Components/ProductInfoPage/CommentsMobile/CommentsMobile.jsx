@@ -10,7 +10,7 @@ export default function CommentsMobile({
   commentRef,
   comments,
   setIsShowModalComment,
-  setIsShowModalAllComments,
+  setIsShowAllCommentsModal,
 }) {
   return (
     <div ref={commentRef}>
@@ -21,7 +21,7 @@ export default function CommentsMobile({
         >
           <div
             className="product-comments-mobile__top"
-            onClick={() => setIsShowModalAllComments(true)}
+            onClick={() => setIsShowAllCommentsModal(true)}
           >
             <p className="product-comments-mobile__top-title">دیدگاه‌ها</p>
             <p className="product-comments-mobile__top-num">
@@ -76,7 +76,10 @@ export default function CommentsMobile({
                 ></path>
               </svg>
             </div>
-            <div className="flex-grow-1">
+            <div
+              className="flex-grow-1"
+              onClick={() => setIsShowModalComment(true)}
+            >
               <p className="product-comments-mobile__submit-comment-title">
                 دیدگاه خود را درباره این کالا بنویسید
                 <svg
