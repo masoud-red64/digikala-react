@@ -35,6 +35,14 @@ export default function ProductInfo() {
   const [isShowAllCommentsModal, setIsShowAllCommentsModal] = useState(false);
   const [percentSlider, setPercentSlider] = useState(0);
   const [slideInputValue, setSlideInputValue] = useState(0);
+  const [titleCommentInput, setTitleCommentInput] = useState("");
+  const [positivePointInput, setPositivePointInput] = useState("");
+  const [negativePointInput, setNegativePointInput] = useState("");
+  const [textCommentInput, setTextCommentInput] = useState("");
+  const [positivePoints, setPositivePoints] = useState([]);
+  const [negativePoints, setNegativePoints] = useState([]);
+  const [positivePointError, setPositivePointError] = useState(false);
+  const [negativePointError, setNegativePointError] = useState(false);
 
   const { shortName } = useParams();
 
@@ -176,6 +184,26 @@ export default function ProductInfo() {
     console.log(value * 100);
     setPercentSlider(value * 100);
   }
+
+  function addPositivePointBtn() {
+    if (positivePointInput.length > 2) {
+      const newPositivePoint = {
+        title: positivePointInput,
+      };
+      setPositivePoints((prev) => [...prev, newPositivePoint]);
+      setPositivePointInput("");
+    }
+  }
+  function addNegativePointBtn() {
+    if (negativePointInput.length > 2) {
+      const newNegativePoint = {
+        title: negativePointInput,
+      };
+      setNegativePoints((prev) => [...prev, newNegativePoint]);
+      setNegativePointInput("");
+    }
+  }
+
   return (
     <>
       <Header />
@@ -1509,6 +1537,10 @@ export default function ProductInfo() {
                             type="text"
                             className="modal-submit-comment__content-right-form-topic-input"
                             id="modal-comment-topic-input"
+                            value={titleCommentInput}
+                            onChange={(e) =>
+                              setTitleCommentInput(e.target.value)
+                            }
                           />
                         </label>
                         <label className="modal-submit-comment__content-right-form-pos-point">
@@ -1525,9 +1557,16 @@ export default function ProductInfo() {
                               type="text"
                               className="modal-submit-comment__content-right-form-pos-point-input"
                               id="comment-positive-input"
+                              value={positivePointInput}
+                              onChange={(e) => {
+                                setPositivePointInput(e.target.value);
+                                e.target.value.length < 3
+                                  ? setPositivePointError(true)
+                                  : setPositivePointError(false);
+                              }}
                             />
                             <svg
-                              className="add-valueOf-input"
+                              className="2"
                               id="comment-positive-button"
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
@@ -1536,6 +1575,7 @@ export default function ProductInfo() {
                                 height: "20px",
                                 fill: "#9e9fb1",
                               }}
+                              onClick={addPositivePointBtn}
                             >
                               <path
                                 fillRule="evenodd"
@@ -1544,87 +1584,61 @@ export default function ProductInfo() {
                               ></path>
                             </svg>
                           </div>
-                          <p
-                            className="modal-submit-comment__content-right-form-pos-point-error d-none"
-                            id="modal-comment-form-positive-error"
-                          >
-                            متن وارد شده باید حداقل ۳ کاراکتر باشد
-                          </p>
+                          {positivePointError ? (
+                            <p
+                              className="modal-submit-comment__content-right-form-pos-point-error"
+                              id="modal-comment-form-positive-error"
+                            >
+                              متن وارد شده باید حداقل ۳ کاراکتر باشد
+                            </p>
+                          ) : null}
                           <div id="comment-positive-container">
-                            <div className="modal-submit-comment__content-right-form-pos-point-item">
-                              <p className="modal-submit-comment__content-right-form-pos-point-item-text">
+                            {positivePoints.map((point, index) => (
+                              <div
+                                key={index}
+                                className="modal-submit-comment__content-right-form-pos-point-item"
+                              >
+                                <p className="modal-submit-comment__content-right-form-pos-point-item-text">
+                                  <svg
+                                    id="addSimple"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    style={{
+                                      width: "18px",
+                                      height: "18px",
+                                      fill: "#4caf50",
+                                    }}
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
+                                      clipRule="evenodd"
+                                    ></path>
+                                  </svg>
+                                  {point.title}
+                                </p>
                                 <svg
-                                  id="addSimple"
+                                  id="delete"
                                   xmlns="http://www.w3.org/2000/svg"
                                   viewBox="0 0 24 24"
                                   style={{
                                     width: "18px",
                                     height: "18px",
-                                    fill: "#4caf50",
+                                    fill: "#9e9fb1",
                                   }}
+                                  onClick={(e) =>
+                                    e.target.parentElement.remove()
+                                  }
                                 >
                                   <path
+                                    style={{ pointerEvents: "none" }}
                                     fillRule="evenodd"
-                                    d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
+                                    d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
                                     clipRule="evenodd"
                                   ></path>
                                 </svg>
-                                عالی
-                              </p>
-                              <svg
-                                id="delete"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                style={{
-                                  width: "18px",
-                                  height: "18px",
-                                  fill: "#9e9fb1",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </div>
-                            <div className="modal-submit-comment__content-right-form-pos-point-item">
-                              <p className="modal-submit-comment__content-right-form-pos-point-item-text">
-                                <svg
-                                  id="addSimple"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  style={{
-                                    width: "18px",
-                                    height: "18px",
-                                    fill: "#4caf50",
-                                  }}
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
-                                    clipRule="evenodd"
-                                  ></path>
-                                </svg>
-                                عالی
-                              </p>
-                              <svg
-                                id="delete"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                style={{
-                                  width: "18px",
-                                  height: "18px",
-                                  fill: "#9e9fb1",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </div>
+                              </div>
+                            ))}
                           </div>
                         </label>
                         <label className="modal-submit-comment__content-right-form-neg-point">
@@ -1641,6 +1655,13 @@ export default function ProductInfo() {
                               type="text"
                               className="modal-submit-comment__content-right-form-neg-point-input"
                               id="comment-negative-input"
+                              value={negativePointInput}
+                              onChange={(e) => {
+                                setNegativePointInput(e.target.value);
+                                e.target.value.length < 3
+                                  ? setNegativePointError(true)
+                                  : setNegativePointError(false);
+                              }}
                             />
                             <svg
                               className="add-valueOf-input"
@@ -1652,6 +1673,7 @@ export default function ProductInfo() {
                                 height: "20px",
                                 fill: "#9e9fb1",
                               }}
+                              onClick={addNegativePointBtn}
                             >
                               <path
                                 fillRule="evenodd"
@@ -1660,79 +1682,57 @@ export default function ProductInfo() {
                               ></path>
                             </svg>
                           </div>
-                          <p
-                            className="modal-submit-comment__content-right-form-neg-point-error d-none"
-                            id="modal-comment-form-negative-error"
-                          >
-                            متن وارد شده باید حداقل ۳ کاراکتر باشد
-                          </p>
+                          {negativePointError ? (
+                            <p
+                              className="modal-submit-comment__content-right-form-neg-point-error"
+                              id="modal-comment-form-negative-error"
+                            >
+                              متن وارد شده باید حداقل ۳ کاراکتر باشد
+                            </p>
+                          ) : null}
                           <div id="comment-negative-container">
-                            <div className="modal-submit-comment__content-right-form-neg-point-item">
-                              <p className="modal-submit-comment__content-right-form-neg-point-item-text">
+                            {negativePoints.map((point, index) => (
+                              <div
+                                key={index}
+                                className="modal-submit-comment__content-right-form-neg-point-item"
+                              >
+                                <p className="modal-submit-comment__content-right-form-neg-point-item-text">
+                                  <svg
+                                    id="removeSimple"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    style={{
+                                      width: "18px",
+                                      height: "18px",
+                                      fill: "#d32f2f",
+                                    }}
+                                  >
+                                    <path d="M20 11v2H4v-2h16z"></path>
+                                  </svg>
+                                  {point.title}
+                                </p>
                                 <svg
-                                  id="removeSimple"
+                                  id="delete"
                                   xmlns="http://www.w3.org/2000/svg"
                                   viewBox="0 0 24 24"
                                   style={{
                                     width: "18px",
                                     height: "18px",
-                                    fill: "#d32f2f",
+                                    fill: "#9e9fb1",
                                   }}
+                                  onClick={(e) =>
+                                    e.target.parentElement.remove()
+                                  }
                                 >
-                                  <path d="M20 11v2H4v-2h16z"></path>
+                                  <path
+                                    style={{ pointerEvents: "none" }}
+                                    fillRule="evenodd"
+                                    d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
+                                    clipRule="evenodd"
+                                  ></path>
                                 </svg>
-                                عالی
-                              </p>
-                              <svg
-                                id="delete"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                style={{
-                                  width: "18px",
-                                  height: "18px",
-                                  fill: "#9e9fb1",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </div>
-                            <div className="modal-submit-comment__content-right-form-neg-point-item">
-                              <p className="modal-submit-comment__content-right-form-neg-point-item-text">
-                                <svg
-                                  id="removeSimple"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  style={{
-                                    width: "18px",
-                                    height: "18px",
-                                    fill: "#d32f2f",
-                                  }}
-                                >
-                                  <path d="M20 11v2H4v-2h16z"></path>
-                                </svg>
-                                عالی
-                              </p>
-                              <svg
-                                id="delete"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                style={{
-                                  width: "18px",
-                                  height: "18px",
-                                  fill: "#9e9fb1",
-                                }}
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M8 2v2h8V2H8zM4 7V5h16v2H4zm13 1h2v11a3 3 0 01-3 3H8a3 3 0 01-3-3V8h2v11a1 1 0 001 1h8a1 1 0 001-1V8zm-6 0H9v10h2V8zm2 0h2v10h-2V8z"
-                                  clipRule="evenodd"
-                                ></path>
-                              </svg>
-                            </div>
+                              </div>
+                            ))}
                           </div>
                         </label>
                         <label className="modal-submit-comment__content-right-form-text">
@@ -1741,6 +1741,10 @@ export default function ProductInfo() {
                             type="text"
                             className="modal-submit-comment__content-right-form-textarea"
                             id="modal-comment-opinion-input"
+                            value={textCommentInput}
+                            onChange={(e) =>
+                              setTextCommentInput(e.target.value)
+                            }
                           ></textarea>
                         </label>
                       </div>
