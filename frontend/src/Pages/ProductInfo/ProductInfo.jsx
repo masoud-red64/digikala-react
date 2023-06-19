@@ -112,7 +112,7 @@ export default function ProductInfo() {
   }, [productInfo]);
 
   function getProductInfos() {
-    fetch(`http://localhost:3000/api/products/${shortName}`)
+    fetch(`https://my-digikala.iran.liara.run/api/products/${shortName}`)
       .then((res) => res.json())
       .then((product) => {
         setProductInfo(product[0]);
@@ -122,7 +122,7 @@ export default function ProductInfo() {
   }
 
   function getMainCategory() {
-    fetch("http://localhost:3000/api/categories")
+    fetch("https://my-digikala.iran.liara.run/api/categories")
       .then((res) => res.json())
       .then((categories) => {
         let mainCategory = categories.filter(
@@ -133,7 +133,7 @@ export default function ProductInfo() {
   }
 
   function getTargetMain() {
-    fetch("http://localhost:3000/api/main")
+    fetch("https://my-digikala.iran.liara.run/api/main")
       .then((res) => res.json())
       .then((mains) => {
         let targetMain = mains.filter((main) => main.id === mainID);
@@ -142,7 +142,9 @@ export default function ProductInfo() {
   }
 
   function getProductImages() {
-    fetch(`http://localhost:3000/api/productImg/productID/${productInfo.id}`)
+    fetch(
+      `https://my-digikala.iran.liara.run/api/productImg/productID/${productInfo.id}`
+    )
       .then((res) => res.json())
       .then((productImages) => {
         setProductImages(productImages);
@@ -151,7 +153,7 @@ export default function ProductInfo() {
 
   function getProductFeatures() {
     fetch(
-      `http://localhost:3000/api/productFeature/productID/${productInfo.id}`
+      `https://my-digikala.iran.liara.run/api/productFeature/productID/${productInfo.id}`
     )
       .then((res) => res.json())
       .then((features) => {
@@ -160,7 +162,9 @@ export default function ProductInfo() {
   }
 
   function getSameProducts() {
-    fetch(`http://localhost:3000/api/products/categoryID/${categoryID}`)
+    fetch(
+      `https://my-digikala.iran.liara.run/api/products/categoryID/${categoryID}`
+    )
       .then((res) => res.json())
       .then((products) => {
         // Get All Same Products Without Product That We Show In Page
@@ -172,7 +176,7 @@ export default function ProductInfo() {
   }
 
   function getAllComments() {
-    fetch(`http://localhost:3000/api/comments/${productInfo.id}`)
+    fetch(`https://my-digikala.iran.liara.run/api/comments/${productInfo.id}`)
       .then((res) => res.json())
       .then((comments) => {
         console.log(comments);
@@ -223,7 +227,7 @@ export default function ProductInfo() {
     };
 
     if (titleCommentInput.length && textCommentInput && slideInputValue) {
-      fetch("http://localhost:3000/api/comments/new-comment", {
+      fetch("https://my-digikala.iran.liara.run/api/comments/new-comment", {
         method: "POST",
         headers: {
           "content-type": "application/json",

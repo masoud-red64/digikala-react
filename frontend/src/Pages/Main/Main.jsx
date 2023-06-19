@@ -42,7 +42,7 @@ export default function Main() {
   const { shortName } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/main/${shortName}`)
+    fetch(`https://my-digikala.iran.liara.run/api/main/${shortName}`)
       .then((res) => res.json())
       .then((main) => {
         setMainID(main[0].id);
@@ -52,7 +52,7 @@ export default function Main() {
   }, [shortName]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("https://my-digikala.iran.liara.run/api/products")
       .then((res) => res.json())
       .then((products) => {
         let wonderfulProducts = products.filter(
@@ -95,7 +95,7 @@ export default function Main() {
   }, [mainID]);
 
   async function getAllBanner1() {
-    fetch("http://localhost:3000/api/banner/1")
+    fetch("https://my-digikala.iran.liara.run/api/banner/1")
       .then((res) => res.json())
       .then((banners1) => {
         let mainBanners1 = banners1.filter(
@@ -106,7 +106,7 @@ export default function Main() {
   }
 
   async function getAllBanner2() {
-    fetch("http://localhost:3000/api/banner/2")
+    fetch("https://my-digikala.iran.liara.run/api/banner/2")
       .then((res) => res.json())
       .then((banners2) => {
         let mainBanners2 = banners2.filter(
@@ -117,7 +117,7 @@ export default function Main() {
   }
 
   function getAllMain() {
-    fetch("http://localhost:3000/api/main")
+    fetch("https://my-digikala.iran.liara.run/api/main")
       .then((res) => res.json())
       .then((mains) => {
         setAllMains(mains);
@@ -125,7 +125,7 @@ export default function Main() {
   }
 
   async function getSuggestedCategory() {
-    fetch("http://localhost:3000/api/categories")
+    fetch("https://my-digikala.iran.liara.run/api/categories")
       .then((res) => res.json())
       .then((categories) => {
         let mainSuggestedCategories = categories.filter(
@@ -136,7 +136,7 @@ export default function Main() {
   }
 
   async function getAllPopularBrands() {
-    fetch("http://localhost:3000/api/brands")
+    fetch("https://my-digikala.iran.liara.run/api/brands")
       .then((res) => res.json())
       .then((brands) => {
         let mainBrands = brands.filter((brand) => brand.mainID === mainID);
@@ -145,7 +145,7 @@ export default function Main() {
   }
 
   async function getMainSliders() {
-    fetch("http://localhost:3000/api/slider")
+    fetch("https://my-digikala.iran.liara.run/api/slider")
       .then((res) => res.json())
       .then((sliders) => {
         let mainSliders = sliders.filter((slider) => slider.mainID === mainID);

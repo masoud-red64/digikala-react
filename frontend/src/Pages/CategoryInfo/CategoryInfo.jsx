@@ -132,7 +132,9 @@ export default function CategoryInfo() {
   }
 
   function getAllCategories() {
-    fetch(`http://localhost:3000/api/categories/category/${mainID}`)
+    fetch(
+      `https://my-digikala.iran.liara.run/api/categories/category/${mainID}`
+    )
       .then((res) => res.json())
       .then((categories) => {
         console.log(categories);
@@ -141,7 +143,9 @@ export default function CategoryInfo() {
   }
 
   function getCategoryID() {
-    fetch(`http://localhost:3000/api/categories/products/${shortName}`)
+    fetch(
+      `https://my-digikala.iran.liara.run/api/categories/products/${shortName}`
+    )
       .then((res) => res.json())
       .then((categories) => {
         setCategoryID(categories[0].id);
@@ -150,7 +154,7 @@ export default function CategoryInfo() {
   }
 
   function getAllCategoryProducts() {
-    fetch("http://localhost:3000/api/products")
+    fetch("https://my-digikala.iran.liara.run/api/products")
       .then((res) => res.json())
       .then((products) => {
         let categoryProducts = products.filter(
@@ -161,7 +165,7 @@ export default function CategoryInfo() {
   }
 
   function getTargetMain() {
-    fetch("http://localhost:3000/api/main")
+    fetch("https://my-digikala.iran.liara.run/api/main")
       .then((res) => res.json())
       .then((mains) => {
         let targetMain = mains.find((main) => main.id === Number(mainID));

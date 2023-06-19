@@ -34,7 +34,7 @@ export default function Index() {
   const [allTopSlider, setAllTopSlider] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("https://my-digikala.iran.liara.run/api/products")
       .then((res) => res.json())
       .then((products) => {
         const wonderfulProducts = products.filter((product) => product.wonder);
@@ -65,7 +65,7 @@ export default function Index() {
   }, []);
 
   function getAllBanner1() {
-    fetch("http://localhost:3000/api/banner/2")
+    fetch("https://my-digikala.iran.liara.run/api/banner/2")
       .then((res) => res.json())
       .then((banners2) => {
         setBanners2(banners2);
@@ -73,7 +73,7 @@ export default function Index() {
   }
 
   function getAllMain() {
-    fetch("http://localhost:3000/api/main")
+    fetch("https://my-digikala.iran.liara.run/api/main")
       .then((res) => res.json())
       .then((mains) => {
         setAllMains(mains);
@@ -81,7 +81,7 @@ export default function Index() {
   }
 
   function getSuggestedCategory() {
-    fetch("http://localhost:3000/api/categories")
+    fetch("https://my-digikala.iran.liara.run/api/categories")
       .then((res) => res.json())
       .then((categories) => {
         let suggestedCategories = categories.filter(
@@ -92,7 +92,7 @@ export default function Index() {
   }
 
   function getAllBrands() {
-    fetch("http://localhost:3000/api/brands")
+    fetch("https://my-digikala.iran.liara.run/api/brands")
       .then((res) => res.json())
       .then((brands) => {
         setPopularBrands(brands);
@@ -100,7 +100,7 @@ export default function Index() {
   }
 
   async function getAllSliders() {
-    fetch("http://localhost:3000/api/slider")
+    fetch("https://my-digikala.iran.liara.run/api/slider")
       .then((res) => res.json())
       .then((sliders) => {
         let severalSliders = shuffled([...sliders]).slice(0, 6);

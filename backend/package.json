@@ -7,7 +7,7 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "start": "server.js",
+    "start": "node server.js",
     "dev": "npx nodemon server.js"
   }
 }

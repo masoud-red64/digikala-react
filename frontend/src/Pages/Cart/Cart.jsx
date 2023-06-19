@@ -30,7 +30,7 @@ export default function Cart() {
   }, [authContext]);
 
   const getAllCartProducts = useCallback(() => {
-    fetch("http://localhost:3000/api/cart")
+    fetch("https://my-digikala.iran.liara.run/api/cart")
       .then((res) => res.json())
       .then((cartProducts) => {
         console.log(authContext.userInfo.id);
@@ -46,7 +46,7 @@ export default function Cart() {
           setIsShowNotEmptyNextCart(false);
           mainCartProducts.forEach((mainCartProduct) => {
             fetch(
-              `http://localhost:3000/api/products/cart/${mainCartProduct.productID}`
+              `https://my-digikala.iran.liara.run/api/products/cart/${mainCartProduct.productID}`
             )
               .then((res) => res.json())
               .then((product) => {
@@ -64,7 +64,7 @@ export default function Cart() {
   }, [authContext]);
 
   const getAllNextCartProducts = useCallback(() => {
-    fetch("http://localhost:3000/api/nextCart")
+    fetch("https://my-digikala.iran.liara.run/api/nextCart")
       .then((res) => res.json())
       .then((cartProducts) => {
         console.log(authContext.userInfo.id);
@@ -80,7 +80,7 @@ export default function Cart() {
           setIsShowNotEmptyCart(false);
           mainNextCartProducts.forEach((mainCartProduct) => {
             fetch(
-              `http://localhost:3000/api/products/cart/${mainCartProduct.productID}`
+              `https://my-digikala.iran.liara.run/api/products/cart/${mainCartProduct.productID}`
             )
               .then((res) => res.json())
               .then((product) => {
@@ -98,7 +98,7 @@ export default function Cart() {
   }, [authContext]);
 
   function removeCartProduct(productID) {
-    fetch(`http://localhost:3000/api/cart/remove/${productID}`, {
+    fetch(`https://my-digikala.iran.liara.run/api/cart/remove/${productID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -118,7 +118,7 @@ export default function Cart() {
       productID,
     };
 
-    fetch("http://localhost:3000/api/nextCart/new-product", {
+    fetch("https://my-digikala.iran.liara.run/api/nextCart/new-product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -127,9 +127,12 @@ export default function Cart() {
     })
       .then((res) => res.json())
       .then((result) => {
-        fetch(`http://localhost:3000/api/cart/remove/${productID}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://my-digikala.iran.liara.run/api/cart/remove/${productID}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((result) => {
             getAllNextCartProducts();
@@ -142,9 +145,12 @@ export default function Cart() {
   }
 
   function removeNextCartProduct(productID) {
-    fetch(`http://localhost:3000/api/nextCart/remove/${productID}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://my-digikala.iran.liara.run/api/nextCart/remove/${productID}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         getAllNextCartProducts();
@@ -159,7 +165,7 @@ export default function Cart() {
       productID,
     };
 
-    fetch("http://localhost:3000/api/cart/new-product", {
+    fetch("https://my-digikala.iran.liara.run/api/cart/new-product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -168,9 +174,12 @@ export default function Cart() {
     })
       .then((res) => res.json())
       .then((result) => {
-        fetch(`http://localhost:3000/api/nextCart/remove/${productID}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://my-digikala.iran.liara.run/api/nextCart/remove/${productID}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((result) => {
             getAllCartProducts();
@@ -183,7 +192,7 @@ export default function Cart() {
   }
 
   function moveAllProductsFromNextCartToCart() {
-    fetch("http://localhost:3000/api/cart", {
+    fetch("https://my-digikala.iran.liara.run/api/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -191,7 +200,7 @@ export default function Cart() {
     })
       .then((res) => res.json())
       .then((result) => {
-        fetch("http://localhost:3000/api/nextCart/remove", {
+        fetch("https://my-digikala.iran.liara.run/api/nextCart/remove", {
           method: "DELETE",
         })
           .then((res) => res.json())

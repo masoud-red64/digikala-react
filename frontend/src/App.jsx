@@ -17,7 +17,7 @@ function App() {
   async function getUserInfo() {
     let userToken = JSON.parse(localStorage.getItem("user"));
     if (userToken) {
-      await fetch(`http://localhost:3000/api/users`)
+      await fetch(`https://my-digikala.iran.liara.run/api/users`)
         .then((res) => res.json())
         .then((users) => {
           let mainUser = users.filter((user) => user.token === userToken.token);
@@ -29,12 +29,12 @@ function App() {
     }
   }
 
- function addProductToCart(productID) {
+  function addProductToCart(productID) {
     let newProduct = {
       userID: userInfo.id,
       productID,
     };
-    fetch("http://localhost:3000/api/cart/new-product", {
+    fetch("https://my-digikala.iran.liara.run/api/cart/new-product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,12 +42,13 @@ function App() {
       body: JSON.stringify(newProduct),
     })
       .then((res) => res.json())
-      .then((result) => {
-      });
+      .then((result) => {});
   }
 
   return (
-    <AuthContext.Provider value={{ userInfo, isLogin, getUserInfo,addProductToCart }}>
+    <AuthContext.Provider
+      value={{ userInfo, isLogin, getUserInfo, addProductToCart }}
+    >
       {router}
     </AuthContext.Provider>
   );

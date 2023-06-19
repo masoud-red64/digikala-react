@@ -16,11 +16,11 @@ export default function BaseVisitedCategories({
   const [baseVisitedProducts, setBaseVisitedProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/categories")
+    fetch("https://my-digikala.iran.liara.run/api/categories")
       .then((res) => res.json())
       .then((categories) => {
         setCategories(categories);
-        fetch("http://localhost:3000/api/products")
+        fetch("https://my-digikala.iran.liara.run/api/products")
           .then((res) => res.json())
           .then((products) => {
             setBaseVisitedProducts(products);

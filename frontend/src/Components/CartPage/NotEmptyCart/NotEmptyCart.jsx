@@ -26,7 +26,7 @@ export default function NotEmptyCart({
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("https://my-digikala.iran.liara.run/api/products")
       .then((res) => res.json())
       .then((products) => {
         setAllProducts(products);
