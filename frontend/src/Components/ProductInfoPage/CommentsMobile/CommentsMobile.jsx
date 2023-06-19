@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "./CommentsMobile.css";
 import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import CommentMobile from "./CommentMobile/CommentMobile";
 import { enToPersianNumber } from "../../../../../../../../DigiKala/frontend/js/funcs/utils";
+import AuthContext from "../../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 
 export default function CommentsMobile({
   commentRef,
@@ -13,6 +15,9 @@ export default function CommentsMobile({
   setIsShowAllCommentsModal,
   productImages,
 }) {
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
+
   return (
     <div ref={commentRef}>
       {comments.length ? (
@@ -87,7 +92,11 @@ export default function CommentsMobile({
             </div>
             <div
               className="flex-grow-1"
-              onClick={() => setIsShowModalComment(true)}
+              onClick={() =>
+                authContext.isLogin
+                  ? setIsShowModalComment(true)
+                  : navigate("/login")
+              }
             >
               <p className="product-comments-mobile__submit-comment-title">
                 دیدگاه خود را درباره این کالا بنویسید
@@ -111,7 +120,14 @@ export default function CommentsMobile({
           </div>
         </div>
       ) : (
-        <div className="mt-5" onClick={() => setIsShowModalComment(true)}>
+        <div
+          className="mt-5"
+          onClick={() =>
+            authContext.isLogin
+              ? setIsShowModalComment(true)
+              : navigate("/login")
+          }
+        >
           <p>شما هم می‌توانید در مورد این کالا نظر دهید.</p>
           <p className="mt-3" style={{ fontSize: "1.2rem", color: "#767790" }}>
             اگر این محصول را قبلا از دیجیکالا خریده باشید، دیدگاه شما به عنوان

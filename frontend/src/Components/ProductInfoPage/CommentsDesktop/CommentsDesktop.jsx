@@ -175,7 +175,11 @@ export default function CommentsDesktop({
                   </p>
                   <button
                     className="product-comments-desktop__right-submit-comment-btn"
-                    onClick={() => setIsShowModalComment(true)}
+                    onClick={() =>
+                      authContext.isLogin
+                        ? setIsShowModalComment(true)
+                        : navigate("/login")
+                    }
                   >
                     ثبت دیدگاه
                   </button>
