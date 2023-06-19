@@ -11,6 +11,7 @@ export default function CommentsMobile({
   comments,
   setIsShowModalComment,
   setIsShowAllCommentsModal,
+  productImages,
 }) {
   return (
     <div ref={commentRef}>
@@ -29,11 +30,14 @@ export default function CommentsMobile({
             </p>
           </div>
           <Swiper
-            slidesPerView={2}
+            slidesPerView={1}
             grabCursor={true}
             breakpoints={{
+              500: {
+                slidesPerView: 1.5,
+              },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2.1,
               },
               992: {
                 slidesPerView: 3,
@@ -51,15 +55,20 @@ export default function CommentsMobile({
             ))}
           </Swiper>
 
-          <div className="product-comments-mobile__photos">
-            <img
-              src="/images/product-page/comment/630fd5fed0083604042cb4bf3064f8d86b30dccb_1633421782.jpg"
-              alt="product"
-              width="57"
-              height="57"
-              style={{ objectFit: "cover", borderRadius: "8px" }}
-            />
-          </div>
+          {productImages.length ? (
+            <div className="product-comments-mobile__photos">
+              {productImages.map((img) => (
+                <img
+                  key={img.id}
+                  src={`/img/${img.img}`}
+                  alt="product"
+                  width="57"
+                  height="57"
+                  style={{ objectFit: "cover", borderRadius: "8px" }}
+                />
+              ))}
+            </div>
+          ) : null}
 
           <div className="product-comments-mobile__submit-comment">
             <div className="">

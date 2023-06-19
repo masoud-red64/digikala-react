@@ -1468,6 +1468,7 @@ export default function ProductInfo() {
               setIsShowModalComment={setIsShowModalComment}
               setIsShowAllCommentsModal={setIsShowAllCommentsModal}
               isShowAllCommentsModal={isShowAllCommentsModal}
+              productImages={productImages}
             />
 
             <CommentsMobile
@@ -1475,6 +1476,7 @@ export default function ProductInfo() {
               comments={comments}
               setIsShowModalComment={setIsShowModalComment}
               setIsShowAllCommentsModal={setIsShowAllCommentsModal}
+              productImages={productImages}
             />
 
             <div
