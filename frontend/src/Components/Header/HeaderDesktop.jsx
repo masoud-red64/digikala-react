@@ -116,7 +116,10 @@ export default function HeaderDesktop({
               }`}</span>
             )}
           </div>
-          <Link to={`${authContext.isLogin ? '/cart' : '/login'}`} className="header__top-left-basket-link">
+          <Link
+            to={`${authContext.isLogin ? "/cart" : "/login"}`}
+            className="header__top-left-basket-link"
+          >
             <span className="header__top-left-basket-count">۱</span>
             <svg
               className="header__top-left-basket-icon"
@@ -168,8 +171,8 @@ export default function HeaderDesktop({
                     data-main="digital"
                     onMouseEnter={() => setTitleCategory("digital")}
                   >
-                    <a
-                      href="main.html?shortName=kala-digital"
+                    <Link
+                      to="/main/digital"
                       className="header__nav-categories-right-link header__nav-categories-right-link--active"
                     >
                       <svg
@@ -180,14 +183,17 @@ export default function HeaderDesktop({
                         <path d="M21,14H20V7a3,3,0,0,0-3-3H7A3,3,0,0,0,4,7v7H3a1,1,0,0,0-1,1v2a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14ZM6,7A1,1,0,0,1,7,6H17a1,1,0,0,1,1,1v7H6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V16H20Z"></path>
                       </svg>
                       کالای دیجیتال
-                    </a>
+                    </Link>
                   </li>
                   <li
                     className="header__nav-categories-right-item"
                     data-main="beauty"
                     onMouseEnter={() => setTitleCategory("beauty")}
                   >
-                    <a href="#" className="header__nav-categories-right-link">
+                    <Link
+                      to={"/main/beauty"}
+                      className="header__nav-categories-right-link"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -196,14 +202,17 @@ export default function HeaderDesktop({
                         <path d="M12.71,16.29l-.15-.12a.76.76,0,0,0-.18-.09L12.2,16a1,1,0,0,0-.91.27,1.15,1.15,0,0,0-.21.33,1,1,0,0,0,1.3,1.31,1.46,1.46,0,0,0,.33-.22,1,1,0,0,0,.21-1.09A1,1,0,0,0,12.71,16.29ZM16,2H8A3,3,0,0,0,5,5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z"></path>
                       </svg>
                       زیبایی و سلامت
-                    </a>
+                    </Link>
                   </li>
                   <li
                     className="header__nav-categories-right-item"
                     data-main="building"
                     onMouseEnter={() => setTitleCategory("building")}
                   >
-                    <a href="#" className="header__nav-categories-right-link">
+                    <Link
+                      to={"/main/building"}
+                      className="header__nav-categories-right-link"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 32 32"
@@ -215,14 +224,17 @@ export default function HeaderDesktop({
                         ></path>
                       </svg>
                       ابزار، لوازم ساختمانی و صنعتی
-                    </a>
+                    </Link>
                   </li>
                   <li
                     className="header__nav-categories-right-item"
                     data-main="clothes"
                     onMouseEnter={() => setTitleCategory("clothes")}
                   >
-                    <a href="#" className="header__nav-categories-right-link">
+                    <Link
+                      to={"/main/clothes"}
+                      className="header__nav-categories-right-link"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 32 32"
@@ -296,14 +308,17 @@ export default function HeaderDesktop({
                         ></path>
                       </svg>
                       مد و پوشاک
-                    </a>
+                    </Link>
                   </li>
                   <li
                     className="header__nav-categories-right-item"
                     data-main="supermarket"
                     onMouseEnter={() => setTitleCategory("supermarket")}
                   >
-                    <a href="#" className="header__nav-categories-right-link">
+                    <Link
+                      to={"/main/supermarket"}
+                      className="header__nav-categories-right-link"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         data-name="Layer 1"
@@ -372,14 +387,17 @@ export default function HeaderDesktop({
                         ></polygon>
                       </svg>
                       کالاهای سوپر مارکتی
-                    </a>
+                    </Link>
                   </li>
                   <li
                     className="header__nav-categories-right-item"
                     data-main="baby"
                     onMouseEnter={() => setTitleCategory("baby")}
                   >
-                    <a href="#" className="header__nav-categories-right-link">
+                    <Link
+                      to={"/main/baby"}
+                      className="header__nav-categories-right-link"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 96 96"
@@ -417,14 +435,17 @@ export default function HeaderDesktop({
                         <path d="M35.074 88.994a1.56 1.56 0 0 1-1.564-1.558V62.918c0-.86.7-1.558 1.564-1.558a1.56 1.56 0 0 1 1.564 1.558v24.518c0 .861-.7 1.558-1.564 1.558zm27.125 0a1.56 1.56 0 0 1-1.563-1.558V62.918c0-.86.7-1.558 1.563-1.558a1.56 1.56 0 0 1 1.564 1.558v24.518c0 .861-.7 1.558-1.564 1.558zm-13.545-8.587c-4.315 0-7.827-3.5-7.827-7.8v-8.593c0-.861.7-1.558 1.564-1.558a1.56 1.56 0 0 1 1.563 1.558v8.593c0 2.584 2.11 4.683 4.7 4.683 2.591 0 4.7-2.1 4.7-4.683v-8.593c0-.861.7-1.558 1.564-1.558a1.56 1.56 0 0 1 1.563 1.558v8.593c0 4.3-3.512 7.8-7.827 7.8z"></path>
                       </svg>
                       اسباب بازی، کودک و نوزاد
-                    </a>
+                    </Link>
                   </li>
                   <li
                     className="header__nav-categories-right-item"
                     data-main="kitchen"
                     onMouseEnter={() => setTitleCategory("kitchen")}
                   >
-                    <a href="#" className="header__nav-categories-right-link">
+                    <Link
+                      to={"/main/kitchen"}
+                      className="header__nav-categories-right-link"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         data-name="Layer 1"
@@ -476,7 +497,7 @@ export default function HeaderDesktop({
                         ></path>
                       </svg>
                       خانه و آشپزخانه
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -486,7 +507,10 @@ export default function HeaderDesktop({
                     className="header__nav-categories-left-content"
                     data-category="digital"
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/digital"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات کالای دیجیتال
                       <svg
                         className="header__nav-categories-left-icon"
@@ -499,11 +523,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=1&shortname=accessories"
+                        <Link
+                          to="/category-info/accessories/1"
                           className="header__nav-categories-left-lists-title"
                         >
                           لوازم جانبی گوشی
@@ -518,7 +542,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                         <ul className="header__nav-categories-left-lists-list">
                           <li className="header__nav-categories-left-lists-item">
                             <a
@@ -547,8 +571,8 @@ export default function HeaderDesktop({
                         </ul>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=1&shortname=cellphone"
+                        <Link
+                          to="/category-info/cellphone/1"
                           className="header__nav-categories-left-lists-title"
                         >
                           گوشی موبایل
@@ -563,7 +587,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                         <ul className="header__nav-categories-left-lists-list">
                           <li className="header__nav-categories-left-lists-item">
                             <a
@@ -616,8 +640,8 @@ export default function HeaderDesktop({
                         </ul>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=1&shortname=virtual-reality"
+                        <Link
+                          to="/category-info/virtual-reality/1"
                           className="header__nav-categories-left-lists-title"
                         >
                           واقعیت مجازی
@@ -632,11 +656,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=1&shortname=wristband-smartwatch"
+                        <Link
+                          to="/category-info/wristband/1"
                           className="header__nav-categories-left-lists-title"
                         >
                           مچ بند و ساعت هوشمند
@@ -651,11 +675,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?shortname=tv&mainID=1"
+                        <Link
+                          to="/category-info/tv/1"
                           className="header__nav-categories-left-lists-title"
                         >
                           تلویزیون
@@ -670,7 +694,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                         <ul className="header__nav-categories-left-lists-list">
                           <li className="header__nav-categories-left-lists-item">
                             <a
@@ -1146,7 +1170,10 @@ export default function HeaderDesktop({
                     className="header__nav-categories-left-content"
                     data-category="beauty"
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/beauty"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات زیبایی و سلامت
                       <svg
                         className="header__nav-categories-left-icon"
@@ -1159,11 +1186,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=2&shortname=cosmetics"
+                        <Link
+                          to="/category-info/cosmetics/2"
                           className="header__nav-categories-left-lists-title"
                         >
                           لوزم آرایشی
@@ -1178,11 +1205,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=2&shortname=skin-care"
+                        <Link
+                          to="/category-info/skin-care/2"
                           className="header__nav-categories-left-lists-title"
                         >
                           مراقبت پوست
@@ -1197,11 +1224,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=2&shortname=hair-care"
+                        <Link
+                          to="/category-info/hair-care/2"
                           className="header__nav-categories-left-lists-title"
                         >
                           مراقبت و زیبایی مو
@@ -1216,11 +1243,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=2&shortname=sanitary"
+                        <Link
+                          to="/category-info/sanitary/2"
                           className="header__nav-categories-left-lists-title"
                         >
                           لوازم بهداشتی
@@ -1235,11 +1262,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=2&shortname=perfume"
+                        <Link
+                          to="/category-info/perfume/2"
                           className="header__nav-categories-left-lists-title"
                         >
                           عطر و ادکلن
@@ -1254,7 +1281,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1264,7 +1291,10 @@ export default function HeaderDesktop({
                     className="header__nav-categories-left-content"
                     data-category="building"
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/building"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات ابزار، لوازم ساختمانی
                       <svg
                         className="header__nav-categories-left-icon"
@@ -1277,11 +1307,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=3&shortname=electrical-tools"
+                        <Link
+                          to="/category-info/electrical-tools/3"
                           className="header__nav-categories-left-lists-title"
                         >
                           ابزار برقی
@@ -1296,11 +1326,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=3&shortname=non-electrical-tools"
+                        <Link
+                          to="/category-info/non-electrical-tools/3"
                           className="header__nav-categories-left-lists-title"
                         >
                           ابزار غیر برقی
@@ -1315,11 +1345,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=3&shortname=electrical-appliances"
+                        <Link
+                          to="/category-info/electrical-appliances/3"
                           className="header__nav-categories-left-lists-title"
                         >
                           لوازم التریکی
@@ -1334,11 +1364,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=3&shortname=electrical-appliances"
+                        <Link
+                          to="/category-info/gardening-tools/3"
                           className="header__nav-categories-left-lists-title"
                         >
                           لوازم باغبانی
@@ -1353,7 +1383,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1363,7 +1393,10 @@ export default function HeaderDesktop({
                     className="header__nav-categories-left-content"
                     data-category="clothes"
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/clothes"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات مد و پوشاک
                       <svg
                         className="header__nav-categories-left-icon"
@@ -1376,11 +1409,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=4&shortname=menswear"
+                        <Link
+                          to="/category-info/menswear/4"
                           className="header__nav-categories-left-lists-title"
                         >
                           لباس مردانه
@@ -1395,11 +1428,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=4&shortname=men-shoes"
+                        <Link
+                          to="/category-info/men-shoes/4"
                           className="header__nav-categories-left-lists-title"
                         >
                           کفش مردانه
@@ -1414,11 +1447,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=4&shortname=women-dress"
+                        <Link
+                          to="/category-info/women-dress/4"
                           className="header__nav-categories-left-lists-title"
                         >
                           لباس زنانه
@@ -1433,11 +1466,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=4&shortname=women-shoes"
+                        <Link
+                          to="/category-info/women-shoes/4"
                           className="header__nav-categories-left-lists-title"
                         >
                           کفش زنانه
@@ -1452,11 +1485,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=4&shortname=gold"
+                        <Link
+                          to="/category-info/gold/4"
                           className="header__nav-categories-left-lists-title"
                         >
                           طلا
@@ -1471,7 +1504,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1481,7 +1514,10 @@ export default function HeaderDesktop({
                     className="header__nav-categories-left-content"
                     data-category="supermarket"
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/supermarket"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات سوپرمارکت
                       <svg
                         className="header__nav-categories-left-icon"
@@ -1494,11 +1530,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=5&shortname=essential-products"
+                        <Link
+                          to="/category-info/essential-products/5"
                           className="header__nav-categories-left-lists-title"
                         >
                           کالاهای اساسی و خواروبار
@@ -1513,11 +1549,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=5&shortname=breakfast"
+                        <Link
+                          to="/category-info/breakfast/5"
                           className="header__nav-categories-left-lists-title"
                         >
                           صبحانه
@@ -1532,11 +1568,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=5&shortname=protein-material"
+                        <Link
+                          to="/category-info/protein-material/5"
                           className="header__nav-categories-left-lists-title"
                         >
                           مواد پروتینی
@@ -1551,11 +1587,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=5&shortname=dairy"
+                        <Link
+                          to="/category-info/dairy/5"
                           className="header__nav-categories-left-lists-title"
                         >
                           لبنیات
@@ -1570,7 +1606,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1580,7 +1616,10 @@ export default function HeaderDesktop({
                     className="header__nav-categories-left-content"
                     data-category="baby"
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/baby"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات اسباب بازی، کودک و نوزاد
                       <svg
                         className="header__nav-categories-left-icon"
@@ -1593,11 +1632,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=6&shortname=baby-bathing"
+                        <Link
+                          to="/category-info/baby-bathing/6"
                           className="header__nav-categories-left-lists-title"
                         >
                           بهداشت و حمام کودک و نوزاد
@@ -1612,11 +1651,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=6&shortname=baby-clothes"
+                        <Link
+                          to="/category-info/baby-clothes/6"
                           className="header__nav-categories-left-lists-title"
                         >
                           پوشاک و کفش کودک و نوزاد
@@ -1631,11 +1670,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=6&shortname=tablet"
+                        <Link
+                          to="/category-info/tablet/6"
                           className="header__nav-categories-left-lists-title"
                         >
                           تبلت
@@ -1650,11 +1689,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=6&shortname=toy"
+                        <Link
+                          to="/category-info/toy/6"
                           className="header__nav-categories-left-lists-title"
                         >
                           اسباب بازی
@@ -1669,7 +1708,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1680,7 +1719,10 @@ export default function HeaderDesktop({
                     data-category="kitchen"
                     onMouseEnter={() => setTitleCategory("kitchen")}
                   >
-                    <a href="#" className="header__nav-categories-left-title">
+                    <Link
+                      to={"/main/litchen"}
+                      className="header__nav-categories-left-title"
+                    >
                       همه محصولات خانه و آشپزخانه
                       <svg
                         className="header__nav-categories-left-icon"
@@ -1693,11 +1735,11 @@ export default function HeaderDesktop({
                           d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                         ></path>
                       </svg>
-                    </a>
+                    </Link>
                     <div className="header__nav-categories-left-lists">
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=7&shortname=tv"
+                        <Link
+                          to="/category-info/tv/7"
                           className="header__nav-categories-left-lists-title"
                         >
                           تلویزیون
@@ -1712,11 +1754,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=7&shortname=refrigerator"
+                        <Link
+                          to="/category-info/refrigerator/7"
                           className="header__nav-categories-left-lists-title"
                         >
                           یخچال و فریزر
@@ -1731,11 +1773,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=7&shortname=decorative"
+                        <Link
+                          to="/category-info/decorative/7"
                           className="header__nav-categories-left-lists-title"
                         >
                           دکوراتیو
@@ -1750,11 +1792,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=7&shortname=carpet"
+                        <Link
+                          to="/category-info/carpet/7"
                           className="header__nav-categories-left-lists-title"
                         >
                           فرش
@@ -1769,11 +1811,11 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                       <div className="header__nav-categories-left-lists-items">
-                        <a
-                          href="category.html?id=7&shortname=home-appliances"
+                        <Link
+                          to="/category-info/home-appliances/7"
                           className="header__nav-categories-left-lists-title"
                         >
                           لوازم برقی خانگی
@@ -1788,7 +1830,7 @@ export default function HeaderDesktop({
                               d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                             ></path>
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1799,7 +1841,7 @@ export default function HeaderDesktop({
           <div className="header__nav-category-topics">
             <ul className="header__nav-category-list">
               <li className="header__nav-category-item">
-                <a href="#" className="header__nav-category-link">
+                <Link to='/main/supermarket' className="header__nav-category-link">
                   <svg
                     className="header__nav-category-item-icon"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1859,7 +1901,7 @@ export default function HeaderDesktop({
                     ></polygon>
                   </svg>
                   سوپرمارکت
-                </a>
+                </Link>
               </li>
               <li className="header__nav-category-item">
                 <a href="#" className="header__nav-category-link">

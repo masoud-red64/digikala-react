@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import SidebarCategoryList from "./SidebarCategoryList/SidebarCategoryList";
 
 import "./Sidebar.css";
+import { Link } from "react-router-dom";
 
 export default function Sidebar({ isShowSidebar, setIsShowSidebar }) {
-
-
   return (
     <>
       <div className={`sidebar ${isShowSidebar ? "sidebar--open" : ""}`}>
@@ -30,7 +29,7 @@ export default function Sidebar({ isShowSidebar, setIsShowSidebar }) {
           <div className="sidebar__menus">
             <ul className="sidebar__menus-menu">
               <li className="sidebar__menus-item">
-                <a href="#" className="sidebar__menus-link">
+                <Link to={"/main/supermarket"} className="sidebar__menus-link">
                   <svg
                     className="sidebar__menus-item-icon"
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +89,7 @@ export default function Sidebar({ isShowSidebar, setIsShowSidebar }) {
                     ></polygon>
                   </svg>
                   سوپرمارکت
-                </a>
+                </Link>
               </li>
               <li className="sidebar__menus-item">
                 <a href="#" className="sidebar__menus-link">
@@ -218,7 +217,7 @@ export default function Sidebar({ isShowSidebar, setIsShowSidebar }) {
           </div>
           <div className="sidebar__category">
             <p className="sidebar__category-title">دسته بندی کالاها</p>
-            <SidebarCategoryList/>
+            <SidebarCategoryList />
           </div>
         </div>
       </div>

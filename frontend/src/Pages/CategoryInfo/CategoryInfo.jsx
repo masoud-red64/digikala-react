@@ -721,7 +721,7 @@ export default function CategoryInfo() {
                         <p className="fs-5">فیلتر</p>
                       </div>
                       <div
-                        className="order d-flex gap-2"
+                        className="order d-flex gap-2 border-0"
                         onClick={() => setIsShowOrderMobile(true)}
                       >
                         <svg

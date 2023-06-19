@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SidebarCategoryList.css";
+import { Link } from "react-router-dom";
 
 export default function SidebarCategoryList() {
   const [titleCategory, setTitleCategory] = useState("");
@@ -31,16 +32,13 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=digital"
-                  className="sidebar__subcategory-link"
-                >
+                <Link to="/main/digital" className="sidebar__subcategory-link">
                   همه ی کالاهای دیجیتال
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=accessories&&id=1"
+                <Link
+                  to="/category-info/accessories/1"
                   className="sidebar__subcategory-link"
                 >
                   لوازم جانبی گوشی
@@ -55,7 +53,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
 
                 <ul className="sidebar__subsubcategory-list">
                   <li className="sidebar__subsubcategory-item">
@@ -76,8 +74,8 @@ export default function SidebarCategoryList() {
                 </ul>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=cellphone&&id=1"
+                <Link
+                  to="/category-info/cellphone/1"
                   className="sidebar__subcategory-link"
                 >
                   گوشی موبایل
@@ -92,7 +90,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
 
                 <ul className="sidebar__subsubcategory-list">
                   <li className="sidebar__subsubcategory-item">
@@ -128,24 +126,24 @@ export default function SidebarCategoryList() {
                 </ul>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=virtual-reality&&id=1"
+                <Link
+                  to="/category-info/virtual-reality/1"
                   className="sidebar__subcategory-link"
                 >
                   واقعیت مجازی
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=wristband&&id=1"
+                <Link
+                  to="/category-info/wristband/1"
                   className="sidebar__subcategory-link"
                 >
                   مچ بند و ساعت هوشمند
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=tv&&id=1"
+                <Link
+                  to="/category-info/tv/1"
                   className="sidebar__subcategory-link"
                 >
                   تلویزیون
@@ -160,7 +158,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
                 <ul className="sidebar__subsubcategory-list">
                   <li className="sidebar__subsubcategory-item">
                     <a href="#" className="sidebar__subsubcategory-link">
@@ -414,16 +412,16 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=beauty&&id=2"
+                <Link
+                  to="/main/beauty&&id=2"
                   className="sidebar__subcategory-link"
                 >
                   همه ی کالاهای زیبایی و سلامت
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=cosmetics&&id=2"
+                <Link
+                  to="/category-info/cosmetics/2"
                   className="sidebar__subcategory-link"
                 >
                   لوازم آرایشی
@@ -438,11 +436,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=skin-care&&id=2"
+                <Link
+                  to="/category-info/skin-care/2"
                   className="sidebar__subcategory-link"
                 >
                   مراقبت پوست
@@ -457,11 +455,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=hair-care&&id=2"
+                <Link
+                  to="/category-info/hair-care/2"
                   className="sidebar__subcategory-link"
                 >
                   مراقبت و زیبایی مو
@@ -476,11 +474,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=sanitary&&id=2"
+                <Link
+                  to="/category-info/sanitary/2"
                   className="sidebar__subcategory-link"
                 >
                   لوازم بهداشتی
@@ -495,11 +493,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=perfume&&id=2"
+                <Link
+                  to="/category-info/perfume/2"
                   className="sidebar__subcategory-link"
                 >
                   عطر و ادکلن
@@ -514,7 +512,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </>
@@ -545,16 +543,13 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=building"
-                  className="sidebar__subcategory-link"
-                >
+                <Link to="/main/building" className="sidebar__subcategory-link">
                   همه ی کالاهای ابزار، لوازم ساختمانی و صنعتی
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=electrical-tools&&id=3"
+                <Link
+                  to="/category-info/electrical-tools/3"
                   className="sidebar__subcategory-link"
                 >
                   ابزار برقی
@@ -569,11 +564,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=non-electical-tools&&id=3"
+                <Link
+                  to="/category-info/non-electical-tools/3"
                   className="sidebar__subcategory-link"
                 >
                   ابزار غیر برقی
@@ -588,11 +583,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=electrical-appliances&&id=3"
+                <Link
+                  to="/category-info/electrical-appliances/3"
                   className="sidebar__subcategory-link"
                 >
                   لوازم الکتریکی
@@ -607,11 +602,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=gardening-tools&&id=3"
+                <Link
+                  to="/category-info/gardening-tools/3"
                   className="sidebar__subcategory-link"
                 >
                   لوازم باغبانی
@@ -626,7 +621,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </>
@@ -657,16 +652,13 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=clothes"
-                  className="sidebar__subcategory-link"
-                >
+                <Link to="/main/clothes" className="sidebar__subcategory-link">
                   همه ی کالاهای مد و پوشاک
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=menswear&&id=4"
+                <Link
+                  to="/category-info/menswear/4"
                   className="sidebar__subcategory-link"
                 >
                   لباس مردانه
@@ -681,11 +673,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=men-shoes&&id=4"
+                <Link
+                  to="/category-info/men-shoes/4"
                   className="sidebar__subcategory-link"
                 >
                   کفش مردانه
@@ -700,11 +692,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=women-dress&&id=4"
+                <Link
+                  to="/category-info/women-dress/4"
                   className="sidebar__subcategory-link"
                 >
                   لباس زنانه
@@ -719,11 +711,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=women-shoes&&id=4"
+                <Link
+                  to="/category-info/women-shoes/4"
                   className="sidebar__subcategory-link"
                 >
                   کفش زنانه
@@ -738,11 +730,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=gold&&id=4"
+                <Link
+                  to="/category-info/gold/4"
                   className="sidebar__subcategory-link"
                 >
                   طلا
@@ -757,7 +749,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </>
@@ -788,16 +780,16 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=supermarket"
+                <Link
+                  to="/main/supermarket"
                   className="sidebar__subcategory-link"
                 >
                   همه ی کالاهای سوپر مارکتی
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=essential-products&&id=5"
+                <Link
+                  to="/category-info/essential-products/5"
                   className="sidebar__subcategory-link"
                 >
                   کالاهای اساسی و خواروبار
@@ -812,11 +804,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=breakfast&&id=5"
+                <Link
+                  to="/category-info/breakfast/5"
                   className="sidebar__subcategory-link"
                 >
                   صبحانه
@@ -831,11 +823,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=protein-material&&id=5"
+                <Link
+                  to="/category-info/protein-material/5"
                   className="sidebar__subcategory-link"
                 >
                   مواد پروتینی
@@ -850,11 +842,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=dairy&&id=5"
+                <Link
+                  to="/category-info/dairy/5"
                   className="sidebar__subcategory-link"
                 >
                   لبنیات
@@ -869,7 +861,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </>
@@ -900,16 +892,13 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=baby"
-                  className="sidebar__subcategory-link"
-                >
+                <Link to="/main/baby" className="sidebar__subcategory-link">
                   همه ی کالاهای اسباب بازی،کودک و نوزاد
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=baby-bathing&&id=6"
+                <Link
+                  to="/category-info/baby-bathing/6"
                   className="sidebar__subcategory-link"
                 >
                   بهداشت و حمام کودک و نوزاد
@@ -924,11 +913,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=baby-clothes&&id=6"
+                <Link
+                  to="/category-info/baby-clothes/6"
                   className="sidebar__subcategory-link"
                 >
                   پوشاک و کفش کودک و نوازد
@@ -943,11 +932,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=tablet&&id=6"
+                <Link
+                  to="/category-info/tablet/6"
                   className="sidebar__subcategory-link"
                 >
                   تبلت
@@ -962,11 +951,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=toy&&id=6"
+                <Link
+                  to="/category-info/toy/6"
                   className="sidebar__subcategory-link"
                 >
                   اسباب بازی
@@ -981,7 +970,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </>
@@ -1012,16 +1001,13 @@ export default function SidebarCategoryList() {
           <>
             <ul className="sidebar__subcategory-list">
               <li className="sidebar__subcategory-item">
-                <a
-                  href="main.html?shortname=kitchen"
-                  className="sidebar__subcategory-link"
-                >
+                <Link to="/main/kitchen" className="sidebar__subcategory-link">
                   همه ی کالاهای خانه و آشپزخانه
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=tv&&id=7"
+                <Link
+                  to="/category-info/tv/7"
                   className="sidebar__subcategory-link"
                 >
                   تلوزیون
@@ -1036,11 +1022,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=refrigerator&&id=7"
+                <Link
+                  to="/category-info/refrigerator/7"
                   className="sidebar__subcategory-link"
                 >
                   یخچال و فریزر
@@ -1055,11 +1041,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=decorative&&id=7"
+                <Link
+                  to="/category-info/decorative/7"
                   className="sidebar__subcategory-link"
                 >
                   دکوراتیو
@@ -1074,11 +1060,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=carpet&&id=7"
+                <Link
+                  to="/category-info/carpet/7"
                   className="sidebar__subcategory-link"
                 >
                   فرش
@@ -1093,11 +1079,11 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="sidebar__subcategory-item">
-                <a
-                  href="category.html?shortname=home-appliances&&id=7"
+                <Link
+                  to="/category-info/home-appliances/7"
                   className="sidebar__subcategory-link"
                 >
                   لوازم برقی خانگی
@@ -1112,7 +1098,7 @@ export default function SidebarCategoryList() {
                       d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </>
