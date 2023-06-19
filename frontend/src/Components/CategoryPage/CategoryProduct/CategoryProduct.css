@@ -73,5 +73,6 @@
   border: 1px solid var(--primary-color);
   background-color: #fff;
   outline: none;
-  top: 50%;
+  top: 20rem;
+  right: 2rem;
 }

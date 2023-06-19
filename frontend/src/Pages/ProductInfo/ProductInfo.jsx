@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import SameProducts from "../../Components/ProductInfoPage/SameProducts/SameProducts";
 import CommentsDesktop from "../../Components/ProductInfoPage/CommentsDesktop/CommentsDesktop";
 import CommentsMobile from "../../Components/ProductInfoPage/CommentsMobile/CommentsMobile";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import { formatNumberWithSeparators } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import AuthContext from "../../contexts/authContext";
@@ -54,6 +54,7 @@ export default function ProductInfo() {
   const slider = useRef();
 
   const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -1114,7 +1115,14 @@ export default function ProductInfo() {
                         ) : null}
                       </div>
                       <div className="product-content__left-add">
-                        <button className="product-content__left-add-btn">
+                        <button
+                          className="product-content__left-add-btn"
+                          onClick={() =>
+                            authContext.isLogin
+                              ? authContext.addProductToCart(productInfo.id)
+                              : navigate("/login")
+                          }
+                        >
                           افزودن به سبد خرید
                         </button>
                       </div>
@@ -1156,7 +1164,14 @@ export default function ProductInfo() {
                         </p>
                       </div>
                       <div className="d-flex d-lg-none align-items-center justify-content-between mt-4">
-                        <button className="product-content__left-add-btn w-50">
+                        <button
+                          className="product-content__left-add-btn w-50"
+                          onClick={() =>
+                            authContext.isLogin
+                              ? authContext.addProductToCart(productInfo.id)
+                              : navigate("/login")
+                          }
+                        >
                           افزودن به سبد خرید
                         </button>
                         <div id="mobile-product-price-container">

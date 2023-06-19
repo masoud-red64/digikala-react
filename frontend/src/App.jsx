@@ -29,8 +29,25 @@ function App() {
     }
   }
 
+ function addProductToCart(productID) {
+    let newProduct = {
+      userID: userInfo.id,
+      productID,
+    };
+    fetch("http://localhost:3000/api/cart/new-product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+      });
+  }
+
   return (
-    <AuthContext.Provider value={{ userInfo, isLogin, getUserInfo }}>
+    <AuthContext.Provider value={{ userInfo, isLogin, getUserInfo,addProductToCart }}>
       {router}
     </AuthContext.Provider>
   );

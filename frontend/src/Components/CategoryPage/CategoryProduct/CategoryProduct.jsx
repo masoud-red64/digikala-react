@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "./CategoryProduct.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PercentBox from "../../PercentBox/PercentBox";
 import {
   enToPersianNumber,
   formatNumberWithSeparators,
 } from "../../../func/utils";
+import AuthContext from "../../../contexts/authContext";
 
 export default function CategoryProduct({
   off,
@@ -15,9 +16,13 @@ export default function CategoryProduct({
   score,
   price,
   shortName,
+  id,
 }) {
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
+
   return (
-    <div className="col-12 col-md-6 col-xl-4 p-0 border-none">
+    <div className="col-12 col-md-6 col-xl-4 p-0 border-none position-relative">
       <Link
         to={`/product-info/${shortName}`}
         className="category-page__products-content"
@@ -109,25 +114,31 @@ export default function CategoryProduct({
             </p>
           </div>
         </div>
-
-        <button className="category-page__products-content-add-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            style={{
-              width: "24px",
-              height: "24px",
-              fill: "var(--primary-color)",
-            }}
-          >
-            <path
-              fillRule="evenodd"
-              d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </button>
       </Link>
+      <button
+        className="category-page__products-content-add-btn"
+        onClick={() =>
+          authContext.isLogin
+            ? authContext.addProductToCart(id)
+            : navigate("/login")
+        }
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          style={{
+            width: "24px",
+            height: "24px",
+            fill: "var(--primary-color)",
+          }}
+        >
+          <path
+            fillRule="evenodd"
+            d="M13 4h-2v7H4v2h7v7h2v-7h7v-2h-7V4z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+      </button>
     </div>
   );
 }
