@@ -32,7 +32,9 @@ export default function ProductInfo() {
   const [comments, setComments] = useState([]);
   const [lengthOfQuestionTextArea, setLengthOfQuestionTextArea] = useState("0");
   const [isShowModalComment, setIsShowModalComment] = useState(false);
-  const [isShowAllCommentsModal, setIsShowAllCommentsModal] = useState(false)
+  const [isShowAllCommentsModal, setIsShowAllCommentsModal] = useState(false);
+  const [percentSlider, setPercentSlider] = useState(0);
+  const [slideInputValue, setSlideInputValue] = useState(0);
 
   const { shortName } = useParams();
 
@@ -40,6 +42,7 @@ export default function ProductInfo() {
   const commentsDesktop = useRef();
   const commentsMobile = useRef();
   const questions = useRef();
+  const slider = useRef();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -163,6 +166,15 @@ export default function ProductInfo() {
         console.log(comments);
         setComments(comments);
       });
+  }
+
+  function fillColor(e) {
+    setSlideInputValue(e.target.value);
+    const value =
+      (slider.current.value - slider.current.min) /
+      (slider.current.max - slider.current.min);
+    console.log(value * 100);
+    setPercentSlider(value * 100);
   }
   return (
     <>
@@ -1444,19 +1456,36 @@ export default function ProductInfo() {
                             امتیاز دهید!:‌
                           </p>
                           <p className="modal-submit-comment__content-right-give-score-value">
-                            خیلی بد
+                            {slideInputValue === "0"
+                              ? "خیلی بد"
+                              : slideInputValue === "1"
+                              ? "بد"
+                              : slideInputValue === "2"
+                              ? "متوسط"
+                              : slideInputValue === "3"
+                              ? "خوب"
+                              : slideInputValue === "4"
+                              ? "خیلی خوب"
+                              : "عالی"}
                           </p>
                         </div>
                         <div>
-                          <div className="slider-track">
+                          <div
+                            className="slider-track"
+                            style={{
+                              background: `linear-gradient(to left, #f9bc00 ${percentSlider}%, #e0e0e6 ${percentSlider}%, #e0e0e6 100%)`,
+                            }}
+                          >
                             <input
                               className="modal-submit-comment__content-right-give-score-input"
                               type="range"
                               name=""
                               min="0"
                               max="5"
-                              value="0"
+                              value={slideInputValue}
                               step="1"
+                              onInput={fillColor}
+                              ref={slider}
                             />
                           </div>
                           <div className="modal-submit-comment__content-right-dots">

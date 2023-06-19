@@ -719,6 +719,7 @@
   height: 5px;
   border-radius: 5px;
   margin-bottom: 1rem;
+  position: relative;  
 }
 .modal-submit-comment__content-right-give-score-input {
   -webkit-appearance: none;
@@ -746,7 +747,7 @@
   -webkit-appearance: none;
   height: 1.7rem;
   width: 1.7rem;
-  background-color: #f9bc00;
+  background-color: #f9bc00 !important;
   cursor: pointer;
   border-radius: 50%;
   pointer-events: auto;
