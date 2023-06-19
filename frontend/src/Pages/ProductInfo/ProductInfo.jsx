@@ -1101,15 +1101,18 @@ export default function ProductInfo() {
                           </p>
                         </div>
                       </div>
-                      {productInfo.inventoryCount < 10 ? (
-                        <div className="product-content__left-remain">
-                          تنها{" "}
+                      <div className="product-content__left-remain">
+                        {productInfo.inventoryCount < 10 ? (
                           <span>
-                            {enToPersianNumber(productInfo.inventoryCount)}
-                          </span>{" "}
-                          عدد در انبار دیجی‌کالا باقی مانده
-                        </div>
-                      ) : null}
+                            {" "}
+                            تنها{" "}
+                            <span>
+                              {enToPersianNumber(productInfo.inventoryCount)}
+                            </span>{" "}
+                            عدد در انبار دیجی‌کالا باقی مانده
+                          </span>
+                        ) : null}
+                      </div>
                       <div className="product-content__left-add">
                         <button className="product-content__left-add-btn">
                           افزودن به سبد خرید
@@ -1120,12 +1123,16 @@ export default function ProductInfo() {
                     <div className="product-content__left-show-price-mobile position-fixed bottom-0 start-0 bg-white w-100">
                       <div className="d-flex d-lg-none align-items-center justify-content-between">
                         <div className="product-content__left-remain">
-                          تنها{" "}
-                          <span>
-                            {productInfo.inventoryCount &&
-                              enToPersianNumber(productInfo.inventoryCount)}
-                          </span>{" "}
-                          عدد در انبار دیجی‌کالا باقی مانده
+                          {productInfo.inventoryCount < 10 ? (
+                            <span>
+                              {" "}
+                              تنها{" "}
+                              <span>
+                                {enToPersianNumber(productInfo.inventoryCount)}
+                              </span>{" "}
+                              عدد در انبار دیجی‌کالا باقی مانده
+                            </span>
+                          ) : null}
                         </div>
                         <p className="product-content__left-price-text">
                           قیمت فروشنده
