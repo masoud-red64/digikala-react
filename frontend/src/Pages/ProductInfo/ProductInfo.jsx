@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
@@ -14,6 +14,7 @@ import CommentsMobile from "../../Components/ProductInfoPage/CommentsMobile/Comm
 import { useParams } from "react-router-dom";
 import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import { formatNumberWithSeparators } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
+import AuthContext from "../../contexts/authContext";
 
 export default function ProductInfo() {
   const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
@@ -51,6 +52,8 @@ export default function ProductInfo() {
   const commentsMobile = useRef();
   const questions = useRef();
   const slider = useRef();
+
+  const authContext = useContext(AuthContext);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -201,6 +204,36 @@ export default function ProductInfo() {
       };
       setNegativePoints((prev) => [...prev, newNegativePoint]);
       setNegativePointInput("");
+    }
+  }
+
+  async function insertNewComment() {
+    let userID = await authContext.userInfo.id;
+    let productID = await productInfo.id;
+    let date = new Date().toLocaleDateString("fa");
+
+    let newComment = {
+      title: titleCommentInput.trim(),
+      text: textCommentInput.trim(),
+      point: Number(slideInputValue),
+      userID,
+      productID,
+      date,
+    };
+
+    if (titleCommentInput.length && textCommentInput && slideInputValue) {
+      fetch("http://localhost:3000/api/comments/new-comment", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newComment),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          getAllComments();
+          setIsShowModalComment(false);
+        });
     }
   }
 
@@ -1859,6 +1892,7 @@ export default function ProductInfo() {
                         <button
                           className="modal-submit-comment__footer-btn"
                           id="submit-comment-btn"
+                          onClick={insertNewComment}
                         >
                           ثبت دیدگاه
                         </button>
