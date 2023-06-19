@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={{ userInfo, isLogin,getUserInfo }}>
+    <AuthContext.Provider value={{ userInfo, isLogin, getUserInfo }}>
       {router}
     </AuthContext.Provider>
   );

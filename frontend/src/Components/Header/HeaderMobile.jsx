@@ -92,7 +92,7 @@ export default function HeaderMobile({
         <div className="header-mobile__middle-basket-login">
           {authContext.isLogin ? (
             <a href="#" className="header-mobile__middle-login">
-              <p className="header-mobile__middle-login-text">{`${
+              <p className="fs-5 border rounded p-2">{`${
                 authContext.userInfo && authContext.userInfo.firstname
               } ${authContext.userInfo && authContext.userInfo.lastname}`}</p>
             </a>
@@ -112,7 +112,10 @@ export default function HeaderMobile({
               <p className="header-mobile__middle-login-text">ورود</p>
             </Link>
           )}
-          <a href="#" className="header-mobile__middle-basket">
+          <Link
+            to={`${authContext.isLogin ? "/cart" : "/login"}`}
+            className="header-mobile__middle-basket"
+          >
             <svg
               className="header-mobile__middle-basket-icon"
               id="shopping-cart"
@@ -126,7 +129,7 @@ export default function HeaderMobile({
               ></path>
             </svg>
             <span className="header-mobile__middle-basket-count">۱</span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="header-mobile__bottom">
