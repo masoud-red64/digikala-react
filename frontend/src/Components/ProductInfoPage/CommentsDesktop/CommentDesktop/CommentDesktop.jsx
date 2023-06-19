@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./CommentDesktop.css";
 import { enToPersianNumber } from "../../../../../../../../../DigiKala/frontend/js/funcs/utils";
@@ -12,6 +12,11 @@ export default function CommentDesktop({
   suggest,
   date,
 }) {
+  const [flagLike, setFlagLike] = useState(false);
+  const [flagDisLike, setFlagDisLike] = useState(false);
+  const [likeValue, setLikeValue] = useState(0);
+  const [disLikeValue, setDisLikeValue] = useState(1);
+
   return (
     <div className="product-comments-desktop__left-content">
       <div className="">
@@ -172,8 +177,18 @@ export default function CommentDesktop({
               آیا این دیدگاه مفید بود؟
             </p>
             <div className="product-comments-desktop__left-content-bottom-useful-btns">
-              <button className="product-comments-desktop__left-content-bottom-useful-like-btn">
-                <span>۰</span>
+              <button
+                className={`product-comments-desktop__left-content-bottom-useful-like-btn ${
+                  flagLike ? "active" : ""
+                }`}
+                onClick={() => {
+                  setFlagLike(!flagLike);
+                  flagLike
+                    ? setLikeValue((likeValue) => likeValue - 1)
+                    : setLikeValue((likeValue) => likeValue + 1);
+                }}
+              >
+                <span>{enToPersianNumber(likeValue)}</span>
                 <svg
                   id="thumbsUp"
                   xmlns="http://www.w3.org/2000/svg"
@@ -187,8 +202,19 @@ export default function CommentDesktop({
                   ></path>
                 </svg>
               </button>
-              <button className="product-comments-desktop__left-content-bottom-useful-dis-like-btn">
-                <span>۱</span>
+              <button
+                className={`product-comments-desktop__left-content-bottom-useful-dis-like-btn ${
+                  flagDisLike ? "active" : ""
+                }`}
+                onClick={() => {
+                  setFlagDisLike(!flagDisLike);
+                  console.log(flagDisLike);
+                  flagDisLike
+                    ? setDisLikeValue(disLikeValue - 1)
+                    : setDisLikeValue(disLikeValue + 1);
+                }}
+              >
+                <span>{enToPersianNumber(disLikeValue)}</span>
                 <svg
                   id="thumbsDown"
                   xmlns="http://www.w3.org/2000/svg"
