@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
 
 export default function Login() {
   const [isShowLogin, setIsShowLogin] = useState(true);
@@ -15,6 +16,8 @@ export default function Login() {
   const [time, setTime] = useState("۰۳:۰۰");
 
   const navigate = useNavigate();
+
+  const authContext = useContext(AuthContext);
 
   useEffect(() => {
     checkValueLoginInput();
@@ -69,6 +72,7 @@ export default function Login() {
           token: "748e7284-52df-02b5-64a6-35d3c95fc979",
         })
       );
+      authContext.getUserInfo();
     }
   }
 

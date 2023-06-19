@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "./HeaderDesktop.css";
+import AuthContext from "../../contexts/authContext";
+import { Link } from "react-router-dom";
 
 export default function HeaderDesktop({
   setIsShowLocationModal,
@@ -11,6 +13,8 @@ export default function HeaderDesktop({
   const [titleCategory, setTitleCategory] = useState("digital");
   const [isShowContentLeftCategory, setIsShowContentRightCategory] =
     useState(false);
+
+  const authContext = useContext(AuthContext);
 
   // useEffect(() => {
   //   console.log(titleCategory);
@@ -84,23 +88,33 @@ export default function HeaderDesktop({
         </div>
         <div className="header__top-left">
           <div className="header__top-left-login-register">
-            <svg
-              className="header__top-left-login-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="signin"
-            >
-              <path
-                fill="#3f4064"
-                d="M20,12a1,1,0,0,0-1-1H11.41l2.3-2.29a1,1,0,1,0-1.42-1.42l-4,4a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l4,4a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L11.41,13H19A1,1,0,0,0,20,12ZM17,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V16a1,1,0,0,0-2,0v3a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V5A3,3,0,0,0,17,2Z"
-              ></path>
-            </svg>
-            <a href="#" className="header__top-left-login-btn">
-              ورود
-            </a>
-            <a href="#" className="header__top-left-register-btn">
-              ثبت نام
-            </a>
+            {!authContext.isLogin ? (
+              <div>
+                <svg
+                  className="header__top-left-login-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  id="signin"
+                >
+                  <path
+                    fill="#3f4064"
+                    d="M20,12a1,1,0,0,0-1-1H11.41l2.3-2.29a1,1,0,1,0-1.42-1.42l-4,4a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l4,4a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L11.41,13H19A1,1,0,0,0,20,12ZM17,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V16a1,1,0,0,0-2,0v3a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V8a1,1,0,0,0,2,0V5A3,3,0,0,0,17,2Z"
+                  ></path>
+                </svg>
+                <Link to={"/login"} className="header__top-left-login-btn">
+                  ورود
+                </Link>
+                <Link to={"/login"} className="header__top-left-register-btn">
+                  ثبت نام
+                </Link>
+              </div>
+            ) : (
+              <span>{`${
+                authContext.userInfo && authContext.userInfo.firstname
+              } ${
+                authContext.userInfo && authContext.userInfo.lastname
+              }`}</span>
+            )}
           </div>
           <a href="cart.html" className="header__top-left-basket-link">
             <span className="header__top-left-basket-count">۱</span>

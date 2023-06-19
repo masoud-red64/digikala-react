@@ -49,10 +49,7 @@ export default function SuggestCategoriesSwiper({
                 <SwiperSlide key={category.id}>
                   <div className="swiper-slide__container">
                     {categories.map((category) => (
-                      <>
-                        <Link
-                          key={category.id}
-                          to={`/category-info/${category.shortName}/${category.mainID}`}
+                        <Link key={category.id} to={`/category-info/${category.shortName}/${category.mainID}`}
                           className="suggest-digikala__swiper-slide-content"
                         >
                           <div className="suggest-digikala__swiper-slide-content-wrapper-img">
@@ -66,7 +63,6 @@ export default function SuggestCategoriesSwiper({
                             {category.title}
                           </p>
                         </Link>
-                      </>
                     ))}
                   </div>
                 </SwiperSlide>

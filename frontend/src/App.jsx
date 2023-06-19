@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
+  const [isLogin, setIsLogin] = useState(false);
   const router = useRoutes(routes);
 
   useEffect(() => {
@@ -14,17 +15,24 @@ function App() {
   }, []);
 
   async function getUserInfo() {
-    let userToken = JSON.parse(localStorage.getItem("user")).token;
-    await fetch(`http://localhost:3000/api/users`)
-      .then((res) => res.json())
-      .then((users) => {
-        let mainUser = users.filter((user) => user.token === userToken);
-        setUserInfo(mainUser[0]);
-      });
+    let userToken = JSON.parse(localStorage.getItem("user"));
+    if (userToken) {
+      await fetch(`http://localhost:3000/api/users`)
+        .then((res) => res.json())
+        .then((users) => {
+          let mainUser = users.filter((user) => user.token === userToken.token);
+          setUserInfo(mainUser[0]);
+          setIsLogin(true);
+        });
+    } else {
+      setIsLogin(false);
+    }
   }
 
   return (
-    <AuthContext.Provider value={{ userInfo }}>{router}</AuthContext.Provider>
+    <AuthContext.Provider value={{ userInfo, isLogin,getUserInfo }}>
+      {router}
+    </AuthContext.Provider>
   );
 }
 
