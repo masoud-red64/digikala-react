@@ -318,7 +318,7 @@ export default function NotEmptyCart({
         <Swiper
           navigation={true}
           modules={[Navigation]}
-          slidesPerView={2}
+          slidesPerView={1.2}
           breakpoints={{
             768: {
               slidesPerView: 2,

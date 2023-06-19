@@ -1,14 +1,15 @@
 .selected-products__content {
-  width: 25%;
   position: relative;
   padding: 1rem;
   border-left: 1px solid var(--border-color-100);
   border-bottom: 1px solid var(--border-color-100);
+  padding: 2rem;
 }
 .selected-products__content:nth-child(4n) {
   border-left: none;
 }
 .selected-products__content-finish {
+  height: 3rem;
 }
 .selected-products__content-finish-progress {
   height: 4px;
