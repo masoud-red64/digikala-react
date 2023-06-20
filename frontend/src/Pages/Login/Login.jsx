@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
+import swal from "sweetalert";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [isShowLogin, setIsShowLogin] = useState(true);
@@ -49,15 +51,11 @@ export default function Login() {
     if (/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(loginInputValue)) {
       setIsShowEmailLogin(true);
       setIsShowLogin(false);
-      setTimeout(() => {
-        alert(`your password is ${randomCode}`);
-      }, 1000);
+      toast.warn(`your password is ${randomCode}`);
     } else {
       setIsShowSmsLogin(true);
       setIsShowLogin(false);
-      setTimeout(() => {
-        alert(`your code is ${randomCode}`);
-      }, 3000);
+      toast.warn(`your code is ${randomCode}`);
       reverseTimer(time);
     }
   }
@@ -65,7 +63,12 @@ export default function Login() {
   function enterSiteHandler(e) {
     e.preventDefault();
     if (+smsInputValue === randomCode || +emailInputValue === randomCode) {
-      navigate("/");
+      swal({
+        title: "با موفقیت وارد شدید",
+        icon: "success",
+      }).then(() => {
+        navigate("/");
+      });
       localStorage.setItem(
         "user",
         JSON.stringify({

@@ -9,6 +9,7 @@ import NotEmptyNextCart from "../../Components/CartPage/NotEmptyNextCart/NotEmpt
 import AuthContext from "../../contexts/authContext";
 import { enToPersianNumber } from "../../func/utils";
 import Loading from "../../Components/Loading/Loading";
+import { toast } from "react-toastify";
 
 export default function Cart() {
   const [isShowNotEmptyCart, setIsShowNotEmptyCart] = useState(false);
@@ -119,6 +120,7 @@ export default function Cart() {
       })
       .finally(() => {
         setIsLoading(false);
+        toast.success("محصول با موفقیت حذف شد");
       });
   }
 
@@ -157,6 +159,7 @@ export default function Cart() {
       })
       .finally(() => {
         setIsLoading(false);
+        toast.success("محصول با موفقیت به سبد خرید بعدی افزوده شد");
       });
   }
 
@@ -174,6 +177,7 @@ export default function Cart() {
       })
       .finally(() => {
         isLoading(false);
+        toast.success("حذف محصول موفقیت آمیز بود");
       });
   }
 
@@ -212,6 +216,7 @@ export default function Cart() {
       })
       .finally(() => {
         setIsLoading(false);
+        toast.success("محصول با موفقیت به سبد خرید افزوده شد");
       });
   }
 
@@ -239,6 +244,7 @@ export default function Cart() {
       })
       .finally(() => {
         setIsLoading(false);
+        toast.success("همه ی محصولات با موفقیت به سبد خرید اضافه شدند");
       });
   }
 

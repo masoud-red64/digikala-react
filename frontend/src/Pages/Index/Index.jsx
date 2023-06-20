@@ -102,6 +102,7 @@ export default function Index() {
   }
 
   async function getAllSliders() {
+    setIsLoading(true);
     fetch("https://my-digikala.iran.liara.run/api/slider")
       .then((res) => res.json())
       .then((sliders) => {

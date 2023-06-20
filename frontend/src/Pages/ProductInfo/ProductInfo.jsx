@@ -16,6 +16,8 @@ import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/fun
 import { formatNumberWithSeparators } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import AuthContext from "../../contexts/authContext";
 import Loading from "../../Components/Loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ProductInfo() {
   const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
@@ -243,6 +245,7 @@ export default function ProductInfo() {
         .then((result) => {
           getAllComments();
           setIsShowModalComment(false);
+          toast.success("ثبت کامنت موفقیت آمیز بود");
         });
     }
   }

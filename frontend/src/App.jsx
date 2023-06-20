@@ -2,6 +2,8 @@ import { useRoutes } from "react-router-dom";
 import routes from "./routes";
 import AuthContext from "./contexts/authContext";
 import Loading from "./Components/Loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -48,6 +50,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((result) => {
+        toast.success("محصول مورد نظر با موفقیت به سبد خرید اضافه شد😎");
         console.log(result);
         getAllCartProducts();
       })
@@ -79,6 +82,7 @@ function App() {
       }}
     >
       {router}
+      <ToastContainer />
       {isLoading && <Loading />}
     </AuthContext.Provider>
   );
