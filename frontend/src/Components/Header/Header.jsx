@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
 import Sidebar from "../Sidebar/Sidebar";
 import LocationModal from "./LocationModal/LocationModal";
+import AuthContext from "../../contexts/authContext";
 
 export default function Header() {
   const [isShowLocationModal, setIsShowLocationModal] = useState(false);
@@ -10,6 +11,13 @@ export default function Header() {
   const [mainState, setMainState] = useState("");
   const [mainCity, setMainCity] = useState("");
   const [isShowSidebar, setIsShowSidebar] = useState(false);
+
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    authContext.getAllCartProducts();
+    console.log(authContext.allCartProducts);
+  }, [authContext.userInfo]);
 
   return (
     <>

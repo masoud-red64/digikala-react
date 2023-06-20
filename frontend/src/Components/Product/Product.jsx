@@ -9,10 +9,17 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 
-export default function Product({ img, price, off, soldOut, time, shortName,id }) {
-
-  const authContext = useContext(AuthContext)
-  const navigate = useNavigate()
+export default function Product({
+  img,
+  price,
+  off,
+  soldOut,
+  time,
+  shortName,
+  id,
+}) {
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
   return (
     <div className="selected-products__content">
       <Link to={`/product-info/${shortName}`}>
@@ -69,8 +76,14 @@ export default function Product({ img, price, off, soldOut, time, shortName,id }
         ) : null}
       </div>
       <div className="selected-products__content-add-to-cart">
-
-        <button className="selected-products__content-add-to-cart-btn" onClick={()=> authContext.isLogin ? authContext.addProductToCart(id): navigate('/login')}>
+        <button
+          className="selected-products__content-add-to-cart-btn"
+          onClick={() =>
+            authContext.isLogin
+              ? authContext.addProductToCart(id)
+              : navigate("/login")
+          }
+        >
           <svg
             id="addSimple"
             xmlns="http://www.w3.org/2000/svg"

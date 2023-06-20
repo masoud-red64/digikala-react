@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [userInfo, setUserInfo] = useState({});
   const [isLogin, setIsLogin] = useState(false);
+  const [allCartProducts, setAllCartProducts] = useState([]);
   const router = useRoutes(routes);
 
   useEffect(() => {
@@ -42,12 +43,33 @@ function App() {
       body: JSON.stringify(newProduct),
     })
       .then((res) => res.json())
-      .then((result) => {});
+      .then((result) => {
+        console.log(result);
+        getAllCartProducts();
+      });
   }
+
+  const getAllCartProducts = () => {
+    fetch("https://my-digikala.iran.liara.run/api/cart")
+      .then((res) => res.json())
+      .then((cartProducts) => {
+        let mainCartProducts = cartProducts.filter(
+          (cartProduct) => cartProduct.userID === userInfo.id
+        );
+        setAllCartProducts(mainCartProducts);
+      });
+  };
 
   return (
     <AuthContext.Provider
-      value={{ userInfo, isLogin, getUserInfo, addProductToCart }}
+      value={{
+        userInfo,
+        isLogin,
+        getUserInfo,
+        addProductToCart,
+        allCartProducts,
+        getAllCartProducts,
+      }}
     >
       {router}
     </AuthContext.Provider>

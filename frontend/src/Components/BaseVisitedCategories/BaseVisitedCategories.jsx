@@ -27,7 +27,6 @@ export default function BaseVisitedCategories({
           });
       });
   }, []);
-  console.log(baseVisitedProducts);
 
   return (
     <section className={`categories-based-visited ${mt}`}>

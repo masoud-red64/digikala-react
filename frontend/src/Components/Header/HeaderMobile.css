@@ -44,8 +44,6 @@
   justify-content: flex-end;
   margin-right: 1rem;
 }
-.header-mobile__middle-basket-count {
-}
 .header-mobile__middle-searchbar-icon {
   width: 2rem;
   height: 2rem;
@@ -70,7 +68,6 @@
   font-size: 1.4rem;
 }
 .header-mobile__middle-basket-count {
-  display: none;
   color: #fff;
   position: absolute;
   left: 1.5rem;

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./HeaderDesktop.css";
 import AuthContext from "../../contexts/authContext";
 import { Link } from "react-router-dom";
+import { enToPersianNumber } from "../../func/utils";
 
 export default function HeaderDesktop({
   setIsShowLocationModal,
@@ -15,7 +16,6 @@ export default function HeaderDesktop({
     useState(false);
 
   const authContext = useContext(AuthContext);
-
   // useEffect(() => {
   //   console.log(titleCategory);
   //   switch (titleCategory) {
@@ -120,7 +120,9 @@ export default function HeaderDesktop({
             to={`${authContext.isLogin ? "/cart" : "/login"}`}
             className="header__top-left-basket-link"
           >
-            <span className="header__top-left-basket-count">۱</span>
+            <span className="header__top-left-basket-count">
+              {enToPersianNumber(authContext.allCartProducts.length)}
+            </span>
             <svg
               className="header__top-left-basket-icon"
               id="shopping-cart"
@@ -1841,7 +1843,10 @@ export default function HeaderDesktop({
           <div className="header__nav-category-topics">
             <ul className="header__nav-category-list">
               <li className="header__nav-category-item">
-                <Link to='/main/supermarket' className="header__nav-category-link">
+                <Link
+                  to="/main/supermarket"
+                  className="header__nav-category-link"
+                >
                   <svg
                     className="header__nav-category-item-icon"
                     xmlns="http://www.w3.org/2000/svg"
