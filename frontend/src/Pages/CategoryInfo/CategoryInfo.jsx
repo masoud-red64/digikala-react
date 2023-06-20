@@ -8,6 +8,7 @@ import "./CategoryInfo.css";
 import SidebarCategoryList from "../../Components/Sidebar/SidebarCategoryList/SidebarCategoryList";
 import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import { useParams } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 
 export default function CategoryInfo() {
   const [isShowMoreCategory, setIsShowMoreCategory] = useState(false);
@@ -30,6 +31,7 @@ export default function CategoryInfo() {
   const [categoryTitle, setCategoryTitle] = useState("");
   const [isShowOrderMobile, setIsShowOrderMobile] = useState(false);
   const [isShowFilterMobile, setIsShowFilterMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const slider1Ref = useRef();
   const { shortName, mainID } = useParams();
@@ -161,6 +163,9 @@ export default function CategoryInfo() {
           (product) => product.categoryID === categoryID
         );
         setCategoryProducts(categoryProducts);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -174,6 +179,7 @@ export default function CategoryInfo() {
   }
   return (
     <>
+      {isLoading && <Loading />}
       <Header />
       <div className="main">
         <div className="container">

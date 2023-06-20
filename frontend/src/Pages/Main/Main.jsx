@@ -21,6 +21,7 @@ import DOMPurify from "dompurify";
 import "./Main.css";
 import Stores from "../../Components/Stores/Stores";
 import { useParams } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Main() {
   const [mainID, setMainID] = useState(null);
@@ -38,6 +39,7 @@ export default function Main() {
   const [mainSliders, setMainSliders] = useState([]);
   const [mainInformation, setMainInformation] = useState([]);
   const [isShowMainInfo, setIsShowMainInfo] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { shortName } = useParams();
 
@@ -150,11 +152,15 @@ export default function Main() {
       .then((sliders) => {
         let mainSliders = sliders.filter((slider) => slider.mainID === mainID);
         setMainSliders(mainSliders);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   return (
     <>
+      {isLoading && <Loading />}
       <Header />
       <div className="main">
         <div className="container">

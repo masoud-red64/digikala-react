@@ -1,6 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import routes from "./routes";
 import AuthContext from "./contexts/authContext";
+import Loading from "./Components/Loading/Loading";
 
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -9,10 +10,12 @@ function App() {
   const [userInfo, setUserInfo] = useState({});
   const [isLogin, setIsLogin] = useState(false);
   const [allCartProducts, setAllCartProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRoutes(routes);
 
   useEffect(() => {
     getUserInfo();
+    setIsLoading(false);
   }, []);
 
   async function getUserInfo() {
@@ -31,6 +34,7 @@ function App() {
   }
 
   function addProductToCart(productID) {
+    setIsLoading(true);
     let newProduct = {
       userID: userInfo.id,
       productID,
@@ -46,6 +50,9 @@ function App() {
       .then((result) => {
         console.log(result);
         getAllCartProducts();
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -72,6 +79,7 @@ function App() {
       }}
     >
       {router}
+      {isLoading && <Loading />}
     </AuthContext.Provider>
   );
 }

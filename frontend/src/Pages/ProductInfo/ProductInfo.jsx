@@ -15,6 +15,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { enToPersianNumber } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import { formatNumberWithSeparators } from "../../../../../../../DigiKala/frontend/js/funcs/utils";
 import AuthContext from "../../contexts/authContext";
+import Loading from "../../Components/Loading/Loading";
 
 export default function ProductInfo() {
   const [isShowMoreSpecifications, setIsShowMoreSpecifications] =
@@ -44,6 +45,7 @@ export default function ProductInfo() {
   const [negativePoints, setNegativePoints] = useState([]);
   const [positivePointError, setPositivePointError] = useState(false);
   const [negativePointError, setNegativePointError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { shortName } = useParams();
 
@@ -158,6 +160,9 @@ export default function ProductInfo() {
       .then((res) => res.json())
       .then((features) => {
         setProductFeatures(features);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -244,6 +249,7 @@ export default function ProductInfo() {
 
   return (
     <>
+      {isLoading && <Loading />}
       <Header />
       <div className="main">
         <div className="container">

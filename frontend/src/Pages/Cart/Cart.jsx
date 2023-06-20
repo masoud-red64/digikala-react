@@ -8,6 +8,7 @@ import EmptyNextCart from "../../Components/CartPage/EmptyNextCart/EmptyNextCart
 import NotEmptyNextCart from "../../Components/CartPage/NotEmptyNextCart/NotEmptyNextCart";
 import AuthContext from "../../contexts/authContext";
 import { enToPersianNumber } from "../../func/utils";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Cart() {
   const [isShowNotEmptyCart, setIsShowNotEmptyCart] = useState(false);
@@ -20,6 +21,7 @@ export default function Cart() {
   const [sumPrice, setSumPrice] = useState(0);
   const [sumDiscount, setSumDiscount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const authContext = useContext(AuthContext);
 
@@ -51,6 +53,9 @@ export default function Cart() {
               .then((res) => res.json())
               .then((product) => {
                 setCartProducts((prev) => [...prev, product[0]]);
+              })
+              .finally(() => {
+                setIsLoading(false);
               });
           });
         } else {
@@ -85,6 +90,9 @@ export default function Cart() {
               .then((res) => res.json())
               .then((product) => {
                 setNextCartProducts((prev) => [...prev, product[0]]);
+              })
+              .finally(() => {
+                setIsLoading(false);
               });
           });
         } else {
@@ -98,6 +106,7 @@ export default function Cart() {
   }, [authContext]);
 
   function removeCartProduct(productID) {
+    setIsLoading(true);
     fetch(`https://my-digikala.iran.liara.run/api/cart/remove/${productID}`, {
       method: "DELETE",
     })
@@ -107,10 +116,14 @@ export default function Cart() {
         setSumDiscount(0);
         setTotalPrice(0);
         getAllCartProducts();
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   async function moveProductToNextCart(productID) {
+    setIsLoading(true);
     let userID = await authContext.userInfo.id;
 
     let newProduct = {
@@ -141,10 +154,14 @@ export default function Cart() {
             setSumDiscount(0);
             setTotalPrice(0);
           });
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function removeNextCartProduct(productID) {
+    isLoading(true);
     fetch(
       `https://my-digikala.iran.liara.run/api/nextCart/remove/${productID}`,
       {
@@ -154,10 +171,14 @@ export default function Cart() {
       .then((res) => res.json())
       .then((result) => {
         getAllNextCartProducts();
+      })
+      .finally(() => {
+        isLoading(false);
       });
   }
 
   async function moveProductToCart(productID) {
+    setIsLoading(true);
     let userID = await authContext.userInfo.id;
 
     let newProduct = {
@@ -188,10 +209,14 @@ export default function Cart() {
             setSumDiscount(0);
             setTotalPrice(0);
           });
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function moveAllProductsFromNextCartToCart() {
+    setIsLoading(true);
     fetch("https://my-digikala.iran.liara.run/api/cart", {
       method: "POST",
       headers: {
@@ -211,11 +236,15 @@ export default function Cart() {
             setSumDiscount(0);
             setTotalPrice(0);
           });
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   return (
     <>
+      {isLoading && <Loading />}
       <Header />
 
       <div className="main">

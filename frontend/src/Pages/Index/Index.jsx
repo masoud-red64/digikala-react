@@ -19,6 +19,7 @@ import Articles from "../../Components/Articles/Articles";
 import PercentBox from "../../Components/PercentBox/PercentBox";
 import { shuffled } from "../../func/utils";
 import { Link } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Index() {
   const [wonderfulProducts, setWonderfulProducts] = useState([]);
@@ -32,6 +33,7 @@ export default function Index() {
   const [bestSellingProducts, setBestSellingProducts] = useState([]);
   const [allSelectedProducts, setAllSelectedProducts] = useState([]);
   const [allTopSlider, setAllTopSlider] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://my-digikala.iran.liara.run/api/products")
@@ -105,11 +107,15 @@ export default function Index() {
       .then((sliders) => {
         let severalSliders = shuffled([...sliders]).slice(0, 6);
         setAllTopSlider(severalSliders);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   return (
     <>
+      {isLoading && <Loading />}
       <Header />
       <div className="main">
         <TopSwiperJs sliders={allTopSlider} />
