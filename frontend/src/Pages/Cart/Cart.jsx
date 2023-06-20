@@ -27,7 +27,7 @@ export default function Cart() {
     getAllNextCartProducts();
     getAllCartProducts();
     setNavbarTitle("cart");
-  }, [authContext]);
+  }, [authContext.userInfo]);
 
   const getAllCartProducts = useCallback(() => {
     fetch("https://my-digikala.iran.liara.run/api/cart")
