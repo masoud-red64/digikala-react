@@ -49,6 +49,7 @@ export default function Main() {
       .then((main) => {
         setMainID(main[0].id);
         setMainInformation(main[0].information);
+        document.title =main[0].title ? main[0].title : 'loading...';
       });
   }, [shortName]);
 

@@ -57,6 +57,7 @@ export default function CategoryInfo() {
     getCategoryID();
     getAllCategoryProducts();
     getTargetMain();
+    document.title =mainTitle && categoryTitle ? `${mainTitle}/ ${categoryTitle}` : 'loading...';
   }, [categoryID, shortName]);
 
   const changePriceHandler1 = (event) => {

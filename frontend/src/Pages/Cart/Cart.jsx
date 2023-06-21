@@ -30,6 +30,7 @@ export default function Cart() {
     getAllNextCartProducts();
     getAllCartProducts();
     setNavbarTitle("cart");
+    document.title = 'سبد خرید'
   }, [authContext.userInfo]);
 
   const getAllCartProducts = useCallback(() => {

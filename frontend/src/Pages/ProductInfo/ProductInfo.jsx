@@ -96,6 +96,7 @@ export default function ProductInfo() {
 
   useEffect(() => {
     getProductInfos();
+    document.title = productInfo.title ? productInfo.title : "loading...";
   }, [mainID, shortName]);
 
   useEffect(() => {
