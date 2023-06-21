@@ -435,6 +435,7 @@ export default function CategoryInfo() {
                               width="18"
                               height="18"
                               style={{ objectFit: "contain" }}
+                              loading="lazy"
                             />
                           </p>
                           <svg
@@ -469,6 +470,7 @@ export default function CategoryInfo() {
                                   style={{ objectFit: "contain" }}
                                   width="20"
                                   height="20"
+                                  loading="lazy"
                                 />
                               </li>
                               <li className="filtering__item-digiplus-item">
@@ -487,6 +489,7 @@ export default function CategoryInfo() {
                                   style={{ objectFit: "contain" }}
                                   width="20"
                                   height="20"
+                                  loading="lazy"
                                 />
                               </li>
                             </ul>
@@ -503,6 +506,7 @@ export default function CategoryInfo() {
                               width="18"
                               height="18"
                               style={{ objectFit: "contain" }}
+                              loading="lazy"
                             />
                           </p>
                           <label className="filtering__item-switch">

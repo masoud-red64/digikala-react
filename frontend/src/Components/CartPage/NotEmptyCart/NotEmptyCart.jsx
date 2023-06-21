@@ -45,6 +45,7 @@ export default function NotEmptyCart({
                     src="./images/cart-page/digiplus-purple.svg"
                     alt="digiplus"
                     className="cart-digiplus__content-right-img"
+                    loading="lazy"
                   />
                   <p className="cart-digiplus__content-right-title">
                     خدمات ویژه با اشتراک دیجی‌پلاس
@@ -207,6 +208,7 @@ export default function NotEmptyCart({
                       className="order__digiclub-text-img"
                       src="./images/cart-page/club-point.svg"
                       alt=""
+                      loading="lazy"
                     />
                     دیجی‌کلاب
                     <svg

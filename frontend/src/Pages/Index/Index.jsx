@@ -131,11 +131,13 @@ export default function Index() {
                   src="/images/supermarket-amazing/fresh.png"
                   alt="box"
                   className="supermarket-amazing__right-title-box-img"
+                  loading="lazy"
                 />
                 <img
                   src="/images/supermarket-amazing/text.svg"
                   alt="text"
                   className="supermarket-amazing__right-title-text-img"
+                  loading="lazy"
                 />
               </div>
               <div
@@ -154,6 +156,7 @@ export default function Index() {
                         src={`/img/${product.img}`}
                         alt="product"
                         className="supermarket-amazing__right-product-img"
+                        loading="lazy"
                       />
                       <div className="supermarket-amazing__right-product-discount">
                         <PercentBox percent={product.off} />

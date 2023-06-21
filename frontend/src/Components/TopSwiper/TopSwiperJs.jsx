@@ -26,6 +26,7 @@ export default function TopSwiperJs({ borderRadius, sliders }) {
               src={`/img/${slider.img}`}
               alt=""
               className="top-swiper__img"
+              loading="lazy"
             />
           </SwiperSlide>
         ))}

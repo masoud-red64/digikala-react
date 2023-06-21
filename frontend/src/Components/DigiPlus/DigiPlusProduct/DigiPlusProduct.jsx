@@ -10,6 +10,7 @@ export default function DigiPlusProduct({ img,shortName }) {
         src={`/img/${img}`}
         alt="product"
         className="digiplus__left-bottom-img"
+        loading="lazy"
       />
     </Link>
   );

@@ -12,6 +12,7 @@ export default function DigiClub() {
             src="/images/digiclub/digiclub-logo-white.svg"
             alt="digiclub"
             className="digiclub__content-right-logo"
+            loading="lazy"
           />
         </a>
         <div className="digiclub__content-left">

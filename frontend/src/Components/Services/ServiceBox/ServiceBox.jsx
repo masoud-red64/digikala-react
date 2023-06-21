@@ -11,6 +11,7 @@ export default function ServiceBox({img, title}) {
             src={img}
             alt="service img"
             className="services__content-img"
+            loading="lazy"
           />
           <p className="services__content-text">{title}</p>
         </a>

@@ -22,6 +22,7 @@ export default function NextCartProduct({
               src={`/img/${img}`}
               alt="product"
               className="next-cart-content__right-product-img"
+              loading="lazy"
             />
           </a>
 

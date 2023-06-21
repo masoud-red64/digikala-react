@@ -14,6 +14,7 @@ export default function EmptyCart() {
             src="./images/cart-page/digiplus-purple.svg"
             alt="digiplus"
             className="cart-digiplus__content-right-img"
+            loading='lazy'
           />
           <p className="cart-digiplus__content-right-title">
             خدمات ویژه با اشتراک دیجی‌پلاس
@@ -51,6 +52,7 @@ export default function EmptyCart() {
         src="./images/cart-page/empty-cart.svg"
         alt="empty cart"
         className="empty-cart__content-img"
+        loading='lazy'
       />
       <p className="empty-cart__content-title">سبد خرید شما خالی است!</p>
       <p className="empty-cart__content-text">

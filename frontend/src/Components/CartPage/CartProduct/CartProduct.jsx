@@ -34,6 +34,7 @@ export default function CartProduct({
               src={`/img/${img}`}
               alt="product"
               className="cart-content__right-product-img"
+              loading="lazy"
             />
           </a>
           {wonder ? (
@@ -42,6 +43,7 @@ export default function CartProduct({
                 src="./images/cart-page/IncredibleOffer.svg"
                 alt="IncredibleOffer"
                 className="cart-content__right-off-amazing-img"
+                loading="lazy"
               />
               <p className="cart-content__right-off-time">
                 {enToPersianNumber(time)}

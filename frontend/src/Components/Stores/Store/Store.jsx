@@ -62,6 +62,7 @@ export default function Store() {
                 src="/images/main/seller/20e66e0650317e412a7b799d067791ec289dfe00_1604945758.jpg"
                 alt="product"
                 className="seller__content-img"
+                loading="lazy"
               />
             </div>
             <div className="seller__content-img-wrapper">
@@ -69,6 +70,7 @@ export default function Store() {
                 src="/images/main/seller/6d6ea6b47d2e3992cf201fa39d73bc4e0e7e7dff_1599974245.jpg"
                 alt="product"
                 className="seller__content-img"
+                loading="lazy"
               />
             </div>
             <div className="seller__content-img-wrapper">
@@ -76,6 +78,7 @@ export default function Store() {
                 src="/images/main/seller/971ea788578d46732e2947666e99ba71833c3b29_1620584406.webp"
                 alt="product"
                 className="seller__content-img"
+                loading="lazy"
               />
             </div>
           </div>

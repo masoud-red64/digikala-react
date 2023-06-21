@@ -12,6 +12,7 @@ export default function DigiClubItem({ title, img, children }) {
           src={img}
           alt="wheel spinner"
           className="digiclub__content-left-item-link-img"
+          loading="lazy"
         />
       </a>
     </div>

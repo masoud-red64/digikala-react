@@ -10,6 +10,7 @@ export default function EmptyNextCart() {
           src="./images/cart-page/empty-sfl.png"
           alt="empty cart"
           className="empty-next-cart__content-img"
+          loading="lazy"
         />
         <p className="empty-next-cart__content-title">
           لیست خرید بعدی شما خالی است!

@@ -11,6 +11,7 @@ export default function ProductImg({ img }) {
         className="product-content__right-product-photos-img"
         width="60"
         height="60"
+        loading="lazy"
       />
     </li>
   );

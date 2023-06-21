@@ -10,6 +10,7 @@ export default function CategoryBannerBox({ col, banner }) {
           src={`/img/${banner && banner.img}`}
           alt="banner"
           className="products-categories-banner__product-img"
+          loading="lazy"
         />
       </a>
     </div>

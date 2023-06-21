@@ -57,6 +57,7 @@ export default function SuggestCategoriesSwiper({
                               src={`/img/${category.img}`}
                               alt="suggest"
                               className="suggest-digikala__swiper-slide-content-img"
+                              loading="lazy"
                             />
                           </div>
                           <p className="suggest-digikala__swiper-slide-content-text">

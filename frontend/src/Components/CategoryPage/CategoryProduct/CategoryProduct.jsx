@@ -35,6 +35,7 @@ export default function CategoryProduct({
             width="64"
             height="14"
             style={{ objectFit: "contain" }}
+            loading="lazy"
           />
         ) : null}
         <div className="d-flex align-items-center justify-content-center">
@@ -45,6 +46,7 @@ export default function CategoryProduct({
             width="240"
             height="240"
             style={{ objectFit: "contain" }}
+            loading="lazy"
           />
         </div>
         <p className="category-page__products-category-text">

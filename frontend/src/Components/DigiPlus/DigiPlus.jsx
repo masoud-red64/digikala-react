@@ -12,6 +12,7 @@ export default function DigiPlus({ digiPlusProducts }) {
             src="/images/digiplus/digiplus-logo.svg"
             alt="logo"
             className="digiplus__right-logo-img"
+            loading="lazy"
           />
         </a>
         <p className="digiplus__right-text">خدمات ویژه برای اعضای دیجی پلاس</p>

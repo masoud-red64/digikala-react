@@ -70,6 +70,7 @@ export default function CommentsMobile({
                   width="57"
                   height="57"
                   style={{ objectFit: "cover", borderRadius: "8px" }}
+                  loading="lazy"
                 />
               ))}
             </div>

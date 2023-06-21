@@ -47,6 +47,7 @@ export default function PopularBrandSwiper({ popularBrands }) {
                     src={`/img/${brand.img}`}
                     alt="brand"
                     className="papular-brands__swiper-content-img"
+                    loading="lazy"
                   />
                 </a>
               </div>

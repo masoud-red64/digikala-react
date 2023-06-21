@@ -28,6 +28,7 @@ export default function Product({
             src={`/img/${img}`}
             alt="pants"
             className="suggest-swiper-slide__content-img"
+            loading="lazy"
           />
           <div className="suggest-swiper-slide__content-price-box">
             <PercentBox percent={off} />

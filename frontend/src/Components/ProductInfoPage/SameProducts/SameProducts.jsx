@@ -23,13 +23,14 @@ export default function SameProducts({
       >
         {wonder ? (
           <div className="same-product-for-buy__content-amazing">
-            <img src="/images/cart-page/IncredibleOffer.svg" alt="" />
+            <img src="/images/cart-page/IncredibleOffer.svg" alt="" loading="lazy"/>
           </div>
         ) : null}
         <img
           src={`/img/${img}`}
           alt=""
           className="same-product-for-buy__content-product-img"
+          loading="lazy"
         />
         <p className="same-product-for-buy__content-desc">{title}</p>
         <p className="fs-6">

@@ -13,6 +13,7 @@ export default function Footer() {
             src="/images/footer/digi.svg"
             alt="logo"
             className="footer__top-img"
+            loading="lazy"
           />
           <button
             className="footer__top-go-up-btn"
@@ -49,6 +50,7 @@ export default function Footer() {
                 src="/images/footer-services/express-delivery.svg"
                 alt=""
                 className="footer__services-content-img"
+                loading="lazy"
               />
               <p className="footer__services-content-text fs-5 text-secondary">
                 اﻣﮑﺎن ﺗﺤﻮﯾﻞ اﮐﺴﭙﺮس
@@ -59,6 +61,7 @@ export default function Footer() {
                 src="/images/footer-services/cash-on-delivery.svg"
                 alt=""
                 className="footer__services-content-img"
+                loading="lazy"
               />
               <p className="footer__services-content-text fs-5 text-secondary">
                 امکان پرداخت در محل
@@ -69,6 +72,7 @@ export default function Footer() {
                 src="/images/footer-services/support.svg"
                 alt=""
                 className="footer__services-content-img"
+                loading="lazy"
               />
               <p className="footer__services-content-text fs-5 text-secondary">
                 ۷ روز ﻫﻔﺘﻪ، ۲۴ ﺳﺎﻋﺘﻪ
@@ -79,6 +83,7 @@ export default function Footer() {
                 src="/images/footer-services/days-return.svg"
                 alt=""
                 className="footer__services-content-img"
+                loading="lazy"
               />
               <p className="footer__services-content-text fs-5 text-secondary">
                 هفت روز ضمانت بازگشت کالا
@@ -89,6 +94,7 @@ export default function Footer() {
                 src="/images/footer-services/original-products.svg"
                 alt=""
                 className="footer__services-content-img"
+                loading="lazy"
               />
               <p className="footer__services-content-text fs-5 text-secondary">
                 ﺿﻤﺎﻧﺖ اﺻﻞ ﺑﻮدن ﮐﺎﻟﺎ
@@ -237,6 +243,7 @@ export default function Footer() {
               src="/images/footer/footerlogo2.png"
               alt=""
               className="footer__digi-app-title-img"
+              loading="lazy"
             />
             <p className="footer__digi-app-title-text">
               دانلود اپلیکیشن دیجی‌کالا
@@ -248,6 +255,7 @@ export default function Footer() {
                 src="/images/footer/google-play.svg"
                 alt="google-play"
                 className="footer__digi-apps-for-download-img"
+                loading="lazy"
               />
             </a>
             <a href="#" className="footer__digi-apps-for-download-link">
@@ -255,6 +263,7 @@ export default function Footer() {
                 src="/images/footer/coffe-bazzar.svg"
                 alt="coffe-bazzar"
                 className="footer__digi-apps-for-download-img"
+                loading="lazy"
               />
             </a>
             <a href="#" className="footer__digi-apps-for-download-link">
@@ -262,6 +271,7 @@ export default function Footer() {
                 src="/images/footer/myket.svg"
                 alt="myket"
                 className="footer__digi-apps-for-download-img"
+                loading="lazy"
               />
             </a>
             <a href="#" className="footer__digi-apps-for-download-link">
@@ -269,6 +279,7 @@ export default function Footer() {
                 src="/images/footer/sib-app.svg"
                 alt="sib-app"
                 className="footer__digi-apps-for-download-img"
+                loading="lazy"
               />
             </a>
           </div>
@@ -278,6 +289,7 @@ export default function Footer() {
                 src="/images/footer/More.svg"
                 alt="More"
                 className="footer__digi-app-see-more-img"
+                loading="lazy"
               />
             </a>
             <a href="#" className="footer__digi-app-see-more-text-link">
@@ -678,6 +690,7 @@ export default function Footer() {
                 src="/images/footer/rezi.png"
                 alt="rezi"
                 className="footer__digi-about-us-confidences-logo-img"
+                loading="lazy"
               />
             </a>
             <a href="#" className="footer__digi-about-us-confidences-logo">
@@ -685,6 +698,7 @@ export default function Footer() {
                 src="/images/footer/kasbokar.png"
                 alt="kasbokar"
                 className="footer__digi-about-us-confidences-logo-img"
+                loading="lazy"
               />
             </a>
           </div>
@@ -703,6 +717,7 @@ export default function Footer() {
               src="/images/footer/brand/digiclub.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -712,6 +727,7 @@ export default function Footer() {
               src="/images/footer/brand/digiexpress.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -721,6 +737,7 @@ export default function Footer() {
               src="/images/footer/brand/digify.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -730,6 +747,7 @@ export default function Footer() {
               src="/images/footer/brand/digikala-business.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -739,6 +757,7 @@ export default function Footer() {
               src="/images/footer/brand/digimag.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -748,6 +767,7 @@ export default function Footer() {
               src="/images/footer/brand/digiMehr.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -757,6 +777,7 @@ export default function Footer() {
               src="/images/footer/brand/diginext.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -766,6 +787,7 @@ export default function Footer() {
               src="/images/footer/brand/digipay.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -775,6 +797,7 @@ export default function Footer() {
               src="/images/footer/brand/digipay.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -784,6 +807,7 @@ export default function Footer() {
               src="/images/footer/brand/digiplus.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -793,6 +817,7 @@ export default function Footer() {
               src="/images/footer/brand/digistyle.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -802,6 +827,7 @@ export default function Footer() {
               src="/images/footer/brand/fidibo.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -811,6 +837,7 @@ export default function Footer() {
               src="/images/footer/brand/ganjeh.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -820,6 +847,7 @@ export default function Footer() {
               src="/images/footer/brand/jet.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -829,6 +857,7 @@ export default function Footer() {
               src="/images/footer/brand/komodaa.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -838,6 +867,7 @@ export default function Footer() {
               src="/images/footer/brand/magnet.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -847,6 +877,7 @@ export default function Footer() {
               src="/images/footer/brand/pindo.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>
@@ -856,6 +887,7 @@ export default function Footer() {
               src="/images/footer/brand/smartech.svg"
               alt="digiclub"
               className="footer__brand-img"
+              loading="lazy"
             />
           </div>
         </a>

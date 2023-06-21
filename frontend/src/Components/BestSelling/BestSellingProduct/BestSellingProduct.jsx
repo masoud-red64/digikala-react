@@ -21,6 +21,7 @@ export default function BestSellingProduct({
           className="best-selling-products__swiper-content-img"
           src={`/img/${img}`}
           alt="product"
+          loading="lazy"
         />
         <p className="best-selling-products__swiper-content-number">
           {Number(numberProduct).toLocaleString("fa")}

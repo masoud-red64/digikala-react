@@ -139,6 +139,7 @@ export default function Login() {
               src="./images/login/logo.svg"
               alt="logo"
               className="login__logo-img"
+              loading="lazy"
             />
           </div>
           <p className="login__title">ورود | ثبت‌نام</p>
@@ -203,6 +204,7 @@ export default function Login() {
               src="./images/login/logo.svg"
               alt="logo"
               className="login-sms__logo-img"
+              loading="lazy"
             />
           </div>
           <p className="login-sms__title">کد تایید را وارد کنید</p>
@@ -281,6 +283,7 @@ export default function Login() {
               src="./images/login/logo.svg"
               alt="logo"
               className="login-email__logo-img"
+              loading="lazy"
             />
           </div>
           <p className="login-email__title">رمز عبور را وارد کنید</p>

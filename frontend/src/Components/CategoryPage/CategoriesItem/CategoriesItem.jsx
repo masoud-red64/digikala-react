@@ -13,6 +13,7 @@ export default function CategoriesItem({ img, title, shortName, mainID }) {
         src={`/img/${img}`}
         alt="nuts"
         className="category-page__categories-item-img"
+        loading="lazy"
       />
       <p className="category-page__categories-item-text">{title}</p>
     </Link>

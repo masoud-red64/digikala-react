@@ -39,11 +39,13 @@ export default function SuggestSwiper({ wonderfulProducts,color }) {
                 src="/images/wonderful-suggest/Amazings-title.svg"
                 alt="img title"
                 className="suggest-swiper-slide__content-first-img-title"
+                loading="lazy"
               />
               <img
                 src="/images/wonderful-suggest/suggest1.png"
                 alt="box"
                 className="suggest-swiper-slide__content-first-img-box"
+                loading="lazy"
               />
               <p className="suggest-swiper-slide__content-first-show-all">
                 مشاهده همه

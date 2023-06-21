@@ -319,6 +319,7 @@ export default function ProductInfo() {
                           width="100"
                           height="14"
                           style={{ objectFit: "contain" }}
+                          loading="lazy"
                         />
                       </div>
                       <p className="timer">
@@ -444,6 +445,7 @@ export default function ProductInfo() {
                         }}
                         alt=""
                         className="product-content__right-photo-img"
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -464,6 +466,7 @@ export default function ProductInfo() {
                             className="product-content__right-product-photos-img"
                             width="60"
                             height="60"
+                            loading="lazy"
                           />
                           <svg
                             id="video"
@@ -538,6 +541,7 @@ export default function ProductInfo() {
                         className="product-content__center-score-img"
                         width="14"
                         height="14"
+                        loading="lazy"
                         style={{ objectFit: "contain" }}
                       />
                       <p className="product-content__center-score-num">
@@ -1029,6 +1033,7 @@ export default function ProductInfo() {
                         style={{ objectFit: "contain" }}
                         width="18"
                         height="18"
+                        loading="lazy"
                       />
                       <p className="product-content__left-point-text">
                         <span>۱۰۵</span> امتیاز دیجی‌کلاب
@@ -1295,6 +1300,7 @@ export default function ProductInfo() {
                     width="40"
                     height="40"
                     style={{ objectFit: "contain" }}
+                    loading="lazy"
                   />
                 </div>
                 <p className="product-services__content-text">
@@ -1312,6 +1318,7 @@ export default function ProductInfo() {
                     width="40"
                     height="40"
                     style={{ objectFit: "contain" }}
+                    loading="lazy"
                   />
                 </div>
                 <p className="product-services__content-text">
@@ -1329,6 +1336,7 @@ export default function ProductInfo() {
                     width="40"
                     height="40"
                     style={{ objectFit: "contain" }}
+                    loading="lazy"
                   />
                 </div>
                 <p className="product-services__content-text">
@@ -1346,6 +1354,7 @@ export default function ProductInfo() {
                     width="40"
                     height="40"
                     style={{ objectFit: "contain" }}
+                    loading="lazy"
                   />
                 </div>
                 <p className="product-services__content-text">
@@ -1363,6 +1372,7 @@ export default function ProductInfo() {
                     width="40"
                     height="40"
                     style={{ objectFit: "contain" }}
+                    loading="lazy"
                   />
                 </div>
                 <p className="product-services__content-text">

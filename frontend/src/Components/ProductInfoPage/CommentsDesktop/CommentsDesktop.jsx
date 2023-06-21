@@ -52,6 +52,7 @@ export default function CommentsDesktop({
                   </p>
                   <div className="product-comments-desktop__right-score-star">
                     <img
+                      loading="lazy"
                       src="/images/product-page/star-yellow.png"
                       alt="star"
                       width="20"
@@ -59,6 +60,7 @@ export default function CommentsDesktop({
                       style={{ objectFit: "contain" }}
                     />
                     <img
+                      loading="lazy"
                       src="/images/product-page/star-yellow.png"
                       alt="star"
                       width="20"
@@ -66,6 +68,7 @@ export default function CommentsDesktop({
                       style={{ objectFit: "contain" }}
                     />
                     <img
+                      loading="lazy"
                       src="/images/product-page/star-yellow.png"
                       alt="star"
                       width="20"
@@ -73,6 +76,7 @@ export default function CommentsDesktop({
                       style={{ objectFit: "contain" }}
                     />
                     <img
+                      loading="lazy"
                       src="/images/product-page/star-yellow.png"
                       alt="star"
                       width="20"
@@ -80,6 +84,7 @@ export default function CommentsDesktop({
                       style={{ objectFit: "contain" }}
                     />
                     <img
+                      loading="lazy"
                       src="/images/product-page/star.png"
                       alt="star"
                       width="20"
@@ -216,6 +221,7 @@ export default function CommentsDesktop({
                     <div id="comments-image-container" className="d-flex gap-3">
                       {productImages.map((img) => (
                         <img
+                          loading="lazy"
                           key={img.id}
                           src={`/img/${img.img}`}
                           alt="product"

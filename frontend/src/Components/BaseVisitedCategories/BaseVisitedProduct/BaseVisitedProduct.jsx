@@ -13,6 +13,7 @@ export default function BaseVisitedProduct({ img, shortName }) {
         src={`/img/${img}`}
         alt="product"
         className="categories-based-visited__content-img-wrapper-img"
+        loading="lazy"
       />
     </Link>
   );
