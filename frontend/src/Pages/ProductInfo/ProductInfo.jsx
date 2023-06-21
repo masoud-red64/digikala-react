@@ -91,7 +91,17 @@ export default function ProductInfo() {
         observer.observe(section);
       });
     });
-    return () => window.removeEventListener("scroll", () => {});
+    return () => {
+      window.removeEventListener("scroll", () => {});
+      [
+        specifications.current,
+        commentsDesktop.current,
+        commentsMobile.current,
+        questions.current,
+      ].forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
   }, []);
 
   useEffect(() => {
