@@ -48,7 +48,6 @@ export default function Main() {
       .then((res) => res.json())
       .then((main) => {
         setMainID(main[0].id);
-        console.log(main);
         setMainInformation(main[0].information);
       });
   }, [shortName]);

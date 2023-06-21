@@ -16,32 +16,7 @@ export default function HeaderDesktop({
     useState(false);
 
   const authContext = useContext(AuthContext);
-  // useEffect(() => {
-  //   console.log(titleCategory);
-  //   switch (titleCategory) {
-  //     case "digital": {
-  //       break;
-  //     }
-  //     case "beauty": {
-  //       break;
-  //     }
-  //     case "building": {
-  //       break;
-  //     }
-  //     case "clothes": {
-  //       break;
-  //     }
-  //     case "supermarket": {
-  //       break;
-  //     }
-  //     case "baby": {
-  //       break;
-  //     }
-  //     case "kitchen": {
-  //       break;
-  //     }
-  //   }
-  // }, [titleCategory]);
+  
   return (
     <div className="header-desktop">
       <div className="header__top">

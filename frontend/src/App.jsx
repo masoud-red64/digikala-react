@@ -51,7 +51,6 @@ function App() {
       .then((res) => res.json())
       .then((result) => {
         toast.success("محصول مورد نظر با موفقیت به سبد خرید اضافه شد😎");
-        console.log(result);
         getAllCartProducts();
       })
       .finally(() => {

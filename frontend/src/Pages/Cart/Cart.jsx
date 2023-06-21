@@ -36,11 +36,9 @@ export default function Cart() {
     fetch("https://my-digikala.iran.liara.run/api/cart")
       .then((res) => res.json())
       .then((cartProducts) => {
-        console.log(authContext.userInfo.id);
         let mainCartProducts = cartProducts.filter(
           (cartProduct) => cartProduct.userID === authContext.userInfo.id
         );
-        console.log(mainCartProducts);
         if (mainCartProducts.length) {
           setCartProducts([]);
           setIsShowEmptyCart(false);
@@ -73,11 +71,9 @@ export default function Cart() {
     fetch("https://my-digikala.iran.liara.run/api/nextCart")
       .then((res) => res.json())
       .then((cartProducts) => {
-        console.log(authContext.userInfo.id);
         let mainNextCartProducts = cartProducts.filter(
           (cartProduct) => cartProduct.userID === authContext.userInfo.id
         );
-        console.log(mainNextCartProducts);
         if (mainNextCartProducts.length) {
           setNextCartProducts([]);
           setIsShowEmptyNextCart(false);

@@ -186,7 +186,6 @@ export default function ProductInfo() {
     fetch(`https://my-digikala.iran.liara.run/api/comments/${productInfo.id}`)
       .then((res) => res.json())
       .then((comments) => {
-        console.log(comments);
         setComments(comments);
       });
   }
@@ -196,7 +195,6 @@ export default function ProductInfo() {
     const value =
       (slider.current.value - slider.current.min) /
       (slider.current.max - slider.current.min);
-    console.log(value * 100);
     setPercentSlider(value * 100);
   }
 

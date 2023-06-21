@@ -17,9 +17,7 @@ export default function LocationModal({
 
   useEffect(() => {
     let mainData = iranData.find((data) => data.state === mainState);
-    console.log(mainData);
     setCities(mainData && mainData.cities);
-    console.log(cities);
   }, [mainState]);
 
   return (

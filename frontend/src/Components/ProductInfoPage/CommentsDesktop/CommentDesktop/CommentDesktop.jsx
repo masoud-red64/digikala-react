@@ -208,7 +208,6 @@ export default function CommentDesktop({
                 }`}
                 onClick={() => {
                   setFlagDisLike(!flagDisLike);
-                  console.log(flagDisLike);
                   flagDisLike
                     ? setDisLikeValue(disLikeValue - 1)
                     : setDisLikeValue(disLikeValue + 1);

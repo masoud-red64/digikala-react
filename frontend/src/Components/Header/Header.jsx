@@ -16,7 +16,6 @@ export default function Header() {
 
   useEffect(() => {
     authContext.getAllCartProducts();
-    console.log(authContext.allCartProducts);
   }, [authContext.userInfo]);
 
   return (
