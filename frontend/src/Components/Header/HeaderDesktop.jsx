@@ -16,7 +16,7 @@ export default function HeaderDesktop({
     useState(false);
 
   const authContext = useContext(AuthContext);
-  
+
   return (
     <div className="header-desktop">
       <div className="header__top">
@@ -95,9 +95,11 @@ export default function HeaderDesktop({
             to={`${authContext.isLogin ? "/cart" : "/login"}`}
             className="header__top-left-basket-link"
           >
-            <span className="header__top-left-basket-count">
-              {enToPersianNumber(authContext.allCartProducts.length)}
-            </span>
+            {authContext.allCartProducts.length ? (
+              <span className="header__top-left-basket-count">
+                {enToPersianNumber(authContext.allCartProducts.length)}
+              </span>
+            ) : null}
             <svg
               className="header__top-left-basket-icon"
               id="shopping-cart"

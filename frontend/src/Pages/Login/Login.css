@@ -121,3 +121,7 @@
 .login__footer-link {
   color: #008eb2;
 }
+
+.swal-button-container {
+  display: grid;
+}

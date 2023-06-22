@@ -272,4 +272,7 @@
   .product-comments-desktop__left-navbar-sort-text span {
     display: none;
   }
+  .Toastify__toast-container {
+    width: 90vw;
+  }
 }

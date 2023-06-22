@@ -30,7 +30,7 @@ export default function Cart() {
     getAllNextCartProducts();
     getAllCartProducts();
     setNavbarTitle("cart");
-    document.title = 'سبد خرید'
+    document.title = "سبد خرید";
   }, [authContext.userInfo]);
 
   const getAllCartProducts = useCallback(() => {
@@ -114,6 +114,7 @@ export default function Cart() {
         setSumDiscount(0);
         setTotalPrice(0);
         getAllCartProducts();
+        authContext.getAllCartProducts();
       })
       .finally(() => {
         setIsLoading(false);
@@ -152,6 +153,7 @@ export default function Cart() {
             setSumPrice(0);
             setSumDiscount(0);
             setTotalPrice(0);
+            authContext.getAllCartProducts();
           });
       })
       .finally(() => {
@@ -161,7 +163,7 @@ export default function Cart() {
   }
 
   function removeNextCartProduct(productID) {
-    isLoading(true);
+    setIsLoading(true);
     fetch(
       `https://my-digikala.iran.liara.run/api/nextCart/remove/${productID}`,
       {
@@ -173,7 +175,7 @@ export default function Cart() {
         getAllNextCartProducts();
       })
       .finally(() => {
-        isLoading(false);
+        setIsLoading(false);
         toast.success("حذف محصول موفقیت آمیز بود");
       });
   }
@@ -209,6 +211,7 @@ export default function Cart() {
             setSumPrice(0);
             setSumDiscount(0);
             setTotalPrice(0);
+            authContext.getAllCartProducts();
           });
       })
       .finally(() => {
@@ -237,6 +240,7 @@ export default function Cart() {
             setSumPrice(0);
             setSumDiscount(0);
             setTotalPrice(0);
+            authContext.getAllCartProducts();
           });
       })
       .finally(() => {

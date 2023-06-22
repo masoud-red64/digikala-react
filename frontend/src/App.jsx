@@ -50,7 +50,9 @@ function App() {
     })
       .then((res) => res.json())
       .then((result) => {
-        toast.success("محصول مورد نظر با موفقیت به سبد خرید اضافه شد😎");
+        toast.success("محصول مورد نظر با موفقیت به سبد خرید اضافه شد😎",{
+          position: 'top-right'
+        });
         getAllCartProducts();
       })
       .finally(() => {

@@ -3,12 +3,14 @@ import {
   enToPersianNumber,
   formatNumberWithSeparators,
 } from "../../../func/utils";
+import { Link } from "react-router-dom";
 
 export default function NextCartProduct({
   title,
   off,
   price,
   img,
+  shortName,
   removeNextCartProduct,
   id,
   moveProductToCart,
@@ -17,14 +19,14 @@ export default function NextCartProduct({
     <>
       <div className="col-5 col-sm-3">
         <div className="next-cart-content__right">
-          <a href="#">
+          <Link to={`/product-info/${shortName}`}>
             <img
               src={`/img/${img}`}
               alt="product"
               className="next-cart-content__right-product-img"
               loading="lazy"
             />
-          </a>
+          </Link>
 
           <button
             className="next-cart-content__right-remove-btn"

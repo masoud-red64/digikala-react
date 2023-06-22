@@ -169,6 +169,7 @@
   height: 5rem;
 }
 .cart-content__right-off-amazing-img {
+  width: 100%;
 }
 .cart-content__right-off-time {
   color: var(--primary-color);

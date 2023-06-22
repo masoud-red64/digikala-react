@@ -64,6 +64,7 @@ export default function Index() {
     getSuggestedCategory();
     getAllBrands();
     getAllSliders();
+    document.title = "دیجی کالا";
   }, []);
 
   function getAllBanner1() {

@@ -77,6 +77,11 @@ export default function Login() {
         })
       );
       authContext.getUserInfo();
+    } else {
+      swal({
+        title: "رمز وارد شده غلط است",
+        icon: "error",
+      });
     }
   }
 

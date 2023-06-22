@@ -3,6 +3,7 @@ import {
   enToPersianNumber,
   formatNumberWithSeparators,
 } from "../../../func/utils";
+import { Link } from "react-router-dom";
 
 export default function CartProduct({
   title,
@@ -11,6 +12,7 @@ export default function CartProduct({
   price,
   off,
   img,
+  shortName,
   setSumPrice,
   setSumDiscount,
   setTotalPrice,
@@ -29,14 +31,14 @@ export default function CartProduct({
     <>
       <div className="col-3 col-sm-2">
         <div className="cart-content__right">
-          <a href="#">
+          <Link to={`/product-info/${shortName}`}>
             <img
               src={`/img/${img}`}
               alt="product"
               className="cart-content__right-product-img"
               loading="lazy"
             />
-          </a>
+          </Link>
           {wonder ? (
             <div className="cart-content__right-off">
               <img
