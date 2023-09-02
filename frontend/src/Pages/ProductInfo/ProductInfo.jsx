@@ -60,49 +60,62 @@ export default function ProductInfo() {
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Declare the observer outside of the useEffect
+  let observer;
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const observer = new IntersectionObserver(
-        (allSection) => {
-          allSection.map((section) => {
-            if (section.isIntersecting) {
-              if (section.target.id === "specifications") {
-                setShowActiveNavbar("specifications");
-              } else if (section.target.id === "commentsDesktop") {
-                setShowActiveNavbar("commentsDesktop");
-              } else if (section.target.id === "commentsMobile") {
-                setShowActiveNavbar("commentsMobile");
-              } else if (section.target.id === "questions") {
-                setShowActiveNavbar("questions");
-              }
+    // Create the observer once
+    observer = new IntersectionObserver(
+      (allSection) => {
+        allSection.map((section) => {
+          if (section.isIntersecting) {
+            if (section.target.id === "specifications") {
+              setShowActiveNavbar("specifications");
+            } else if (section.target.id === "commentsDesktop") {
+              setShowActiveNavbar("commentsDesktop");
+            } else if (section.target.id === "commentsMobile") {
+              setShowActiveNavbar("commentsMobile");
+            } else if (section.target.id === "questions") {
+              setShowActiveNavbar("questions");
             }
-          });
-        },
-        {
-          threshold: 0.3, // 50% of section visibility => isIntersecting is true
-        }
-      );
-      [
-        specifications.current,
-        commentsDesktop.current,
-        commentsMobile.current,
-        questions.current,
-      ].forEach((section) => {
-        observer.observe(section);
-      });
+          }
+        });
+      },
+      {
+        threshold: 0.3, // 50% of section visibility => isIntersecting is true
+      }
+    );
+
+    // Observe the elements
+    [
+      specifications.current,
+      commentsDesktop.current,
+      commentsMobile.current,
+      questions.current,
+    ].forEach((section) => {
+      if (section) {
+        observer.observe(section); // Ensure the section is defined
+      }
     });
+
+    // Cleanup function
     return () => {
+      // Remove the scroll event listener
       window.removeEventListener("scroll", () => {});
+
+      // Unobserve the elements
       [
         specifications.current,
         commentsDesktop.current,
         commentsMobile.current,
         questions.current,
       ].forEach((section) => {
-        observer.unobserve(section);
+        if (section) {
+          observer.unobserve(section); // Ensure the section is defined
+        }
       });
     };
-  }, []);
+  }, []); // Empty dependency array to run this effect only once
 
   useEffect(() => {
     getProductInfos();
