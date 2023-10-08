@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { useNavigate, useRoutes } from "react-router-dom";
 import routes from "./routes";
 import AuthContext from "./contexts/authContext";
 import Loading from "./Components/Loading/Loading";
@@ -7,17 +7,29 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import { useEffect, useState } from "react";
+import ServerError from "./Pages/ServerError/ServerError";
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
   const [isLogin, setIsLogin] = useState(false);
   const [allCartProducts, setAllCartProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isServerError, setIsServerError] = useState(false);
   const router = useRoutes(routes);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getUserInfo();
     setIsLoading(false);
+
+    fetch("https://my-digikala.iran.liara.run/api/slider")
+      .then(() => {
+        setIsServerError(false);
+      })
+      .catch(() => {
+        setIsServerError(true);
+      });
   }, []);
 
   async function getUserInfo() {
@@ -50,8 +62,8 @@ function App() {
     })
       .then((res) => res.json())
       .then((result) => {
-        toast.success("محصول مورد نظر با موفقیت به سبد خرید اضافه شد😎",{
-          position: 'top-right'
+        toast.success("محصول مورد نظر با موفقیت به سبد خرید اضافه شد😎", {
+          position: "top-right",
         });
         getAllCartProducts();
       })
@@ -70,6 +82,12 @@ function App() {
         setAllCartProducts(mainCartProducts);
       });
   };
+
+  if (isServerError) {
+    navigate("/server-not-found");
+  } else {
+    navigate("/");
+  }
 
   return (
     <AuthContext.Provider
